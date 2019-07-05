@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-06-2019 a las 19:44:25
+-- Tiempo de generación: 05-07-2019 a las 19:23:17
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.0.33
 
@@ -63,6 +63,18 @@ CREATE TABLE `bitacorausuarios` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `IdComentarios` int(11) NOT NULL,
+  `Comentarios` text NOT NULL,
+  `idEncuesta` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `correos`
 --
 
@@ -77,8 +89,7 @@ CREATE TABLE `correos` (
 --
 
 INSERT INTO `correos` (`IdCorreo`, `Correo`, `idUsuario`) VALUES
-(1, 'elisa@gmail.com', 1),
-(4, 'bryandimas@gmail.com', 4);
+(1, 'a@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -147,8 +158,8 @@ CREATE TABLE `empresas` (
 --
 
 INSERT INTO `empresas` (`idEmpresa`, `NombreComercial`, `RazonSocial`, `DireccionFisica`, `IdMunicipio`, `DescripcionEmpresa`, `SectorEconomico`, `FechaFundacion`, `Correo`, `Telefono`, `Iva`, `Nit`, `ContactoEmpresa`, `TelefonoContacto`, `CorreoContacto`, `CargoEmpresarial`, `PropietarioEmpresa`, `RepresentanteLegal`, `TipoCuenta`, `LogoEmpresa`) VALUES
-(2, 'Super Hamburguesas', 'Hamburgueseria Salvadoreña', 'Colonia Brisas', 114, 'Venta de hamburguesas', 'Servicios', '2019-01-01', 'super@gmail.com', '7845-1245', '78542-1', '1234-123456-123-1', 'Elisa Melendez', '1234-1234', 'e@gmail.com', 'Gerente', 'Eli Melendez', 'E Melendez', 'Avanzada', 'assets/images/logos/5cfed4256f467'),
-(3, 'Evergreen', 'The People Company', 'final 91 av. norte, col. escalon', 110, 'Servicios varios', 'Servicios', '2008-11-10', 'peoplegreat@change.com', '2262-5200', '98950-8', '1604-789563-125-2', 'Omar Deleon', '2262-5218', 'vasquez@gmail.com', 'gerente', 'Ana de Perez', 'Oscar Guadron', 'Basica', 'assets/images/logos/5cfec3e919a50logo3.png');
+(1, 'Super Hamburguesas', 'Hamburgueseria Salvadoreña', 'Colonia Brisas', 114, 'Venta de hamburguesas', '', '2019-01-01', 'super@gmail.com', '7845-1245', '78542-1', '1234-123456-123-1', 'Administrador', '1234-1234', 'a@gmail.com', 'Gerente', 'Administrador', 'Administrador', 'Avanzada', 'assets/images/logos/5d1e0a2a24207'),
+(2, 'Evergreen', 'The People Company', 'Final 91 av. norte, col. escalon', 110, 'Servicios varios', '', '2008-11-10', 'peoplegreat@change.com', '2262-5200', '98950-8', '1604-789563-125-2', 'Estándar', '2262-5218', 'e@gmail.com', 'gerente', 'Estándar', 'Estándar', 'Basica', 'assets/images/logos/5d1e09482f839');
 
 -- --------------------------------------------------------
 
@@ -165,21 +176,11 @@ CREATE TABLE `encuestas` (
   `FechaFinalizacion` timestamp NULL DEFAULT NULL,
   `MensajeInicio` text NOT NULL,
   `MensajeFinalizacion` text NOT NULL,
-  `Comentarios` text NOT NULL,
   `idUsuario` int(11) NOT NULL,
   `Demograficos` enum('Si','No') NOT NULL DEFAULT 'No',
   `Resultados` enum('Si','No') NOT NULL DEFAULT 'No',
   `IdFormato` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `encuestas`
---
-
-INSERT INTO `encuestas` (`idEncuesta`, `NombreEncuesta`, `ObjetivoEncuesta`, `Estado`, `FechaCreacion`, `FechaFinalizacion`, `MensajeInicio`, `MensajeFinalizacion`, `Comentarios`, `idUsuario`, `Demograficos`, `Resultados`, `IdFormato`) VALUES
-(31, 'Encuestadesatisfacciónde los clientes', 'Medir la satisfacción del cliente', 'Inactivo', '2019-06-29 14:53:08', '2019-07-06 06:00:00', 'Bienvenido a nuestra encuesta, agradecemos tus comentarios.', '', '', 1, 'Si', 'No', 1),
-(53, 'Encuesta', 'Encuesta', 'Inactivo', '2019-06-29 16:57:58', '2019-07-12 06:00:00', '', '', '', 1, 'No', 'No', 2),
-(54, 'wwww', 'wwww', 'Inactivo', '2019-06-29 17:28:01', '2019-06-29 06:00:00', 'qqwww', '', '', 1, 'No', 'No', 3);
 
 -- --------------------------------------------------------
 
@@ -503,7 +504,9 @@ CREATE TABLE `paises` (
 INSERT INTO `paises` (`idPais`, `Nombre`) VALUES
 (1, 'El Salvador'),
 (2, 'Guatemala'),
-(3, 'Honduras');
+(3, 'Honduras'),
+(4, 'Nicaragua'),
+(5, 'Costa Rica');
 
 -- --------------------------------------------------------
 
@@ -518,21 +521,6 @@ CREATE TABLE `preguntas` (
   `PorDefecto` enum('Existente','Nueva') DEFAULT 'Nueva',
   `IdEncuesta` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `preguntas`
---
-
-INSERT INTO `preguntas` (`idPregunta`, `Numero`, `Pregunta`, `PorDefecto`, `IdEncuesta`) VALUES
-(1, 0, 'Edad', 'Existente', NULL),
-(2, 1, 'Género', 'Existente', NULL),
-(3, 2, 'Lugar de residencia', 'Existente', NULL),
-(74, 1, '¿Que le parecieron nuestros productos?', 'Nueva', 31),
-(75, 2, '¿Como le parecieron nuestras instalaciones?', 'Nueva', 31),
-(76, 3, '¿Fué agradable su visita?', 'Nueva', 31),
-(77, 4, '¿Nos recomendaría con un amigo?', 'Nueva', 31),
-(87, 1, 'pre', 'Nueva', 53),
-(88, 1, 'pregunta', 'Nueva', 54);
 
 -- --------------------------------------------------------
 
@@ -553,9 +541,7 @@ CREATE TABLE `publicidad` (
 INSERT INTO `publicidad` (`IdPub`, `Imagen`, `IdUsuario`) VALUES
 (1, 'assets/images/publicidad/5cfebac53dfcapubli1.png', 1),
 (2, 'assets/images/publicidad/5cfebb42a5651publi2.png', 1),
-(4, 'assets/images/publicidad/5cfec261e40a5publi3.png', 1),
-(5, 'assets/images/publicidad/5cffb9f7a5529combobox.png', 1),
-(6, 'assets/images/publicidad/5d015e68d9dbbstar.png', 1);
+(4, 'assets/images/publicidad/5cfec261e40a5publi3.png', 1);
 
 -- --------------------------------------------------------
 
@@ -570,24 +556,6 @@ CREATE TABLE `respuestas` (
   `IdPregunta` int(11) NOT NULL,
   `Contador` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `respuestas`
---
-
-INSERT INTO `respuestas` (`IdRespuestas`, `Numero`, `Respuestas`, `IdPregunta`, `Contador`) VALUES
-(5, 1, 'Exelente', 74, 0),
-(6, 2, 'Bueno', 74, 0),
-(7, 3, 'Malo', 74, 0),
-(8, 1, 'Bonitas', 75, 0),
-(9, 2, 'Feas', 75, 0),
-(10, 1, 'Si', 76, 0),
-(11, 2, 'No', 76, 0),
-(12, 3, 'No volvería nunca', 76, 0),
-(13, 1, 'Sin duda lo haría', 77, 0),
-(14, 2, 'No lo haría nunca', 77, 0),
-(15, 1, 'si', 87, 0),
-(16, 2, 'no', 87, 0);
 
 -- --------------------------------------------------------
 
@@ -606,8 +574,7 @@ CREATE TABLE `telefonos` (
 --
 
 INSERT INTO `telefonos` (`IdTelefono`, `Numero`, `idUsuario`) VALUES
-(5, '7845-7845', 1),
-(7, '2130-7838', 4);
+(5, '7845-7845', 1);
 
 -- --------------------------------------------------------
 
@@ -631,9 +598,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `Usuario`, `Clave`, `Cargo`, `Departamento`, `Rol`, `Estado`, `idEmpresa`) VALUES
-(1, 'Elisa Melendez', '8cb2237d0679ca88db6464eac60da96345513964', 'Gerente de marca', 'Atencion al cliente', 'Administrador', 'Disponible', 2),
-(3, 'luis', '8cb2237d0679ca88db6464eac60da96345513964', 'Gerente', 'recursos', 'Administrador', 'Disponible', 2),
-(4, 'Bryan Dimas', '8cb2237d0679ca88db6464eac60da96345513964', 'administrador', 'RR.HH.', 'Estandar', 'Disponible', 3);
+(1, 'Administrador', '8cb2237d0679ca88db6464eac60da96345513964', 'Gerente de marca', 'Atencion al cliente', 'Administrador', 'Disponible', 1),
+(2, 'Estandar', '8cb2237d0679ca88db6464eac60da96345513964', 'Gerente', 'recursos', 'Administrador', 'Disponible', 2);
 
 --
 -- Índices para tablas volcadas
@@ -645,6 +611,13 @@ INSERT INTO `usuarios` (`idUsuario`, `Usuario`, `Clave`, `Cargo`, `Departamento`
 ALTER TABLE `bitacorausuarios`
   ADD PRIMARY KEY (`IdBitUs`),
   ADD KEY `fk_bita_usu` (`IdUsuario`);
+
+--
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`IdComentarios`),
+  ADD KEY `fk_comentarios_encuesta` (`idEncuesta`);
 
 --
 -- Indices de la tabla `correos`
@@ -746,10 +719,16 @@ ALTER TABLE `bitacorausuarios`
   MODIFY `IdBitUs` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `IdComentarios` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `correos`
 --
 ALTER TABLE `correos`
-  MODIFY `IdCorreo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `IdCorreo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `departamentos`
@@ -761,13 +740,13 @@ ALTER TABLE `departamentos`
 -- AUTO_INCREMENT de la tabla `empresas`
 --
 ALTER TABLE `empresas`
-  MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `encuestas`
 --
 ALTER TABLE `encuestas`
-  MODIFY `idEncuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `idEncuesta` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `formato`
@@ -785,37 +764,37 @@ ALTER TABLE `municipios`
 -- AUTO_INCREMENT de la tabla `paises`
 --
 ALTER TABLE `paises`
-  MODIFY `idPais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idPais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
-  MODIFY `idPregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `idPregunta` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `publicidad`
 --
 ALTER TABLE `publicidad`
-  MODIFY `IdPub` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `IdPub` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `respuestas`
 --
 ALTER TABLE `respuestas`
-  MODIFY `IdRespuestas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `IdRespuestas` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `telefonos`
 --
 ALTER TABLE `telefonos`
-  MODIFY `IdTelefono` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `IdTelefono` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
@@ -826,6 +805,12 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `bitacorausuarios`
   ADD CONSTRAINT `fk_bita_usu` FOREIGN KEY (`IdUsuario`) REFERENCES `usuarios` (`idUsuario`);
+
+--
+-- Filtros para la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD CONSTRAINT `fk_comentarios_encuesta` FOREIGN KEY (`idEncuesta`) REFERENCES `encuestas` (`idEncuesta`);
 
 --
 -- Filtros para la tabla `correos`
@@ -849,8 +834,8 @@ ALTER TABLE `empresas`
 -- Filtros para la tabla `encuestas`
 --
 ALTER TABLE `encuestas`
-  ADD CONSTRAINT `fk_encuesta_formato` FOREIGN KEY (`IdFormato`) REFERENCES `formato` (`IdFormato`) ON DELETE SET NULL,
-  ADD CONSTRAINT `fk_encuesta_usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`);
+  ADD CONSTRAINT `fk_encuestas_formato` FOREIGN KEY (`IdFormato`) REFERENCES `formato` (`IdFormato`),
+  ADD CONSTRAINT `fk_encuestas_usuarios` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`);
 
 --
 -- Filtros para la tabla `municipios`
