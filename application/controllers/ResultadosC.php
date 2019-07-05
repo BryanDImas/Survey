@@ -40,18 +40,30 @@ class ResultadosC extends CI_Controller
 	}
 
 		// Exportación de los datos en formato CSV  
-		public function exportCSV()
+		public function exportCSV($id)
 		{
+			$usersData = $this->ResultadosM->exportar($id);
+			
+		/* 	echo "<pre>";
+			print_r($usersData); */
+
+			for($i = 0; $i < count($usersData); $i++) {
+				$usersData[$i]['respuestas'] = $this->ResultadosM->obtenerRespuestas($usersData[$i]['idPregunta']);
+			}
+
+/* 			print_r($usersData); die; */
 			// file name 
 			$filename = 'resultados_' . date('Y-m-d') . '.csv';
 			header("Content-Description: File Transfer");
 			header("Content-Disposition: attachment; filename=$filename");
 			header("Content-Type: application/csv; ");
 			// obtencion de datos
-			$usersData = $this->ResultadosM->exportar();
+			$usersData = $this->ResultadosM->exportar($id);
+
+		/* 	print_r($usersData); die; */
 			// creación del archivo
 			$file = fopen('php://output', 'w');
-			$header = array("Pregunta", "Respuestas");
+			$header = array("Pregunta", "Respuestas", "total");
 			fputcsv($file, $header);
 			foreach ($usersData as $line) {
 				fputcsv($file, $line);
