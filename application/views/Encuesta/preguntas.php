@@ -7,7 +7,7 @@
     <!-- ============================================================== -->
     <div class="row page-titles">
       
-        <div class="col-md-5 align-self-center">
+        <div class="col-md-5 align-self-center margin">
             <h1 class="text-themecolor">Encuestas</h1>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Paso 3</a></li>
