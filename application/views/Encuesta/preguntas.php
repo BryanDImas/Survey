@@ -6,6 +6,7 @@
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
     <div class="row page-titles">
+      
         <div class="col-md-5 align-self-center">
             <h1 class="text-themecolor">Encuestas</h1>
             <ol class="breadcrumb">
@@ -26,7 +27,7 @@
     <div class="card">
         <?php $num = count($preguntas);?>
         <div class="card-body" id="form">
-            <h6 class="text-center">Ingrese su pregunta</h6>
+            <h5 class="text-center">Ingrese su pregunta</h5>
             <input type="hidden" name="form" id="form" value="">
             <div>
                 <input type="hidden" id="num" name="num" value="<?= $num ?>">
@@ -34,7 +35,7 @@
             </div>
             <div class="text-center">
                 <p></p>
-                <button id="btnGuardar" class="btn btn-rounded btn-xl  btn-outline-light" vlaue="guardar">Guardar</button>
+                <button id="btnGuardar" class="btn btn-rounded btn-xl  btn-outline-info" value="guardar">Guardar</button>
             </div>
         </div>
         <br>
