@@ -44,7 +44,7 @@
           <table class=" table table-hover table-bordered table-sm" align="center">
             <thead class="text-center">
               <tr>
-                <th>Id</th>
+                <th>#</th>
                 <th>Imagen publicitaria</th>
                 <th>Ruta</th>
                 <th>Publicada por:</th>

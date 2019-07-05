@@ -39,6 +39,8 @@ class InicioC extends CI_Controller
     # Acción que ayudara al modelo a eliminar registro
     public function eliminar($id)
     {
+        $ruta = $this->InicioModel->buscar($id);
+        unlink($ruta->Imagen);
         $this->InicioModel->eliminacion($id);
         redirect('InicioC/');
     }

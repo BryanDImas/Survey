@@ -44,9 +44,9 @@
 						</div>
 						<div class="form-group">
 							<label for="example">Estado: </label>
-							<select name="esta" class="custom-select" value="<?= $encuesta->Estado ?>" style="border-color:#24d2b5;">
-								<option value="Activo">Activo</option>
-								<option value="Inactivo">Inactivo</option>
+							<select name="esta" class="custom-select"  style="border-color:#24d2b5;">
+								<option value="Activo" <?= $encuesta->Estado == 'Activo' ? 'selected' : '' ?>>Activo</option>
+								<option value="Inactivo" <?= $encuesta->Estado == 'Inactivo' ? 'selected' : ''  ?>>Inactivo</option>
 							</select>
 						</div>
 						<div class="text-center">
