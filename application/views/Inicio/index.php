@@ -52,9 +52,10 @@
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($img as $i) { ?>
+              <?php $num = 1;
+              foreach ($img as $i) { ?>
                 <tr>
-                  <td><?= $i->IdPub ?></td>
+                  <td><?= $num ?></td>
                   <td>
                     <div class="contenedor">
                       <center class="img"><img src="<?= base_url() ?><?= $i->Imagen ?>" width="80px" height="50px"></center>
@@ -63,9 +64,10 @@
                   <td><?= $i->Imagen ?></td>
                   <td><?= $i->Usuario ?></td>
                   <td><button type="button" data-toggle="modal" data-target="#myModal<?= $i->IdPub ?>" class="btn btn-block btn-outline-new fa fa-edit" title="Editar"></button></td>
-                  <td><a href="<?= base_url() ?>inicioC/eliminar/<?= $i->IdPub ?>" class="btn btn-block btn-outline-danger fa fa-trash-alt" title="Eliminar"></a></td>
+                  <td><a href="<?= base_url() ?>InicioC/eliminar/<?= $i->IdPub ?>" class="btn btn-block btn-outline-danger fa fa-trash-alt" title="Eliminar"></a></td>
                 </tr>
-              <?php } ?>
+                <?php $num++;
+              } ?>
             </tbody>
           </table>
         </div>
@@ -91,7 +93,7 @@
           <!-- Modal body -->
           <div class="modal-body">
             <div class="input-group mb-3">
-              <form action="<?= base_url() ?>inicioC/Editar" method="post" enctype="multipart/form-data">
+              <form action="<?= base_url() ?>InicioC/Editar" method="post" enctype="multipart/form-data">
                 <div class="custom-file">
 
                   <input name="publicidad" type="file" class="custom-file-input" required>
@@ -128,7 +130,7 @@
         <!-- Modal body -->
         <div class="modal-body">
           <div class="input-group mb-3">
-            <form action="<?= base_url() ?>inicioC/Guardar" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url() ?>InicioC/Guardar" method="post" enctype="multipart/form-data">
               <div class="custom-file">
                 <input name="publicidad" type="file" class="custom-file-input" required>
                 <label class="custom-file-label form-control">Seleccionar Archivo</label>

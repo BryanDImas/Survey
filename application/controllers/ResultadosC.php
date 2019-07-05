@@ -48,7 +48,7 @@ class ResultadosC extends CI_Controller
 			header("Content-Disposition: attachment; filename=$filename");
 			header("Content-Type: application/csv; ");
 			// obtencion de datos
-			$usersData = $this->resultadosM->exportar();
+			$usersData = $this->ResultadosM->exportar();
 			// creación del archivo
 			$file = fopen('php://output', 'w');
 			$header = array("Pregunta", "Respuestas");
