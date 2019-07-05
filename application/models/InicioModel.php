@@ -26,9 +26,15 @@ class InicioModel extends CI_Model
         $sql = "UPDATE publicidad SET Imagen = ? , IdUsuario = ? WHERE IdPub = ? ";
         $this->db->query($sql, $datos);
     }
+    # Método que obtiene las imagenes para el carousel del inicio
     public function imagen()
     {
         $sql = "SELECT * FROM publicidad";
         return $this->db->query($sql)->result();
+    }
+    # Método que nos devuelve la ruta de una imagen a eliminar
+    public function buscar($id){
+        $sql = "SELECT Imagen FROM publicidad WHERE IdPub = ".$id;
+        return $this->db->query($sql)->row();
     }
 }
