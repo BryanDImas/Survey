@@ -89,5 +89,5 @@
 			document.getElementById("fechaReserva").min = anio + '-' + mes + '-' + dia;
 		</script>
 		<div class="form-group">
-			<a href="<?= base_url('EncuestasC/') ?>" class="btn btn-rounded btn-xl  btn-outline-nuevo">Volver</a>
+			<a href="<?= base_url('EncuestasC/') ?>" class="btn btn-rounded btn-xl  btn-outline-info">Volver</a>
 		</div>

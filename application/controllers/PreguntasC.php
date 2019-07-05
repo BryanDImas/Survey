@@ -22,7 +22,7 @@ class PreguntasC extends CI_Controller
 		};
 		$a = [];
 		$a = [$id, $this->session->idEncuesta];
-		$this->encuestasModel->formato($a);
+		$this->EncuestasModel->formato($a);
 		$this->session->set_userdata('formato', $id);
 		$datos['preguntas'] = $this->PreguntasModel->obpreguntas($this->session->idEncuesta);
 		$datos['idEncuesta'] = $this->session->idEncuesta;
