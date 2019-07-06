@@ -14,7 +14,7 @@
 			<div class="container-fluid">
 				<a href='#'data-toggle='dropdown' class="btn btn-outline-primary btn-xs" style="color:white; width:300px;">INICIAR SESION</a>
 				<div class='dropdown-menu' style='padding: 10px; padding-bottom: 0px; background: black; width: 300px;'>
-					<form class="form-horizontal form-material" id="loginform" action="<?= base_url() ?>login/validar" method="post" autocomplete="off">
+					<form class="form-horizontal form-material" id="loginform" action="<?= base_url() ?>Login/validar" method="post" autocomplete="off">
 						<a href="javascript:void(0)" class="text-center db"><img src="<?= base_url() ?>assets/images/logo3.png" alt="Home" width="50px" /><span><img src="<?= base_url() ?>assets/images/text-logo.png" alt="Home" width="150px" /></span></a>
 						<div class="form-group m-t-40">
 							<div class="col-xs-12">

@@ -13,12 +13,9 @@
 
 <body style="background-color:#212529">
 	<header></header>
-	<pre>
-		<?php print_r($_GET) ?>
-	</pre>
 	<div class="container">
 		<div class="col-12">
-			<form class="form-horizontal" method="POST" action="<?= base_url('principalC/capturar/') ?>">
+			<form class="form-horizontal" method="POST" action="<?= base_url('PrincipalC/capturar/') ?>">
 				<fieldset>
 					<br>
 					<h1 class="text-center header"><?= $encuesta->NombreEncuesta ?></h1>
