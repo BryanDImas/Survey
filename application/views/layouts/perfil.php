@@ -39,9 +39,10 @@
 							<!-- ====================================================================================================================== -->
 							<div class="col-sm-4">
 								<div class="text-center" style="position: absolute; left: 10px; top: -130px;">
+								
 									<img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail">
-									<p></p>
-									<input name="foto" type="file" title="Buscar un archivo para agregar" data-bfi-disabled data-filename-placement="inside"><button class="btn btn-rounded btn-outline-success btn-sm" id="photo">Cambiar foto</button>
+									<input name="foto" type="file" hidden><br>
+									<button class="btn btn-rounded btn-outline-success btn-sm" id="photo">Cambiar foto</button>
 								</div>
 								<br>
 								<div class="panel panel-default" style="position: absolute; left: 10px; top: 40%;">
