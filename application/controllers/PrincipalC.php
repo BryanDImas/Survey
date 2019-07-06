@@ -13,10 +13,16 @@ class PrincipalC extends CI_Controller
     public function index($id)
     {
         $datos['encuesta'] = $this->PrincipalModel->encuesta($id);
-        $datos['encuesta']->preguntas = $this->PrincipalModel->preguntas($id);
+        if($datos['encuesta']->Demograficos == 'Si'){
+            $datos['encuesta']->preguntas = $this->PrincipalModel->preguntas($id, 1);
+        }else{
+            $datos['encuesta']->preguntas = $this->PrincipalModel->preguntas($id);
+        }
         foreach ($datos['encuesta']->preguntas as $pregunta) {
             $pregunta->respuestas = $this->PrincipalModel->respuestas($pregunta->idPregunta);
         };
+        echo "<pre>";
+        print_r($datos);die;
         $idf = $datos['encuesta']->IdFormato;
         if ($idf == 1 || $idf == 2 || $idf == 7) {
             $this->load->view('Principal/index', $datos);
@@ -27,6 +33,6 @@ class PrincipalC extends CI_Controller
     {
         $datos = $this->input->post('respuestas');
         $this->PrincipalModel->actualizar($datos);
-        print_r($datos);
+        var_dump($datos);
     }
 }

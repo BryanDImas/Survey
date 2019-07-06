@@ -5,8 +5,11 @@ Class PrincipalModel extends CI_Model{
         $sql = "SELECT * FROM encuestas WHERE idEncuesta = ".$id;
         return $this->db->query($sql)->row();
     }
-    public function preguntas($id){
-        $sql = "SELECT * FROM preguntas WHERE IdEncuesta = ".$id;
+    public function preguntas($id, $a = ''){
+        $sql = "SELECT * FROM preguntas WHERE IdEncuesta = ".$id." AND PorDefecto = 2 ";
+        if($a =! ''){
+            $sql.= " AND PorDefecto = ".$a;
+        }
         return $this->db->query($sql)->result();
     }
     public function respuestas($idp){
