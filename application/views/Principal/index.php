@@ -40,7 +40,6 @@
 										<?php  } ?>
 										<?php break; ?>
 									<?php case 7: ?>
-
 										<select name="respuestas[]" id="">
 											<?php foreach ($pregunta->respuestas as $res) { ?>
 												<option value="<?= $res['IdRespuestas'] ?>"><?= $res['Respuestas'] ?></option>
