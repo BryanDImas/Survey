@@ -16,6 +16,7 @@ class PrincipalC extends CI_Controller
         if($datos['encuesta']->Demograficos == 'Si'){
             $datos['encuesta']->preguntas = $this->PrincipalModel->preguntas($id, $idp = 1);
         }
+        $datos['ciudad'] = $this->PrincipalModel->ciudad();
         $this->load->view('Principal/Primera',$datos);    
         
         }

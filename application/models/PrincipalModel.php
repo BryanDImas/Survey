@@ -17,4 +17,8 @@ Class PrincipalModel extends CI_Model{
 /*         $sql ="UPDATE respuestas SET Contador = Contador+1 WHERE IdPregunta in [?] AND IdRespuestas  in [?]";
         $this->db->query($sql, $array); */
     }
+    public function ciudad(){
+        $sql ="SELECT * FROM municipios";
+        return $this->db->query($sql)->result();
+    }
 }
