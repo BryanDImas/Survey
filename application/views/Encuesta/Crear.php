@@ -12,7 +12,7 @@
 						<div class="small">
 							<span>*El mensaje de inicio es una introducción que aparecera al inicio de la encuesta. Puede incluir el nombre de la compañia, las instrucciones para completar la encuesta o un mensaje de bienvenida.</span>
 						</div>
-						<textarea name="msj" class="form-control" rows="5" style="border-color:#24d2b5;" placeholder="Escriba el mensaje de inicio aqui"></textarea>
+						<textarea name="msj" class="form-control" rows="5" style="border-color:#24d2b5;" placeholder="">Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.</textarea>
 					</div>
 					<div class="form-group">
 						<label>Nombre de la encuesta: </label>

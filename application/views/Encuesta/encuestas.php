@@ -178,7 +178,7 @@
     								</tr>
     							</thead>
     							<tbody>
-    								<?php foreach ($encuestas as $encues) { ?>
+    								<?php $id= 0; foreach ($encuestas as $encues) { ++$id; ?>
     									<tr>
     										<td><?= $encues->NombreEncuesta ?></td>
     										<td><?= $encues->ObjetivoEncuesta ?></td>
@@ -194,7 +194,7 @@
     											<a href="<?= base_url()?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-success i fas fa-pencil-alt"> Editar </a>
     										</td>
     										<td>
-    											<a href="#" class=" btn btn-block btn-outline-primary i fas fa-link"> Link</a>
+    											<a href="#" class=" btn btn-block btn-outline-primary i fas fa-link" onclick="alert('<?=base_url()?>encuestas/realizar/<?=base64_encode($id)?>')"> Link</a>
     										</td>
     										<td>
     											<a href="<?=base_url()?>EncuestasC/generarQR/<?= $encues->Url ?> " class=" btn btn-block btn-outline-new i fas fa-qrcode"> QR </a>
