@@ -2,10 +2,10 @@
 /* Modelo para la tabla encuestas */
 class EncuestasModel extends CI_Model
 {
-    # Método para obtener la encuesta según el usuario que este logeado.
+    # Método para obtener la encuesta según el usuario que este logueado.
     public function obtener($inicio, $limit, $key, $id)
     {
-        $sql = "SELECT   E.idEncuesta, E.NombreEncuesta, E.ObjetivoEncuesta, E.Estado, E.FechaCreacion, E.FechaFinalizacion, E.MensajeInicio, E.MensajeFinalizacion,  U.Usuario
+        $sql = "SELECT   E.idEncuesta, E.NombreEncuesta, E.ObjetivoEncuesta, E.Estado, E.FechaCreacion, E.FechaFinalizacion, E.MensajeInicio, E.MensajeFinalizacion, E.Url,  U.Usuario
         FROM encuestas E
 		INNER JOIN usuarios U WHERE E.idUsuario = U.idUsuario AND E.idUsuario = " . $id ;
 		if($key != ''){

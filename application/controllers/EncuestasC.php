@@ -13,24 +13,23 @@ class EncuestasC extends CI_Controller
 		}
 	}
 
-	public function generarQR ($NombreEncuesta)
+	public function generarQR ($Url)
 	{
 		$this->load->library('ciqrcode');
 
-		$params['data'] = $NombreEncuesta;
+		$params['data'] = $Url;
         $params['level'] = 'H';
         $params['size'] = 9;
 
         //decimos el directorio a guardar el codigo qr, en este 
         //caso una carpeta en la raíz llamada qr_code
-        $params['savename'] = FCPATH . "uploads/qr_code/qr_$NombreEncuesta.png";
+        $params['savename'] = FCPATH . "uploads/qr_code/qr_$Url.png";
         //generamos el código qr
         $this->ciqrcode->generate($params);
 
-		$data['img'] = "qr_$NombreEncuesta.png";
+		$data['img'] = "qr_$Url.png";
 		
 		echo "<img src='" . base_url() . "uploads/qr_code/" . $data['img'] . "' />";
-
 	}
 
 	# Vista principal de este controlador.

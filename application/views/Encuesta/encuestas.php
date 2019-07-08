@@ -197,7 +197,7 @@
     											<a href="#" class=" btn btn-block btn-outline-primary i fas fa-link"> Link</a>
     										</td>
     										<td>
-    											<a href="<?=base_url()?>EncuestasC/generarQR/<?= $encues->NombreEncuesta?> " class=" btn btn-block btn-outline-new i fas fa-qrcode"> QR </a>
+    											<a href="<?=base_url()?>EncuestasC/generarQR/<?= $encues->Url ?> " class=" btn btn-block btn-outline-new i fas fa-qrcode"> QR </a>
     										</td>
     									</tr>
     								<?php  } ?>
