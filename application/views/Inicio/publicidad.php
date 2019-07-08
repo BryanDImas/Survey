@@ -4,6 +4,7 @@
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
 <!-- carousel -->
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <ol class="carousel-indicators">
     <?php for ($i = 0; $i < count($imgs); $i++) { ?>
       <!-- Recorro los indicadores según la cantidad de imagenes se agregen -->
@@ -39,19 +40,19 @@
     <div style=" text-align:center; margin:1% auto; width:30rem; heigth:30rem;" class="card-columns">
       <div class="card">
         <a href="">
-          <img src="<?= base_url('assets/images/empresas1.png') ?>" class="card-img-top" width="300px" heigth="300px" /><br>
+          <img src="<?= base_url('assets/images/empresas1.png') ?>" class="card-img-top" width="30%" heigth="30%" /><br>
         </a>
       </div>
       <br><br>
       <div class="card">
         <a href="">
-          <img src="<?= base_url('assets/images/empresas2.png') ?>" class="card-img-top" width="300px" heigth="300px" /><br>
+          <img src="<?= base_url('assets/images/empresas2.png') ?>" class="card-img-top" width="30%" heigth="30%" /><br>
         </a>
       </div>
       <br><br>
       <div class="card">
         <a href="">
-          <img src="<?= base_url('assets/images/empresas3.png') ?>" class="card-img-top" width="300px" heigth="300px" /><br>
+          <img src="<?= base_url('assets/images/empresas3.png') ?>" class="card-img-top" width="30%" heigth="30%" /><br>
         </a>
       </div>
       <br><br>

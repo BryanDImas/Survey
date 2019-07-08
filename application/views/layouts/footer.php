@@ -1,7 +1,8 @@
             <!-- ============================================================== -->
             <!-- Right sidebar -->
             <!-- ============================================================== -->
-            <!-- .right-sidebar -->
+            <!-- .right-sidebar -->    
+
             <div class="right-sidebar">
                 <div class="slimscrollright">
                     <div class="rpanel-title"> Panel de Servicio <span><i class="ti-close right-side-toggle"></i></span> </div>
@@ -83,6 +84,7 @@
     <script src="<?= base_url() ?>assets/node_modules/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
     <script src="<?= base_url() ?>assets/js/mask.init.js"></script>
     <script src="<?= base_url() ?>assets/node_modules/datatables/datatables.min.js"></script>    
+
 </body>
 
 </html>
