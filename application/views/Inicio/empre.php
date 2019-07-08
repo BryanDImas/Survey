@@ -1,9 +1,8 @@
 <!-- Área de las empresas para su fácil acceso a sus encuestas enlinea -->
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
-<div class="container">
+<div class="container-responsive">
 <div class="col-xs-12 col-sm-6 col-md-8">
-	<div style=" text-align:center; margin:5% auto; width:500%; heigth:40rem;" >
-		<div class="col-md-6">
+	<div style=" text-align:center; margin:5% auto; width:40rem; heigth:40rem;" >
 			<div class="card card-dark" style="background-color:2d4d49; border-color: #333;">
 				<div class="card-header">
 					<h4 class="m-b-0 text-white">Encuestas en linea</h4>
