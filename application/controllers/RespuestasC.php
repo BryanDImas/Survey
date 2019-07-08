@@ -1,5 +1,5 @@
 <?php
-/* Autores: Bryan DImas| Elisa Melendez1 Leandro Carpio
+/* Autores: Bryan DImas| Elisa Melendez Leandro Carpio
 Controlador que manejara toda la lógica de las respuestas de las encuestas. */
 
 defined('BASEPATH') or exit('No direct script access allowed');
@@ -56,10 +56,15 @@ class RespuestasC extends CI_Controller
     {
         $this->RespuestasModel->eliminar($id);
     }
-    // Acci+on que nos devuelve la vista parcial de respuestas.
+    // Acción que nos devuelve la vista parcial de respuestas.
     public function ver($id)
     {
         $datos['respuestas'] = $this->RespuestasModel->obrespuestas($id);
         $this->load->view('layouts/tabla-respuestas', $datos);
     }
+
+    public function empresas()
+	{
+		$this->load->view('inicio/empresas');
+	}
 }

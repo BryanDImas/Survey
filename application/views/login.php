@@ -47,6 +47,7 @@
 	</div>
 	<div class="col-xs-12 col-sm-6 col-md-8" id="empre"></div>
 </div>
+
 <!-- ============================================================== -->
 <!-- End Wrapper -->
 <!-- ============================================================== -->
@@ -64,4 +65,10 @@
 <script src="<?= base_url() ?>assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
+<<<<<<< HEAD
 </html>
+=======
+
+                          
+</html>
+>>>>>>> fa26d1730bf45b8e0939822b1c63c42f0bb0e285

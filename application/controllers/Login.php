@@ -61,6 +61,7 @@ class Login extends CI_Controller 					# Controlador del área del login.
 		$datos['imgs'] = $this->InicioModel->imagen();
 		$this->load->view('Inicio/publicidad', $datos);
 	}
+<<<<<<< HEAD
 
 	public function vista(){
 		$this->load->view('Inicio/empre');
@@ -71,4 +72,11 @@ class Login extends CI_Controller 					# Controlador del área del login.
 		$this->load->view('layouts/head');
 		$this->load->view('Inicio/suscripcion');
 	}
+=======
+ 	# Acción que me trae la vista que se rendizara en la página de inicio en el segmento de publicidad.
+	 public function empresas()
+	 {
+		 $this->load->view('Inicio/empresas');
+	 }
+>>>>>>> fa26d1730bf45b8e0939822b1c63c42f0bb0e285
 }
