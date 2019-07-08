@@ -16,7 +16,7 @@
 				<a href='#'data-toggle='dropdown' class="top_bar_left clearfix btn btn-nue btn-sm text-uppercase" style="width:86%;">INICIAR SESION</a>
 				<div class='dropdown-menu' style='padding: 8%; padding-bottom: 1%; background: black; width: 80%'>
 					<form class="form-horizontal form-material" id="loginform" action="<?= base_url() ?>login/validar" method="post" autocomplete="off">
-						<a href="javascript:void(0)" class="text-center db"><img src="<?= base_url() ?>assets/images/logo3.png" alt="Home" width="20%" /><span><img src="<?= base_url() ?>assets/images/text-logo.png" alt="Home" width="50%" /></span></a>
+						<a href="javascript:void(0)" class="text-center db"><img src="<?= base_url() ?>assets/images/logo3.png" alt="Home" width="10%" /><span><img src="<?= base_url() ?>assets/images/text-logo.png" alt="Home" width="40%" /></span></a>
 						<div class="form-group m-t-40">
 							<div class="col-xs-12">
 								<input name="usua" class="text-center form-control" type="text" placeholder="Usuario">
