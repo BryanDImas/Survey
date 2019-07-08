@@ -28,7 +28,7 @@
             <div class="card">
                 <div class="card-body">
                     <!-- Formulario para ingresar el responsable de la empresa -->
-                    <form action="<?= base_url() ?>usuariosC/editarUsuario" method="post" class="form-control-line">
+                    <form action="<?= base_url() ?>UsuariosC/editarUsuario" method="post" class="form-control-line">
                         <div class="form-group has-success">
                             <p><label class="form-control-label">Nombre de la empresa:</label>
                                 <select class="custom-select" searchable="Search here.." name="empresa">

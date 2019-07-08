@@ -1,12 +1,12 @@
-<?php defined('BASEPATH') or exit('No direct script access allowed');
+<?php 
 # Autor: bryan Dimas.
 Class PrincipalModel extends CI_Model{
     public function encuesta($id){
         $sql = "SELECT * FROM encuestas WHERE idEncuesta = ".$id;
         return $this->db->query($sql)->row();
     }
-    public function preguntas($id){
-        $sql = "SELECT * FROM preguntas WHERE IdEncuesta = ".$id;
+    public function preguntas($id, $a){
+        $sql = "SELECT * FROM preguntas WHERE IdEncuesta = ".$id." AND PorDefecto = ". $a;
         return $this->db->query($sql)->result();
     }
     public function respuestas($idp){

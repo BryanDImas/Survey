@@ -15,22 +15,22 @@ function asignareventos() {
 /* Funcion que nos ayuda a guardar las preguntas de una en una */
 function guardar() {
     var pregunta = document.getElementById('pregunta').value;
-	var num = document.getElementById('num').value;
-	
-	if (pregunta != '') {
-		var peticion = new XMLHttpRequest();
-		peticion.onreadystatechange = function() {
-			if (this.readyState == 4) {
-				recargar();
-				document.getElementById('pregunta').value = '';
-				document.getElementById('num').value++;
-			}
-		};
-		var url = baseUrl + 'preguntasC/guardar';
-		peticion.open('POST', url);
-		peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		peticion.send("pregunta=" + pregunta + "&num=" + num);
-	}
+    var num = document.getElementById('num').value;
+
+    if (pregunta != '') {
+        var peticion = new XMLHttpRequest();
+        peticion.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                recargar();
+                document.getElementById('pregunta').value = '';
+                document.getElementById('num').value++;
+            }
+        };
+        var url = baseUrl + 'PreguntasC/guardar';
+        peticion.open('POST', url);
+        peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        peticion.send("pregunta=" + pregunta + "&num=" + num);
+    }
 }
 /* Funcion que nos ayudara a editar una pregunta*/
 function actualizar() {
@@ -41,7 +41,7 @@ function actualizar() {
             document.getElementById('btnGuardar').addEventListener('click', editar);
         }
     };
-    var url = baseUrl + 'preguntasC/editar/';
+    var url = baseUrl + 'PreguntasC/editar/';
     peticion.open('GET', url + this.value);
     peticion.send();
 }
@@ -53,7 +53,7 @@ function eliminar() {
             recargar();
         }
     }
-    peticion.open('GET', baseUrl + 'preguntasC/eliminar/' + this.value);
+    peticion.open('GET', baseUrl + 'PreguntasC/eliminar/' + this.value);
     peticion.send();
 }
 /* Funcion que recarga el area que nos muestra las preguntas ya creadas */
@@ -66,28 +66,29 @@ function recargar() {
             asignareventos();
         }
     };
-    var Url = baseUrl + 'preguntasC/cargar/';
+    var Url = baseUrl + 'PreguntasC/cargar/';
     peticion.open('GET', Url);
     peticion.send();
 }
 /* Funcion que edita manda los datos al controlador para editarlos.*/
 function editar() {
-	if(document.getElementById('btnGuardar').value == 'actualizar'){
-    var pregunta = document.getElementById('pregunta').value;
-    var num = document.getElementById('num').value;
-    var idp = document.getElementById('idp').value;
-    var peticion = new XMLHttpRequest();
-    peticion.onreadystatechange = function() {
-        if (this.readyState == 4) {
-            recargar();
-            document.getElementById('pregunta').value = '';
-            document.getElementById('btnGuardar').value = 'guardar';
-            document.getElementById('btnGuardar').innerHTML = 'Guardar';
-            document.getElementById('title').innerHTML = 'Ingrese su pregunta';
-        }
-    };
-    var url = baseUrl + 'preguntasC/actualizar';
-    peticion.open('POST', url);
-    peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    peticion.send("pregunta=" + pregunta + "&num=" + num + "&idp=" + idp);
-}}
+    if (document.getElementById('btnGuardar').value == 'actualizar') {
+        var pregunta = document.getElementById('pregunta').value;
+        var num = document.getElementById('num').value;
+        var idp = document.getElementById('idp').value;
+        var peticion = new XMLHttpRequest();
+        peticion.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                recargar();
+                document.getElementById('pregunta').value = '';
+                document.getElementById('btnGuardar').value = 'guardar';
+                document.getElementById('btnGuardar').innerHTML = 'Guardar';
+                document.getElementById('title').innerHTML = 'Ingrese su pregunta';
+            }
+        };
+        var url = baseUrl + 'PreguntasC/actualizar';
+        peticion.open('POST', url);
+        peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        peticion.send("pregunta=" + pregunta + "&num=" + num + "&idp=" + idp);
+    }
+}

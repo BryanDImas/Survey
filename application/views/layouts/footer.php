@@ -62,14 +62,13 @@
     <script src="<?= base_url() ?>assets/node_modules/bootstrap/js/popper.min.js"></script>
     <script src="<?= base_url() ?>assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
     <!--stickey kit -->
-    <script src="<?= base_url() ?>assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js"></script>
-    <script src="<?= base_url() ?>assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
+<!--     <script src="<?= base_url() ?>assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="<?= base_url() ?>assets/node_modules/sparkline/jquery.sparkline.min.js"></script> -->
     <!--Custom JavaScript -->
     <script src="<?= base_url() ?>assets/js/custom.min.js"></script>
     <script src="<?= base_url() ?>assets/node_modules/moment/moment.js"></script>
     <!-- Sweet alert -->
     <script src="<?= base_url() ?>assets/node_modules/sweetalert/sweetalert.min.js"></script>
-    <script src="<?= base_url() ?>assets/node_modules/wizard/jquery.validate.min.js"></script>
     <script src="<?= base_url() ?>assets/node_modules/styleswitcher/jQuery.style.switcher.js"></script>
     <!--c3 JavaScript -->
     <script src="<?= base_url() ?>assets/node_modules/d3/d3.min.js"></script>
@@ -83,8 +82,12 @@
     <script src="<?= base_url() ?>assets/node_modules/Chart.js/Chart.min.js"></script>
     <script src="<?= base_url() ?>assets/node_modules/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
     <script src="<?= base_url() ?>assets/js/mask.init.js"></script>
+<<<<<<< HEAD
     <script src="<?= base_url() ?>assets/node_modules/datatables/datatables.min.js"></script>    
 
+=======
+  
+>>>>>>> 0bdacd28b391ba558ffdb1bf1a14ad56d90cab0f
 </body>
 
 </html>
