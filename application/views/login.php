@@ -13,7 +13,7 @@
 		<div class="login-box">
 			<br>
 			<div class="container">
-				<a href='#'data-toggle='dropdown' class="btn btn-info btn-sm " style="color:white; width:86%;">INICIAR SESION</a>
+				<a href='#'data-toggle='dropdown' class="top_bar_left clearfix btn btn-nue btn-sm text-uppercase" style="width:86%;">INICIAR SESION</a>
 				<div class='dropdown-menu' style='padding: 8%; padding-bottom: 1%; background: black; width: 80%'>
 					<form class="form-horizontal form-material" id="loginform" action="<?= base_url() ?>login/validar" method="post" autocomplete="off">
 						<a href="javascript:void(0)" class="text-center db"><img src="<?= base_url() ?>assets/images/logo3.png" alt="Home" width="20%" /><span><img src="<?= base_url() ?>assets/images/text-logo.png" alt="Home" width="50%" /></span></a>
@@ -29,7 +29,7 @@
 						</div>
 						<div class="form-group text-center m-t-20">
 							<div class="col-xs-4">
-								<button class="btn btn-primary btn-block text-uppercase btn-rounded">Ingresar</button>
+								<button class="btn btn-nue btn-block text-uppercase btn-rounded">Ingresar</button>
 							</div>
 						</div>
 						<div class="form-group">

@@ -2251,22 +2251,25 @@ Buttons
   .btn-inverse.disabled:focus {
     background: #232a37;
     color: #ffffff; }
+    
+.btn-nue,
+.btn-nue.disabled {
+  background: linear-gradient(#9198e5, #00FFFF);
+  border: 1px solid #00FFFF;
+  color: black; }
+  .btn-nue:hover,
+  .btn-nue.disabled:hover {
+    opacity: 0.8;
+    color: black;
+    border: 1px solid #00FFFF;
+    background:linear-gradient(#00FFFF, #9198e5);  }
+  .btn-nue.active, .btn-nue:active, .btn-nue:focus,
+  .btn-nue.disabled.active,
+  .btn-nue.disabled:active,
+  .btn-nue.disabled:focus {
+    background: linear-gradient(#9198e5, #00FFFF)}
 
-.btn-red,
-.btn-red.disabled {
-  background: #fb3a3a;
-  border: 1px solid #fb3a3a;
-  color: #ffffff; }
-  .btn-red:hover,
-  .btn-red.disabled:hover {
-    opacity: 0.7;
-    border: 1px solid #fb3a3a;
-    background: #fb3a3a; }
-  .btn-red.active, .btn-red:active, .btn-red:focus,
-  .btn-red.disabled.active,
-  .btn-red.disabled:active,
-  .btn-red.disabled:focus {
-    background: #e6294b; }
+
 
 .btn-outline-secondary {
   background-color: #ffffff;
