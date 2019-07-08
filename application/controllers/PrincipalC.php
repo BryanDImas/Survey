@@ -16,23 +16,25 @@ class PrincipalC extends CI_Controller
         if($datos['encuesta']->Demograficos == 'Si'){
             $datos['encuesta']->preguntas = $this->PrincipalModel->preguntas($id, $idp = 1);
         }
-        $this->load->view('Principal/Primera',$datos);
-            $datos['encuesta']->preguntas = $this->PrincipalModel->preguntas($id, $idp = 2);
+        $this->load->view('Principal/Primera',$datos);    
+        
         }
-/*         foreach ($datos['encuesta']->preguntas as $pregunta) {
-            $pregunta->respuestas = $this->PrincipalModel->respuestas($pregunta->idPregunta);
-        };
-        echo "<pre>";
-        print_r($datos);die;
-        $idf = $datos['encuesta']->IdFormato;
-        if ($idf == 1 || $idf == 2 || $idf == 7) {
-            $this->load->view('Principal/index', $datos);
-        } */
     # Acción que captura las respuestas de la encuesta y las manda al modelo.
     public function capturar()
     {
         $datos = $this->input->post('respuestas');
         $this->PrincipalModel->actualizar($datos);
         var_dump($datos);
+    }
+    public function iniciar($id){
+        $datos['encuesta'] = $this->PrincipalModel->encuesta($id);
+        $datos['encuesta']->preguntas = $this->PrincipalModel->preguntas($id, $idp = 2);
+        foreach ($datos['encuesta']->preguntas as $pregunta) {
+            $pregunta->respuestas = $this->PrincipalModel->respuestas($pregunta->idPregunta);
+        }
+        $idf = $datos['encuesta']->IdFormato;
+        if ($idf == 1 || $idf == 2 || $idf == 7) {
+            $this->load->view('Principal/index', $datos);
+        }
     }
 }

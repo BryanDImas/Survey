@@ -18,8 +18,9 @@
     <div class="col-xs-12 col-sm-6 col-md-8 offset-1" style="background-color:none">
         <h1><?php echo nl2br($encuesta->MensajeInicio); ?></h1>
         <p></p>
+        <pre>
         <?php print_r($encuesta);?>
-        <a href="" class="btn btn-rounded btn-outline-info float-right">Iniciar</a>
+        <a href="<?= base_url('PrincipalC/iniciar/')?><?=$encuesta->idEncuesta?>" class="btn btn-rounded btn-outline-info float-right">Iniciar</a>
     </div>
     <footer></footer>
 </body>
