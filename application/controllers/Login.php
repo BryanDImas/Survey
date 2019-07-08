@@ -61,6 +61,10 @@ class Login extends CI_Controller 					# Controlador del área del login.
 		$datos['imgs'] = $this->InicioModel->imagen();
 		$this->load->view('Inicio/publicidad', $datos);
 	}
+
+	public function vista(){
+		$this->load->view('Inicio/empre');
+	}
 	# Acción que me trae la vista que se rendizara en la página de inicio en el segmento de suscripcion.
 	public function suscripcion()
 	{
