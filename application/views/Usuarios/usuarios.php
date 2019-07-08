@@ -21,7 +21,7 @@
                 <!-- Logo -->
                 <!-- ==================================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="<?= base_url() ?>inicioC/">
+                    <a class="navbar-brand" href="<?= base_url() ?>InicioC/">
                         <b>
                             <img src="<?= base_url() ?>assets/images/logo3.png" alt="homepage" class="dark-logo" width="50px" height="50px" />
                             <img src="<?= base_url() ?>assets/images/logo3.png" alt="homepage" class="light-logo" width="50px" height="50px" />
@@ -49,7 +49,7 @@
                         <!-- Search -->
                         <!-- ============================================================== -->
                         <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="icon-Magnifi-Glass2"></i></a>
-                            <form class="app-search" action="<?= base_url('usuariosC/index/') ?>">
+                            <form class="app-search" action="<?= base_url('UsuariosC/index/') ?>">
                                 <input type="hidden" name="pag" value="1">
                                 <input name="key" type="text" class="form-control" placeholder="Search & enter" id="search"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
                         </li>
@@ -77,9 +77,9 @@
                                                 </div>
                                             </li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="<?= base_url() ?>encuestasC/perfil/<?= $this->session->usuario->idUsuario ?>"><i class="ti-user"></i> Mi Perfil</a></li>
+                                            <li><a href="<?= base_url() ?>EncuestasC/perfil/<?= $this->session->usuario->idUsuario ?>"><i class="ti-user"></i> Mi Perfil</a></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="<?= base_url() ?>login/cerrar"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li>
+                                            <li><a href="<?= base_url() ?>Login/cerrar"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li>
                                         </ul>
                                     </li>
                                 </ul>
