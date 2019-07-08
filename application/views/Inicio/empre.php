@@ -9,11 +9,19 @@
 				</div>
 				<div class="card-body">
 					<div class="card-columns" style=" text-align:center; margin:1% auto; width:30rem; heigth:30rem;">
+						
 						<a href="">
-							<img src="<?= base_url('assets/images/empresas1.png') ?>" class="card-img-top" width="5%" heigth="5%" /><br>
+                            <img src="<?= base_url('assets/images/empresas1.png') ?>" class="card-img-top" width="5%" heigth="5%" /><br>
+                        </a>
+                        <a href="">
+                            <img src="<?= base_url('assets/images/empresas2.png') ?>" class="card-img-top" width="10%" heigth="10%" /><br>
 						</a>
+						<a href="">
+                            <img src="<?= base_url('assets/images/empresas3.png') ?>" class="card-img-top" width="10%" heigth="10%" /><br>
+                        </a>
 				</div>
 			</div>
+		</div>
 		</div>
 </div>
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
