@@ -63,6 +63,7 @@ class Login extends CI_Controller 					# Controlador del área del login.
 	}
 
 	public function vista(){
+		$this->load->view('layouts/head');
 		$this->load->view('Inicio/empre');
 	}
 	# Acción que me trae la vista que se rendizara en la página de inicio en el segmento de suscripcion.

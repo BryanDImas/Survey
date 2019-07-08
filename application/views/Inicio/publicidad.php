@@ -4,7 +4,7 @@
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
 <!-- carousel -->
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
-<div style=" text-align:center; margin:5% auto; width:40rem; heigth:40rem;" class="container-responsive">
+<div style=" text-align:center; margin:5% auto; width:40rem; heigth:40rem;">
 <ol class="carousel-indicators">
 	<?php for ($i = 0; $i < count($imgs); $i++) { ?>
 		<!-- Recorro los indicadores según la cantidad de imagenes se agregen -->
