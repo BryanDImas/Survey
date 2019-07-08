@@ -12,6 +12,27 @@ class EncuestasC extends CI_Controller
 			redirect('Login');
 		}
 	}
+
+	public function generarQR ($NombreEncuesta)
+	{
+		$this->load->library('ciqrcode');
+
+		$params['data'] = $NombreEncuesta;
+        $params['level'] = 'H';
+        $params['size'] = 9;
+
+        //decimos el directorio a guardar el codigo qr, en este 
+        //caso una carpeta en la raíz llamada qr_code
+        $params['savename'] = FCPATH . "uploads/qr_code/qr_$NombreEncuesta.png";
+        //generamos el código qr
+        $this->ciqrcode->generate($params);
+
+		$data['img'] = "qr_$NombreEncuesta.png";
+		
+		echo "<img src='" . base_url() . "uploads/qr_code/" . $data['img'] . "' />";
+
+	}
+
 	# Vista principal de este controlador.
 	public function index($pag = 0)
 	{

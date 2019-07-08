@@ -163,6 +163,7 @@
 					
     				<div class="card">
     					<div class="card-body">
+						<div class="table-responsive">
     						<table class="table table-hover table-bordered text-center">
     							<thead>
     								<tr>
@@ -196,12 +197,13 @@
     											<a href="#" class=" btn btn-block btn-outline-primary i fas fa-link"> Link</a>
     										</td>
     										<td>
-    											<a href="<?=base_url()?>phpqrcode/phpqrcode/index.php" class=" btn btn-block btn-outline-new i fas fa-qrcode"> QR </a>
+    											<a href="<?=base_url()?>EncuestasC/generarQR/<?= $encues->NombreEncuesta?> " class=" btn btn-block btn-outline-new i fas fa-qrcode"> QR </a>
     										</td>
     									</tr>
     								<?php  } ?>
     							</tbody>
     						</table>
+							</div>
     					</div>
     				</div>
 					<?= $this->pagination->create_links() ?>
