@@ -36,23 +36,35 @@
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
 <div class="col-xs-12 col-sm-6 col-md-8">
   <div style=" text-align:center; margin:5% auto; width:40rem; heigth:40rem;" class="container-responsive">
-    <h1 class="card-title">Encuestas en linea</h1>
-    <div style=" text-align:center; margin:1% auto; width:30rem; heigth:30rem;" class="card-columns">
+  <div class="col-md-6">
+                        <div class="card card-dark" style="background-color:2d4d49; border-color: #333;">
+                            <div class="card-header">
+                                <h4 class="m-b-0 text-white">Encuestas en linea</h4></div>
+                            <div class="card-body">
+                              <div class="card-columns" style=" text-align:center; margin:1% auto; width:30rem; heigth:30rem;" >
+                                <a href="">
+                                <img src="<?= base_url('assets/images/empresas1.png') ?>" class="card-img-top" width="5%" heigth="5%" /><br>
+                                </a>   
+                              </div>    
+                            </div>
+                        </div>
+                    </div>
+
+   
+    
+      <div class="card">
+        
+      </div>
+   
       <div class="card">
         <a href="">
-          <img src="<?= base_url('assets/images/empresas1.png') ?>" class="card-img-top" width="30%" heigth="30%" /><br>
+          <img src="<?= base_url('assets/images/empresas2.png') ?>" class="card-img-top" width="10%" heigth="10%" /><br>
         </a>
       </div>
       <br><br>
       <div class="card">
         <a href="">
-          <img src="<?= base_url('assets/images/empresas2.png') ?>" class="card-img-top" width="30%" heigth="30%" /><br>
-        </a>
-      </div>
-      <br><br>
-      <div class="card">
-        <a href="">
-          <img src="<?= base_url('assets/images/empresas3.png') ?>" class="card-img-top" width="30%" heigth="30%" /><br>
+          <img src="<?= base_url('assets/images/empresas3.png') ?>" class="card-img-top" width="10%" heigth="10%" /><br>
         </a>
       </div>
       <br><br>
