@@ -82,12 +82,8 @@
     <script src="<?= base_url() ?>assets/node_modules/Chart.js/Chart.min.js"></script>
     <script src="<?= base_url() ?>assets/node_modules/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
     <script src="<?= base_url() ?>assets/js/mask.init.js"></script>
-<<<<<<< HEAD
     <script src="<?= base_url() ?>assets/node_modules/datatables/datatables.min.js"></script>    
 
-=======
-  
->>>>>>> 0bdacd28b391ba558ffdb1bf1a14ad56d90cab0f
 </body>
 
 </html>
