@@ -52,7 +52,7 @@
 							<?php $num++;
 						} ?>
 					</div>
-
+<input type="hidden" name="idencuesta" value="<?= $encuesta->idEncuesta?>">
 
 					<div class="form-group">
 						<div class="col-md-12 text-center">
