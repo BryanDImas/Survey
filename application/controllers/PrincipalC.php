@@ -10,11 +10,15 @@ class PrincipalC extends CI_Controller
         $this->load->model('PrincipalModel');
     }
     # Acción que nos devuelve la vista principal de este controlador
-    public function index($id)
+    public function index()
     {
+        $id = base64_decode($_GET['e']);
+       /*  print_r($id); die; */
         $datos['encuesta'] = $this->PrincipalModel->encuesta($id);
         if($datos['encuesta']->Demograficos == 'Si'){
             $datos['encuesta']->preguntas = $this->PrincipalModel->preguntas($id, $idp = 1);
+        }else{
+            $datos['encuesta']->preguntas = '';
         }
         $datos['ciudad'] = $this->PrincipalModel->ciudad();
         $this->load->view('Principal/Primera',$datos);    
@@ -30,7 +34,9 @@ class PrincipalC extends CI_Controller
         $datos['encuesta'] = $this->PrincipalModel->encuesta($id);
         $this->load->view('Principal/Fin', $datos);
     }
-    public function iniciar($id){
+    public function iniciar()
+    {
+        $id =  base64_decode($_GET['a']);
         $datos['encuesta'] = $this->PrincipalModel->encuesta($id);
         $datos['encuesta']->preguntas = $this->PrincipalModel->preguntas($id, $idp = 2);
         foreach ($datos['encuesta']->preguntas as $pregunta) {

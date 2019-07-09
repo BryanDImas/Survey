@@ -193,7 +193,7 @@
     											<a href="<?= base_url()?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-success i fas fa-pencil-alt"> Editar </a>
     										</td>
     										<td>
-    											<a href="#" class=" btn btn-block btn-outline-primary i fas fa-link" onclick="alert('<?=base_url()?>encuestas/realizar/<?=base64_encode($id)?>')"> Link</a>
+    											<a href="#" class=" btn btn-block btn-outline-primary i fas fa-link" onclick="alert('<?=base_url()?>PrincipalC/index/?e=<?=base64_encode($encues->idEncuesta)?>')"> Link</a>
     										</td>
     										<td>
     											<a href="<?=base_url()?>EncuestasC/generarQR/<?= $encues->Url ?> " class=" btn btn-block btn-outline-new i fas fa-qrcode"> QR </a>
