@@ -12,6 +12,26 @@ class EncuestasC extends CI_Controller
 			redirect('Login');
 		}
 	}
+
+	public function generarQR ($Url)
+	{
+		$this->load->library('ciqrcode');
+
+		$params['data'] = $Url;
+        $params['level'] = 'H';
+        $params['size'] = 9;
+
+        //decimos el directorio a guardar el codigo qr, en este 
+        //caso una carpeta en la raíz llamada qr_code
+        $params['savename'] = FCPATH . "uploads/qr_code/qr_$Url.png";
+        //generamos el código qr
+        $this->ciqrcode->generate($params);
+
+		$data['img'] = "qr_$Url.png";
+		
+		echo "<img src='" . base_url() . "uploads/qr_code/" . $data['img'] . "' />";
+	}
+
 	# Vista principal de este controlador.
 	public function index($pag = 0)
 	{
@@ -48,7 +68,7 @@ class EncuestasC extends CI_Controller
 		$this->EncuestasModel->eliminar($id);
 		self::index();
 	}
-	# Acción que nos devuelve los datos del ususario para el perfil.
+	# Acción que nos devuelve los datos del usuario para el perfil.
 	public function perfil($id)
 	{
 		$datos = array();
@@ -78,9 +98,9 @@ class EncuestasC extends CI_Controller
 		$id = $this->EncuestasModel->obid($array);
 
 		if ($this->input->post('check')) {
-			$this->Preguntasmodel->guardar([1, '¿Cuál es su edad?', $id]);
-			$this->Preguntasmodel->guardar([2, '¿Cuál es su género?', $id]);
-			$this->Preguntasmodel->guardar([3, '¿Cuál es su ciudad de residencia?', $id]);
+			$this->Preguntasmodel->guardar([1, '¿Cuál es su edad?',1, $id]);
+			$this->Preguntasmodel->guardar([2, '¿Cuál es su género?',1, $id]);
+			$this->Preguntasmodel->guardar([3, '¿Cuál es su ciudad de residencia?',1, $id]);
 		}
 
 		$this->session->set_userdata('idEncuesta', $id);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-07-2019 a las 19:23:17
+-- Tiempo de generación: 09-07-2019 a las 00:36:53
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.0.33
 
@@ -179,8 +179,18 @@ CREATE TABLE `encuestas` (
   `idUsuario` int(11) NOT NULL,
   `Demograficos` enum('Si','No') NOT NULL DEFAULT 'No',
   `Resultados` enum('Si','No') NOT NULL DEFAULT 'No',
-  `IdFormato` int(11) DEFAULT NULL
+  `IdFormato` int(11) DEFAULT NULL,
+  `Url` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `encuestas`
+--
+
+INSERT INTO `encuestas` (`idEncuesta`, `NombreEncuesta`, `ObjetivoEncuesta`, `Estado`, `FechaCreacion`, `FechaFinalizacion`, `MensajeInicio`, `MensajeFinalizacion`, `idUsuario`, `Demograficos`, `Resultados`, `IdFormato`, `Url`) VALUES
+(1, 'asazfdef', 'cdzsvfdvdvg', 'Inactivo', '2019-07-05 17:46:06', '0000-00-00 00:00:00', '', '', 1, 'No', 'No', NULL, ''),
+(2, 'dxsasfsf', 'zsfff', 'Inactivo', '2019-07-05 17:47:07', '0000-00-00 00:00:00', '', '', 1, 'No', 'No', 1, ''),
+(3, 'gerygtrhy', 'gfrhythujt6', 'Inactivo', '2019-07-08 22:11:09', '2019-07-01 06:00:00', 'ewrfwetg54ery', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 1, 'www.google.com');
 
 -- --------------------------------------------------------
 
@@ -522,6 +532,13 @@ CREATE TABLE `preguntas` (
   `IdEncuesta` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `preguntas`
+--
+
+INSERT INTO `preguntas` (`idPregunta`, `Numero`, `Pregunta`, `PorDefecto`, `IdEncuesta`) VALUES
+(1, 1, '´plo ñ´p', 'Nueva', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -539,9 +556,9 @@ CREATE TABLE `publicidad` (
 --
 
 INSERT INTO `publicidad` (`IdPub`, `Imagen`, `IdUsuario`) VALUES
-(1, 'assets/images/publicidad/5cfebac53dfcapubli1.png', 1),
-(2, 'assets/images/publicidad/5cfebb42a5651publi2.png', 1),
-(4, 'assets/images/publicidad/5cfec261e40a5publi3.png', 1);
+(1, 'assets/images/publicidad/5d2383d8880d25d20cbb6af2be5d1fafebb3b35publi1.png', 1),
+(2, 'assets/images/publicidad/5d2383de7af1e5d20cbc0548f35d1faff4bd419publi2.png', 1),
+(3, 'assets/images/publicidad/5d2383e3701d25d20cc088a4015d1faffb22b9bpubli3.png', 1);
 
 -- --------------------------------------------------------
 
@@ -556,6 +573,14 @@ CREATE TABLE `respuestas` (
   `IdPregunta` int(11) NOT NULL,
   `Contador` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `respuestas`
+--
+
+INSERT INTO `respuestas` (`IdRespuestas`, `Numero`, `Respuestas`, `IdPregunta`, `Contador`) VALUES
+(1, 1, 'Ñ[ñ}pñ', 1, 0),
+(2, 2, '{]{', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -746,7 +771,7 @@ ALTER TABLE `empresas`
 -- AUTO_INCREMENT de la tabla `encuestas`
 --
 ALTER TABLE `encuestas`
-  MODIFY `idEncuesta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idEncuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `formato`
@@ -770,19 +795,19 @@ ALTER TABLE `paises`
 -- AUTO_INCREMENT de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
-  MODIFY `idPregunta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `publicidad`
 --
 ALTER TABLE `publicidad`
-  MODIFY `IdPub` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `IdPub` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `respuestas`
 --
 ALTER TABLE `respuestas`
-  MODIFY `IdRespuestas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdRespuestas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `telefonos`

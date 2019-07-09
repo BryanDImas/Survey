@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/images/logo3.png">
     <title>Survey</title>
@@ -28,6 +28,8 @@
     <link href="<?= base_url() ?>assets/node_modules/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/node_modules/ion-rangeslider/css/ion.rangeSlider.skinModern.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/node_modules/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
+
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
+

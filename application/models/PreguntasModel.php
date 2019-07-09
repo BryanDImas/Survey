@@ -12,7 +12,12 @@ class PreguntasModel extends CI_Model
     # Método que nos permite guardar las preguntas a la base de datos.
     public function guardar($datos)
     {
-        $sql = "INSERT INTO preguntas (Numero, Pregunta, IdEncuesta) VALUES ( ?,?,? )";
+        $sql = "INSERT INTO preguntas (Numero, Pregunta, ";
+        if(count($datos)>3){
+            $sql.=" PorDefecto,IdEncuesta) VALUES ( ?,?,?,? )";
+        }else{
+            $sql.=" IdEncuesta) VALUES (?,?,? )";
+        }
         $this->db->query($sql, $datos);
     }
     # Método que nos permite borrar las preguntas de la encuesta en la base de datos.

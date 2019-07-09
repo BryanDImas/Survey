@@ -13,7 +13,7 @@ function recargar() {
             asignareventos();
         }
     };
-    peticion.open('GET', baseUrl + 'respuestasC/ver/' + idp.value);
+    peticion.open('GET', baseUrl + 'RespuestasC/ver/' + idp.value);
     peticion.send();
 }
 
@@ -34,19 +34,19 @@ function guardar() {
     var num = document.getElementById('num').value;
     var idp = document.getElementById('idp').value;
     if (respuesta != '') {
-    var peticion = new XMLHttpRequest();
-    peticion.onreadystatechange = function() {
-        if (this.readyState == 4) {
-            recargar();
-            document.getElementById('respuesta').value = '';
-            document.getElementById('num').value++;
-        }
-    };
-    var url = baseUrl + 'respuestasC/guardar';
-    peticion.open('POST', url);
-    peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    peticion.send("respuesta=" + respuesta + "&num=" + num + "&idp=" + idp);
-}
+        var peticion = new XMLHttpRequest();
+        peticion.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                recargar();
+                document.getElementById('respuesta').value = '';
+                document.getElementById('num').value++;
+            }
+        };
+        var url = baseUrl + 'RespuestasC/guardar';
+        peticion.open('POST', url);
+        peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        peticion.send("respuesta=" + respuesta + "&num=" + num + "&idp=" + idp);
+    }
 }
 
 //Función que nos permitirá mostrar los datos de las respuestas para luego editarlos
@@ -58,32 +58,32 @@ function actualizar() {
             document.getElementById('btnGuardar').addEventListener('click', editar);
         }
     };
-    var url = baseUrl + 'respuestasC/editar/';
+    var url = baseUrl + 'RespuestasC/editar/';
     peticion.open('GET', url + this.value);
     peticion.send();
 }
 
 //Esta función nos permitira editar las respuestas
 function editar() {
-	if(document.getElementById('btnGuardar').value == 'actualizar'){
-    var respuesta = document.getElementById('respuesta').value;
-    var num = document.getElementById('num').value;
-    var idr = document.getElementById('idr').value;
-    var peticion = new XMLHttpRequest();
-    peticion.onreadystatechange = function() {
-        if (this.readyState == 4) {
-            recargar();
-            document.getElementById('respuesta').value = '';
-            document.getElementById('btnGuardar').value = 'guardar';
-            document.getElementById('btnGuardar').innerHTML = 'Guardar';
-            document.getElementById('title').innerHTML = 'Ingrese su respuesta';
-        }
-    };
-    var url = baseUrl + 'respuestasC/actualizar';
-    peticion.open('POST', url);
-    peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    peticion.send("respuesta=" + respuesta + "&num=" + num + "&idp=" + idr);
-}
+    if (document.getElementById('btnGuardar').value == 'actualizar') {
+        var respuesta = document.getElementById('respuesta').value;
+        var num = document.getElementById('num').value;
+        var idr = document.getElementById('idr').value;
+        var peticion = new XMLHttpRequest();
+        peticion.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                recargar();
+                document.getElementById('respuesta').value = '';
+                document.getElementById('btnGuardar').value = 'guardar';
+                document.getElementById('btnGuardar').innerHTML = 'Guardar';
+                document.getElementById('title').innerHTML = 'Ingrese su respuesta';
+            }
+        };
+        var url = baseUrl + 'RespuestasC/actualizar';
+        peticion.open('POST', url);
+        peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        peticion.send("respuesta=" + respuesta + "&num=" + num + "&idp=" + idr);
+    }
 }
 
 //Función que nos permitirá eliminar las respuestas
@@ -94,6 +94,6 @@ function eliminar() {
             recargar();
         }
     }
-    peticion.open('GET', baseUrl + 'respuestasC/eliminar/' + this.value);
+    peticion.open('GET', baseUrl + 'RespuestasC/eliminar/' + this.value);
     peticion.send();
 }
