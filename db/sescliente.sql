@@ -528,7 +528,7 @@ CREATE TABLE `preguntas` (
   `idPregunta` int(11) NOT NULL,
   `Numero` int(11) NOT NULL,
   `Pregunta` varchar(250) DEFAULT NULL,
-  `PorDefecto` enum('Existente','Nueva') DEFAULT 'Nueva',
+  `PorDefecto` enum('1','2') DEFAULT '2',
   `IdEncuesta` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

@@ -57,10 +57,17 @@ class EncuestasC extends CI_Controller
 	# Acción que nos permite cambiar de vistas.
 	public function cargar($pagina)
 	{
+		$cont = $this->EncuestasModel->total($key = '');
+	/* 	print_r($cont); die; */
+		if($cont > 3 && $this->session->empresa->TipoCuenta == 'Basica'){
+			echo "<script>alert('Máximo de encuestas alcanzadas Si desea crear mas Cambie su suscripción a Avanzada')</script>";
+			self::index();
+		}else{
 		$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 		$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
 		$this->load->view('encuesta/' . $pagina); #cargamos la vista que contiene la nueva encuesta.
 		$this->load->view('layouts/footer'); #cargamos la vista que contiene el pie de página.
+		}
 	}
 	# Acción que le dice al modelo que elimine una encuesta del registro
 	public function eliminar($id)
@@ -88,6 +95,7 @@ class EncuestasC extends CI_Controller
 	# Acción que nos permite crear una encuesta.
 	public function crear()
 	{
+
 		$datos = [
 			$this->input->post('msj'), $this->input->post('nom'), $this->input->post('obj'), $this->input->post('fve'),
 			$this->session->usuario->idUsuario, $this->input->post('demo')

@@ -145,7 +145,6 @@
     						<li class="breadcrumb-item active">Encuestas</li>
     					</ol>
     				</div>
-
     				<div class="col-md-7 align-self-center text-right d-none d-md-block">
     					<a href="<?= base_url() ?>EncuestasC/cargar/Crear" class="btn btn-rounded btn-outline-info"><i class="fa fa-plus-circle"></i> Nueva encuesta</a>
     				</div>

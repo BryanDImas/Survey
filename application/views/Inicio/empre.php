@@ -1,8 +1,14 @@
 <!-- Área de las empresas para su fácil acceso a sus encuestas enlinea -->
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
+<<<<<<< HEAD
 <div class="carrousel">
 	<div class="col-xs-12 col-sm-6 col-md-8">
 		<div style=" text-align:center; margin:5% auto; width:40rem; heigth:40rem;">
+=======
+<div class="container-fluid">
+<div class="col-xs-12 col-sm-6 col-md-8">
+	<div style=" text-align:center; margin:5% auto; width:40rem; heigth:40rem;" >
+>>>>>>> 802aa78ac3c4228f5d814d341bf1075c3771ca0f
 			<div class="card card-dark" style="background-color:2d4d49; border-color: #333;">
 				<div class="card-header">
 					<h4 class="m-b-0 text-white">Encuestas en linea</h4>
