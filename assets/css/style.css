@@ -1074,6 +1074,18 @@ File: scss
 .container-fluid {
   padding: 25px 25px; }
 
+.contenedor {
+  width:100%;
+  max-width: ;
+  margin:0 auto;
+  overflow:hidden;
+}
+
+.carrousel {
+  width: 20%;
+
+}
+
 .card {
   margin-bottom: 30px; }
   .card .card-subtitle {
