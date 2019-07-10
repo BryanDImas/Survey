@@ -112,6 +112,7 @@ class EncuestasC extends CI_Controller
 		}
 
 		$this->session->set_userdata('idEncuesta', $id);
+		$this->session->set_userdata('formato', '');
 		redirect('EncuestasC/cargar/Formato/');
 	}
 

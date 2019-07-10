@@ -60,5 +60,10 @@ class EncuestasModel extends CI_Model
            }
            return $this->db->query($sql)->row()->total;
        }
+       # Método que captura el valor del tipo de encuesta.
+       public function Tipo($id, $idEncuesta){
+           $sql = "UPDATE encuestas SET IdFormato = ". $id. " WHERE idEncuesta = ". $idEncuesta;
+           $this->db->query($sql);
+       }
    }
 
