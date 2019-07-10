@@ -1,3 +1,6 @@
+<?php if($this->session->formato != ''){?>
+<script>alert("Ya ha elegido una opcion de formato");</script>
+<?php  redirect('PreguntasC/index/?id='.$this->session->formato);} ?>
 <!-- ============================================================== -->
 <!-- Container fluid  -->
 <!-- ============================================================== -->

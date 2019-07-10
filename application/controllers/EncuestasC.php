@@ -6,7 +6,7 @@ class EncuestasC extends CI_Controller
 	{
 		$dato = array();
 		parent::__construct();
-		$this->load->library(['form_validation', 'pagination']);
+		$this->load->library(['form_validation', 'pagination','encrypt']);
 		$this->load->model(['EncuestasModel', 'Preguntasmodel', 'Respuestasmodel']);
 		if ($this->session->usuario) { } else {
 			redirect('Login');
@@ -112,6 +112,7 @@ class EncuestasC extends CI_Controller
 		}
 
 		$this->session->set_userdata('idEncuesta', $id);
+		$this->session->set_userdata('formato', '');
 		redirect('EncuestasC/cargar/Formato/');
 	}
 

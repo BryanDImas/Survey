@@ -18,6 +18,7 @@
     <div class="col-xs-12 col-sm-6 col-md-8 offset-1" style="background-color:none">
         <h1><?php echo nl2br($encuesta->MensajeInicio); ?></h1>
         <p></p>
+        <?php if($encuesta->preguntas != ''){ ?>
         <h3>Para mejorar nuestra experiencia, por favor rellene estas sencillas preguntas.</h3>
         <p>
         <h6><?= $encuesta->preguntas[0]->Pregunta?></h6>
@@ -37,7 +38,8 @@
             <?php } ?>
         </select>
         </p>
-        <a href="<?= base_url('PrincipalC/iniciar/')?><?=$encuesta->idEncuesta?>" class="btn btn-rounded btn-outline-info float-right">Iniciar</a>
+            <?php } ?>
+        <a href="<?= base_url('PrincipalC/iniciar/')?>?a=<?=base64_encode($encuesta->idEncuesta)?>" class="btn btn-rounded btn-outline-info float-right">Iniciar</a>
     </div>
     <footer></footer>
 </body>

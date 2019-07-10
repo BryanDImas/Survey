@@ -15,11 +15,13 @@ class PreguntasC extends CI_Controller
 	public function index()
 	{
 		$id = $_GET['id'] ?? '';
+		$this->EncuestasModel->Tipo($id, $this->session->idEncuesta);
 		if ($id == 1 || $id == 2 || $id == 7) {
 			$pagina = 'preguntas';
 		} elseif ($id == 3 || $id == 4 || $id == 5 || $id == 6) {
 			$pagina = 'preguntasII';
 		};
+
 		$a = [];
 		$a = [$id, $this->session->idEncuesta];
 		$this->EncuestasModel->formato($a);

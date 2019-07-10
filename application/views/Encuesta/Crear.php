@@ -2,7 +2,28 @@
 <!-- Container fluid  -->
 <!-- ============================================================== -->
 <div class="container-fluid">
-	<div class="container">
+	<!-- ============================================================== -->
+	<!-- Bread crumb and right sidebar toggle -->
+	<!-- ============================================================== -->
+	<div class="row page-titles">
+
+		<div class="col-md-5 align-self-center margin">
+			<h1 class="text-themecolor">Encuestas</h1>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="javascript:void(0)">Paso 1</a></li>
+				<li class="breadcrumb-item active">Inicialización</li>
+			</ol>
+		</div>
+		<div class="">
+			<button class="right-side-toggle waves-effect waves-light  btn-themecolor btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+		</div>
+	</div>
+	<!-- ============================================================== -->
+	<!-- End Bread crumb and right sidebar toggle -->
+	<!-- ============================================================== -->
+	<!-- ============================================================== -->
+	<!-- Container fluid  -->
+	<!-- ============================================================== -->
 		<form action="<?= base_url('EncuestasC/crear') ?>" method="POST" class="form-horizontal mt-8" autocomplete="off">
 			<div class="card">
 				<div class="col-xs-11 col-sm-10 col-md-12">
@@ -56,40 +77,37 @@
 			</div>
 			<input type="submit" value="Siguiente" class="btn btn-rounded btn-outline-success float-right">
 		</form>
-		<div class="">
-			<button class="right-side-toggle waves-effect waves-light  btn-themecolor btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-		</div>
-		<!-- ======================================================================================================= -->
-		<!-- Fin del contenido -->
-		<!-- ======================================================================================================= -->
-		<script>
-			var baseUrl = "<?= base_url() ?>";
-		</script>
-		<script type="text/javascript">
-			function showContent() {
-				element = document.getElementById("content");
-				check = document.getElementById("check");
-				if (check.checked) {
-					document.getElementById("demo").value = 'Si';
-					element.style.display = 'block';
-				} else {
-					document.getElementById("demo").value = 'No';
-					element.style.display = 'none';
-				}
-			};
-			var fecha = new Date();
-			var anio = fecha.getFullYear();
-			var dia = fecha.getDate();
-			var _mes = fecha.getMonth(); //viene con valores de 0 al 11
-			_mes = _mes + 1; //ahora lo tienes de 1 al 12
-			if (_mes < 10) //ahora le agregas un 0 para el formato date
-			{
-				var mes = "0" + _mes;
+	<!-- ======================================================================================================= -->
+	<!-- Fin del contenido -->
+	<!-- ======================================================================================================= -->
+	<script>
+		var baseUrl = "<?= base_url() ?>";
+	</script>
+	<script type="text/javascript">
+		function showContent() {
+			element = document.getElementById("content");
+			check = document.getElementById("check");
+			if (check.checked) {
+				document.getElementById("demo").value = 'Si';
+				element.style.display = 'block';
 			} else {
-				var mes = _mes.toString;
+				document.getElementById("demo").value = 'No';
+				element.style.display = 'none';
 			}
-			document.getElementById("fechaReserva").min = anio + '-' + mes + '-' + dia;
-		</script>
-		<div class="form-group">
-			<a href="<?= base_url('EncuestasC/') ?>" class="btn btn-rounded btn-xl  btn-outline-info">Volver</a>
-		</div>
+		};
+		var fecha = new Date();
+		var anio = fecha.getFullYear();
+		var dia = fecha.getDate();
+		var _mes = fecha.getMonth(); //viene con valores de 0 al 11
+		_mes = _mes + 1; //ahora lo tienes de 1 al 12
+		if (_mes < 10) //ahora le agregas un 0 para el formato date
+		{
+			var mes = "0" + _mes;
+		} else {
+			var mes = _mes.toString;
+		}
+		document.getElementById("fechaReserva").min = anio + '-' + mes + '-' + dia;
+	</script>
+	<div class="form-group">
+		<a href="<?= base_url('EncuestasC/') ?>" class="btn btn-rounded btn-xl  btn-outline-info">Volver</a>
+	</div>
