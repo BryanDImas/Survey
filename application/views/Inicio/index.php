@@ -42,8 +42,8 @@
       <div class="card">
         <div class="card-body">
 				<div class="table-responsive">
-          <table class=" table table-hover table-bordered table-sm" align="center">
-            <thead class="text-center">
+          <table class="table table-bordered" align="center">
+            <thead class="text-center table-bordered">
               <tr>
                 <th>#</th>
                 <th>Imagen publicitaria</th>
