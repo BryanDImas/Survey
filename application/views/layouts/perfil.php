@@ -39,17 +39,20 @@
 							<!-- ====================================================================================================================== -->
 							<div class="col-sm-4">
 								<div class="text-center" style="position: absolute; left: 10px; top: -130px;">
-								
-									<img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail">
-									<input name="foto" type="file" hidden><br>
-									<button class="btn btn-rounded btn-outline-success btn-sm" id="photo">Cambiar foto</button>
-								</div>
-								<br>
+								<?php if($usuario->Foto != ''){?>
+									<img width="250px" src="<?= base_url()?><?= $usuario->Foto?>" class="avatar img-rounded img-thumbnail img-reponsive">
+								<?php }else{?>
+									<img width="250px" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-rounded img-thumbnail">
+								<?php } ?>
+								<p></p>
+								<button data-toggle="modal" data-target="#myModal" class="btn btn-rounded btn-outline-info">Cambiar foto</button>
+							</div>
+								<p></p>
+
 								<div class="panel panel-default" style="position: absolute; left: 10px; top: 40%;">
+								<ul class="">
 									<div class="panel-heading"><i class="fa fa-envelope fa-1x"> Correo </i></div>
 									<div class="panel-body"><a href="mailto:<?= $usuario->Correo ?>"><?= $usuario->Correo ?></a></div>
-									<br>
-									<ul class="">
 										<li class="list-group-item text-muted text-themecolor"> Información Personal <i class="fa fa-dashboard fa-1x"></i></li>
 										<li class="list-group-item text"><span class="pull-left"><strong>Cargo: </strong><?= $usuario->Cargo ?></span></li>
 										<li class="list-group-item text"><span class="pull-left"><strong>Departamento: </strong><?= $usuario->Departamento ?></span></li>
@@ -59,6 +62,7 @@
 							</div>
 							<!--/col-3-->
 							<div class="col-sm-8">
+							<div class="container">
 								<div class="tab-content">
 									<div class="tab-pane active" id="home">
 										<div class="form-group">
@@ -101,6 +105,41 @@
 	<!-- ============================================================== -->
 	<!-- End PAge Content -->
 	<!-- ============================================================== -->
+	  <!-- ========================================================================================================================== -->
+  <!-- Inicio segundo modal -->
+  <!-- ========================================================================================================================== -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Elije tu foto de perfil</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <form action="<?= base_url() ?>UsuariosC/Guardar" method="post" enctype="multipart/form-data">
+              <div class="custom-file">
+				  <input type="hidden" name="idUs"value="<?= $usuario->idUsuario?>">
+                <input name="foto" type="file" class="custom-file-input" required>
+                <label class="custom-file-label form-control">Subir foto</label>
+              </div>
+          </div>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-rounded btn-outline-success" value="Guardar Cambios">
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================================================================== -->
+  <!-- Fin segundo modal -->
+  <!-- ========================================================================================================================== -->
 
 	<!-- ============================================================== -->
 	<!-- End Container fluid  -->

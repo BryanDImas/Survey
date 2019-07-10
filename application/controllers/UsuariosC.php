@@ -122,4 +122,21 @@ class UsuariosC extends CI_Controller
 		fclose($file);
 		exit;
 	}
+	// Accion  que guarda la foto de perfil del usuario.
+	public function Guardar(){
+		$id = $this->input->post('idUs');
+		$ruta = $this->UsuarioModel->BuscaRuta($id);
+        if ($ruta != '') {
+			unlink($ruta);
+		}
+            $archivo = $_FILES['foto'];
+            $nombre = $archivo['name'];
+            $logo = "assets/images/perfil/" . uniqid() . $nombre;
+			move_uploaded_file($archivo['tmp_name'], $logo);
+			$datos=[
+				$logo, $id 
+			];
+			$this->UsuarioModel->Cambiar($datos);
+			redirect('EncuestasC/perfil/'.$id);
+	}
 }

@@ -13,5 +13,5 @@ class Qrcontroller extends CI_Controller
 		$this->load->view('layouts/header');
 		$this->load->view('phpqrcode/phpqrcode/index');
 		$this->load->view('layouts/footer');
-	}
+}
 }

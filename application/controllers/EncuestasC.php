@@ -29,7 +29,10 @@ class EncuestasC extends CI_Controller
 
 		$data['img'] = "qr_$Url.png";
 		
-		echo "<img src='" . base_url() . "uploads/qr_code/" . $data['img'] . "' />";
+		/* $this->load->view('layouts/head'); */
+		$this->load->view('Encuesta/codigo_qr', $data);
+	/* 	$this->load->view('layouts/footer'); */
+		/* echo "<img src='" . base_url() . "uploads/qr_code/" . $data['img'] . "' />"; */
 	}
 
 	# Vista principal de este controlador.
