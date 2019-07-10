@@ -163,8 +163,8 @@
     					<div class="card">
     						<div class="card-body">
 							<div class="table-responsive">
-    							<table class="table table-hover table-bordered ">
-    								<thead class="text-center">
+    							<table class="table table-hover table-bordered">
+    								<thead class="text-center table-bordered">
     									<tr>
     										<th>Nombre</th>
     										<th>Dirección Fisica</th>

@@ -166,7 +166,7 @@
                                 <!-- Export Data -->
                                 <a href='<?= base_url() ?>index.php/UsuariosC/exportCSV'>Exportar CSV</a><br><br>
                                 <div class="table-responsive-sm">
-                                    <table class=" table table-bordered table-responsive-sm">
+                                    <table class="table table-bordered table-responsive-sm">
                                         <thead class="text-center">
                                             <tr>
                                                 <th>Nombre</th>

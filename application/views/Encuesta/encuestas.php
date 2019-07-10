@@ -164,7 +164,7 @@
     					<div class="card-body">
 						<div class="table-responsive">
     						<table class="table table-hover table-bordered text-center">
-    							<thead>
+    							<thead class="text-center table-bordered">
     								<tr>
     									<th>Nombre de la encuesta</th>
     									<th>Objetivo de la encuesta</th>

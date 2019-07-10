@@ -43,10 +43,29 @@ class PrincipalC extends CI_Controller
             $pregunta->respuestas = $this->PrincipalModel->respuestas($pregunta->idPregunta);
         }
         $idf = $datos['encuesta']->IdFormato;
-        if ($idf == 1 || $idf == 2 || $idf == 7) {
+        switch($idf){
+            case 1:
+            case 2:
+            case 7:
             $this->load->view('Principal/index', $datos);
-        }else if($idf == 6){
+            break;
+            case 3:
+            $this->load->View('Principal/caritas',$datos);
+            break;
+            case 4:
+            $this->load->View('Principal/ponderacion',$datos);
+            break;
+            case 5:
+            $this->load->View('Principal/manitas',$datos);
+            break;
+            case 6:
             $this->load->view('Principal/escala', $datos);
+            break;
         }
+
     }
+    public function hola(){
+        $this->load->view('Principal/manitas');
+    }
+
 }

@@ -83,7 +83,7 @@
     <script src="<?= base_url() ?>assets/node_modules/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
     <script src="<?= base_url() ?>assets/js/mask.init.js"></script>
     <script src="<?= base_url() ?>assets/node_modules/datatables/datatables.min.js"></script>    
-
+        </div>
 </body>
 
 </html>
