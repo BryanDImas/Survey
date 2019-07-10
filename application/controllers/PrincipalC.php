@@ -49,13 +49,23 @@ class PrincipalC extends CI_Controller
             case 7:
             $this->load->view('Principal/index', $datos);
             break;
-            case 6:
-            $this->load->view('Principal/escala', $datos);
+            case 3:
+            $this->load->View('Principal/caritas',$datos);
             break;
             case 4:
             $this->load->View('Principal/ponderacion',$datos);
             break;
+            case 5:
+            $this->load->View('Principal/manitas',$datos);
+            break;
+            case 6:
+            $this->load->view('Principal/escala', $datos);
+            break;
         }
+
+    }
+    public function hola(){
+        $this->load->view('Principal/manitas');
     }
 
 }

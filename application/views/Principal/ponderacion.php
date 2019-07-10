@@ -8,8 +8,8 @@
     <title>Survey</title>
     <link href="<?= base_url('assets/css/ponderacion.css') ?>" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/images/logo3.png">
-	<link href="<?= base_url() ?>assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="<?= base_url() ?>assets/css/pages/card-page.css">
+    <link href="<?= base_url() ?>assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/pages/card-page.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="<?= base_url('assets/js/ponderacion.js') ?>"></script>
@@ -26,8 +26,8 @@
                     <h4 class="card-title"><?= $encuesta->NombreEncuesta ?></h4>
                     <?php $num = 1;
                     foreach ($encuesta->preguntas as $pregunta) { ?>
-                    <p></p>
-							<h4 class="col-md-offset-1"><?= $num ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h4>
+                        <p></p>
+                        <h4 class="col-md-offset-1"><?= $num ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h4>
                         <p class="clasificacion clasificacion<?= $num ?>">
                             <input id="radio1" type="radio" name="estrellas" value="1">
                             <label for="radio1">★</label>
@@ -54,32 +54,32 @@
         </div>
     </div>
     <?php $num = 1;
-        foreach ($encuesta->preguntas as $pregunta) { ?>
-    <script>
-        $(".clasificacion<?=$num?>").find("input").change(function() {
-            var valor = $(this).val()
-            $(".clasificacion<?=$num?>").find("input").removeClass("activo")
-            $(".clasificacion<?=$num?>").find("input").each(function(index) {
-                if (index + 1 <= valor) {
-                    $(this).addClass("activo")
-                }
+    foreach ($encuesta->preguntas as $pregunta) { ?>
+        <script>
+            $(".clasificacion<?= $num ?>").find("input").change(function() {
+                var valor = $(this).val()
+                $(".clasificacion<?= $num ?>").find("input").removeClass("activo")
+                $(".clasificacion<?= $num ?>").find("input").each(function(index) {
+                    if (index + 1 <= valor) {
+                        $(this).addClass("activo")
+                    }
 
+                })
             })
-        })
 
-        $(".clasificacion<?=$num?>").find("label").mouseover(function() {
-            var valor = $(this).prev("input").val()
-            $(".clasificacion<?=$num?>").find("input").removeClass("activo")
-            $(".clasificacion<?=$num?>").find("input").each(function(index) {
-                if (index + 1 <= valor) {
-                    $(this).addClass("activo")
-                }
+            $(".clasificacion<?= $num ?>").find("label").mouseover(function() {
+                var valor = $(this).prev("input").val()
+                $(".clasificacion<?= $num ?>").find("input").removeClass("activo")
+                $(".clasificacion<?= $num ?>").find("input").each(function(index) {
+                    if (index + 1 <= valor) {
+                        $(this).addClass("activo")
+                    }
 
+                })
             })
-        })
-    </script>
-    <?php $num++;
-        } ?>
+        </script>
+        <?php $num++;
+    } ?>
 </body>
 
 </html>
