@@ -26,8 +26,3 @@
         </a>
     </div>
 </div>
-<script>
-    $('.carousel').carousel({
-        interval: 500
-    })
-</script>

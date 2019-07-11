@@ -24,7 +24,7 @@
 	<header class="topheader" id="top" style="background-color:black;">
 		<div class="fix-width">
 			<nav class="navbar navbar-expand-md navbar-light p-l-0">
-				<a class="navbar-brand" href="#"><img src="<?= base_url() ?>assets/images/Logo.png" alt="Home" width="120" height="50"/></a>
+				<a class="navbar-brand" href="#"><img src="<?= base_url() ?>assets/images/Logo.png" alt="Home" width="120" height="50" /></a>
 				<ul class="navbar-nav ml-auto stylish-nav">
 					<!-- Logo will be here -->
 					<div class="col-md-12">
@@ -74,7 +74,7 @@
 				<!-- ============================================================== -->
 				<!-- Contenido del area de publicidad -->
 				<!-- ============================================================== -->
-				<div class="container-fluid" style="position:relative; padding-top:250px">
+				<div class="container-fluid" style="position:relative; padding-top:150px">
 					<div class="col-md-12" id=""><br><br><br>
 						<div style="top:150" id="publicidad"></div>
 					</div>
@@ -83,39 +83,26 @@
 				<!--  barra verde -->
 				<!-- ============================================================== -->
 				<div class="row">
-					<div class="col-md-12 call-to-action" style="background-color:#18927e">
-						<div class="fix-width"></div>
-					</div>
-				</div>
-				<!-- ============================================================== -->
-				<!-- Fin Barra verde -->
-				<!-- ============================================================== -->
-				<!-- ============================================================== -->
-				<!--  Contenido Logos de empresas -->
-				<!-- ============================================================== -->
-				<div class="row">
-					<div class="col-md-12 call-to-action" style="background-color:none">
-						<div class="fix-width" id="empresas"></div>
-					</div>
-				</div>
-				<!-- ============================================================== -->
-				<!-- End Contenido de los logos -->
-				<!-- ============================================================== -->
-				<!-- ============================================================== -->
-				<!-- footer -->
-				<!-- ============================================================== -->
-				<footer class="footer row" style="background-color:black;">
-					<div class="fix-width">
-						<div class="row">
-							<div class="col-lg-3 col-md-6">
-								<ul class="footer-link list-icons"></ul>
-							</div>
+					<div class="row">
+						<div class="col-md-12" style="background-color:none">
+							<div class="fix-width" id="empresas"></div>
 						</div>
-				</footer>
-				<!-- ============================================================== -->
-				<!-- End footer -->
-				<!-- ============================================================== -->
+					</div>
+				</div>
 			</section>
+			<!-- ============================================================== -->
+			<!-- Fin Barra verde -->
+			<!-- ============================================================== -->
+			<!-- ============================================================== -->
+			<!-- footer -->
+			<!-- ============================================================== -->
+			<footer class="" style="background-color:black; height:50px">
+			<br>
+			<h4 class="text-center">2019 The Next Services</h4>
+			</footer>
+			<!-- ============================================================== -->
+			<!-- End footer -->
+			<!-- ============================================================== -->
 			<!-- ============================================================== -->
 			<!-- End Container fluid  -->
 			<!-- ============================================================== -->
