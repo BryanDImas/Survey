@@ -66,10 +66,10 @@
 
 
     <!-- Row -->
-    <div>
+    <div class="colums">
         <div class="row ">
             <!-- column -->
-            <div class="col-lg-4 col-md-7">
+            <div class="col-lg-3 col-md-5">
                 <!-- Card -->
                 <div class="card card-inverse" style="background-color: yellow; border-color: #333;">
                     <div class="card-header">
@@ -81,11 +81,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+      
 
         <div class="row ">
             <!-- column -->
-            <div class="col-lg-4 col-md-7">
+            <div class="col-lg-12 col-md-16">
                 <!-- Card -->
                 <div class="card card-inverse" style="background-color:aqua; border-color: #333;">
                     <div class="card-header">
@@ -98,6 +98,23 @@
                 </div>
             </div>
         </div>
+
+        <div class="row ">
+            <!-- column -->
+            <div class="col-lg-12 col-md-16">
+                <!-- Card -->
+                <div class="card card-inverse" style="background-color:aqua; border-color: #333;">
+                    <div class="card-header">
+                        <h4 class=" text-white">Video 2</h4>
+                        <h5 class="card-title">¿Cómo crear publicidad?</h5>
+                    </div>
+                    <div class="card-body">
+                        <img class=" embed-responsive-item card-video video-responsive" style=align:center> <video controls src="<?= base_url() ?>assets/videos/Survey.mp4" width="385" height="200"></video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 <!-- End Row -->
 <!-- ============================================================== -->
