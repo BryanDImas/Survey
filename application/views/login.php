@@ -8,12 +8,11 @@
 	<!-- Favicon icon -->
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/images/logo3.png">
 	<title>Survey</title>
-	<link href="<?= base_url() ?>assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/12fe8082b5.js"></script>
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/styleII.css">
+	<link href="<?= base_url() ?>assets/style.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url() ?>assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?= base_url() ?>assets/css/pages/login-register-lock.css" rel="stylesheet">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
 
 </head>
 
@@ -70,7 +69,7 @@
 			<!-- ============================================================== -->
 			<!-- Container fluid  -->
 			<!-- ============================================================== -->
-			<section class="container-fluid" style="background-repeat: no-repeat; background-size:cover; background-image:url(<?= base_url() ?>assets/images/background/tec.jpg);  width:100%;"><br>
+			<div class="container-fluid" style="background-repeat: no-repeat; background-size:cover; background-image:url(<?= base_url() ?>assets/images/background/tec.jpg);  width:100%;"><br>
 				<!-- ============================================================== -->
 				<!-- Contenido del area de publicidad -->
 				<!-- ============================================================== -->
@@ -82,14 +81,12 @@
 				<!-- ============================================================== -->
 				<!--  barra verde -->
 				<!-- ============================================================== -->
-				<div class="row">
-					<div class="row">
-						<div class="col-md-12" style="background-color:none">
-							<div class="fix-width" id="empresas"></div>
-						</div>
+				<div class="">
+					<div class="" style="background-color:yellow">
+						<div id="empresas"></div>
 					</div>
 				</div>
-			</section>
+			</div>
 			<!-- ============================================================== -->
 			<!-- Fin Barra verde -->
 			<!-- ============================================================== -->
@@ -97,8 +94,8 @@
 			<!-- footer -->
 			<!-- ============================================================== -->
 			<footer class="" style="background-color:black; height:100px">
-			<br>
-			<h4 class="text-center"> &copy; 2019 The Next Services, SA de CV. <br> Todos los Derechos Reservados.</h4>
+				<br>
+				<h4 class="text-center"> &copy; 2019 The Next Services, SA de CV. <br> Todos los Derechos Reservados.</h4>
 			</footer>
 			<!-- ============================================================== -->
 			<!-- End footer -->
@@ -120,14 +117,9 @@
 	<script src="<?= base_url() ?>assets/js/Login.js"></script>
 	<script src="<?= base_url() ?>assets/node_modules/jquery/jquery.min.js"></script>
 	<!-- Bootstrap tether Core JavaScript -->
+	<script type="text/javascript" src="<?= base_url() ?>assets/js/jquery.flexisel.js"></script>
 	<script src="<?= base_url() ?>assets/node_modules/bootstrap/js/popper.min.js"></script>
 	<script src="<?= base_url() ?>assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-    $('.carousel').carousel({
-        interval: 2000,
-    });
-
-</script>
 </body>
 
 </html>
