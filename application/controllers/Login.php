@@ -37,7 +37,6 @@ class Login extends CI_Controller 					# Controlador del área del login.
 			/* die($a); */
 			$datos=[ $pass,$c];
 			$res = $this->LoginModel->verificar($datos);
-	/* 		print_r($res); die; */
 			if (!is_null($res)) {
 				$ser = $this->EmpresasModel->obtenerId($res->idEmpresa);
 				$this->session->set_userdata('empresa', $ser);

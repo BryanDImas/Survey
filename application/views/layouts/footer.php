@@ -38,7 +38,7 @@
         <!-- footer -->
         <!-- ============================================================== -->
         <footer class="footer">
-            2019 NextServices
+        &copy; 2019 The Next Services, SA de CV. Todos los Derechos Reservados.
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->

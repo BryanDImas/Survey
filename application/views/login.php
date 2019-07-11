@@ -35,7 +35,7 @@
 										<a href="javascript:void(0)" class="text-center db"><img src="<?= base_url() ?>assets/images/logo3.png" alt="Home" width="15%" /><span><img src="<?= base_url() ?>assets/images/text-logo.png" alt="Home" width="42%" /></span></a>
 										<div class="form-group m-t-40">
 											<div class="col-xs-12">
-												<input name="usua" class="text-center form-control" type="text" placeholder="Usuario">
+												<input name="usua" class="text-center form-control" type="text" placeholder="Correo">
 											</div>
 										</div>
 										<div class="form-group">

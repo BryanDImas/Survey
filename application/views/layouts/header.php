@@ -56,14 +56,26 @@
                     <!-- User profile and search -->
                     <ul class="navbar-nav my-lg-0">
                         <li class="nav-item dropdown u-pro">
-                            <a class="nav-link dropdown-toggle waves-effect profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user" class="" /> <span class="hidden-md-down"><?= $this->session->usuario->Usuario ?> &nbsp;<i class="fa fa-angle-down"></i></span> </a>
+                            <a class="nav-link dropdown-toggle waves-effect profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?php if ($this->session->usuario->Foto != '') { ?>
+                                    <img src="<?= base_url() ?><?= $this->session->usuario->Foto ?>" alt="user" class="" />
+                                <?php } else { ?>
+                                    <img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user" class="" />
+                                <?php } ?>
+                                <span class="hidden-md-down"><?= $this->session->usuario->Usuario ?> &nbsp;<i class="fa fa-angle-down"></i></span> </a>
                             <div class="dropdown-menu dropdown-menu-right animated flipInY">
                                 <ul class="dropdown-user">
                                     <li class="nav-item dropdown u-pro">
                                         <ul class="dropdown-user">
                                             <li>
                                                 <div class="dw-user-box">
-                                                    <div class="u-img"><img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user"></div>
+                                                    <div class="u-img">
+                                                        <?php if ($this->session->usuario->Foto != '') { ?>
+                                                            <img src="<?= base_url() ?><?= $this->session->usuario->Foto ?>" alt="user">
+                                                        <?php } else { ?>
+                                                            <img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user">
+                                                        <?php } ?>
+                                                    </div>
                                                     <div class="u-text">
                                                         <h4><?= $this->session->usuario->Usuario ?></h4>
                                                         <?php if ($this->session->usuario->Rol != 'Administrador') { ?>

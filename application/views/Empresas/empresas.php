@@ -56,14 +56,26 @@
     				<!-- User profile and search -->
     				<ul class="navbar-nav my-lg-0">
     					<li class="nav-item dropdown u-pro">
-    						<a class="nav-link dropdown-toggle waves-effect profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user" class="" /> <span class="hidden-md-down"><?= $this->session->usuario->Usuario ?> &nbsp;<i class="fa fa-angle-down"></i></span> </a>
+    						<a class="nav-link dropdown-toggle waves-effect profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    							<?php if ($this->session->usuario->Foto != '') { ?>
+    								<img src="<?= base_url() ?><?= $this->session->usuario->Foto ?>" alt="user" class="" />
+    							<?php } else { ?>
+    								<img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user" class="" />
+    							<?php } ?>
+    							<span class="hidden-md-down"><?= $this->session->usuario->Usuario ?> &nbsp;<i class="fa fa-angle-down"></i></span> </a>
     						<div class="dropdown-menu dropdown-menu-right animated flipInY">
     							<ul class="dropdown-user">
     								<li class="nav-item dropdown u-pro">
     									<ul class="dropdown-user">
     										<li>
     											<div class="dw-user-box">
-    												<div class="u-img"><img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user"></div>
+    												<div class="u-img">
+    													<?php if ($this->session->usuario->Foto != '') { ?>
+    														<img src="<?= base_url() ?><?= $this->session->usuario->Foto ?>" alt="user">
+    													<?php } else { ?>
+    														<img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user">
+    													<?php } ?>
+    												</div>
     												<div class="u-text">
     													<h4><?= $this->session->usuario->Usuario ?></h4>
     													<?php if ($this->session->usuario->Rol != 'Administrador') { ?>
@@ -162,35 +174,35 @@
     				<div class="col-12">
     					<div class="card">
     						<div class="card-body">
-							<div class="table-responsive">
-    							<table class="table table-hover table-bordered">
-    								<thead class="text-center table-bordered">
-    									<tr>
-    										<th>Nombre</th>
-    										<th>Dirección Fisica</th>
-    										<th>Correo </th>
-    										<th>Telefono</th>
-    										<th colspan="2">Opciones</th>
-    									</tr>
-    								</thead>
-    								<tbody>
-    									<?php foreach ($empresas as $empre) { ?>
+    							<div class="table-responsive">
+    								<table class="table table-hover table-bordered">
+    									<thead class="text-center table-bordered">
     										<tr>
-    											<td><?= $empre->NombreComercial ?></td>
-    											<td><?= $empre->DireccionFisica ?></td>
-    											<td><?= $empre->Correo ?></td>
-    											<td><?= $empre->Telefono ?></td>
-    											<td>
-    												<a href="<?= base_url() ?>EmpresasC/eliminar/<?= $empre->idEmpresa ?>" class=" btn btn-block btn-outline-danger i fa fa-trash-alt"></a>
-    											</td>
-    											<td>
-    												<a href="<?= base_url() ?>EmpresasC/vermas/<?= $empre->idEmpresa ?>" class=" btn btn-block btn-outline-success i  fas fa-plus-circle"> Ver más </a>
-    											</td>
+    											<th>Nombre</th>
+    											<th>Dirección Fisica</th>
+    											<th>Correo </th>
+    											<th>Telefono</th>
+    											<th colspan="2">Opciones</th>
     										</tr>
-    									<?php } ?>
-    								</tbody>
-    							</table>
-								</div>
+    									</thead>
+    									<tbody>
+    										<?php foreach ($empresas as $empre) { ?>
+    											<tr>
+    												<td><?= $empre->NombreComercial ?></td>
+    												<td><?= $empre->DireccionFisica ?></td>
+    												<td><?= $empre->Correo ?></td>
+    												<td><?= $empre->Telefono ?></td>
+    												<td>
+    													<a href="<?= base_url() ?>EmpresasC/eliminar/<?= $empre->idEmpresa ?>" class=" btn btn-block btn-outline-danger i fa fa-trash-alt"></a>
+    												</td>
+    												<td>
+    													<a href="<?= base_url() ?>EmpresasC/vermas/<?= $empre->idEmpresa ?>" class=" btn btn-block btn-outline-success i  fas fa-plus-circle"> Ver más </a>
+    												</td>
+    											</tr>
+    										<?php } ?>
+    									</tbody>
+    								</table>
+    							</div>
     						</div>
     					</div>
     				</div>
