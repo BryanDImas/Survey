@@ -49,7 +49,7 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<div class="col-sm-12 text-center alert">
+											<div class="alert alert-success col-sm-12 text-center alert">
 												<?= validation_errors(); ?>
 											</div>
 										</div>
@@ -82,7 +82,7 @@
 				<!--  barra verde -->
 				<!-- ============================================================== -->
 				<div class="">
-					<div class="" style="background-color:yellow">
+					<div class="" style="background-color:light">
 						<div id="empresas"></div>
 					</div>
 				</div>
@@ -95,7 +95,7 @@
 			<!-- ============================================================== -->
 			<footer class="" style="background-color:black; height:100px">
 				<br>
-				<h4 class="text-center"> &copy; 2019 The Next Services, SA de CV. <br> Todos los Derechos Reservados.</h4>
+				<h6 class="text-center text-themecolor" > &copy; 2019 The Next Services, SA de CV. Todos los Derechos Reservados.</h6>
 			</footer>
 			<!-- ============================================================== -->
 			<!-- End footer -->
