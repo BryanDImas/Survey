@@ -31,7 +31,7 @@
                     <p>
                         <h5>¿Desea agregar algún comentario?</h5>
                     </p>
-                    <textarea readonly class="textarea form-control" rows="4" style="border-color:#24d2b5; text-align:center; margin:1% auto; " placeholder="Agradeceriamos sus comentarios o sugerencias"></textarea>
+                    <textarea readonly class="textarea form-control" rows="4" style="border-color:#24d2b5; text-align:center; margin:1% auto; " placeholder="Agradecemos sus comentarios o sugerencias"></textarea>
                 </div>
                 <div>
                     <p>
@@ -48,7 +48,7 @@
                         <p>
                             <h5>Escriba un mensaje de finalización en el cuadro de texto.</h5>
                         </p>
-                        <textarea name="msj" class="form-control themecolor" rows="4" style="border-color:#24d2b5; text-align:center; margin:1% auto;" placeholder="Muchas Gracias por sus comentarios."></textarea>
+                        <textarea name="msj" class="form-control themecolor" rows="4" style="border-color:#24d2b5; text-align:center; margin:1% auto;" placeholder="Encuesta finalizada exitosamente,Agradecemos sus comentarios.">< /textarea>
                     </div>
                 </div>
         </div>

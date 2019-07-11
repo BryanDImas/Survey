@@ -13,23 +13,23 @@
 <body class="Container" style="background-color:silver">
     <header class="col-md-12" style="background-color:black; height:100px; color:white;">
         <h3><?= $encuesta->NombreEncuesta ?></h3>
-        <h4 class="float-right"><?= $encuesta->ObjetivoEncuesta ?></h4>
+        <h4 class="float-left"><?= $encuesta->ObjetivoEncuesta ?></h4>
     </header>
-    <div class="col-xs-12 col-sm-6 col-md-8 offset-1" style="background-color:none">
+    <div class="col-xs-12 col-sm-6 col-md-6 offset-2" style="background-color:none">
         <h1><?php echo nl2br($encuesta->MensajeInicio); ?></h1>
         <p></p>
         <?php if($encuesta->preguntas != ''){ ?>
-        <h3>Para mejorar nuestra experiencia, por favor rellene estas sencillas preguntas.</h3>
-        <p>
+        <h3> Para saber más información sobre usted por favor rellene estas sencillas preguntas.</h3>
+        
+         <br>
         <h6><?= $encuesta->preguntas[0]->Pregunta?></h6>
         <input type="number" name="edad" min="15" max="100">
-        </p>
-        <p>
+        
+        <br>
         <h6><?= $encuesta->preguntas[1]->Pregunta?></h6>
         <input type="radio" value="Femenino">Femenino
         <input type="radio" value="Masculino">Masculino
-        <input type="radio" value="Otro">Otro
-        </p>
+        <br><br>
         <p>
         <h6><?= $encuesta->preguntas[2]->Pregunta?></h6>
         <select name="ciudad" id="">
@@ -38,6 +38,7 @@
             <?php } ?>
         </select>
         </p>
+        <p></p>
             <?php } ?>
         <a href="<?= base_url('PrincipalC/iniciar/')?>?a=<?=base64_encode($encuesta->idEncuesta)?>" class="btn btn-rounded btn-outline-info float-right">Iniciar</a>
     </div>

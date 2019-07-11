@@ -28,7 +28,7 @@
 			<img class="box-center" src="<?php echo base_url() . "uploads/qr_code/" . $img ?>" />
 			<p></p>
 			<div class="d-flex justify-content-center">
-				<a download="<?php echo $img ?>" href="<?php echo base_url() . "uploads/qr_code/" . $img ?>" title="<?php echo $img ?>" class="btn btn-nue btn-rounded ">Descargar</a>
+				<a download="<?php echo $img ?>" href="<?php echo base_url() . "uploads/qr_code/" . $img ?>" title="<?php echo $img ?>" class="btn btn-primary btn-rounded ">Descargar</a>
 			</div>
 		</div>
 
@@ -47,7 +47,7 @@
 	<br>
 	<div>
 		<p></p>
-		<h4 class="text-center"> 2019 The Next Services</h4>
+		<h4 class="text-center"> 2019 &copy; The Next Services, SA de CV. Todos los Derechos Reservados.</h4>
 		</div>
 	</footer>
 </body>

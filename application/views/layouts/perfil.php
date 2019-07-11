@@ -25,10 +25,10 @@
 	<!-- ============================================================== -->
 	<div class="row" style="position: relative;">
 		<div class="col-12">
-			<div class=""><img src="<?= base_url('assets/images/background/tec.jpg') ?>" width="100%" height="150"></div>
+			<div class=""><img src="<?= base_url('assets/images/background/tec3.jpg') ?>" width="100%" height="150"></div>
 			<div class="card">
-				<div style="position: absolute; left: 35%; top: -40px;">
-					<h3>Empresa</h3>
+				<div style="position: absolute; left: 35%; top: 6px;">
+					<h3>Informacion de la empresa</h3>
 					<hr style="width:875%;">
 				</div>
 				<div class="card-body">
@@ -66,7 +66,7 @@
 								<div class="tab-content">
 									<div class="tab-pane active" id="home">
 										<div class="form-group">
-											<div class="col-xs-6">
+											<div class="col-xs-6"><br><br>
 												<label><h4 class="text-themecolor">Nombre Comercial:</h4></label><br>
 												<label><h6><?= $empresa->NombreComercial ?></h6></label>
 											</div>

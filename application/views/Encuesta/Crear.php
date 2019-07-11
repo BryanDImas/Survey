@@ -33,15 +33,15 @@
 						<div class="small">
 							<span>*El mensaje de inicio es una introducción que aparecera al inicio de la encuesta. Puede incluir el nombre de la compañia, las instrucciones para completar la encuesta o un mensaje de bienvenida.</span>
 						</div>
-						<textarea name="msj" class="form-control" rows="5" style="border-color:#24d2b5;" placeholder="">Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.</textarea>
+						<textarea name="msj" class="form-control" rows="5" style="border-color:#24d2b5; align-text:center;" placeholder="">Bienvenido(a). Gracias por su visita, contestando la siguiente encuesta, nos ayudara a mejorar.</textarea>
 					</div>
 					<div class="form-group">
 						<label>Nombre de la encuesta: </label>
-						<input type="text" class="form-control" name="nom" style="border-color:#24d2b5;" required>
+						<input type="text" class="form-control" name="nom" style="border-color:#24d2b5;" placeholder="Escriba un nombre para su encuesta ejemplo: Encuesta de satisfaccion del cliente" required>
 					</div>
 					<div class="form-group">
 						<label for="example">Objetivo de la encuesta: </label>
-						<input type="text" name="obj" class="form-control" style="border-color:#24d2b5;" required>
+						<input type="text" name="obj" class="form-control" style="border-color:#24d2b5;" placeholder="Escriba aqui lo que quiere conocer al realizar esta encuesta ejemplo: Medir la satisfacción de los clientes respecto a un producto"required>
 					</div>
 					<div class="form-group">
 						<label>Vigencia</label>

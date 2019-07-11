@@ -9,21 +9,23 @@
     <link href="<?= base_url('assets/css/ponderacion.css') ?>" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/images/logo3.png">
     <link href="<?= base_url() ?>assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/pages/card-page.css">
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="<?= base_url('assets/js/ponderacion.js') ?>"></script>
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/pages/cardpage.css">
 </head>
 
 <body>
     <div class="container-fluid">
-        <div class="card text-center">
+        <div class="card card-inverse text-center">
             <div class="card-header">
                 Survey
             </div>
             <form method="POST" action="<?= base_url('PrincipalC/capturar/') ?>">
                 <div class="card-body">
                     <h4 class="card-title"><?= $encuesta->NombreEncuesta ?></h4>
+                    <h6><?= $encuesta->ObjetivoEncuesta ?></h6>
                     <?php $num = 1;
                     foreach ($encuesta->preguntas as $pregunta) { ?>
                         <p></p>
