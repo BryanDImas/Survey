@@ -1,8 +1,8 @@
-<div class="container-fluid">
+<div class="bd-example">
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <?php for ($i = 0; $i < count($imgs); $i++) { ?>
             <ol class="carousel-indicators">
-                <li data-target="#carouselExampleCaptions" data-slide-to="<?= $i ?>" class="<?= $i == 1 ? 'active' : '' ?>"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="<?= base_url($imgs[$i]->IdPub) ?>" class="<?= $i == 1 ? 'active' : '' ?>"></li>
             <?php } ?>
         </ol>
         <div class="carousel-inner">
@@ -28,6 +28,6 @@
 </div>
 <script>
     $('.carousel').carousel({
-  interval: 50
-})
+        interval: 500
+    })
 </script>

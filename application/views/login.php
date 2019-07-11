@@ -21,10 +21,10 @@
 	<!-- ============================================================== -->
 	<!-- Topbar header - style you can find in pages.scss -->
 	<!-- ============================================================== -->
-	<header class="topheader" id="top" style="background-color:black; height:50px;">
+	<header class="topheader" id="top" style="background-color:black;">
 		<div class="fix-width">
 			<nav class="navbar navbar-expand-md navbar-light p-l-0">
-				<a class="navbar-brand" href="#"><img src="<?= base_url() ?>assets/images/Logo.png" alt="Home" width="" /></a>
+				<a class="navbar-brand" href="#"><img src="<?= base_url() ?>assets/images/Logo.png" alt="Home" width="120" height="50"/></a>
 				<ul class="navbar-nav ml-auto stylish-nav">
 					<!-- Logo will be here -->
 					<div class="col-md-12">
@@ -74,7 +74,7 @@
 				<!-- ============================================================== -->
 				<!-- Contenido del area de publicidad -->
 				<!-- ============================================================== -->
-				<div class="container-fluid" style="padding-top:100">
+				<div class="container-fluid" style="position:relative; padding-top:250px">
 					<div class="col-md-12" id=""><br><br><br>
 						<div style="top:150" id="publicidad"></div>
 					</div>
