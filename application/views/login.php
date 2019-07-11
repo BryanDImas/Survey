@@ -18,65 +18,65 @@
 </head>
 
 <body class="fix-header">
-	<div id="main-wrapper">
-		<!-- ============================================================== -->
-		<!-- Topbar header - style you can find in pages.scss -->
-		<!-- ============================================================== -->
-		<header class="topheader" id="top" style="background-color:black">
-			<div class="fix-width">
-				<nav class="navbar navbar-expand-md navbar-light p-l-0">
-					<a class="navbar-brand" href="#"><img src="<?= base_url() ?>assets/images/Logo.png" alt="Home" width="" /></a>
-					<ul class="navbar-nav ml-auto stylish-nav">
-						<!-- Logo will be here -->
-						<div class="col-md-12">
-							<div class="login-box">
-								<div class="container">
-									<a href='#' data-toggle='dropdown' class="top_bar_left clearfix  btn-sm text-uppercase m-t-4 btn btn-nue font-10" style="width:86%;">INICIAR SESION</a>
-									<div class='dropdown-menu' style='padding: 4%; padding-bottom: 2%; background: black; width: 80%'>
-										<form class="form-horizontal form-material" id="loginform" action="<?= base_url() ?>login/validar" method="post" autocomplete="off">
-											<a href="javascript:void(0)" class="text-center db"><img src="<?= base_url() ?>assets/images/logo3.png" alt="Home" width="10%" /><span><img src="<?= base_url() ?>assets/images/text-logo.png" alt="Home" width="40%" /></span></a>
-											<div class="form-group m-t-40">
-												<div class="col-xs-12">
-													<input name="usua" class="text-center form-control" type="text" placeholder="Usuario">
-												</div>
+	<!-- ============================================================== -->
+	<!-- Topbar header - style you can find in pages.scss -->
+	<!-- ============================================================== -->
+	<header class="topheader" id="top" style="background-color:black; height:50;">
+		<div class="fix-width">
+			<nav class="navbar navbar-expand-md navbar-light p-l-0">
+				<a class="navbar-brand" href="#"><img src="<?= base_url() ?>assets/images/Logo.png" alt="Home" width="" /></a>
+				<ul class="navbar-nav ml-auto stylish-nav">
+					<!-- Logo will be here -->
+					<div class="col-md-12">
+						<div class="login-box">
+							<div class="container">
+								<a href='#' data-toggle='dropdown' class="top_bar_left clearfix  btn-sm text-uppercase m-t-4 btn btn-nue font-10" style="width:86%;">INICIAR SESION</a>
+								<div class='dropdown-menu' style='padding: 4%; padding-bottom: 2%; background: black; width: 80%'>
+									<form class="form-horizontal form-material" id="loginform" action="<?= base_url() ?>login/validar" method="post" autocomplete="off">
+										<a href="javascript:void(0)" class="text-center db"><img src="<?= base_url() ?>assets/images/logo3.png" alt="Home" width="10%" /><span><img src="<?= base_url() ?>assets/images/text-logo.png" alt="Home" width="40%" /></span></a>
+										<div class="form-group m-t-40">
+											<div class="col-xs-12">
+												<input name="usua" class="text-center form-control" type="text" placeholder="Usuario">
 											</div>
-											<div class="form-group">
-												<div class="col-xs-12">
-													<input name="clave" class="text-center form-control" type="password" placeholder="Contraseña">
-												</div>
+										</div>
+										<div class="form-group">
+											<div class="col-xs-12">
+												<input name="clave" class="text-center form-control" type="password" placeholder="Contraseña">
 											</div>
-											<div class="form-group text-center m-t-20">
-												<div class="col-xs-4">
-													<button class="btn btn-nue btn-block text-uppercase btn-rounded">Ingresar</button>
-												</div>
+										</div>
+										<div class="form-group text-center m-t-20">
+											<div class="col-xs-4">
+												<button class="btn btn-nue btn-block text-uppercase btn-rounded">Ingresar</button>
 											</div>
-											<div class="form-group">
-												<div class="col-sm-12 text-center alert">
-													<?= validation_errors(); ?>
-												</div>
+										</div>
+										<div class="form-group">
+											<div class="col-sm-12 text-center alert">
+												<?= validation_errors(); ?>
 											</div>
-										</form>
-									</div>
+										</div>
+									</form>
 								</div>
 							</div>
 						</div>
-
-				</nav>
-		</header>
-		<!-- ============================================================== -->
-		<!-- Page wrapper  -->
-		<!-- ============================================================== -->
+					</div>
+				</ul>
+			</nav>
+	</header>
+	<!-- ============================================================== -->
+	<!-- Page wrapper  -->
+	<!-- ============================================================== -->
+	<div id="main-wrapper">
 		<div class="page-wrapper">
 			<!-- ============================================================== -->
 			<!-- Container fluid  -->
 			<!-- ============================================================== -->
-			<div class="container-fluid" style="background-repeat: no-repeat; background-size:cover; background-image:url(<?= base_url() ?>assets/images/background/tec.jpg);  width:100%;">
+			<section class="container-fluid" style="background-repeat: no-repeat; background-size:cover; background-image:url(<?= base_url() ?>assets/images/background/tec.jpg);  width:100%;"><br>
 				<!-- ============================================================== -->
 				<!-- Contenido del area de publicidad -->
 				<!-- ============================================================== -->
-				<div class="fix-width">
-					<div class="col-md-12" id="publicidad">
-						<div class="col-lg-5 m-t-20" id="publicidad"></div>
+				<div class="container-fluid" style="padding-top:100">
+					<div class="col-md-12" id=""><br><br><br>
+						<div style="top:150" id="publicidad"></div>
 					</div>
 				</div>
 				<!-- ============================================================== -->
@@ -115,7 +115,7 @@
 				<!-- ============================================================== -->
 				<!-- End footer -->
 				<!-- ============================================================== -->
-			</div>
+			</section>
 			<!-- ============================================================== -->
 			<!-- End Container fluid  -->
 			<!-- ============================================================== -->
@@ -129,8 +129,8 @@
 	<!-- ============================================================== -->
 	<script type="text/javascript">
 		var baseUrl = "<?= base_url() ?>";
-		</script>
-		<script src="<?= base_url() ?>assets/js/Login.js"></script>
+	</script>
+	<script src="<?= base_url() ?>assets/js/Login.js"></script>
 	<script src="<?= base_url() ?>assets/node_modules/jquery/jquery.min.js"></script>
 	<!-- Bootstrap tether Core JavaScript -->
 	<script src="<?= base_url() ?>assets/node_modules/bootstrap/js/popper.min.js"></script>

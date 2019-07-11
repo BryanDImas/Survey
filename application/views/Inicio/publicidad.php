@@ -26,3 +26,8 @@
         </a>
     </div>
 </div>
+<script>
+    $('.carousel').carousel({
+  interval: 50
+})
+</script>
