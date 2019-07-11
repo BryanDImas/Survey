@@ -33,6 +33,7 @@
                     </p>
                     <input type="hidden" name="resul" id="resul" value="No">
                     <input type="hidden" name="encuesta" value=<?= $_GET['e']?>>
+                    <input type="hidden" name="qr" value="<?= base_url() ?>PrincipalC/index/?e=<?= base64_encode($_GET['e']) ?>">
                     <div class="custom-control custom-switch" style="color:#24d2b5;">
                         <input type="checkbox" class="custom-control-input" id="customSwitch1" value="1" onchange="javascript:showContent()">
                         <label class="custom-control-label" for="customSwitch1">Mostrar resultados</label>
