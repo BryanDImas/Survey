@@ -17,11 +17,11 @@
 
 </head>
 
-<body class="fix-header">
+<body>
 	<!-- ============================================================== -->
 	<!-- Topbar header - style you can find in pages.scss -->
 	<!-- ============================================================== -->
-	<header class="topheader" id="top" style="background-color:black; height:50;">
+	<header class="topheader" id="top" style="background-color:black; height:50px;">
 		<div class="fix-width">
 			<nav class="navbar navbar-expand-md navbar-light p-l-0">
 				<a class="navbar-brand" href="#"><img src="<?= base_url() ?>assets/images/Logo.png" alt="Home" width="" /></a>

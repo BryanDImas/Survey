@@ -1,4 +1,4 @@
-<div class="bd-example">
+<div class="container-fluid">
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <?php for ($i = 0; $i < count($imgs); $i++) { ?>
             <ol class="carousel-indicators">
