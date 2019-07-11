@@ -28,6 +28,7 @@
     <link href="<?= base_url() ?>assets/node_modules/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/node_modules/ion-rangeslider/css/ion.rangeSlider.skinModern.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/node_modules/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
+    <link href="<?= base_url()?>assets/css/pages/cardpage.css" rel="stylesheet">
 
 </head>
 
