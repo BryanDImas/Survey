@@ -24,11 +24,17 @@ class ResultadosC extends CI_Controller
 	// Acción que nos devuelve la vista de las estadisticas.
 	public function grafi()
 	{
+		if($this->session->empresa->TipoCuenta == 'Basica'){
+			echo "<script>alert('Para tener acceso a esta área comuniquese con el administrador y cambie su cuenta a Avanzada');</script>";
+		}else{
 		$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 		$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
 		$this->load->view('resultados/estadisticas'); #cargamos la vista que contiene los resultados.
 		$this->load->view('layouts/footer'); #cargamos la vista que contiene el pie de página.
-	}
+		}
+		/* redirect('ResultadosC/'); */   
+		self::index();
+    }
 	//Acción que nos devuelve la vista del tutorial.
 	public function tutorial()
 	{
@@ -43,15 +49,11 @@ class ResultadosC extends CI_Controller
 		public function exportCSV($id)
 		{
 			$usersData = $this->ResultadosM->exportar($id);
-			
-		/* 	echo "<pre>";
-			print_r($usersData); */
+
 
 			for($i = 0; $i < count($usersData); $i++) {
 				$usersData[$i]['respuestas'] = $this->ResultadosM->obtenerRespuestas($usersData[$i]['idPregunta']);
 			}
-
-/* 			print_r($usersData); die; */
 			// file name 
 			$filename = 'resultados_' . date('Y-m-d') . '.csv';
 			header("Content-Description: File Transfer");

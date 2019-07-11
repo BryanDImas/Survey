@@ -107,7 +107,7 @@
           </div>
           <!-- Modal footer -->
           <div class="modal-footer">
-            <input type="submit" class="btn btn-rounded btn-outline-success" value="Crear">
+            <input type="submit" class="btn btn-rounded btn-outline-success" value="Actualizar">
           </div>
           </form>
         </div>

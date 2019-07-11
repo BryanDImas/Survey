@@ -43,7 +43,7 @@ class EncuestasModel extends CI_Model
     }
     # Método que nos ingresa los ultimos datos necesarios para la tabla encuesta.
     public function fin($datos){
-        $sql = "UPDATE encuestas SET Resultados = ?, MensajeFinalizacion = ? WHERE idEncuesta = ?";
+        $sql = "UPDATE encuestas SET Resultados = ?, MensajeFinalizacion = ?, Url = ? WHERE idEncuesta = ?";
         $this->db->query($sql,$datos);
     }
     # Método que ingresa el formato en la tabla encuesta

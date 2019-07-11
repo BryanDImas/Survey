@@ -31,9 +31,12 @@ class Login extends CI_Controller 					# Controlador del área del login.
 		$this->form_validation->set_rules('clave', 'Contraseña', 'required|regex_match[/[1-9]{5,10}/]', ['required' => 'El campo %s es requerido', 'regex_match' => 'Uno de los campos no coincide']);
 		if ($this->form_validation->run()) {
 			$pass = sha1($this->input->post('clave'));
-			$datos[] = $this->input->post('usua');
-			$datos[] = $pass;
-			$res = $this->LoginModel->validar($datos);
+			$a = $this->input->post('usua');
+			$b = $this->LoginModel->validar($a);
+			$c = $b->idUsuario;
+			/* die($a); */
+			$datos=[ $pass,$c];
+			$res = $this->LoginModel->verificar($datos);
 			if (!is_null($res)) {
 				$ser = $this->EmpresasModel->obtenerId($res->idEmpresa);
 				$this->session->set_userdata('empresa', $ser);

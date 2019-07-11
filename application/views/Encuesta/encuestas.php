@@ -48,23 +48,35 @@
     					<!-- Search -->
     					<!-- ============================================================== -->
     					<li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="icon-Magnifi-Glass2"></i></a>
-						<form class="app-search" action="<?=base_url('EncuestasC/index/')?>">
-                            <input type="hidden" name="pag" value="1">    
-                            <input name="key"  type="text" class="form-control" placeholder="Search & enter" id="search"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
-               				</form>
+    						<form class="app-search" action="<?= base_url('EncuestasC/index/') ?>">
+    							<input type="hidden" name="pag" value="1">
+    							<input name="key" type="text" class="form-control" placeholder="Search & enter" id="search"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
+    						</form>
     					</li>
     				</ul>
     				<!-- User profile and search -->
     				<ul class="navbar-nav my-lg-0">
     					<li class="nav-item dropdown u-pro">
-    						<a class="nav-link dropdown-toggle waves-effect profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user" class="" /> <span class="hidden-md-down"><?= $this->session->usuario->Usuario ?> &nbsp;<i class="fa fa-angle-down"></i></span> </a>
+    						<a class="nav-link dropdown-toggle waves-effect profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    							<?php if ($this->session->usuario->Foto != '') { ?>
+    								<img src="<?= base_url() ?><?= $this->session->usuario->Foto ?>" alt="user" class="" />
+    							<?php } else { ?>
+    								<img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user" class="" />
+    							<?php } ?>
+    							<span class="hidden-md-down"><?= $this->session->usuario->Usuario ?> &nbsp;<i class="fa fa-angle-down"></i></span> </a>
     						<div class="dropdown-menu dropdown-menu-right animated flipInY">
     							<ul class="dropdown-user">
     								<li class="nav-item dropdown u-pro">
     									<ul class="dropdown-user">
     										<li>
     											<div class="dw-user-box">
-    												<div class="u-img"><img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user"></div>
+    												<div class="u-img">
+    													<?php if ($this->session->usuario->Foto != '') { ?>
+    														<img src="<?= base_url() ?><?= $this->session->usuario->Foto ?>" alt="user">
+    													<?php } else { ?>
+    														<img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user">
+    													<?php } ?>
+    												</div>
     												<div class="u-text">
     													<h4><?= $this->session->usuario->Usuario ?></h4>
     													<?php if ($this->session->usuario->Rol != 'Administrador') { ?>
@@ -159,53 +171,56 @@
     			<!-- Start Page Content -->
     			<!-- ============================================================== -->
     			<div class="row" class="col-12">
-					
+
     				<div class="card">
     					<div class="card-body">
-						<div class="table-responsive">
-    						<table class="table table-hover table-bordered text-center">
-    							<thead class="text-center table-bordered">
-    								<tr>
-    									<th>Nombre de la encuesta</th>
-    									<th>Objetivo de la encuesta</th>
-    									<th>Estado</th>
-    									<th>Fecha de creación</th>
-    									<th>Fecha de finalización</th>
-    									<th>Mensaje de inicio</th>
-    									<th>Mensaje de finalización</th>
-    									<th colspan="4">Opciones</th>
-    								</tr>
-    							</thead>
-    							<tbody>
-    								<?php $id= 0; foreach ($encuestas as $encues) { ++$id; ?>
+    						<div class="table-responsive">
+    							<table class="table table-hover table-bordered text-center">
+    								<thead class="text-center table-bordered">
     									<tr>
-    										<td><?= $encues->NombreEncuesta ?></td>
-    										<td><?= $encues->ObjetivoEncuesta ?></td>
-    										<td><?= $encues->Estado ?></td>
-    										<td><?= $encues->FechaCreacion ?></td>
-    										<td><?= $encues->FechaFinalizacion ?></td>
-    										<td><?= $encues->MensajeInicio ?></td>
-    										<td><?= $encues->MensajeFinalizacion ?></td>
-    										<td>
-    											<a href="<?= base_url() ?>EncuestasC/eliminar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-danger i fas fa-trash-alt"> Borrar </a>
-    										</td>
-    										<td>
-    											<a href="<?= base_url()?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-success i fas fa-pencil-alt"> Editar </a>
-    										</td>
-    										<td>
-    											<a href="javascript:avoid(0)" class=" btn btn-block btn-outline-primary i fas fa-link" onclick="alert('<?=base_url()?>PrincipalC/index/?e=<?=base64_encode($encues->idEncuesta)?>')"> Link</a>
-    										</td>
-    										<td>
-												<a  href="<?=base_url()?>EncuestasC/generarQR/<?= $encues->Url ?> " class=" btn btn-block btn-outline-new i fas fa-qrcode"> QR</a>
-    										</td>
+    										<th>Nombre de la encuesta</th>
+    										<th>Objetivo de la encuesta</th>
+    										<th>Estado</th>
+    										<th>Fecha de creación</th>
+    										<th>Fecha de finalización</th>
+    										<th>Mensaje de inicio</th>
+    										<th>Mensaje de finalización</th>
+    										<th colspan="4">Opciones</th>
     									</tr>
-    								<?php  } ?>
-    							</tbody>
-    						</table>
-							</div>
+    								</thead>
+    								<tbody>
+    									<?php foreach ($encuestas as $encues) { ?>
+    										<tr>
+    											<td><?= $encues->NombreEncuesta ?></td>
+    											<td><?= $encues->ObjetivoEncuesta ?></td>
+    											<td><?= $encues->Estado ?></td>
+    											<td><?= $encues->FechaCreacion ?></td>
+    											<td><?= $encues->FechaFinalizacion ?></td>
+    											<td><?= $encues->MensajeInicio ?></td>
+    											<td><?= $encues->MensajeFinalizacion ?></td>
+    											<td>
+    												<a href="<?= base_url() ?>EncuestasC/eliminar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-danger i fas fa-trash-alt"> Borrar </a>
+    											</td>
+    											<td>
+    												<a href="<?= base_url() ?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-success i fas fa-pencil-alt"> Editar </a>
+    											</td>
+    											<td>
+    												<a href="javascript:avoid(0)" class=" btn btn-block btn-outline-primary i fas fa-link" onclick="alert('<?= base_url() ?>PrincipalC/index/?e=<?= base64_encode($encues->idEncuesta) ?>')"> Link</a>
+    											</td>
+    											<td>
+    												<form action="<?= base_url() ?>EncuestasC/generarQR/" method="post">
+    													<input type="hidden" name="url" value="<?= $encues->Url ?>">
+    													<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode"><br> QR</button>
+    												</form>
+    											</td>
+    										</tr>
+    									<?php  } ?>
+    								</tbody>
+    							</table>
+    						</div>
     					</div>
     				</div>
-					<?= $this->pagination->create_links() ?>
+    				<?= $this->pagination->create_links() ?>
     			</div>
     			<!-- ================================================================================================ -->
     			<!-- Fin del contenido -->

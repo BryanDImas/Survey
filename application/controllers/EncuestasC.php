@@ -13,21 +13,22 @@ class EncuestasC extends CI_Controller
 		}
 	}
 
-	public function generarQR ($Url)
-	{
+	public function generarQR ()
+	{	/* $Url = $_GET['u'] ?? ''; */
 		$this->load->library('ciqrcode');
-
+		$Url = $this->input->post('url');
 		$params['data'] = $Url;
-        $params['level'] = 'H';
+        $params['level'] = 'S';
         $params['size'] = 9;
 
         //decimos el directorio a guardar el codigo qr, en este 
-        //caso una carpeta en la raíz llamada qr_code
-        $params['savename'] = FCPATH . "uploads/qr_code/qr_$Url.png";
+		//caso una carpeta en la raíz llamada qr_code
+		$nombre = uniqid() . rand(0, 999);
+        $params['savename'] = FCPATH . "uploads/qr_code/qr_$nombre.png";
         //generamos el código qr
         $this->ciqrcode->generate($params);
 
-		$data['img'] = "qr_$Url.png";
+		$data['img'] = "qr_$nombre.png";
 		
 		/* $this->load->view('layouts/head'); */
 		$this->load->view('Encuesta/codigo_qr', $data);
@@ -130,7 +131,7 @@ class EncuestasC extends CI_Controller
 	public function finalizar()
 	{
 		$dato = [
-			$this->input->post('resul'), $this->input->post('msj'), $this->input->post('encuesta')
+			$this->input->post('resul'), $this->input->post('msj'), $this->input->post('qr'), $this->input->post('encuesta')
 		];
 		$this->EncuestasModel->fin($dato);
 		redirect('EncuestasC/');
