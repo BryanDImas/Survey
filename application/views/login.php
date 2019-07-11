@@ -74,9 +74,9 @@
 				<!-- ============================================================== -->
 				<!-- Contenido del area de publicidad -->
 				<!-- ============================================================== -->
-				<div class="container-fluid" style="position:relative; padding-top:150px">
+				<div class="container-fluid">
 					<div class="col-md-12" id=""><br><br><br>
-						<div style="top:150" id="publicidad"></div>
+						<div class="col-md-8 offset-2" id="publicidad"></div>
 					</div>
 				</div>
 				<!-- ============================================================== -->
