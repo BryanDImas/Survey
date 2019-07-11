@@ -23,7 +23,7 @@
 		</nav>
 	</header><br>
 	<div class="card col-md-6 offset-3" style="background-color:black">
-	<p></p><br><br><br>
+		<p></p><br><br><br>
 		<div class="text-center">
 			<img class="box-center" src="<?php echo base_url() . "uploads/qr_code/" . $img ?>" />
 			<p></p>
@@ -31,10 +31,7 @@
 				<a download="<?php echo $img ?>" href="<?php echo base_url() . "uploads/qr_code/" . $img ?>" title="<?php echo $img ?>" class="btn btn-nue btn-rounded ">Descargar</a>
 			</div>
 		</div>
-
-
-
-		<div class="d-flex justify-left">	
+		<div class="d-flex justify-left">
 			<div class="col-md-2"><br>
 				<a href="<?= base_url() ?>EncuestasC/" class="btn btn-rounded btn-block btn-outline-info i fas fa-arrow-circle-left"> Volver </a>
 			</div>
@@ -44,10 +41,10 @@
 	<!-- End Page Content -->
 	<!-- ============================================================== -->
 	<footer style="background-color:#18927e; height:100px;">
-	<br>
-	<div>
-		<p></p>
-		<h4 class="text-center"> 2019 The Next Services</h4>
+		<br>
+		<div>
+			<p></p>
+			<h4 class="text-center"> &copy; 2019 The Next Services</h4>
 		</div>
 	</footer>
 </body>
