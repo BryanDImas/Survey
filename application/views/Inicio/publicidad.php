@@ -1,7 +1,10 @@
+<div class="btn-github text-center" style="background:dark">
+    <h2 style="color:gold">Tenemos lo que buscas. De forma sencilla y ágil para tu negocio.</h2>
+</div>
 <div class="bd-example">
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleCaptions" class="carousel" data-ride="carousel">
         <ol class="carousel-indicators">
-                <?php for ($i = 0; $i < count($imgs); $i++) { ?>
+            <?php for ($i = 0; $i < count($imgs); $i++) { ?>
                 <li data-target="#carouselExampleCaptions" data-slide-to="<?= base_url($imgs[$i]->IdPub) ?>" class="<?= $i == 1 ? 'active' : '' ?>"></li>
             <?php } ?>
         </ol>
@@ -9,13 +12,10 @@
             <?php for ($i = 0; $i < count($imgs); $i++) { ?>
                 <div class="<?= $i == 1 ? 'carousel-item active' : 'carousel-item' ?>">
                     <img src="<?= base_url($imgs[$i]->Imagen) ?>" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <br><br><br>
-                        <h5>Tenemos lo que buscas</h5>
-                        <p>De forma sencilla y ágil para tu negocio.</p>
-                    </div>
                 </div>
             <?php } ?>
+            <br><br>
+
         </div>
         <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -29,10 +29,3 @@
 </div>
 <!-- ================================================================================================================= -->
 <!-- Fin del carousel -->
-<script type="text/javascript">
-    $('.carousel').carousel({
-        interval: 2000,
-        ride: true
-    });
-
-</script>
