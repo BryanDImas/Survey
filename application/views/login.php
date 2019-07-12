@@ -26,7 +26,7 @@
 				<a class="navbar-brand" href="javascript:avoid(0)"><img src="<?= base_url() ?>assets/images/Logo.png" alt="Home" width="150" height="40" /></a>
 				<ul class="navbar-nav ml-auto stylish-nav">
 					<!-- Logo will be here -->
-					<div class="col-md-12">
+					<div class="col-md-9">
 						<div class="login-box">
 							<div class="container-fluid">
 								<a href='#' data-toggle='dropdown' class="top_bar_left clearfix  btn-sm text-uppercase m-t-4 btn btn-nue font-10 btn-rounded" style="width:56%;">INICIAR SESION</a>
@@ -45,13 +45,11 @@
 										</div>
 										<div class="form-group text-center m-t-20">
 											<div class="col-xs-4 col-md-6 offset-3">
-												<button class="btn btn-nue btn-block text-uppercase btn-rounded">Ingresar</button>
+												<button class="btn btn-nue text-uppercase btn-rounded">Ingresar</button>
 											</div>
 										</div>
 										<div class="form-group">
-											<div class="alert alert-success col-sm-12 text-center alert">
-												<?= validation_errors(); ?>
-											</div>
+												<h6 class="text-themecolor"><?= validation_errors(); ?></h6>
 										</div>
 									</form>
 								</div>

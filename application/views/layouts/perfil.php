@@ -23,14 +23,14 @@
 	<!-- ============================================================== -->
 	<!-- Start Page Content -->
 	<!-- ============================================================== -->
-	<div class="row" style="position: relative;">
-		<div class="col-12">
-			<div class=""><img src="<?= base_url('assets/images/background/tec3.jpg') ?>" width="100%" height="150"></div>
+	<div class="row-fluid" style="position: relative;">
+		<div class="col-xs-5 ">
 			<div class="card">
-				<div style="position: absolute; left: 35%; top: 6px;">
-					<h3>Informacion de la empresa</h3>
-					<hr style="width:875%;">
+				<div style="">
+					<h3 class="text-themecolor">Información de la empresa</h3>
+<!-- 					<hr style="width:275%;"> -->
 				</div>
+				<div class=""><img src="<?= base_url('assets/images/background/tec3.jpg') ?>" width="100%" height="150"></div>
 				<div class="card-body">
 					<div class="container bootstrap snippet">
 						<div class="row">
@@ -38,7 +38,7 @@
 							<!--Perfil-->
 							<!-- ====================================================================================================================== -->
 							<div class="col-sm-4">
-								<div class="text-center" style="position: absolute; left: 10px; top: -130px;">
+								<div class="text-center" style="left: 5px; top: -150px;">
 								<?php if($usuario->Foto != ''){?>
 									<img width="250px" src="<?= base_url()?><?= $usuario->Foto?>" class="avatar img-rounded img-thumbnail img-reponsive">
 								<?php }else{?>
@@ -49,20 +49,19 @@
 							</div>
 								<p></p>
 
-								<div class="panel panel-default" style="position: absolute; left: 10px; top: 40%;">
+								<div class="">
 								<ul class="">
 									<div class="panel-heading"><i class="fa fa-envelope fa-1x"> Correo </i></div>
 									<div class="panel-body"><a href="mailto:<?= $usuario->Correo ?>"><?= $usuario->Correo ?></a></div>
-										<li class="list-group-item text-muted text-themecolor"> Información Personal <i class="fa fa-dashboard fa-1x"></i></li>
-										<li class="list-group-item text"><span class="pull-left"><strong>Cargo: </strong><?= $usuario->Cargo ?></span></li>
-										<li class="list-group-item text"><span class="pull-left"><strong>Departamento: </strong><?= $usuario->Departamento ?></span></li>
-										<li class="list-group-item text"><span class="pull-left"><strong>Telefono: </strong><?= $usuario->Numero ?></span></li>
+										<li class="list-group-item text-muted"><h6> Información Personal </h6><i class="fa fa-dashboard fa-1x"></i></li>
+										<li class="list-group-item text"><h6 class=""><strong class="text-themecolor">Cargo: </strong><?= $usuario->Cargo ?></h6></li>
+										<li class="list-group-item text"><h6 class=""><strong class="text-themecolor">Departamento: </strong><?= $usuario->Departamento ?></h6></li>
+										<li class="list-group-item text"><h6 class=""><strong class="text-themecolor">Telefono: </strong><?= $usuario->Numero ?></h6></li>
 									</ul>
 								</div>
 							</div>
 							<!--/col-3-->
-							<div class="col-sm-8">
-							<div class="container">
+							<div class="col-sx-8">
 								<div class="tab-content">
 									<div class="tab-pane active" id="home">
 										<div class="form-group">
@@ -70,7 +69,6 @@
 												<label><h4 class="text-themecolor">Nombre Comercial:</h4></label><br>
 												<label><h6><?= $empresa->NombreComercial ?></h6></label>
 											</div>
-											<div class="form-group">
 												<div class="col-xs-6">
 													<label><h4 class="text-themecolor">Dirección Empresarial:</h4></label><br>
 													<label><h6><?= $empresa->DireccionFisica ?></h6></label>
@@ -84,14 +82,13 @@
 														<label><h6><?= $empresa->Telefono ?></h6></label>
 												</div>
 												<div class="col-xs-6">
-													<label><h4 class="text-themecolor">Sector Economico:</h4></label><br>
+													<label><h4 class="text-themecolor">Sector Económico:</h4></label><br>
 													<label><h6><?= $empresa->SectorEconomico ?></h6></label>
 												</div>
 												<div class="col-xs-6">
-													<label><h4 class="text-themecolor">Descripcion de la empresa:</h4></label><br>
+													<label><h4 class="text-themecolor">Descripción de la empresa:</h4></label><br>
 													<label><h6><?= $empresa->DescripcionEmpresa ?></h6></label>
 												</div>
-											</div>
 										</div>
 									</div>
 								</div>

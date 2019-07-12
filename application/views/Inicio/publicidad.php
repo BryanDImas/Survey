@@ -1,5 +1,5 @@
 <div class="btn-github text-center" style="background:dark">
-    <h2 style="color:gold">Tenemos lo que buscas. De forma sencilla y ágil para tu negocio.</h2>
+    <h4 style="color:white">Tenemos lo que buscas. De forma sencilla y ágil para tu negocio.</h4>
 </div>
 <div class="bd-example">
     <div id="carouselExampleCaptions" class="carousel" data-ride="carousel">
@@ -11,7 +11,7 @@
         <div class="carousel-inner">
             <?php for ($i = 0; $i < count($imgs); $i++) { ?>
                 <div class="<?= $i == 1 ? 'carousel-item active' : 'carousel-item' ?>">
-                    <img src="<?= base_url($imgs[$i]->Imagen) ?>" class="d-block w-100" alt="...">
+                    <img src="<?= base_url($imgs[$i]->Imagen) ?>" class="d-block w-100 " alt="...">
                 </div>
             <?php } ?>
             <br><br>
