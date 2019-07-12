@@ -71,14 +71,17 @@ class UsuariosC extends CI_Controller
 	{
 		$idUser = $this->input->post('idUser');
 		$this->form_validation->set_rules('responsable', 'Usuario', 'required|trim', ['required' => 'El campo %s es requerido']);
-		$this->form_validation->set_rules('contrasena', 'Contraseña', 'required|trim', ['required' => 'El campo %s es requerido']);
 		$this->form_validation->set_rules('cargo', 'Cargo', 'required|trim', ['required' => 'El campo %s es requerido']);
 		$this->form_validation->set_rules('unidad', 'Departamento', 'required|trim', ['required' => 'El campo %s es requerido']);
 		$this->form_validation->set_rules('empresa', 'Nombre de la empresa', 'required|trim', ['required' => 'El campo %s es requerido']);
 		$this->form_validation->set_rules('correo', 'Correo', 'required|trim', ['required' => 'El campo %s es requerido']);
 		$this->form_validation->set_rules('telefono', 'Telefono', 'required|trim', ['required' => 'El campo %s es requerido']);
 		if ($this->form_validation->run()) {
-			$pass = sha1($this->input->post('contrasena'));
+			if($this->input->post('contrasena')== ''){
+				$pass = $this->input->post('contractual');
+			}else if($this->input->post('contrasena')!= ''){
+				$pass = sha1($this->input->post('contrasena'));
+			}
 			$datos = [
 				$this->input->post('responsable'), $pass,
 				$this->input->post('cargo'), $this->input->post('unidad'),

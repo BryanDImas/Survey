@@ -157,7 +157,7 @@
     						<li class="breadcrumb-item active">Empresas</li>
     					</ol>
     				</div>
-    				<div class="col-md-7 align-self-center text-right d-none d-md-block">
+    				<div class="col-md-7 align-self-center text-right d-md-block">
     					<a href="<?= base_url() ?>EmpresasC/registrar" class="btn btn-rounded btn-outline-info"><i class="icon-Building"></i> Nuevo</a>
     				</div>
     				<div class="">
@@ -208,4 +208,3 @@
     				</div>
     			</div>
     			<?= $this->pagination->create_links() ?>
-    		</div>
