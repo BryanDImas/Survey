@@ -16,7 +16,7 @@ class UsuariosC extends CI_Controller
 		}
 	}
 	# Acción que carga la vista de inicio 1 si eres Administrador  
-	public function index($pag = 1)
+	public function index($pag = 0)
 	{
 		$key = $_GET['key'] ?? ''; #Valor para buscar que se captura por la url.
 		$config['base_url'] = base_url('UsuariosC/index/'); # Ruta a la cual se les agrega el numero de pagina 
@@ -25,7 +25,7 @@ class UsuariosC extends CI_Controller
 		$config['per_page'] = 5; # Número de registros a mostrar por pagina.
 		$config['num_links'] = 1; # Número de digitos a mostrar en la paginacion si son varios numeros.
 		$config['use_page_numbers'] = TRUE; #para ver el numero de la pagina en la url.
-		if($pag != 1){
+		if($pag != 0){
 			$inicia = ($pag * $config['per_page'])-$config['per_page'];
 		}else{
 			$inicia = $pag;

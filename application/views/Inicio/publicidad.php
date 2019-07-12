@@ -1,12 +1,6 @@
-<div class="bd-example">
-<div class="btn-github text-center col-xs-1" style="background:dark; ">
-    <h2 style="color:gold; font-size:2em">Tenemos lo que buscas. De forma sencilla y ágil para tu negocio.</h2>
-</div>
-</div>
 
 <div class="bd-example">
     <div id="carouselExampleCaptions" class="carousel" data-ride="carousel">
-        <ol class="carousel-indicators">
             <?php for ($i = 0; $i < count($imgs); $i++) { ?>
                 <li data-target="#carouselExampleCaptions" data-slide-to="<?= base_url($imgs[$i]->IdPub) ?>" class="<?= $i == 1 ? 'active' : '' ?>"></li>
             <?php } ?>
@@ -14,7 +8,7 @@
         <div class="carousel-inner">
             <?php for ($i = 0; $i < count($imgs); $i++) { ?>
                 <div class="<?= $i == 1 ? 'carousel-item active' : 'carousel-item' ?>">
-                    <img src="<?= base_url($imgs[$i]->Imagen) ?>" class="d-block w-100" alt="...">
+                    <img src="<?= base_url($imgs[$i]->Imagen) ?>" class="d-block w-100 " alt="...">
                 </div>
             <?php } ?>
             <br><br>

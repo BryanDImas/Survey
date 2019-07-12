@@ -26,6 +26,7 @@
 		<div class="card-body">
 		    <!-- Export Data -->
 			<a href='<?= base_url() ?>ResultadosC/exportCSV/'<?= $resultados[0]->IdEncuesta?>>Exportar CSV</a><br><br>
+			<div class="table-responsive">
 			<table class="table table-hover table-bordered text-center">
 				<thead>
 					<tr>
@@ -44,6 +45,7 @@
 					<?php } ?>
 				</tbody>
 			</table>
+			</div>
 		</div>
 	</div>
 </div>

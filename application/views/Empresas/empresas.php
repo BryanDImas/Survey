@@ -207,4 +207,6 @@
     					</div>
     				</div>
     			</div>
-    			<?= $this->pagination->create_links() ?>
+    			<div class="col-md-6 offset-3">
+    				<?= $this->pagination->create_links() ?>
+    			</div>
