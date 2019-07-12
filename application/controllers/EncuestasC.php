@@ -37,7 +37,7 @@ class EncuestasC extends CI_Controller
 	}
 
 	# Vista principal de este controlador.
-	public function index($pag = 0)
+	public function index($pag = 1)
 	{
 		$key = $_GET['key'] ?? ''; #Valor para buscar que se captura por la url.
 		$config['base_url'] = base_url('EncuestasC/index/'); # Ruta a la cual se les agrega el numero de pagina 
@@ -47,8 +47,8 @@ class EncuestasC extends CI_Controller
 		$config['num_links'] = 4; # Número de digitos a mostrar en la paginacion si son varios numeros.
 		$config['use_page_numbers'] = TRUE; #para ver el numero de la pagina en la url.
 		$this->pagination->initialize($config);
-		if($pag != 0){
-			$inicia = $pag + $config['per_page'];
+		if($pag != 1){
+			$inicia = ($pag * $config['per_page'])-$config['per_page'];
 		}else{
 			$inicia = $pag;
 		}
