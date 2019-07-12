@@ -9,7 +9,7 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/images/logo3.png">
 	<title>Survey</title>
 	<script src="https://kit.fontawesome.com/12fe8082b5.js"></script>
-	<link rel="stylesheet" href="<?= base_url() ?>assets/css/styleII.css">
+	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/css/styleII.css"> -->
 	<link href="<?= base_url() ?>assets/style.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url() ?>assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?= base_url() ?>assets/css/pages/login-register-lock.css" rel="stylesheet">
@@ -17,19 +17,16 @@
 </head>
 
 <body>
-	<!-- ============================================================== -->
-	<!-- Topbar header - style you can find in pages.scss -->
-	<!-- ============================================================== -->
-	<header class="topheader" id="top" style="background-color:black">
-		<div class="fix-width">
+	<header class="container" style="background-color:black; width:100%">
+		<div class="">
 			<nav class="navbar navbar-expand-md navbar-light p-l-0">
 				<a class="navbar-brand" href="javascript:avoid(0)"><img src="<?= base_url() ?>assets/images/Logo.png" alt="Home" width="150" height="40" /></a>
 				<ul class="navbar-nav ml-auto stylish-nav">
 					<!-- Logo will be here -->
 					<div class="col-md-9">
 						<div class="login-box">
-							<div class="container-fluid">
-								<a href='#' data-toggle='dropdown' class="top_bar_left clearfix  btn-sm text-uppercase m-t-4 btn btn-nue font-10 btn-rounded" style="width:56%;">INICIAR SESION</a>
+							<div class="">
+								<a href='#' data-toggle='dropdown' class="top_bar_left clearfix  btn-sm text-uppercase m-t-4 btn btn-nue font-10 btn-rounded" >INICIAR SESION</a>
 								<div class='dropdown-menu' style='padding: 4%; padding-bottom: 2%; background: #1B1B1B; width: 80%'>
 									<form class="form-horizontal form-material" id="loginform" action="<?= base_url() ?>login/validar" method="post" autocomplete="off">
 										<a href="javascript:void(0)" class="text-center db"><img src="<?= base_url() ?>assets/images/logo3.png" alt="Home" width="15%" /><span><img src="<?= base_url() ?>assets/images/text-logo.png" alt="Home" width="42%" /></span></a>
@@ -75,12 +72,12 @@
 					<div class="col-md-12" id=""><br>
 						<div class="col-md-8 offset-2" id="publicidad"></div>
 					</div>
-				</div>
+				</div><br>
 				<!-- ============================================================== -->
 				<!--  barra verde -->
 				<!-- ============================================================== -->
-				<div class="">
-					<div class="" style="background-color:light">
+				<div class="container-fluid">
+					<div class="col-md-12" style="background-color:none">
 						<div id="empresas"></div>
 					</div>
 				</div>

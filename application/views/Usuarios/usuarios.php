@@ -158,7 +158,7 @@
                             <li class="breadcrumb-item active">Usuarios</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 align-self-center text-right d-none d-md-block">
+                    <div class="col-md-7 align-self-center text-right d-md-block">
                         <a href="<?= base_url() ?>UsuariosC/registrar" class="btn btn-rounded btn-outline-info" title="Usuario"><i class="icon-Add-User"></i> Nuevo</a>
                     </div>
                     <div class="">
@@ -177,9 +177,9 @@
                             <div class="card-body">
                                 <!-- Export Data -->
                                 <a href='<?= base_url() ?>index.php/UsuariosC/exportCSV'>Exportar CSV</a><br><br>
-                                <div class="table-responsive-sm">
-                                    <table class="table table-bordered table-responsive-sm">
-                                        <thead class="text-center">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-responsive">
+                                        <thead class="text-center table-bordered">
                                             <tr>
                                                 <th>Nombre</th>
                                                 <th>Correo</th>
@@ -214,8 +214,9 @@
                         </div>
                     </div>
                 </div>
-                <?= $this->pagination->create_links() ?>
-            </div>
-            <!-- ============================================================== -->
-            <!-- Fin del Contenido -->
-            <!-- ============================================================== -->
+                <div class="col-md-6 offset-3">
+                    <?= $this->pagination->create_links() ?>
+                </div>
+                <!-- ============================================================== -->
+                <!-- Fin del Contenido -->
+                <!-- ============================================================== -->

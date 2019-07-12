@@ -44,11 +44,12 @@
                                 <input name="responsable" type="text" class="form-control form-control-line" value="<?= $user->Usuario ?>" required>
                             </p>
                             <label class="form-control-label">Correo:</label>
-                            <input name="correo" type="mail" class="form-control form-control-line email-inputmask" value="<?= $user->Correo ?>" />
+                            <input name="correo" type="mail" class="form-control form-control-line email-inputmask" value="<?= $user->Correo ?>" required/>
                             </p>
                             <p>
-                                <label class="form-control-label">Contraseña:</label>
-                                <input name="contrasena" type="password" class="form-control form-control-line" value="<?= $user->Clave ?>">
+                                <label class="form-control-label">Nueva Contraseña:</label>
+                                <input name="contrasena" type="password" class="form-control form-control-line">
+                                <input type="hidden" name="contractual" value="<?= $user->Clave ?>">
                             </p>
                             <p>
                                 <label class="form-control-label">Cargo ó posición</label>

@@ -22,8 +22,12 @@ class EmpresasC extends CI_Controller
         $config['per_page'] = 5; # Número de registros a mostrar por pagina
         $config['num_links'] = 2; # Número de digitos a mostrar en la paginacion si son varios numeros.
         /* $config['use_page_numbers'] = TRUE; #para ver el numero de la pagina en la url. */
-
-        $datos['empresas'] = $this->EmpresasModel->obtener($pag, $config['per_page'], $key);
+		if($pag != 0){
+			$inicia = ($pag * $config['per_page'])-$config['per_page'];
+		}else{
+			$inicia = $pag;
+		}
+        $datos['empresas'] = $this->EmpresasModel->obtener($inicia, $config['per_page'], $key);
         $this->pagination->initialize($config); #inicializa la funcion que creara la paginacion
         $this->load->view('layouts/head');
         $this->load->view('Empresas/empresas', $datos);

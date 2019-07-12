@@ -25,8 +25,12 @@ class UsuariosC extends CI_Controller
 		$config['per_page'] = 5; # Número de registros a mostrar por pagina.
 		$config['num_links'] = 1; # Número de digitos a mostrar en la paginacion si son varios numeros.
 		$config['use_page_numbers'] = TRUE; #para ver el numero de la pagina en la url.
-
-		$datos['usuarios'] = $this->UsuarioModel->ListarU($pag, $config['per_page'], $key);
+		if($pag != 0){
+			$inicia = ($pag * $config['per_page'])-$config['per_page'];
+		}else{
+			$inicia = $pag;
+		}
+		$datos['usuarios'] = $this->UsuarioModel->ListarU($inicia, $config['per_page'], $key);
 		$this->pagination->initialize($config); #inicializa la funcion que creara la paginacion
 		# Cargamos la pagina principal
 		$this->load->view('layouts/head');
@@ -71,14 +75,17 @@ class UsuariosC extends CI_Controller
 	{
 		$idUser = $this->input->post('idUser');
 		$this->form_validation->set_rules('responsable', 'Usuario', 'required|trim', ['required' => 'El campo %s es requerido']);
-		$this->form_validation->set_rules('contrasena', 'Contraseña', 'required|trim', ['required' => 'El campo %s es requerido']);
 		$this->form_validation->set_rules('cargo', 'Cargo', 'required|trim', ['required' => 'El campo %s es requerido']);
 		$this->form_validation->set_rules('unidad', 'Departamento', 'required|trim', ['required' => 'El campo %s es requerido']);
 		$this->form_validation->set_rules('empresa', 'Nombre de la empresa', 'required|trim', ['required' => 'El campo %s es requerido']);
 		$this->form_validation->set_rules('correo', 'Correo', 'required|trim', ['required' => 'El campo %s es requerido']);
 		$this->form_validation->set_rules('telefono', 'Telefono', 'required|trim', ['required' => 'El campo %s es requerido']);
 		if ($this->form_validation->run()) {
-			$pass = sha1($this->input->post('contrasena'));
+			if($this->input->post('contrasena')== ''){
+				$pass = $this->input->post('contractual');
+			}else if($this->input->post('contrasena')!= ''){
+				$pass = sha1($this->input->post('contrasena'));
+			}
 			$datos = [
 				$this->input->post('responsable'), $pass,
 				$this->input->post('cargo'), $this->input->post('unidad'),
