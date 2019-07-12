@@ -175,7 +175,7 @@
     				<div class="card">
     					<div class="card-body">
     						<div class="table-responsive">
-    							<table class="table table-hover table-bordered text-center">
+    							<table class="table table-hover table-bordered text-center table-responsive table-sm">
     								<thead class="text-center table-bordered">
     									<tr>
     										<th>Nombre de la encuesta</th>
@@ -191,23 +191,23 @@
     								<tbody>
     									<?php foreach ($encuestas as $encues) { ?>
     										<tr>
-    											<td><?= $encues->NombreEncuesta ?></td>
-    											<td><?= $encues->ObjetivoEncuesta ?></td>
-    											<td><?= $encues->Estado ?></td>
-    											<td><?= $encues->FechaCreacion ?></td>
-    											<td><?= $encues->FechaFinalizacion ?></td>
-    											<td><?= $encues->MensajeInicio ?></td>
-    											<td><?= $encues->MensajeFinalizacion ?></td>
-    											<td>
+    											<td class="cell"><?= $encues->NombreEncuesta ?></td>
+    											<td class="cell"><?= $encues->ObjetivoEncuesta ?></td>
+    											<td class="cell"><?= $encues->Estado ?></td>
+    											<td class="cell"><?= $encues->FechaCreacion ?></td>
+    											<td class="cell"><?= $encues->FechaFinalizacion ?></td>
+    											<td class="cell"><?= $encues->MensajeInicio ?></td>
+    											<td class="cell"><?= $encues->MensajeFinalizacion ?></td>
+    											<td class="cell">
     												<a href="<?= base_url() ?>EncuestasC/eliminar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-danger i fas fa-trash-alt"> Borrar </a>
     											</td>
-    											<td>
+    											<td class="cell">
     												<a href="<?= base_url() ?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-success i fas fa-pencil-alt"> Editar </a>
     											</td>
-    											<td>
+    											<td class="cell">
     												<a href="javascript:avoid(0)" class=" btn btn-block btn-outline-primary i fas fa-link" onclick="alert('<?= base_url() ?>PrincipalC/index/?e=<?= base64_encode($encues->idEncuesta) ?>')"> Link</a>
     											</td>
-    											<td>
+    											<td class="cell">
     												<form action="<?= base_url() ?>EncuestasC/generarQR/" method="post">
     													<input type="hidden" name="url" value="<?= $encues->Url ?>">
     													<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode"><br> QR</button>
@@ -221,7 +221,6 @@
     					</div>
     				</div>
     				<?= $this->pagination->create_links() ?>
-    			</div>
     			<!-- ================================================================================================ -->
     			<!-- Fin del contenido -->
     			<!-- ================================================================================================ -->

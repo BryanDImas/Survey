@@ -47,7 +47,12 @@ class EncuestasC extends CI_Controller
 		$config['num_links'] = 4; # Número de digitos a mostrar en la paginacion si son varios numeros.
 		$config['use_page_numbers'] = TRUE; #para ver el numero de la pagina en la url.
 		$this->pagination->initialize($config);
-		if (count($dato['encuestas'] = $this->EncuestasModel->obtener($pag, $config['per_page'], $key, $this->session->usuario->idUsuario)) > 0) {
+		if($pag != 0){
+			$inicia = $pag + $config['per_page'];
+		}else{
+			$inicia = $pag;
+		}
+		if (count($dato['encuestas'] = $this->EncuestasModel->obtener($inicia, $config['per_page'], $key, $this->session->usuario->idUsuario)) > 0) {
 			$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 			$this->load->view('encuesta/encuestas', $dato); # cargamos la vista del contenido principal.
 			$this->load->view('layouts/footer'); #cargamos la vista que contiene el pie de página.
