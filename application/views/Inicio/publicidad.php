@@ -1,6 +1,9 @@
-<div class="btn-github text-center" style="background:dark">
-    <h2 style="color:gold">Tenemos lo que buscas. De forma sencilla y ágil para tu negocio.</h2>
+<div class="bd-example">
+<div class="btn-github text-center col-xs-1" style="background:dark; ">
+    <h2 style="color:gold; font-size:2em">Tenemos lo que buscas. De forma sencilla y ágil para tu negocio.</h2>
 </div>
+</div>
+
 <div class="bd-example">
     <div id="carouselExampleCaptions" class="carousel" data-ride="carousel">
         <ol class="carousel-indicators">
