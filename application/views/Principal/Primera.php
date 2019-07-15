@@ -11,15 +11,18 @@
     <link rel="stylesheet" href="<?=base_url()?>assets/css/primera.css">
 </head>
 
-<body style="background-color: #444">
-    <div class="container" style="border: 1px solid black; border-radius: 12px; margin: 100px auto">
-        <div class="bg"><img src="<?= base_url('assets/images/background/tec2.jpg') ?>" width="100%" height="150"></div>
-        <header class="col-md-12" style="background-color:black; height:100px; color:white;">
+<body>
+    <div class="container">
+      
+        <header>
+        <div class="img-responsive">
+            <img src="<?= base_url() ?><?=$encuesta->logo?>" alt="">
+            </div>
             <h3><?= $encuesta->NombreEncuesta ?></h3>
-            <h4 class="float-left" stile="text-align:center;"><?= $encuesta->ObjetivoEncuesta ?></h4>
+            <h4><?= $encuesta->ObjetivoEncuesta ?></h4>
         </header><br><br><br>
-        <div class="col-xs-12 col-sm-6 col-xs-7 offset-2" style="background-color:none text-align:center;">
-            <h3 class="card"><?php echo nl2br($encuesta->MensajeInicio); ?></h3>
+        <div class="mensaje">
+            <h3 class=""><?php echo nl2br($encuesta->MensajeInicio); ?></h3>
             <p></p>
             <?php if ($encuesta->preguntas != '') { ?>
                 <h3> Para saber más información sobre usted por favor rellene estas sencillas preguntas.</h3>
@@ -42,8 +45,11 @@
                     </select>
                 </p>
                 <p></p>
+
             <?php } ?>
+            <div class="boton"> 
             <a href="<?= base_url('PrincipalC/iniciar/') ?>?a=<?= base64_encode($encuesta->idEncuesta) ?>" class="btn btn-rounded btn-info float-right">Iniciar</a>
+            </div>
         </div>
         <footer></footer>
     </div>

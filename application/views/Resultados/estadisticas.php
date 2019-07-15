@@ -28,7 +28,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h3>86%</h3>
-                        <h6 class="card-subtitle">Encuesta #1</h6>
+                        <h6 class="card-subtitle">Encuestas</h6>
                     </div>
                     <div class="col-12">
                         <div class="progress">
@@ -45,7 +45,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h3>40%</h3>
-                        <h6 class="card-subtitle">Encuesta #2</h6>
+                        <h6 class="card-subtitle"></h6>
                     </div>
                     <div class="col-12">
                         <div class="progress">
@@ -122,7 +122,7 @@
                 <div class="col-md-12">
                     <div class="card bg-primary band">
                         <div class="card-body">
-                            <h4 class="card-title text-white">Bandwidth usage</h4>
+                            <h4 class="card-title text-white"></h4>
                             <h6 class="card-subtitle text-white op-5">March 2018</h6>
                             <div class="d-flex no-block">
                                 <div class="align-self-end no-shrink">
@@ -139,11 +139,12 @@
                 <div class="col-md-12">
                     <div class="card bg-info">
                         <div class="card-body">
-                            <h4 class="card-title text-white">Download count</h4>
-                            <h6 class="card-subtitle text-white op-5">March 2018</h6>
+                            <h4 class="card-title text-white">Datos demograficos</h4>
+                            <h6 class="card-subtitle text-white op-5">Genero</h6>
                             <div class="d-flex no-block">
                                 <div class="align-self-end no-shrink">
-                                    <h2 class="m-b-0 text-white">35487</h2>
+                                    <h2 class="m-b-0 text-white">Hombre: 0</h2>
+                                    <h2 class="m-b-0 text-white">Mujeres: 0</h2>
                                 </div>
                                 <div class="ml-auto">
                                     <div class="spark-count" style="height:120px"></div>
