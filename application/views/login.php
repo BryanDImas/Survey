@@ -25,7 +25,7 @@
 					<!-- Logo will be here -->
 					<div class="col-md-9">
 						<div class="login-box">
-							<div class="login-box-container">
+							<div class="">
 								<a href='#' data-toggle='dropdown' class="top_bar_left clearfix  btn-sm text-uppercase m-t-4 btn btn-nue font-10 btn-rounded" >INICIAR SESION</a>
 								<div class='dropdown-menu' style='padding: 4%; padding-bottom: 2%; background: #3DFCF0; width: 80%'>
 									<form class="form-horizontal form-material" id="loginform" action="<?= base_url() ?>login/validar" method="post" autocomplete="off">
