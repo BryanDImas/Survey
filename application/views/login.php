@@ -17,7 +17,7 @@
 </head>
 
 <body>
-	<header class="container" style="background-color:black; width:100%">
+	<header class="container" style="background-color:white; width:100%">
 		<div class="">
 			<nav class="navbar navbar-expand-md navbar-light p-l-0">
 				<a class="navbar-brand" href="javascript:avoid(0)"><img src="<?= base_url() ?>assets/images/Logo.png" alt="Home" width="150" height="40" /></a>
@@ -25,9 +25,9 @@
 					<!-- Logo will be here -->
 					<div class="col-md-9">
 						<div class="login-box">
-							<div class="">
+							<div class="login-box-container">
 								<a href='#' data-toggle='dropdown' class="top_bar_left clearfix  btn-sm text-uppercase m-t-4 btn btn-nue font-10 btn-rounded" >INICIAR SESION</a>
-								<div class='dropdown-menu' style='padding: 4%; padding-bottom: 2%; background: #1B1B1B; width: 80%'>
+								<div class='dropdown-menu' style='padding: 4%; padding-bottom: 2%; background: #3DFCF0; width: 80%'>
 									<form class="form-horizontal form-material" id="loginform" action="<?= base_url() ?>login/validar" method="post" autocomplete="off">
 										<a href="javascript:void(0)" class="text-center db"><img src="<?= base_url() ?>assets/images/logo3.png" alt="Home" width="15%" /><span><img src="<?= base_url() ?>assets/images/text-logo.png" alt="Home" width="42%" /></span></a>
 										<div class="form-group m-t-40">
