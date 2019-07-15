@@ -15,6 +15,8 @@ class PrincipalC extends CI_Controller
         $id = base64_decode($_GET['e']);
        /*  print_r($id); die; */
         $datos['encuesta'] = $this->PrincipalModel->encuesta($id);
+        $us = $this->PrincipalModel->usuario($datos['encuesta']->idUsuario);
+        $datos['encuesta']->logo = $this->PrincipalModel->logo($us->idEmpresa);
         if($datos['encuesta']->Demograficos == 'Si'){
             $datos['encuesta']->preguntas = $this->PrincipalModel->preguntas($id, $idp = 1);
         }else{
@@ -38,6 +40,8 @@ class PrincipalC extends CI_Controller
     {
         $id =  base64_decode($_GET['a']);
         $datos['encuesta'] = $this->PrincipalModel->encuesta($id);
+        $us = $this->PrincipalModel->usuario($datos['encuesta']->idUsuario);
+        $datos['encuesta']->logo = $this->PrincipalModel->logo($us->idEmpresa);
         $datos['encuesta']->preguntas = $this->PrincipalModel->preguntas($id, $idp = 2);
         foreach ($datos['encuesta']->preguntas as $pregunta) {
             $pregunta->respuestas = $this->PrincipalModel->respuestas($pregunta->idPregunta);
