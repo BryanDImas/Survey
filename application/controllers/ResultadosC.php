@@ -15,7 +15,13 @@ class ResultadosC extends CI_Controller
 	// Acción principal.
 	public function index()
 	{
-		$datos['resultados'] = $this->ResultadosM->obtener($this->session->idEncuesta);
+		$datos['preguntas'] = $this->ResultadosM->preguntas(/* $this->session->idEncuesta */13);
+			echo "<pre>";
+			
+		foreach ($datos['preguntas'] as $preguntas) {
+			$preguntas->respuestas = $this->ResultadosM->respuestas($preguntas->idPregunta);
+
+				}
 		$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 		$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
 		$this->load->view('resultados/resultados', $datos);
@@ -26,6 +32,7 @@ class ResultadosC extends CI_Controller
 	{
 		if($this->session->empresa->TipoCuenta == 'Basica'){
 			echo "<script>alert('Para tener acceso a esta área comuniquese con el administrador y cambie su cuenta a Avanzada');</script>";
+			self::index();
 		}else{
 		$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 		$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
@@ -33,7 +40,6 @@ class ResultadosC extends CI_Controller
 		$this->load->view('layouts/footer'); #cargamos la vista que contiene el pie de página.
 		}
 		/* redirect('ResultadosC/'); */   
-		self::index();
     }
 	//Acción que nos devuelve la vista del tutorial.
 	public function tutorial()

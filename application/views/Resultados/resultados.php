@@ -25,7 +25,7 @@
 	<div class="card">
 		<div class="card-body">
 		    <!-- Export Data -->
-			<a href='<?= base_url() ?>ResultadosC/exportCSV/'<?= $resultados[0]->IdEncuesta?>>Exportar CSV</a><br><br>
+<!-- 			<a href='<?= base_url() ?>ResultadosC/exportCSV/'<?= $resultados[0]->IdEncuesta?>>Exportar CSV</a><br><br> -->
 			<div class="table-responsive">
 			<table class="table table-hover table-bordered text-center">
 				<thead>
@@ -36,13 +36,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach ($resultados as $resul) { ?>
+					<?php foreach ($preguntas as $pregunta) { ?>
 						<tr>
-							<td><?= $resul->Pregunta ?></td>
-							<td><?= $resul->Respuestas ?></td>
-							<td><?= $resul->Contador ?></td>
+							<td rowspan="3"><?= $pregunta->Pregunta ?></td>
+							<?php foreach($pregunta->respuestas as $respuesta){?>
+							<td><?= $respuesta->Respuestas ?></td>
+							<td><?= $respuesta->Contador ?></td>
 						</tr>
-					<?php } ?>
+					<?php } }?>
 				</tbody>
 			</table>
 			</div>
