@@ -1,12 +1,4 @@
-<!-- <style>
-	.contenedor:hover .img {
-		-webkit-transform: scale(1.0);
-		transform: scale(3.0);
-	}
-	.contenedor {
-		overflow: hidden;
-	}
-</style> -->
+
 <!-- ============================================================== -->
 <!-- Container fluid  -->
 <!-- ============================================================== -->

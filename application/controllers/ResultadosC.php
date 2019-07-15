@@ -15,12 +15,9 @@ class ResultadosC extends CI_Controller
 	// Acción principal.
 	public function index()
 	{
-		$datos['preguntas'] = $this->ResultadosM->preguntas(/* $this->session->idEncuesta */13);
-			echo "<pre>";
-			
+		$datos['preguntas'] = $this->ResultadosM->preguntas(/* $this->session->idEncuesta */13);			
 		foreach ($datos['preguntas'] as $preguntas) {
 			$preguntas->respuestas = $this->ResultadosM->respuestas($preguntas->idPregunta);
-
 				}
 		$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 		$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
@@ -54,26 +51,30 @@ class ResultadosC extends CI_Controller
 		// Exportación de los datos en formato CSV  
 		public function exportCSV($id)
 		{
+			// file name 
+/* 			$filename = 'resultados_' . date('Y-m-d') . '.csv';
+			header("Content-Description: File Transfer");
+			header("Content-Disposition: attachment; filename=$filename");
+			header("Content-Type: application/csv; "); */
+			
 			$usersData = $this->ResultadosM->exportar($id);
-
-
 			for($i = 0; $i < count($usersData); $i++) {
 				$usersData[$i]['respuestas'] = $this->ResultadosM->obtenerRespuestas($usersData[$i]['idPregunta']);
 			}
-			// file name 
-			$filename = 'resultados_' . date('Y-m-d') . '.csv';
-			header("Content-Description: File Transfer");
-			header("Content-Disposition: attachment; filename=$filename");
-			header("Content-Type: application/csv; ");
-			// obtencion de datos
-			$usersData = $this->ResultadosM->exportar($id);
-
-		/* 	print_r($usersData); die; */
+			foreach ($usersData as $data){
+				for($i = 0; $i < count($data->respuestas); $i++){
+					echo $data->respuestas[$i];
+				}
+				echo "<pre>"; print_r($data);
+			}
+			die;
+			echo "<pre>"; print_r($usersData);die;
 			// creación del archivo
 			$file = fopen('php://output', 'w');
 			$header = array("Pregunta", "Respuestas", "total");
 			fputcsv($file, $header);
 			foreach ($usersData as $line) {
+				echo "<pre>"; print_r($line);
 				fputcsv($file, $line);
 			}
 			fclose($file);

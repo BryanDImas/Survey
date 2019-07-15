@@ -18,7 +18,7 @@ if($id != ''){
     }
 
     public function obtenerRespuestas($idPregunta) {
-        $sql = "SELECT Respuestas, Contador FROM respuestas r WHERE r.idPregunta = ".$idPregunta;
+        $sql = "SELECT Respuestas, Contador FROM respuestas  WHERE idPregunta = ".$idPregunta;
         return $this->db->query($sql)->result_array();
     }
 
