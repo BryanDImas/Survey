@@ -66,7 +66,8 @@ body {
 html {
     position: relative;
     min-height: 100%;
-    background: #ffffff;
+	background: #ffffff;
+	background-image: url();
 }
 
 a:hover,
@@ -75,8 +76,9 @@ a:focus {
 }
 
 a.link {
-    color: #67757c;
+	color: #67757c;
 }
+
 
 a.link:hover,
 a.link:focus {
@@ -185,6 +187,64 @@ ol li {
     margin: 5px 0;
 }
 
+.form-material .form-group {
+    overflow: hidden;
+}
+
+
+/*material inputs*/
+.form-material .form-group {
+    overflow: hidden;
+}
+
+.form-material .form-control {
+    background-color: rgba(0, 0, 0, 0);
+    background-position: center bottom, center calc(100% - 1px);
+    background-repeat: no-repeat;
+    background-size: 0 2px, 100% 1px;
+    padding: 0;
+    -webkit-transition: background 0s ease-out 0s;
+    -o-transition: background 0s ease-out 0s;
+    transition: background 0s ease-out 0s;
+}
+
+.form-material .form-control,
+.form-material .form-control.focus,
+.form-material .form-control:focus {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#20aee3), to(#20aee3)), -webkit-gradient(linear, left top, left bottom, from(rgba(120, 130, 140, 0.13)), to(rgba(120, 130, 140, 0.13)));
+    background-image: -webkit-linear-gradient(#20aee3, #20aee3), -webkit-linear-gradient(rgba(120, 130, 140, 0.13), rgba(120, 130, 140, 0.13));
+    background-image: -o-linear-gradient(#20aee3, #20aee3), -o-linear-gradient(rgba(120, 130, 140, 0.13), rgba(120, 130, 140, 0.13));
+    background-image: linear-gradient(#20aee3, #20aee3), linear-gradient(rgba(120, 130, 140, 0.13), rgba(120, 130, 140, 0.13));
+    border: 0 none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    float: none;
+}
+
+.form-material .form-control.focus,
+.form-material .form-control:focus {
+    background-size: 100% 2px, 100% 1px;
+    outline: 0 none;
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.form-control-line .form-group {
+    overflow: hidden;
+}
+
+.form-control-line .form-control {
+    border: 0px;
+    border-radius: 0px;
+    padding-left: 0px;
+    border-bottom: 1px solid #f6f9ff;
+}
+
+.form-control-line .form-control:focus {
+    border-bottom: 1px solid #20aee3;
+}
 
 /*******************
 Paddings
