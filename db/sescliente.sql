@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-07-2019 a las 01:07:26
+-- Tiempo de generación: 16-07-2019 a las 16:33:53
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.0.33
 
@@ -158,7 +158,7 @@ CREATE TABLE `empresas` (
 --
 
 INSERT INTO `empresas` (`idEmpresa`, `NombreComercial`, `RazonSocial`, `DireccionFisica`, `IdMunicipio`, `DescripcionEmpresa`, `SectorEconomico`, `FechaFundacion`, `Correo`, `Telefono`, `Iva`, `Nit`, `ContactoEmpresa`, `TelefonoContacto`, `CorreoContacto`, `CargoEmpresarial`, `PropietarioEmpresa`, `RepresentanteLegal`, `TipoCuenta`, `LogoEmpresa`) VALUES
-(1, 'Super Hamburguesas', 'Hamburgueseria Salvadoreña', 'Colonia Brisas', 114, 'Venta de hamburguesas', '', '2019-01-01', 'super@gmail.com', '7845-1245', '78542-1', '1234-123456-123-1', 'Administrador', '1234-1234', 'a@gmail.com', 'Gerente', 'Administrador', 'Administrador', 'Avanzada', 'assets/images/logos/5d1e0a2a24207'),
+(1, 'Super Hamburguesas', 'Hamburgueseria Salvadoreña', 'Colonia Brisas', 114, 'Venta de hamburguesas', '', '2019-01-01', 'super@gmail.com', '7845-1245', '78542-1', '1234-123456-123-1', 'Administrador', '1234-1234', 'a@gmail.com', 'Gerente', 'Administrador', 'Administrador', 'Avanzada', 'assets/images/logos/5d28a063db6b0empresas1.png'),
 (2, 'Evergreen', 'The People Company', 'Final 91 av. norte, col. escalon', 110, 'Servicios varios', '', '2008-11-10', 'peoplegreat@change.com', '2262-5200', '98950-8', '1604-789563-125-2', 'Estándar', '2262-5218', 'e@gmail.com', 'gerente', 'Estándar', 'Estándar', 'Basica', 'assets/images/logos/5d1e09482f839');
 
 -- --------------------------------------------------------
@@ -583,9 +583,10 @@ CREATE TABLE `publicidad` (
 --
 
 INSERT INTO `publicidad` (`IdPub`, `Imagen`, `IdUsuario`) VALUES
-(1, 'assets/images/publicidad/5d2383d8880d25d20cbb6af2be5d1fafebb3b35publi1.png', 1),
-(2, 'assets/images/publicidad/5d2383de7af1e5d20cbc0548f35d1faff4bd419publi2.png', 1),
-(3, 'assets/images/publicidad/5d2383e3701d25d20cc088a4015d1faffb22b9bpubli3.png', 1);
+(5, 'assets/images/publicidad/5d28ea3c4033f3.png', 1),
+(6, 'assets/images/publicidad/5d28ea438f9f95d27b872583101.png', 1),
+(7, 'assets/images/publicidad/5d28ea4c3b3ed5d1faff4bd419publi2.png', 1),
+(8, 'assets/images/publicidad/5d2dde4f9062fpublic4.png', 1);
 
 -- --------------------------------------------------------
 
@@ -857,7 +858,7 @@ ALTER TABLE `preguntas`
 -- AUTO_INCREMENT de la tabla `publicidad`
 --
 ALTER TABLE `publicidad`
-  MODIFY `IdPub` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IdPub` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `respuestas`
