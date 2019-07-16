@@ -20,20 +20,18 @@
             </div>
             <h3><?= $encuesta->NombreEncuesta ?></h3>
             <h4><?= $encuesta->ObjetivoEncuesta ?></h4>
-        </header><br><br><br>
+        </header><br>
         <div class="mensaje">
             <h3 class=""><?php echo nl2br($encuesta->MensajeInicio); ?></h3>
-            <p></p>
+            <br><br>
             <?php if ($encuesta->preguntas != '') { ?>
-                <h3> Para saber más información sobre usted por favor rellene estas sencillas preguntas.</h3>
-
+                <p> Nos gustaría saber más información sobre usted. Por favor conteste estas cortas preguntas:</p>
                 <br>
                 <h6><?= $encuesta->preguntas[0]->Pregunta ?></h6>
                 <input type="number" name="edad" min="15" max="100">
-
-                <br>
+                <br><br><br>
                 <h6><?= $encuesta->preguntas[1]->Pregunta ?></h6>
-                <input type="radio" value="Femenino">Femenino
+                <input type="radio" value="Femenino"> Femenino
                 <input type="radio" value="Masculino">Masculino
                 <br><br>
                 <p>
@@ -43,12 +41,12 @@
                             <option value="<?= $c->Municipio ?>"><?= $c->Municipio ?></option>
                         <?php } ?>
                     </select>
-                </p>
-                <p></p>
+                </p><br>
+                
 
             <?php } ?>
             <div class="boton">
-                <a href="<?= base_url('PrincipalC/iniciar/') ?>?a=<?= base64_encode($encuesta->idEncuesta) ?>" class="btn btn-pri text-uppercase btn-rounder btn-lg float-right">Iniciar</a>
+                <a href="<?= base_url('PrincipalC/iniciar/') ?>?a=<?= base64_encode($encuesta->idEncuesta) ?>" class="btn btn-pri btn-rounder btn-lg float-right">Iniciar</a>
             </div>
         </div>
         <footer></footer>
