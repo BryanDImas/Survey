@@ -175,9 +175,9 @@
     				<div class="card">
     					<div class="card-body">
     						<div class="table-responsive">
-							<table class="tablesaw table-bordered table-hover table" data-tablesaw-mode="stack" data-tablesaw-sortable data-tablesaw-sortable-switch data-tablesaw-minimap data-tablesaw-mode-switch>
+							<table class="tablesaw table-bordered table-hover table table-sm" data-tablesaw-mode="stack" data-tablesaw-sortable data-tablesaw-sortable-switch data-tablesaw-minimap data-tablesaw-mode-switch>
                                     <thead>
-                                        <tr>
+                                        <tr class="table-bordered">
 											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nombre de la encuesta</th>
     										<th data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="3">Objetivo de la encuesta</th>
     										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Estado</th>
