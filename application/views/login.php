@@ -22,12 +22,11 @@
 				<a class="navbar-brand" href="javascript:avoid(0)"><img src="<?= base_url() ?>assets/images/Logo.png"  alt="Home" width="150" height="40" /></a>
 				<ul class="navbar-nav ml-auto stylish-nav">
 					<!-- Logo will be here -->
-					<div class="col-sm-12">
+					<div class="col-md-12 col-xs-2">
 						<div class="login-container-box">
-							<a href='#' data-toggle='dropdown'  class="btn-lg btn btn-nue font-10 btn-rounded" >INICIAR SESION</a>
-							<div >
-								<div class='dropdown-menu' style='padding: 5%; padding-bottom: 3%; background: #2f3d4a; opacity:1.1;  width: 80%'>
-								<form class="form-horizontal form-material" id="loginform" action="<?= base_url() ?>login/validar" method="post" autocomplete="off">
+								<a href='#' data-toggle='dropdown' class="col-md-12   btn-lg text-uppercase m-t-2 btn btn-nue font-10 btn-rounded" >INICIAR SESION</a>
+								<div class='dropdown-menu' style='padding: 12%; padding-bottom: 12%; background: #2f3d4a; width: 101%'>
+									<form class="form-horizontal form-material" id="loginform" action="<?= base_url() ?>login/validar" method="post" autocomplete="off">
 										<a href="javascript:void(0)" class="text-center db"><img src="<?= base_url() ?>assets/images/logo3.png" alt="Home" width="15%" /><span><img src="<?= base_url() ?>assets/images/text-logo.png" alt="Home" width="42%" /></span></a>
 										<br>
 										<div class="form-group">

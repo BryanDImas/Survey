@@ -1209,14 +1209,12 @@ Buttons
 }
 
 .btn-rounded.btn-lg {
-	width: auto;
-	padding: .130rem 1.0rem;
-	font-size: 15px;
+	padding: .250rem 2.0rem;
+	font-size: 12px;
 	padding-top: 10px;
 }
 
 .btn-rounded.btn-sm {
-	width: 230px;
     padding: .10rem .25rem;
 	font-size: 12px;
 }
