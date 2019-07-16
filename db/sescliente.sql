@@ -159,7 +159,7 @@ CREATE TABLE `empresas` (
 --
 
 INSERT INTO `empresas` (`idEmpresa`, `NombreComercial`, `RazonSocial`, `DireccionFisica`, `IdMunicipio`, `DescripcionEmpresa`, `SectorEconomico`, `FechaFundacion`, `Correo`, `Telefono`, `Iva`, `Nit`, `ContactoEmpresa`, `TelefonoContacto`, `CorreoContacto`, `CargoEmpresarial`, `PropietarioEmpresa`, `RepresentanteLegal`, `TipoCuenta`, `LogoEmpresa`) VALUES
-(1, 'Super Hamburguesas', 'Hamburgueseria Salvadoreña', 'Colonia Brisas', 114, 'Venta de hamburguesas', 'Servicios', '2019-01-01', 'super@gmail.com', '7845-1245', '78542-1', '1234-123456-123-1', 'Administrador', '1234-1234', 'a@gmail.com', 'Gerente', 'Administrador', 'Administrador', 'Avanzada', 'assets/images/logos/5d28a063db6b0empresas1.png'),
+(1, 'Super Hamburguesas', 'Hamburgueseria Salvadoreña', 'Colonia Brisas', 114, 'Venta de hamburguesas', '', '2019-01-01', 'super@gmail.com', '7845-1245', '78542-1', '1234-123456-123-1', 'Administrador', '1234-1234', 'a@gmail.com', 'Gerente', 'Administrador', 'Administrador', 'Avanzada', 'assets/images/logos/5d28a063db6b0empresas1.png'),
 (2, 'Evergreen', 'The People Company', 'Final 91 av. norte, col. escalon', 110, 'Servicios varios', '', '2008-11-10', 'peoplegreat@change.com', '2262-5200', '98950-8', '1604-789563-125-2', 'Estándar', '2262-5218', 'e@gmail.com', 'gerente', 'Estándar', 'Estándar', 'Basica', 'assets/images/logos/5d1e09482f839');
 
 -- --------------------------------------------------------
@@ -592,8 +592,10 @@ CREATE TABLE `publicidad` (
 --
 
 INSERT INTO `publicidad` (`IdPub`, `Imagen`, `IdUsuario`) VALUES
-(4, 'assets/images/publicidad/5d2741fb1ee371.png', 1),
-(5, 'assets/images/publicidad/5d27420500d2a2.png', 1);
+(5, 'assets/images/publicidad/5d28ea3c4033f3.png', 1),
+(6, 'assets/images/publicidad/5d28ea438f9f95d27b872583101.png', 1),
+(7, 'assets/images/publicidad/5d28ea4c3b3ed5d1faff4bd419publi2.png', 1),
+(8, 'assets/images/publicidad/5d2dde4f9062fpublic4.png', 1);
 
 -- --------------------------------------------------------
 
@@ -866,7 +868,7 @@ ALTER TABLE `preguntas`
 -- AUTO_INCREMENT de la tabla `publicidad`
 --
 ALTER TABLE `publicidad`
-  MODIFY `IdPub` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `IdPub` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `respuestas`
