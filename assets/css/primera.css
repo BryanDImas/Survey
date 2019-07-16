@@ -1,16 +1,13 @@
-    /* body {
-    background-image: ('<?=base_url()?>assets/images/background/tec2.jpg'!important);
-    <!--  <div class="bg"><img src="<?= base_url('assets/images/background/tec2.jpg') ?>" width="100%" height="150"></div> -->
-} */
-    
     .container {
         border: 1px solid silver;
         border-radius: 12px;
-        margin: 50px auto;
+        text-align: center;
         background-color: #51D1F6;
+        max-width: 1680px !important;
     }
     
     body {
+        padding: 30px;
         background: url(../images/background/tec2.jpg);
         background-repeat: no-repeat;
         background-size: cover;
@@ -18,28 +15,57 @@
     
     header {
         background-color: #0088b6;
-        height: 100px;
-        width: 100%;
+        border-radius: 12px;
+        max-width: 1690px !important;
         color: white;
         text-align: right;
+        height: 240px;
     }
     
     .img-responsive {
-        width: 8%;
+        width: 10%;
         height: 10%;
     }
     
     img {
         width: 130%;
+        padding-left: 10%;
+        padding-top: 10%;
+        padding-right: 10%;
     }
     
     .mensaje {
-        height: 300px;
+        margin-block: 60px;
         text-align: center;
     }
     
     .boton {
-        align-self: center;
+        display: inline-block;
+        border-radius: 4px;
+        padding: 20px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+    
+    .btn-pri,
+    .btn-pri.disabled {
+        background: linear-gradient(#51D1F6, white);
+        border: 1px solid #0088b6, ;
+        color: #0088b6, ;
+    }
+    
+    .btn-pri:hover,
+    .btn-pri.disabled:hover {
+        opacity: 0.8;
+        color: black;
+        border: 1px solid #0088b6;
+        background: linear-gradient(#0088b6, #51D1F6, white);
+    }
+    
+    .btn-lg {
+        padding: .500rem 4rem;
+        font-size: 1.8rem;
     }
     
     .float-right {

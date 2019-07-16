@@ -8,15 +8,15 @@
     <title>Survey</title>
     <link href="<?= base_url() ?>assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/images/logo3.png">
-    <link rel="stylesheet" href="<?=base_url()?>assets/css/primera.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/primera.css">
 </head>
 
 <body>
     <div class="container">
-      
+
         <header>
-        <div class="img-responsive">
-            <img src="<?= base_url() ?><?=$encuesta->logo?>" alt="">
+            <div class="img-responsive">
+                <img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
             </div>
             <h3><?= $encuesta->NombreEncuesta ?></h3>
             <h4><?= $encuesta->ObjetivoEncuesta ?></h4>
@@ -47,8 +47,8 @@
                 <p></p>
 
             <?php } ?>
-            <div class="boton"> 
-            <a href="<?= base_url('PrincipalC/iniciar/') ?>?a=<?= base64_encode($encuesta->idEncuesta) ?>" class="btn btn-rounded btn-info float-right">Iniciar</a>
+            <div class="boton">
+                <a href="<?= base_url('PrincipalC/iniciar/') ?>?a=<?= base64_encode($encuesta->idEncuesta) ?>" class="btn btn-pri text-uppercase btn-rounder btn-lg float-right">Iniciar</a>
             </div>
         </div>
         <footer></footer>

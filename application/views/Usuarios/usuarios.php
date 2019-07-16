@@ -178,9 +178,9 @@
                                 <!-- Export Data -->
                                 <a href='<?= base_url() ?>index.php/UsuariosC/exportCSV'>Exportar CSV</a><br><br>
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-responsive">
-                                        <thead class="text-center table-bordered">
-                                            <tr>
+                                    <table class="table table-bordered table-responsive text-center">
+                                        <thead>
+                                            <tr class="table-bordered">
                                                 <th>Nombre</th>
                                                 <th>Correo</th>
                                                 <th>Telefono</th>
