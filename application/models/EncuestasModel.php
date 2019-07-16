@@ -65,5 +65,10 @@ class EncuestasModel extends CI_Model
            $sql = "UPDATE encuestas SET IdFormato = ". $id. " WHERE idEncuesta = ". $idEncuesta;
            $this->db->query($sql);
        }
+       #Metodo que nos devuelve todos los ids de las encuestas
+       public function ids($id){
+           $sql = "SELECT idEncuesta, NombreEncuesta FROM encuestas WHERE idUsuario = ".$id;
+           return $this->db->query($sql)->result();
+       }
    }
 

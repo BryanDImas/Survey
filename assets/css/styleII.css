@@ -1209,13 +1209,17 @@ Buttons
 }
 
 .btn-rounded.btn-lg {
-    padding: .75rem 1.5rem;
+	padding: .250rem 2.0rem;
+	font-size: 12px;
+	padding-top: 10px;
 }
 
 .btn-rounded.btn-sm {
-    padding: .25rem .5rem;
-    font-size: 12px;
+    padding: .10rem .25rem;
+	font-size: 12px;
 }
+
+
 
 .btn-rounded.btn-xs {
     padding: .25rem .5rem;
@@ -2609,7 +2613,7 @@ File: scss
 .btn-nue.disabled {
     background: linear-gradient(#9198e5, #00FFFF);
     border: 1px solid #00FFFF;
-    color: black;
+	color: black;
 }
 
 .btn-nue:hover,
