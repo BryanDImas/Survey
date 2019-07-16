@@ -72,6 +72,11 @@
 					</div>
 				</div>
 			</div>
+			<div class="offset-3">
+				<?php foreach($ids as $id){ ?>
+					<a class="btn btn-success" href="<?=base_url()?>ResultadosC/index/<?=$id->idEncuesta?>"><?= $id->NombreEncuesta?></a>
+				<?php } ?>
+			</div>
 		</div>
 	</div>
 	<!-- ============================================================== -->

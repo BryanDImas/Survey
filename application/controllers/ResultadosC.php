@@ -13,14 +13,17 @@ class ResultadosC extends CI_Controller
 		}
 	}
 	// Acción principal.
-	public function index()
+	public function index($ide = '')
 	{
-		$datos['encuesta'] = $this->EncuestasModel->buscarid(13);
-		$datos['preguntas'] = $this->ResultadosM->preguntas(/* $this->session->idEncuesta */13);
+		$datos['ids'] = $this->EncuestasModel->ids($this->session->usuario->idUsuario);
+		if ($ide == '') {
+			$ide = $datos['ids'][0]->idEncuesta;
+		}
+		$datos['encuesta'] = $this->EncuestasModel->buscarid($ide);
+		$datos['preguntas'] = $this->ResultadosM->preguntas($ide);
 		foreach ($datos['preguntas'] as $preguntas) {
 			$preguntas->respuestas = $this->ResultadosM->respuestas($preguntas->idPregunta);
 		}
-		/* echo "<pre>";print_r($datos);die; */
 		$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 		$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
 		$this->load->view('resultados/resultados', $datos);
@@ -31,7 +34,7 @@ class ResultadosC extends CI_Controller
 	{
 		if ($this->session->empresa->TipoCuenta == 'Basica') {
 			echo "<script>alert('Para tener acceso a esta área comuniquese con el administrador y cambie su cuenta a Avanzada');</script>";
-			self::index();
+			self::index($this->session->idEncuesta);
 		} else {
 			$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 			$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
@@ -58,24 +61,26 @@ class ResultadosC extends CI_Controller
 		header("Content-Description: File Transfer");
 		header("Content-Disposition: attachment; filename=$filename");
 		header("Content-Type: application/csv; ");
-
-		$usersData = $this->ResultadosM->exportar($id);
+		$usersData = $this->ResultadosM->exportar($id); #obtenemos las preguntas.
 		for ($i = 0; $i < count($usersData); $i++) {
-			$usersData[$i]['respuestas'] = $this->ResultadosM->obtenerRespuestas($usersData[$i]['idPregunta']);
+			$usersData[$i]['respuestas'] = $this->ResultadosM->obtenerRespuestas($usersData[$i]['idPregunta']); #obtenemos las respuestas segun la pregunta
+			$usersData[$i]['respuestasCSV'] = ''; # declaramos la posicion del arreglo a utilizar.
+			$usersData[$i]['contadorCSV'] = ''; # declaramos la posicion del arreglo a utilizar.
+			for ($j = 0; $j < count($usersData[$i]['respuestas']); $j++) {
+				$usersData[$i]['respuestasCSV'] .= $usersData[$i]['respuestas'][$j]['Respuestas'] . '|'; # concatenamos las respuestas en una sola linea separados por |
+				$usersData[$i]['contadorCSV'] .= $usersData[$i]['respuestas'][$j]['Contador'] . '|'; # concatenamos los contadores en una sola linea separados por |
+			}
+			$usersData[$i]['respuestasCSV'] = substr($usersData[$i]['respuestasCSV'], 0, strlen($usersData[$i]['respuestasCSV']) - 1); #Eliminamos el | del final del arreglo
+			$usersData[$i]['contadorCSV'] = substr($usersData[$i]['contadorCSV'], 0, strlen($usersData[$i]['contadorCSV']) - 1); #Eliminamos el | del final del arreglo
 		}
 		// creación del archivo
 		$file = fopen('php://output', 'w');
+		fprintf($file, chr(0xEF) . chr(0xBB) . chr(0xBF)); # Funcion que nos permite intrepretar caracterews de UTF8
 		$header = array("Pregunta", "Respuestas", "Total");
 		fputcsv($file, $header);
 		foreach ($usersData as $line) {
-			$preguntas = array($line['Pregunta']);
-			fputcsv($file, $preguntas);
-
-			foreach ($line['respuestas'] as $data) {
-				$respuestas = array($data['Respuestas'], $data['Contador']);
-				utf8_decode($respuestas);
-				fputcsv($file, $respuestas);
-			}
+			$formato = array($line['Pregunta'], $line['respuestasCSV'], $line['contadorCSV']);
+			fputcsv($file, $formato);
 		}
 		fclose($file);
 		exit;
