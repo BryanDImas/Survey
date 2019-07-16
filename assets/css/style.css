@@ -3061,7 +3061,8 @@ Buttons
 .btn-nue.disabled {
     background: linear-gradient(#9198e5, #00FFFF);
     border: 1px solid #00FFFF;
-    color: black;
+	color: black;
+	width: 150% !important;
 }
 
 .btn-nue:hover,

@@ -252,7 +252,7 @@
     											<td class="cell">
     												<form action="<?= base_url() ?>EncuestasC/generarQR/" method="post">
     													<input type="hidden" name="url" value="<?= $encues->Url ?>">
-    													<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode"><br> QR</button>
+    													<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode">  QR</button>
     												</form>
     											</td>
     										</tr>
