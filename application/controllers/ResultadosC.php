@@ -52,32 +52,29 @@ class ResultadosC extends CI_Controller
 		public function exportCSV($id)
 		{
 			// file name 
-/* 			$filename = 'resultados_' . date('Y-m-d') . '.csv';
+			$filename = 'resultados_' . date('Y-m-d') . '.csv';
 			header("Content-Description: File Transfer");
 			header("Content-Disposition: attachment; filename=$filename");
-			header("Content-Type: application/csv; "); */
+			header("Content-Type: application/csv; ");
 			
 			$usersData = $this->ResultadosM->exportar($id);
 			for($i = 0; $i < count($usersData); $i++) {
 				$usersData[$i]['respuestas'] = $this->ResultadosM->obtenerRespuestas($usersData[$i]['idPregunta']);
 			}
-			foreach ($usersData as $data){
-				for($i = 0; $i < count($data->respuestas); $i++){
-					echo $data->respuestas[$i];
-				}
-				echo "<pre>"; print_r($data);
-			}
-			die;
-			echo "<pre>"; print_r($usersData);die;
 			// creación del archivo
 			$file = fopen('php://output', 'w');
 			$header = array("Pregunta", "Respuestas", "total");
 			fputcsv($file, $header);
 			foreach ($usersData as $line) {
-				echo "<pre>"; print_r($line);
-				fputcsv($file, $line);
+				$preguntas = array($line['Pregunta']);/* echo "<pre>";print_r($line['Pregunta']); */ 
+				fputcsv($file, $preguntas);
+				foreach($line['respuestas'] as $data){
+					$respuestas = array($data['Respuestas'],$data['Contador']);
+					fputcsv($file, $respuestas);
+				} 
 			}
 			fclose($file);
+			/* echo "<pre>"; print_r($file);die; */
 			exit;
 		}
 }
