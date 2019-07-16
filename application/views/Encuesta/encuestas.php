@@ -175,9 +175,51 @@
     				<div class="card">
     					<div class="card-body">
     						<div class="table-responsive">
-    							<table class="table table-hover table-bordered text-center table-responsive table-sm">
-    								<thead class="text-center table-bordered">
-    									<tr>
+							<table class="tablesaw table-bordered table-hover table" data-tablesaw-mode="stack" data-tablesaw-sortable data-tablesaw-sortable-switch data-tablesaw-minimap data-tablesaw-mode-switch>
+                                    <thead>
+                                        <tr>
+											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nombre de la encuesta</th>
+    										<th data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="3">Objetivo de la encuesta</th>
+    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Estado</th>
+    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Fecha de creación</th>
+    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Fecha de finalización</th>
+    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Mensaje de inicio</th>
+    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Mensaje de finalización</th>
+    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4" colspan="4">Opciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($encuestas as $encues) { ?>
+    										<tr>
+    											<td class="title"><a class="link" href="javascript:void(0)"><?= $encues->NombreEncuesta ?></td>
+    											<td><?= $encues->ObjetivoEncuesta ?></td>
+    											<td><?= $encues->Estado ?></td>
+    											<td><?= $encues->FechaCreacion ?></td>
+    											<td><?= $encues->FechaFinalizacion ?></td>
+    											<td><?= $encues->MensajeInicio ?></td>
+    											<td><?= $encues->MensajeFinalizacion ?></td>
+    											<td>
+    												<a href="<?= base_url() ?>EncuestasC/eliminar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-danger i fas fa-trash-alt"> Borrar </a>
+    											</td>
+    											<td>
+    												<a href="<?= base_url() ?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-success i fas fa-pencil-alt"> Editar </a>
+    											</td>
+    											<td>
+    												<a href="javascript:avoid(0)" class=" btn btn-block btn-outline-primary i fas fa-link" onclick="alert('<?= base_url() ?>PrincipalC/index/?e=<?= base64_encode($encues->idEncuesta) ?>')"> Link</a>
+    											</td>
+    											<td>
+    												<form action="<?= base_url() ?>EncuestasC/generarQR/" method="post">
+    													<input type="hidden" name="url" value="<?= $encues->Url ?>">
+    													<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode"><br> QR</button>
+    												</form>
+    											</td>
+    										</tr>
+    									<?php  } ?>
+                                    </tbody>
+                                </table>
+    							<!-- <table class="table table-bordered text-center table-responsive table-sm">
+    								<thead>
+    									<tr class="table-bordered">
     										<th>Nombre de la encuesta</th>
     										<th>Objetivo de la encuesta</th>
     										<th>Estado</th>
@@ -216,13 +258,13 @@
     										</tr>
     									<?php  } ?>
     								</tbody>
-    							</table>
+    							</table> -->
     						</div>
     					</div>
-					</div>
-					<div class="col-md-6 offset-3">
-						<?= $this->pagination->create_links() ?>
-					</div>
-    			<!-- ================================================================================================ -->
-    			<!-- Fin del contenido -->
-    			<!-- ================================================================================================ -->
+    				</div>
+    				<div class="col-md-6 offset-3">
+    					<?= $this->pagination->create_links() ?>
+    				</div>
+    				<!-- ================================================================================================ -->
+    				<!-- Fin del contenido -->
+					<!-- ================================================================================================ -->
