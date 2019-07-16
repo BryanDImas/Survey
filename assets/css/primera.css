@@ -1,73 +1,73 @@
-    .container {
-        border: 1px solid silver;
-        border-radius: 12px;
-        text-align: center;
-        background-color: #51D1F6;
-        max-width: 1680px !important;
-    }
-    
-    body {
-        padding: 30px;
-        background: url(../images/background/tec2.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    
-    header {
-        background-color: #0088b6;
-        border-radius: 12px;
-        max-width: 1690px !important;
-        color: white;
-        text-align: right;
-        height: 240px;
-    }
-    
-    .img-responsive {
-        width: 10%;
-        height: 10%;
-    }
-    
-    img {
-        width: 130%;
-        padding-left: 10%;
-        padding-top: 10%;
-        padding-right: 10%;
-    }
-    
-    .mensaje {
-        margin-block: 60px;
-        text-align: center;
-    }
-    
-    .boton {
-        display: inline-block;
-        border-radius: 4px;
-        padding: 20px;
-        transition: all 0.5s;
-        cursor: pointer;
-        margin: 5px;
-    }
-    
-    .btn-pri,
-    .btn-pri.disabled {
-        background: linear-gradient(#51D1F6, white);
-        border: 1px solid #0088b6, ;
-        color: #0088b6, ;
-    }
-    
-    .btn-pri:hover,
-    .btn-pri.disabled:hover {
-        opacity: 0.8;
-        color: black;
-        border: 1px solid #0088b6;
-        background: linear-gradient(#0088b6, #51D1F6, white);
-    }
-    
-    .btn-lg {
-        padding: .500rem 4rem;
-        font-size: 1.8rem;
-    }
-    
-    .float-right {
-        float: center;
-    }
+                                .container {
+                                    border: 1px solid silver;
+                                    border-radius: 12px;
+                                    text-align: center;
+                                    background-color: black;
+                                    max-width: 1000px !important;
+                                }
+                                
+                                body {
+                                    padding: 100px;
+                                    background: ;
+                                    background-repeat: no-repeat;
+                                    background-size: cover;
+                                    color: white;
+                                    margin: 1%;
+                                }
+                                
+                                header {
+                                    background-color: skyblue;
+                                    border-radius: 12px;
+                                    max-width: 1000px !important;
+                                    color: black;
+                                    text-align: right;
+                                    height: 170px;
+                                }
+                                
+                                .img-responsive {
+                                    width: 10%;
+                                    height: 10%;
+                                }
+                                
+                                img {
+                                    width: 130%;
+                                    padding-left: 10%;
+                                    padding-top: 10%;
+                                    padding-right: 10%;
+                                }
+                                
+                                .mensaje {
+                                    margin-block: 60px;
+                                    text-align: center;
+                                }
+                                
+                                .boton {
+                                    display: inline-block;
+                                    padding: 20px;
+                                    margin: 10px;
+                                }
+                                
+                                .btn-pri,
+                                .btn-pri.disabled {
+                                    background: linear-gradient(#0088b6, #51D1F6, white);
+                                }
+                                
+                                .btn-pri:hover,
+                                .btn-pri.disabled:hover {
+                                    opacity: 0.8;
+                                    background: linear-gradient(white, #0088b6, white);
+                                }
+                                
+                                .btn-lg {
+                                    padding: .400rem 2rem;
+                                    font-size: 1.3rem;
+                                }
+                                
+                                .btn-rounder {
+                                    border-radius: 120px;
+                                    padding: 7px 18px;
+                                }
+                                
+                                .float-right {
+                                    float: center;
+                                }
