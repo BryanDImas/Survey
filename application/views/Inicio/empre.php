@@ -1,20 +1,20 @@
 <!-- Área de las empresas para su fácil acceso a sus encuestas enlinea -->
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
 <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-8">
+    <div class="col-xs- col-sm-6 col-md-8">
         <div style=" text-align:center; margin:5% auto; width:15rem; heigth:15rem;">
             <ul id="flexiselDemo" style="display: inline-flex">
-                <li><img src="<?= base_url('assets/images/empresas1.png') ?>" /></li>
-                <li><img src="<?= base_url('assets/images/empresas1.png') ?>" /></li>
-                <li><img src="<?= base_url('assets/images/empresas1.png') ?>" /></li>
-                <li><img src="<?= base_url('assets/images/empresas1.png') ?>" /></li>
+                <li><img src="<?= base_url('assets/images/empresas1.png') ?>"  /></li>
+                <li><img src="<?= base_url('assets/images/empresas1.png') ?>"  /></li>
+                <li><img src="<?= base_url('assets/images/empresas1.png') ?>"  /></li>
+                <li><img src="<?= base_url('assets/images/empresas1.png') ?>"  /></li>
             </ul>
 
             <div class="clearout"></div>
         </div>
     </div>
 </div>
-
+</div>
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
 <!-- Fin de área de las empresas -->
 <!-------------------------------------------------------------------------------------------------------------------------------------------->

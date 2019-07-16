@@ -2,7 +2,7 @@
 <div class="bd-example">
     <div id="carouselExampleCaptions" class="carousel" data-ride="carousel">
             <?php for ($i = 0; $i < count($imgs); $i++) { ?>
-                <li data-target="#carouselExampleCaptions" data-slide-to="<?= base_url($imgs[$i]->IdPub) ?>" class="<?= $i == 1 ? 'active' : '' ?>"></li>
+                <ul data-target="#carouselExampleCaptions" data-slide-to="<?= base_url($imgs[$i]->IdPub) ?>" class="<?= $i == 1 ? 'active' : '' ?>"></ul>
             <?php } ?>
         </ol>
         <div class="carousel-inner">
