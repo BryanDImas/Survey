@@ -18,6 +18,7 @@
     <link href="<?= base_url() ?>assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
     <!--Toaster Popup message CSS -->
     <link href="<?= base_url() ?>assets/node_modules/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/node_modules/tablesaw-master/dist/tablesaw.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->

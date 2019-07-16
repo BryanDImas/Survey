@@ -17,14 +17,35 @@
 			<button class="right-side-toggle waves-effect waves-light  btn-themecolor btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
 		</div>
 	</div>
-
+	<div class="card-group">
+		<div class="card">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12">
+						<h6 class="card-subtitle">Encuesta:</h6>
+						<h3><?= $encuesta->NombreEncuesta ?></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12">
+						<h6 class="card-subtitle">Objetivo de la encuesta:</h6>
+						<h3><?= $encuesta->ObjetivoEncuesta ?></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!--Tabla resultados -->
 	<div class="row">
 		<div class="col-md-12 align-center">
 			<div class="card">
 				<div class="card-body">
 					<!-- Export Data -->
-								<a href='<?= base_url() ?>ResultadosC/exportCSV/<?= $preguntas[0]->IdEncuesta?>'>Exportar CSV</a><br><br>
+					<a href='<?= base_url() ?>ResultadosC/exportCSV/<?= $preguntas[0]->IdEncuesta ?>'>Exportar CSV</a><br><br>
 					<div class="table-responsive table-sm">
 						<table class="table  table-bordered text-center">
 							<thead class="table-bordered">
@@ -53,10 +74,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- ============================================================== -->
-	<!-- End Info box -->
-	<!-- ============================================================== -->
-
 	<!-- ============================================================== -->
 	<!-- End Page Content -->
 	<!-- ============================================================== -->
