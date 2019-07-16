@@ -35,4 +35,10 @@ if($id != ''){
         $sql = "SELECT * FROM respuestas WHERE IdPregunta = ".$id;
         return $this->db->query($sql)->result();
     }
+
+    public function export ($id) {
+        $s = "SELECT P.idPregunta, P.Pregunta, R.Respuestas, R.Contador FROM respuestas R INNER JOIN preguntas P ON R.IdPregunta = P.idPregunta INNER JOIN encuestas E ON E.idEncuesta = P.IdEncuesta WHERE E.idEncuesta = $id";
+
+        return $this->db->query($s)->result();
+    }
 }
