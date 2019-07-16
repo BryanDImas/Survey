@@ -173,25 +173,25 @@
     			<div class="row" class="col-12">
 
     				<div class="card">
-    					<div class="card-body">
+    					<div class="card-body"><br>
     						<div class="table-responsive">
-							<table class="tablesaw table-bordered table-hover table table-sm" data-tablesaw-mode="stack" data-tablesaw-sortable data-tablesaw-sortable-switch data-tablesaw-minimap data-tablesaw-mode-switch>
-                                    <thead>
-                                        <tr class="table-bordered">
-											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nombre de la encuesta</th>
+    							<table class="tablesaw table-bordered table table-sm" data-tablesaw-mode="stack" >
+    								<thead>
+    									<tr class="table-bordered">
+    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist" >Nombre de la encuesta</th>
     										<th data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="3">Objetivo de la encuesta</th>
     										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Estado</th>
     										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Fecha de creación</th>
     										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Fecha de finalización</th>
-    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Mensaje de inicio</th>
-    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Mensaje de finalización</th>
-    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4" colspan="4">Opciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($encuestas as $encues) { ?>
+    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Mensaje de inicio</th>
+    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="6">Mensaje de finalización</th>
+    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7"  colspan="4">Opciones</th>
+    									</tr>
+    								</thead>
+    								<tbody>
+    									<?php foreach ($encuestas as $encues) { ?>
     										<tr>
-    											<td class="title"><a class="link" href="javascript:void(0)"><?= $encues->NombreEncuesta ?></td>
+    											<td><?= $encues->NombreEncuesta ?></td>
     											<td><?= $encues->ObjetivoEncuesta ?></td>
     											<td><?= $encues->Estado ?></td>
     											<td><?= $encues->FechaCreacion ?></td>
@@ -215,50 +215,8 @@
     											</td>
     										</tr>
     									<?php  } ?>
-                                    </tbody>
-                                </table>
-    							<!-- <table class="table table-bordered text-center table-responsive table-sm">
-    								<thead>
-    									<tr class="table-bordered">
-    										<th>Nombre de la encuesta</th>
-    										<th>Objetivo de la encuesta</th>
-    										<th>Estado</th>
-    										<th>Fecha de creación</th>
-    										<th>Fecha de finalización</th>
-    										<th>Mensaje de inicio</th>
-    										<th>Mensaje de finalización</th>
-    										<th colspan="4">Opciones</th>
-    									</tr>
-    								</thead>
-    								<tbody>
-    									<?php foreach ($encuestas as $encues) { ?>
-    										<tr>
-    											<td class="cell"><?= $encues->NombreEncuesta ?></td>
-    											<td class="cell"><?= $encues->ObjetivoEncuesta ?></td>
-    											<td class="cell"><?= $encues->Estado ?></td>
-    											<td class="cell"><?= $encues->FechaCreacion ?></td>
-    											<td class="cell"><?= $encues->FechaFinalizacion ?></td>
-    											<td class="cell"><?= $encues->MensajeInicio ?></td>
-    											<td class="cell"><?= $encues->MensajeFinalizacion ?></td>
-    											<td class="cell">
-    												<a href="<?= base_url() ?>EncuestasC/eliminar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-danger i fas fa-trash-alt"> Borrar </a>
-    											</td>
-    											<td class="cell">
-    												<a href="<?= base_url() ?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-success i fas fa-pencil-alt"> Editar </a>
-    											</td>
-    											<td class="cell">
-    												<a href="javascript:avoid(0)" class=" btn btn-block btn-outline-primary i fas fa-link" onclick="alert('<?= base_url() ?>PrincipalC/index/?e=<?= base64_encode($encues->idEncuesta) ?>')"> Link</a>
-    											</td>
-    											<td class="cell">
-    												<form action="<?= base_url() ?>EncuestasC/generarQR/" method="post">
-    													<input type="hidden" name="url" value="<?= $encues->Url ?>">
-    													<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode">  QR</button>
-    												</form>
-    											</td>
-    										</tr>
-    									<?php  } ?>
     								</tbody>
-    							</table> -->
+    							</table>
     						</div>
     					</div>
     				</div>
@@ -267,4 +225,8 @@
     				</div>
     				<!-- ================================================================================================ -->
     				<!-- Fin del contenido -->
+<<<<<<< HEAD
 					<!-- ================================================================================================ -->
+=======
+    				<!-- ================================================================================================ -->
+>>>>>>> 5372225945dd9a831f89f8d2806a8db6f6d742f3
