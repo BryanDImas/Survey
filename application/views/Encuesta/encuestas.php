@@ -175,17 +175,17 @@
     				<div class="card">
     					<div class="card-body"><br>
     						<div class="table-responsive">
-    							<table class="tablesaw table-bordered table table-sm" data-tablesaw-mode="stack" >
+    							<table class="tablesaw table-bordered table table-sm" data-tablesaw-mode="stack">
     								<thead>
     									<tr class="table-bordered">
-    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist" >Nombre de la encuesta</th>
+    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nombre de la encuesta</th>
     										<th data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="3">Objetivo de la encuesta</th>
     										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Estado</th>
     										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Fecha de creación</th>
     										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Fecha de finalización</th>
     										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Mensaje de inicio</th>
     										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="6">Mensaje de finalización</th>
-    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7"  colspan="4">Opciones</th>
+    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7" colspan="4">Opciones</th>
     									</tr>
     								</thead>
     								<tbody>
