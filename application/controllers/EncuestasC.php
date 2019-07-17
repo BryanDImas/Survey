@@ -6,30 +6,34 @@ class EncuestasC extends CI_Controller
 	{
 		$dato = array();
 		parent::__construct();
-		$this->load->library(['form_validation', 'pagination','encrypt']);
+		$this->load->library(['form_validation', 'pagination']);
 		$this->load->model(['EncuestasModel', 'Preguntasmodel', 'Respuestasmodel']);
 		if ($this->session->usuario) { } else {
 			redirect('Login');
 		}
 	}
 
-	public function generarQR ($Url)
-	{
+	public function generarQR ()
+	{	/* $Url = $_GET['u'] ?? ''; */
 		$this->load->library('ciqrcode');
-
+		$Url = $this->input->post('url');
 		$params['data'] = $Url;
-        $params['level'] = 'H';
+        $params['level'] = 'S';
         $params['size'] = 9;
 
         //decimos el directorio a guardar el codigo qr, en este 
-        //caso una carpeta en la raíz llamada qr_code
-        $params['savename'] = FCPATH . "uploads/qr_code/qr_$Url.png";
+		//caso una carpeta en la raíz llamada qr_code
+		$nombre = uniqid() . rand(0, 999);
+        $params['savename'] = FCPATH . "uploads/qr_code/qr_$nombre.png";
         //generamos el código qr
         $this->ciqrcode->generate($params);
 
-		$data['img'] = "qr_$Url.png";
+		$data['img'] = "qr_$nombre.png";
 		
-		echo "<img src='" . base_url() . "uploads/qr_code/" . $data['img'] . "' />";
+		/* $this->load->view('layouts/head'); */
+		$this->load->view('Encuesta/codigo_qr', $data);
+	/* 	$this->load->view('layouts/footer'); */
+		/* echo "<img src='" . base_url() . "uploads/qr_code/" . $data['img'] . "' />"; */
 	}
 
 	# Vista principal de este controlador.
@@ -43,7 +47,12 @@ class EncuestasC extends CI_Controller
 		$config['num_links'] = 4; # Número de digitos a mostrar en la paginacion si son varios numeros.
 		$config['use_page_numbers'] = TRUE; #para ver el numero de la pagina en la url.
 		$this->pagination->initialize($config);
-		if (count($dato['encuestas'] = $this->EncuestasModel->obtener($pag, $config['per_page'], $key, $this->session->usuario->idUsuario)) > 0) {
+		if($pag != 0){
+			$inicia = ($pag * $config['per_page'])-$config['per_page'];
+		}else{
+			$inicia = $pag;
+		}
+		if (count($dato['encuestas'] = $this->EncuestasModel->obtener($inicia, $config['per_page'], $key, $this->session->usuario->idUsuario)) > 0) {
 			$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 			$this->load->view('encuesta/encuestas', $dato); # cargamos la vista del contenido principal.
 			$this->load->view('layouts/footer'); #cargamos la vista que contiene el pie de página.
@@ -112,6 +121,7 @@ class EncuestasC extends CI_Controller
 		}
 
 		$this->session->set_userdata('idEncuesta', $id);
+		$this->session->set_userdata('formato', '');
 		redirect('EncuestasC/cargar/Formato/');
 	}
 
@@ -126,7 +136,7 @@ class EncuestasC extends CI_Controller
 	public function finalizar()
 	{
 		$dato = [
-			$this->input->post('resul'), $this->input->post('msj'), $this->input->post('encuesta')
+			$this->input->post('resul'), $this->input->post('msj'), $this->input->post('qr'), $this->input->post('encuesta')
 		];
 		$this->EncuestasModel->fin($dato);
 		redirect('EncuestasC/');

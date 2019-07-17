@@ -43,7 +43,7 @@ class EncuestasModel extends CI_Model
     }
     # Método que nos ingresa los ultimos datos necesarios para la tabla encuesta.
     public function fin($datos){
-        $sql = "UPDATE encuestas SET Resultados = ?, MensajeFinalizacion = ? WHERE idEncuesta = ?";
+        $sql = "UPDATE encuestas SET Resultados = ?, MensajeFinalizacion = ?, Url = ? WHERE idEncuesta = ?";
         $this->db->query($sql,$datos);
     }
     # Método que ingresa el formato en la tabla encuesta
@@ -59,6 +59,16 @@ class EncuestasModel extends CI_Model
                $sql.= "WHERE NombreEncuesta LIKE '%{$key}%'"; # Cambia si entra algún parametro de busqueda. 
            }
            return $this->db->query($sql)->row()->total;
+       }
+       # Método que captura el valor del tipo de encuesta.
+       public function Tipo($id, $idEncuesta){
+           $sql = "UPDATE encuestas SET IdFormato = ". $id. " WHERE idEncuesta = ". $idEncuesta;
+           $this->db->query($sql);
+       }
+       #Metodo que nos devuelve todos los ids de las encuestas
+       public function ids($id){
+           $sql = "SELECT idEncuesta, NombreEncuesta FROM encuestas WHERE idUsuario = ".$id;
+           return $this->db->query($sql)->result();
        }
    }
 

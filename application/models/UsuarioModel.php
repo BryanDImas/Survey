@@ -58,5 +58,15 @@ class UsuarioModel extends CI_Model
     public function exportar(){
         $sql = "SELECT U.Usuario, C.Correo, T.Numero,U.Cargo,U.Departamento,U.Rol,U.Estado, E.NombreComercial FROM usuarios U  JOIN correos C,telefonos T,empresas E WHERE C.idUsuario = U.idUsuario AND U.idEmpresa = E.idEmpresa AND T.idUsuario = U.idUsuario ";
         return $this->db->query($sql)->result_array();
-    }
+	}
+	# Método que nos devuelve la ruta de la foto de perfil.
+	public function BuscaRuta($id){
+		$sql = "SELECT Foto FROM usuarios WHERE idUsuario = ".$id;
+		return $this->db->query($sql)->row()->Foto;
+	}
+	# Método que nos cambia la foto del perfil del usuario en la tabla usuarios.
+	public function Cambiar($ruta){
+		$sql ="UPDATE usuarios SET Foto = ? WHERE idUsuario= ? ";
+		$this->db->query($sql, $ruta);
+	}
 }

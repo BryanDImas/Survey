@@ -57,14 +57,26 @@
                     <!-- User profile and search -->
                     <ul class="navbar-nav my-lg-0">
                         <li class="nav-item dropdown u-pro">
-                            <a class="nav-link dropdown-toggle waves-effect profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user" class="" /> <span class="hidden-md-down"><?= $this->session->usuario->Usuario ?> &nbsp;<i class="fa fa-angle-down"></i></span> </a>
+                            <a class="nav-link dropdown-toggle waves-effect profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?php if ($this->session->usuario->Foto != '') { ?>
+                                    <img src="<?= base_url() ?><?= $this->session->usuario->Foto ?>" alt="user" class="" />
+                                <?php } else { ?>
+                                    <img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user" class="" />
+                                <?php } ?>
+                                <span class="hidden-md-down"><?= $this->session->usuario->Usuario ?> &nbsp;<i class="fa fa-angle-down"></i></span> </a>
                             <div class="dropdown-menu dropdown-menu-right animated flipInY">
                                 <ul class="dropdown-user">
                                     <li class="nav-item dropdown u-pro">
                                         <ul class="dropdown-user">
                                             <li>
                                                 <div class="dw-user-box">
-                                                    <div class="u-img"><img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user"></div>
+                                                    <div class="u-img">
+                                                        <?php if ($this->session->usuario->Foto != '') { ?>
+                                                            <img src="<?= base_url() ?><?= $this->session->usuario->Foto ?>" alt="user">
+                                                        <?php } else { ?>
+                                                            <img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user">
+                                                        <?php } ?>
+                                                    </div>
                                                     <div class="u-text">
                                                         <h4><?= $this->session->usuario->Usuario ?></h4>
                                                         <?php if ($this->session->usuario->Rol != 'Administrador') { ?>
@@ -146,7 +158,7 @@
                             <li class="breadcrumb-item active">Usuarios</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 align-self-center text-right d-none d-md-block">
+                    <div class="col-md-7 align-self-center text-right d-md-block">
                         <a href="<?= base_url() ?>UsuariosC/registrar" class="btn btn-rounded btn-outline-info" title="Usuario"><i class="icon-Add-User"></i> Nuevo</a>
                     </div>
                     <div class="">
@@ -165,10 +177,10 @@
                             <div class="card-body">
                                 <!-- Export Data -->
                                 <a href='<?= base_url() ?>index.php/UsuariosC/exportCSV'>Exportar CSV</a><br><br>
-                                <div class="table-responsive-sm">
-                                    <table class=" table table-bordered table-responsive-sm">
-                                        <thead class="text-center">
-                                            <tr>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-responsive text-center">
+                                        <thead>
+                                            <tr class="table-bordered">
                                                 <th>Nombre</th>
                                                 <th>Correo</th>
                                                 <th>Telefono</th>
@@ -202,8 +214,9 @@
                         </div>
                     </div>
                 </div>
-                <?= $this->pagination->create_links() ?>
-            </div>
-            <!-- ============================================================== -->
-            <!-- Fin del Contenido -->
-            <!-- ============================================================== -->
+                <div class="col-md-6 offset-3">
+                    <?= $this->pagination->create_links() ?>
+                </div>
+                <!-- ============================================================== -->
+                <!-- Fin del Contenido -->
+                <!-- ============================================================== -->

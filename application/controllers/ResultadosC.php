@@ -7,15 +7,23 @@ class ResultadosC extends CI_Controller
 	{
 		$datos = array();
 		parent::__construct();
-		$this->load->model('ResultadosM');
+		$this->load->model(['ResultadosM', 'EncuestasModel']);
 		if ($this->session->usuario) { } else {
 			redirect('Login');
 		}
 	}
 	// Acción principal.
-	public function index()
+	public function index($ide = '')
 	{
-		$datos['resultados'] = $this->ResultadosM->obtener($this->session->idEncuesta);
+		$datos['ids'] = $this->EncuestasModel->ids($this->session->usuario->idUsuario);
+		if ($ide == '') {
+			$ide = $datos['ids'][0]->idEncuesta;
+		}
+		$datos['encuesta'] = $this->EncuestasModel->buscarid($ide);
+		$datos['preguntas'] = $this->ResultadosM->preguntas($ide);
+		foreach ($datos['preguntas'] as $preguntas) {
+			$preguntas->respuestas = $this->ResultadosM->respuestas($preguntas->idPregunta);
+		}
 		$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 		$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
 		$this->load->view('resultados/resultados', $datos);
@@ -24,10 +32,16 @@ class ResultadosC extends CI_Controller
 	// Acción que nos devuelve la vista de las estadisticas.
 	public function grafi()
 	{
-		$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
-		$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
-		$this->load->view('resultados/estadisticas'); #cargamos la vista que contiene los resultados.
-		$this->load->view('layouts/footer'); #cargamos la vista que contiene el pie de página.
+		if ($this->session->empresa->TipoCuenta == 'Basica') {
+			echo "<script>alert('Para tener acceso a esta área comuniquese con el administrador y cambie su cuenta a Avanzada');</script>";
+			self::index($this->session->idEncuesta);
+		} else {
+			$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
+			$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
+			$this->load->view('resultados/estadisticas'); #cargamos la vista que contiene los resultados.
+			$this->load->view('layouts/footer'); #cargamos la vista que contiene el pie de página.
+		}
+		/* redirect('ResultadosC/'); */
 	}
 	//Acción que nos devuelve la vista del tutorial.
 	public function tutorial()
@@ -39,36 +53,36 @@ class ResultadosC extends CI_Controller
 
 	}
 
-		// Exportación de los datos en formato CSV  
-		public function exportCSV($id)
-		{
-			$usersData = $this->ResultadosM->exportar($id);
-			
-		/* 	echo "<pre>";
-			print_r($usersData); */
-
-			for($i = 0; $i < count($usersData); $i++) {
-				$usersData[$i]['respuestas'] = $this->ResultadosM->obtenerRespuestas($usersData[$i]['idPregunta']);
+	// Exportación de los datos en formato CSV  
+	public function exportCSV($id)
+	{
+		// file name 
+		$filename = 'resultados_' . date('Y-m-d') . '.csv';
+		header("Content-Description: File Transfer");
+		header("Content-Disposition: attachment; filename=$filename");
+		header("Content-Type: application/csv; ");
+		$usersData = $this->ResultadosM->exportar($id); #obtenemos las preguntas.
+		for ($i = 0; $i < count($usersData); $i++) {
+			$usersData[$i]['respuestas'] = $this->ResultadosM->obtenerRespuestas($usersData[$i]['idPregunta']); #obtenemos las respuestas segun la pregunta
+			$usersData[$i]['respuestasCSV'] = ''; # declaramos la posicion del arreglo a utilizar.
+			$usersData[$i]['contadorCSV'] = ''; # declaramos la posicion del arreglo a utilizar.
+			for ($j = 0; $j < count($usersData[$i]['respuestas']); $j++) {
+				$usersData[$i]['respuestasCSV'] .= $usersData[$i]['respuestas'][$j]['Respuestas'] . '|'; # concatenamos las respuestas en una sola linea separados por |
+				$usersData[$i]['contadorCSV'] .= $usersData[$i]['respuestas'][$j]['Contador'] . '|'; # concatenamos los contadores en una sola linea separados por |
 			}
-
-/* 			print_r($usersData); die; */
-			// file name 
-			$filename = 'resultados_' . date('Y-m-d') . '.csv';
-			header("Content-Description: File Transfer");
-			header("Content-Disposition: attachment; filename=$filename");
-			header("Content-Type: application/csv; ");
-			// obtencion de datos
-			$usersData = $this->ResultadosM->exportar($id);
-
-		/* 	print_r($usersData); die; */
-			// creación del archivo
-			$file = fopen('php://output', 'w');
-			$header = array("Pregunta", "Respuestas", "total");
-			fputcsv($file, $header);
-			foreach ($usersData as $line) {
-				fputcsv($file, $line);
-			}
-			fclose($file);
-			exit;
+			$usersData[$i]['respuestasCSV'] = substr($usersData[$i]['respuestasCSV'], 0, strlen($usersData[$i]['respuestasCSV']) - 1); #Eliminamos el | del final del arreglo
+			$usersData[$i]['contadorCSV'] = substr($usersData[$i]['contadorCSV'], 0, strlen($usersData[$i]['contadorCSV']) - 1); #Eliminamos el | del final del arreglo
 		}
+		// creación del archivo
+		$file = fopen('php://output', 'w');
+		fprintf($file, chr(0xEF) . chr(0xBB) . chr(0xBF)); # Funcion que nos permite intrepretar caracterews de UTF8
+		$header = array("Pregunta", "Respuestas", "Total");
+		fputcsv($file, $header);
+		foreach ($usersData as $line) {
+			$formato = array($line['Pregunta'], $line['respuestasCSV'], $line['contadorCSV']);
+			fputcsv($file, $formato);
+		}
+		fclose($file);
+		exit;
+	}
 }

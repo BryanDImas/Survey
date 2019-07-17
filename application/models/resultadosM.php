@@ -18,7 +18,27 @@ if($id != ''){
     }
 
     public function obtenerRespuestas($idPregunta) {
-        $sql = "SELECT Respuestas, Contador FROM respuestas r WHERE r.idPregunta = ".$idPregunta;
+        $sql = "SELECT Respuestas, Contador FROM respuestas  WHERE idPregunta = ".$idPregunta;
         return $this->db->query($sql)->result_array();
+    }
+
+    # Método que nos devuelve las preguntas de la base por medio del idEncuesta.
+    public function preguntas($id = ''){
+        $sql = "SELECT * FROM preguntas WHERE PorDefecto = 2 ";
+        if($id != ''){
+            $sql .= " AND IdEncuesta = ".$id;
+        }
+        return $this->db->query($sql)->result();
+    }
+    # Método que nos devulve las respuestas asignadas a cada pregunta.
+    public function respuestas($id){
+        $sql = "SELECT * FROM respuestas WHERE IdPregunta = ".$id;
+        return $this->db->query($sql)->result();
+    }
+
+    public function export ($id) {
+        $s = "SELECT P.idPregunta, P.Pregunta, R.Respuestas, R.Contador FROM respuestas R INNER JOIN preguntas P ON R.IdPregunta = P.idPregunta INNER JOIN encuestas E ON E.idEncuesta = P.IdEncuesta WHERE E.idEncuesta = $id";
+
+        return $this->db->query($s)->result();
     }
 }

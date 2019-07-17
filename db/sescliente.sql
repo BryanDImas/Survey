@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-07-2019 a las 00:36:53
+-- Tiempo de generación: 16-07-2019 a las 16:52:03
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.0.33
 
@@ -89,7 +89,8 @@ CREATE TABLE `correos` (
 --
 
 INSERT INTO `correos` (`IdCorreo`, `Correo`, `idUsuario`) VALUES
-(1, 'a@gmail.com', 1);
+(1, 'a@gmail.com', 1),
+(2, 'stan@gmail.com', 2);
 
 -- --------------------------------------------------------
 
@@ -158,7 +159,7 @@ CREATE TABLE `empresas` (
 --
 
 INSERT INTO `empresas` (`idEmpresa`, `NombreComercial`, `RazonSocial`, `DireccionFisica`, `IdMunicipio`, `DescripcionEmpresa`, `SectorEconomico`, `FechaFundacion`, `Correo`, `Telefono`, `Iva`, `Nit`, `ContactoEmpresa`, `TelefonoContacto`, `CorreoContacto`, `CargoEmpresarial`, `PropietarioEmpresa`, `RepresentanteLegal`, `TipoCuenta`, `LogoEmpresa`) VALUES
-(1, 'Super Hamburguesas', 'Hamburgueseria Salvadoreña', 'Colonia Brisas', 114, 'Venta de hamburguesas', '', '2019-01-01', 'super@gmail.com', '7845-1245', '78542-1', '1234-123456-123-1', 'Administrador', '1234-1234', 'a@gmail.com', 'Gerente', 'Administrador', 'Administrador', 'Avanzada', 'assets/images/logos/5d1e0a2a24207'),
+(1, 'Super Hamburguesas', 'Hamburgueseria Salvadoreña', 'Colonia Brisas', 114, 'Venta de hamburguesas', '', '2019-01-01', 'super@gmail.com', '7845-1245', '78542-1', '1234-123456-123-1', 'Administrador', '1234-1234', 'a@gmail.com', 'Gerente', 'Administrador', 'Administrador', 'Avanzada', 'assets/images/logos/5d28a063db6b0empresas1.png'),
 (2, 'Evergreen', 'The People Company', 'Final 91 av. norte, col. escalon', 110, 'Servicios varios', '', '2008-11-10', 'peoplegreat@change.com', '2262-5200', '98950-8', '1604-789563-125-2', 'Estándar', '2262-5218', 'e@gmail.com', 'gerente', 'Estándar', 'Estándar', 'Basica', 'assets/images/logos/5d1e09482f839');
 
 -- --------------------------------------------------------
@@ -188,9 +189,16 @@ CREATE TABLE `encuestas` (
 --
 
 INSERT INTO `encuestas` (`idEncuesta`, `NombreEncuesta`, `ObjetivoEncuesta`, `Estado`, `FechaCreacion`, `FechaFinalizacion`, `MensajeInicio`, `MensajeFinalizacion`, `idUsuario`, `Demograficos`, `Resultados`, `IdFormato`, `Url`) VALUES
-(1, 'asazfdef', 'cdzsvfdvdvg', 'Inactivo', '2019-07-05 17:46:06', '0000-00-00 00:00:00', '', '', 1, 'No', 'No', NULL, ''),
-(2, 'dxsasfsf', 'zsfff', 'Inactivo', '2019-07-05 17:47:07', '0000-00-00 00:00:00', '', '', 1, 'No', 'No', 1, ''),
-(3, 'gerygtrhy', 'gfrhythujt6', 'Inactivo', '2019-07-08 22:11:09', '2019-07-01 06:00:00', 'ewrfwetg54ery', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 1, 'www.google.com');
+(4, 'Encuesta', 'Evaluacion', 'Inactivo', '2019-07-09 14:10:40', '2019-07-25 06:00:00', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'Si', 'Si', 3, 'http://localhost/Survey/PrincipalC/index/?e=NA=='),
+(10, 'Caritas', 'ejemplo', 'Inactivo', '2019-07-11 19:25:57', '2019-07-25 06:00:00', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 3, 'http://localhost/Survey/PrincipalC/index/?e=MTA='),
+(13, 'Simple', 'Ejemplo', 'Inactivo', '2019-07-11 23:46:55', '0000-00-00 00:00:00', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 1, 'http://localhost/Survey/PrincipalC/index/?e=MTM='),
+(15, 'Caritas', 'Ejemplo', 'Inactivo', '2019-07-12 00:00:54', '0000-00-00 00:00:00', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 3, 'http://localhost/Survey/PrincipalC/index/?e=MTU='),
+(16, 'Ponderaciones', 'Ejemplo', 'Inactivo', '2019-07-12 01:43:13', '2019-07-12 12:00:00', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 4, 'http://localhost/Survey/PrincipalC/index/?e=MTY='),
+(17, 'Manitas', 'Ejemplo', 'Inactivo', '2019-07-12 01:50:09', '2019-07-12 12:00:00', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 5, 'http://localhost/Survey/PrincipalC/index/?e=MTc='),
+(18, 'Escala', 'Ejemplo', 'Inactivo', '2019-07-12 01:53:02', '0000-00-00 00:00:00', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'Si', 6, 'http://localhost/Survey/PrincipalC/index/?e=MTg='),
+(19, 'Combobox', 'Ejemplo', 'Inactivo', '2019-07-12 01:55:36', '2019-07-12 12:00:00', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'Si', 'Si', 7, 'http://localhost/Survey/PrincipalC/index/?e=MTk='),
+(20, 'Multiple', 'Ejemplo', 'Inactivo', '2019-07-12 02:25:13', '2019-07-12 12:00:00', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', '', 1, 'No', 'No', 2, 'http://localhost/Survey/PrincipalC/index/?e=MjA='),
+(21, 'example q', 'ver qr', 'Inactivo', '2019-07-16 14:45:39', '2019-07-31 06:00:00', 'Bienvenido(a). Gracias por su visita, contestando la siguiente encuesta, nos ayudara a mejorar.', 'Muchas Gracias por contestar la encuesta', 1, 'Si', 'No', 1, 'http://localhost/Survey/PrincipalC/index/?e=MjE=');
 
 -- --------------------------------------------------------
 
@@ -537,7 +545,35 @@ CREATE TABLE `preguntas` (
 --
 
 INSERT INTO `preguntas` (`idPregunta`, `Numero`, `Pregunta`, `PorDefecto`, `IdEncuesta`) VALUES
-(1, 1, '´plo ñ´p', 'Nueva', 3);
+(7, 1, '¿Nos recomendaría con amigo?', '2', 13),
+(8, 2, '¿Cómo le parecieron nuestras instalaciones?', '2', 13),
+(9, 3, '¿qué le parecieron nuestros nuevos productos?', '2', 13),
+(11, 1, '¿Cuál fue el grado de satisfación de su visita?', '2', 15),
+(12, 2, '¿Le gustaron nuestras instalaciones?', '2', 15),
+(15, 5, '¿Encontró limpias nuestras instalaciones?', '2', 15),
+(16, 1, '¿Cómo fue la atención de nuestro personal?', '2', 16),
+(17, 2, '¿Encontro limpias y ordenadas nuestras instalaciones?', '2', 16),
+(18, 3, '¿Le gustaron nuestros productos?', '2', 16),
+(19, 1, '¿Nos recomendría con un amigo?', '2', 17),
+(20, 2, '¿Volvería a visitarnos en los proximos treinta días?', '2', 17),
+(21, 3, '¿Compraría de nuevo nuestros productos?', '2', 17),
+(22, 1, '¿Considera que nuestros precios son competitivos?', '2', 18),
+(23, 2, '¿Cómo calificaría nuestros productos?', '2', 18),
+(24, 3, '¿Califique nuestra atención?', '2', 18),
+(25, 1, '¿Cuál es su edad?', '1', 19),
+(26, 2, '¿Cuál es su género?', '1', 19),
+(27, 3, '¿Cuál es su ciudad de residencia?', '1', 19),
+(28, 4, '¿Nos recomendaría con un amigo?', '2', 19),
+(29, 5, '¿Cómo se entero de nuestros servicios?', '2', 19),
+(30, 6, '¿Le parece novedosos nuestros productos?', '2', 19),
+(31, 1, '¿Nos recomendaría con un amigo?', '2', 20),
+(32, 2, '¿Le gustaron nuestras instalaciones?', '2', 20),
+(33, 3, '¿Le parecieron limpias nuestras instalaciones?', '2', 20),
+(34, 1, '¿Cuál es su edad?', '1', 21),
+(35, 2, '¿Cuál es su género?', '1', 21),
+(36, 3, '¿Cuál es su ciudad de residencia?', '1', 21),
+(37, 4, 'algo', '2', 21),
+(38, 5, 'dos', '2', 21);
 
 -- --------------------------------------------------------
 
@@ -556,9 +592,10 @@ CREATE TABLE `publicidad` (
 --
 
 INSERT INTO `publicidad` (`IdPub`, `Imagen`, `IdUsuario`) VALUES
-(1, 'assets/images/publicidad/5d2383d8880d25d20cbb6af2be5d1fafebb3b35publi1.png', 1),
-(2, 'assets/images/publicidad/5d2383de7af1e5d20cbc0548f35d1faff4bd419publi2.png', 1),
-(3, 'assets/images/publicidad/5d2383e3701d25d20cc088a4015d1faffb22b9bpubli3.png', 1);
+(5, 'assets/images/publicidad/5d28ea3c4033f3.png', 1),
+(6, 'assets/images/publicidad/5d28ea438f9f95d27b872583101.png', 1),
+(7, 'assets/images/publicidad/5d28ea4c3b3ed5d1faff4bd419publi2.png', 1),
+(8, 'assets/images/publicidad/5d2dde4f9062fpublic4.png', 1);
 
 -- --------------------------------------------------------
 
@@ -579,8 +616,37 @@ CREATE TABLE `respuestas` (
 --
 
 INSERT INTO `respuestas` (`IdRespuestas`, `Numero`, `Respuestas`, `IdPregunta`, `Contador`) VALUES
-(1, 1, 'Ñ[ñ}pñ', 1, 0),
-(2, 2, '{]{', 1, 0);
+(9, 1, 'Si', 7, 0),
+(10, 2, 'No', 7, 0),
+(11, 3, 'Talvez', 7, 0),
+(12, 1, 'Limpias', 8, 0),
+(14, 3, 'Sucias ', 8, 0),
+(15, 4, 'Amigables con el medio ambiente', 8, 0),
+(17, 2, 'Calidad', 9, 0),
+(18, 3, 'Presentación', 9, 0),
+(19, 4, 'Precio', 9, 0),
+(22, 1, 'Si', 28, 0),
+(23, 2, 'No', 28, 0),
+(24, 3, 'Talvez', 28, 0),
+(25, 1, '18 años a 28 años', 25, 0),
+(26, 2, '29 años a 38 años', 25, 0),
+(27, 3, '39 años a 48 años', 25, 0),
+(28, 3, '49 años a 58 años', 25, 0),
+(29, 4, 'Mayor de 59 años', 25, 0),
+(30, 1, 'Radio', 29, 0),
+(31, 2, 'Television', 29, 0),
+(32, 3, 'Redes sociales', 29, 0),
+(34, 2, 'Si son muy innovadores', 30, 0),
+(35, 3, 'No no son innovadores', 30, 0),
+(36, 1, 'Si', 31, 0),
+(37, 2, 'No', 31, 0),
+(38, 3, 'Talvez', 31, 0),
+(39, 1, 'Si', 32, 0),
+(40, 2, 'No', 32, 0),
+(41, 3, 'Talvez', 32, 0),
+(42, 1, 'Si', 33, 0),
+(43, 2, 'No', 33, 0),
+(44, 3, 'Talvez', 33, 0);
 
 -- --------------------------------------------------------
 
@@ -599,7 +665,8 @@ CREATE TABLE `telefonos` (
 --
 
 INSERT INTO `telefonos` (`IdTelefono`, `Numero`, `idUsuario`) VALUES
-(5, '7845-7845', 1);
+(5, '7845-7845', 1),
+(6, '7285-2020', 2);
 
 -- --------------------------------------------------------
 
@@ -615,16 +682,17 @@ CREATE TABLE `usuarios` (
   `Departamento` varchar(50) DEFAULT NULL,
   `Rol` enum('Administrador','Estandar') NOT NULL DEFAULT 'Estandar',
   `Estado` enum('Disponible','Ocupado','Desconectado','Bloqueado') NOT NULL DEFAULT 'Disponible',
-  `idEmpresa` int(11) NOT NULL
+  `idEmpresa` int(11) NOT NULL,
+  `Foto` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`idUsuario`, `Usuario`, `Clave`, `Cargo`, `Departamento`, `Rol`, `Estado`, `idEmpresa`) VALUES
-(1, 'Administrador', '8cb2237d0679ca88db6464eac60da96345513964', 'Gerente de marca', 'Atencion al cliente', 'Administrador', 'Disponible', 1),
-(2, 'Estandar', '8cb2237d0679ca88db6464eac60da96345513964', 'Gerente', 'recursos', 'Administrador', 'Disponible', 2);
+INSERT INTO `usuarios` (`idUsuario`, `Usuario`, `Clave`, `Cargo`, `Departamento`, `Rol`, `Estado`, `idEmpresa`, `Foto`) VALUES
+(1, 'Administrador', '8cb2237d0679ca88db6464eac60da96345513964', 'Gerente de marca', 'Atencion al cliente', 'Administrador', 'Disponible', 1, 'assets/images/perfil/5d27b8117aa435.jpg'),
+(2, 'Estandar', '8cb2237d0679ca88db6464eac60da96345513964', 'Gerente', 'recursos', 'Estandar', 'Disponible', 2, '');
 
 --
 -- Índices para tablas volcadas
@@ -673,7 +741,6 @@ ALTER TABLE `empresas`
 --
 ALTER TABLE `encuestas`
   ADD PRIMARY KEY (`idEncuesta`),
-  ADD UNIQUE KEY `Encuesta_UNIQUE` (`NombreEncuesta`),
   ADD KEY `fk_encuesta_usuario` (`idUsuario`),
   ADD KEY `IdFormato` (`IdFormato`);
 
@@ -753,7 +820,7 @@ ALTER TABLE `comentarios`
 -- AUTO_INCREMENT de la tabla `correos`
 --
 ALTER TABLE `correos`
-  MODIFY `IdCorreo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `IdCorreo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `departamentos`
@@ -771,7 +838,7 @@ ALTER TABLE `empresas`
 -- AUTO_INCREMENT de la tabla `encuestas`
 --
 ALTER TABLE `encuestas`
-  MODIFY `idEncuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idEncuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `formato`
@@ -795,25 +862,25 @@ ALTER TABLE `paises`
 -- AUTO_INCREMENT de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
-  MODIFY `idPregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idPregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `publicidad`
 --
 ALTER TABLE `publicidad`
-  MODIFY `IdPub` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IdPub` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `respuestas`
 --
 ALTER TABLE `respuestas`
-  MODIFY `IdRespuestas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IdRespuestas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `telefonos`
 --
 ALTER TABLE `telefonos`
-  MODIFY `IdTelefono` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `IdTelefono` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -884,7 +951,7 @@ ALTER TABLE `publicidad`
 -- Filtros para la tabla `respuestas`
 --
 ALTER TABLE `respuestas`
-  ADD CONSTRAINT `fk_preguntas_respuestas` FOREIGN KEY (`IdPregunta`) REFERENCES `preguntas` (`idPregunta`);
+  ADD CONSTRAINT `fk_preguntas_respuestas` FOREIGN KEY (`IdPregunta`) REFERENCES `preguntas` (`idPregunta`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `telefonos`

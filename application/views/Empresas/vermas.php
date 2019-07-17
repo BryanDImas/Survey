@@ -101,7 +101,7 @@
 						</div>
 						<div class="col-sm-5 no-pad">
 							<div class="img-fluid">
-								<img width="300px" src="<?= base_url($empre->LogoEmpresa) ?>">
+								<img width="300px" src="<?= base_url($empre->LogoEmpresa) ?>" class="img-rounded img-thumbnail">
 							</div>
 							<hr class="text-themecolor">
 							<div>

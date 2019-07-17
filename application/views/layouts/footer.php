@@ -38,7 +38,7 @@
         <!-- footer -->
         <!-- ============================================================== -->
         <footer class="footer">
-            2019 NextServices
+        &copy; 2019 The Next Services, SA de CV. Todos los Derechos Reservados.
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->
@@ -61,10 +61,6 @@
     <!-- Bootstrap tether Core JavaScript -->
     <script src="<?= base_url() ?>assets/node_modules/bootstrap/js/popper.min.js"></script>
     <script src="<?= base_url() ?>assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
-    <!--stickey kit -->
-<!--     <script src="<?= base_url() ?>assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js"></script>
-    <script src="<?= base_url() ?>assets/node_modules/sparkline/jquery.sparkline.min.js"></script> -->
-    <!--Custom JavaScript -->
     <script src="<?= base_url() ?>assets/js/custom.min.js"></script>
     <script src="<?= base_url() ?>assets/node_modules/moment/moment.js"></script>
     <!-- Sweet alert -->
@@ -77,13 +73,15 @@
     <script src="<?= base_url() ?>assets/node_modules/toast-master/js/jquery.toast.js"></script>
     <!-- Chart JS -->
     <script src="<?= base_url() ?>assets/js/dashboard2.js"></script>
+    <script src="<?= base_url() ?>assets/node_modules/tablesaw-master/dist/tablesaw.jquery.js"></script>
+    <script src="<?= base_url() ?>assets/node_modules/tablesaw-master/dist/tablesaw-init.js"></script>
     <!--Custom JavaScript -->
     <script src="<?= base_url() ?>assets/node_modules/Chart.js/chartjs.init.js"></script>
     <script src="<?= base_url() ?>assets/node_modules/Chart.js/Chart.min.js"></script>
     <script src="<?= base_url() ?>assets/node_modules/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
     <script src="<?= base_url() ?>assets/js/mask.init.js"></script>
     <script src="<?= base_url() ?>assets/node_modules/datatables/datatables.min.js"></script>    
-
+        </div>
 </body>
 
 </html>

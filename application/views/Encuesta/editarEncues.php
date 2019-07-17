@@ -21,9 +21,8 @@
 				<button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
 			</div>
 			<div class="container">
-				<div class="card">
-					<h2>Editar encuesta</h2>
-
+				<div class="card col-md-12">
+					<br>
 					<form action="<?= base_url('EncuestasC/actualizar') ?>" method="POST" class="form-horizontal mt-8" autocomplete="off">
 						<input type="hidden" name="id" value="<?= $encuesta->idEncuesta ?>">
 						<div class="form-group">
@@ -44,7 +43,7 @@
 						</div>
 						<div class="form-group">
 							<label for="example">Estado: </label>
-							<select name="esta" class="custom-select"  style="border-color:#24d2b5;">
+							<select name="esta" class="custom-select" style="border-color:#24d2b5;">
 								<option value="Activo" <?= $encuesta->Estado == 'Activo' ? 'selected' : '' ?>>Activo</option>
 								<option value="Inactivo" <?= $encuesta->Estado == 'Inactivo' ? 'selected' : ''  ?>>Inactivo</option>
 							</select>
@@ -53,6 +52,7 @@
 							<p></p>
 							<button id="btnGuardar" class="btn btn-rounded btn-xl  btn-outline-light" value="actualizar">Editar</button>
 						</div>
-</body>
-
-</html>
+						<br>
+					</form>
+				</div>
+			</div>

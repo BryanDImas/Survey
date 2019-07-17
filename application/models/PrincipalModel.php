@@ -21,4 +21,12 @@ Class PrincipalModel extends CI_Model{
         $sql ="SELECT * FROM municipios";
         return $this->db->query($sql)->result();
     }
+    public function usuario($id){
+        $sql = "SELECT * FROM usuarios WHERE idUsuario = ".$id;
+        return $this->db->query($sql)->row();
+    }
+    public function logo($id){
+        $sql = "SELECT LogoEMpresa FROM empresas WHERE idEmpresa = ".$id;
+        return $this->db->query($sql)->row()->LogoEMpresa;
+    }
 }

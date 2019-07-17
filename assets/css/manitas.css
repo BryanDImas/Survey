@@ -1,0 +1,24 @@
+.clasificacion input[type='radio'] {
+    opacity: 0;
+}
+
+.clasificacion label {
+    font-size: 30px;
+    color: rgb(150, 150, 150);
+    cursor: pointer;
+}
+
+.zoom {
+    padding: 50px;
+    background-color: inherit;
+    transition: transform .2s;
+    /* Animation */
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.zoom:hover {
+    transform: scale(1.5);
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}

@@ -6,7 +6,7 @@
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
     <div class="row page-titles">
-      
+
         <div class="col-md-5 align-self-center margin">
             <h1 class="text-themecolor">Encuestas</h1>
             <ol class="breadcrumb">
@@ -25,7 +25,7 @@
     <!--  Contenido de la página -->
     <!-- ============================================================== -->
     <div class="card">
-        <?php $num = count($preguntas);?>
+        <?php $num = count($preguntas); ?>
         <div class="card-body" id="form">
             <h5 class="text-center">Ingrese su pregunta</h5>
             <input type="hidden" name="form" id="form" value="">
@@ -39,6 +39,7 @@
             </div>
         </div>
         <br>
+        <div class="container-fluid">
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -48,10 +49,11 @@
                 </tr>
             </thead>
             <tbody id="algo"></tbody>
-		</table> 
-</div>
+        </table>
+        </div>
+    </div>
     <div class="form-group">
-        <a href="<?= base_url('PreguntasC/stepfin/') ?>?e=<?=$idEncuesta?>" class="btn btn-outline-success btn-rounded float-right">Continuar</a>
+        <a href="<?= base_url('PreguntasC/stepfin/') ?>?e=<?= $idEncuesta ?>" class="btn btn-outline-success btn-rounded float-right">Continuar</a>
     </div>
     <!-- ============================================================== -->
     <!--  Fin Contenido de la página -->
@@ -60,4 +62,3 @@
         var baseUrl = "<?= base_url() ?>";
     </script>
     <script src="<?= base_url('assets/js/acciones.js') ?>"></script>
-   

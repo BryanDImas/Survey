@@ -48,23 +48,35 @@
     					<!-- Search -->
     					<!-- ============================================================== -->
     					<li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="icon-Magnifi-Glass2"></i></a>
-						<form class="app-search" action="<?=base_url('EncuestasC/index/')?>">
-                            <input type="hidden" name="pag" value="1">    
-                            <input name="key"  type="text" class="form-control" placeholder="Search & enter" id="search"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
-               				</form>
+    						<form class="app-search" action="<?= base_url('EncuestasC/index/') ?>">
+    							<input type="hidden" name="pag" value="1">
+    							<input name="key" type="text" class="form-control" placeholder="Search & enter" id="search"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
+    						</form>
     					</li>
     				</ul>
     				<!-- User profile and search -->
     				<ul class="navbar-nav my-lg-0">
     					<li class="nav-item dropdown u-pro">
-    						<a class="nav-link dropdown-toggle waves-effect profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user" class="" /> <span class="hidden-md-down"><?= $this->session->usuario->Usuario ?> &nbsp;<i class="fa fa-angle-down"></i></span> </a>
+    						<a class="nav-link dropdown-toggle waves-effect profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    							<?php if ($this->session->usuario->Foto != '') { ?>
+    								<img src="<?= base_url() ?><?= $this->session->usuario->Foto ?>" alt="user" class="" />
+    							<?php } else { ?>
+    								<img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user" class="" />
+    							<?php } ?>
+    							<span class="hidden-md-down"><?= $this->session->usuario->Usuario ?> &nbsp;<i class="fa fa-angle-down"></i></span> </a>
     						<div class="dropdown-menu dropdown-menu-right animated flipInY">
     							<ul class="dropdown-user">
     								<li class="nav-item dropdown u-pro">
     									<ul class="dropdown-user">
     										<li>
     											<div class="dw-user-box">
-    												<div class="u-img"><img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user"></div>
+    												<div class="u-img">
+    													<?php if ($this->session->usuario->Foto != '') { ?>
+    														<img src="<?= base_url() ?><?= $this->session->usuario->Foto ?>" alt="user">
+    													<?php } else { ?>
+    														<img src="https://png.pngtree.com/png_detail/20181019/userpeoplelinear-iconuser-png-clipart_1859764.png" alt="user">
+    													<?php } ?>
+    												</div>
     												<div class="u-text">
     													<h4><?= $this->session->usuario->Usuario ?></h4>
     													<?php if ($this->session->usuario->Rol != 'Administrador') { ?>
@@ -159,54 +171,148 @@
     			<!-- Start Page Content -->
     			<!-- ============================================================== -->
     			<div class="row" class="col-12">
-					
+
     				<div class="card">
-    					<div class="card-body">
-						<div class="table-responsive">
-    						<table class="table table-hover table-bordered text-center">
-    							<thead>
-    								<tr>
-    									<th>Nombre de la encuesta</th>
-    									<th>Objetivo de la encuesta</th>
-    									<th>Estado</th>
-    									<th>Fecha de creación</th>
-    									<th>Fecha de finalización</th>
-    									<th>Mensaje de inicio</th>
-    									<th>Mensaje de finalización</th>
-    									<th colspan="4">Opciones</th>
-    								</tr>
-    							</thead>
-    							<tbody>
-    								<?php $id= 0; foreach ($encuestas as $encues) { ++$id; ?>
-    									<tr>
-    										<td><?= $encues->NombreEncuesta ?></td>
-    										<td><?= $encues->ObjetivoEncuesta ?></td>
-    										<td><?= $encues->Estado ?></td>
-    										<td><?= $encues->FechaCreacion ?></td>
-    										<td><?= $encues->FechaFinalizacion ?></td>
-    										<td><?= $encues->MensajeInicio ?></td>
-    										<td><?= $encues->MensajeFinalizacion ?></td>
-    										<td>
-    											<a href="<?= base_url() ?>EncuestasC/eliminar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-danger i fas fa-trash-alt"> Borrar </a>
-    										</td>
-    										<td>
-    											<a href="<?= base_url()?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-success i fas fa-pencil-alt"> Editar </a>
-    										</td>
-    										<td>
-    											<a href="javascript:avoid(0)" class=" btn btn-block btn-outline-primary i fas fa-link" onclick="alert('<?=base_url()?>PrincipalC/index/?e=<?=base64_encode($encues->idEncuesta)?>')"> Link</a>
-    										</td>
-    										<td>
-    											<a href="<?=base_url()?>EncuestasC/generarQR/<?= $encues->Url ?> " class=" btn btn-block btn-outline-new i fas fa-qrcode"> QR </a>
-    										</td>
-    									</tr>
-    								<?php  } ?>
-    							</tbody>
-    						</table>
-							</div>
+    					<div class="card-body"><br>
+    						<div class="table-responsive">
+    							<center>
+    								<table class="tablesaw table-bordered table table-sm" data-tablesaw-mode="stack">
+    									<thead>
+    										<tr class="table-bordered">
+    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nombre de la encuesta</th>
+    											<th data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="3">Objetivo de la encuesta</th>
+    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Estado</th>
+    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Fecha de creación</th>
+    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Fecha de finalización</th>
+    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Mensaje de inicio</th>
+    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="6">Mensaje de finalización</th>
+    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7" colspan="4">Opciones</th>
+    										</tr>
+    									</thead>
+    									<tbody align="center">
+    										<?php foreach ($encuestas as $encues) { ?>
+    											<tr>
+    												<td><?= $encues->NombreEncuesta ?></td>
+    												<td><?= $encues->ObjetivoEncuesta ?></td>
+    												<td><?= $encues->Estado ?></td>
+    												<td><?= $encues->FechaCreacion ?></td>
+    												<td><?= $encues->FechaFinalizacion ?></td>
+    												<td><?= $encues->MensajeInicio ?></td>
+    												<td><?= $encues->MensajeFinalizacion ?></td>
+    												<td>
+    													<a href="<?= base_url() ?>EncuestasC/eliminar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-danger i fas fa-trash-alt"> Borrar </a>
+    												</td>
+    												<td>
+    													<a href="<?= base_url() ?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-success i fas fa-pencil-alt"> Editar </a>
+    												</td>
+    												<td>
+    													<button type="button" data-toggle="modal" data-target="#myModal<?= $encues->idEncuesta ?>" class="btn btn-block btn-outline-primary i fas fa-link" title="Editar"><br> Link</button>
+    												</td>
+    												<td>
+    													<form action="<?= base_url() ?>EncuestasC/generarQR/" method="post">
+    														<input type="hidden" name="url" value="<?= $encues->Url ?>">
+    														<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode"><br> QR</button>
+    													</form>
+    												</td>
+    											</tr>
+    										<?php  } ?>
+    									</tbody>
+    								</table>
+    							</center>
+    						</div>
     					</div>
     				</div>
-					<?= $this->pagination->create_links() ?>
-    			</div>
-    			<!-- ================================================================================================ -->
-    			<!-- Fin del contenido -->
-    			<!-- ================================================================================================ -->
+    				<div class="col-md-6 offset-3">
+    					<?= $this->pagination->create_links() ?>
+    				</div>
+    				<!-- ================================================================================================ -->
+    				<!-- Fin del contenido -->
+    				<!-- ================================================================================================ -->
+    				<!-- ========================================================================================================================== -->
+    				<!-- The Modal -->
+    				<!-- ========================================================================================================================== -->
+    				<?php foreach ($encuestas as $encues) { ?>
+    					<div class="modal" id="myModal<?= $encues->idEncuesta ?>">
+    						<div class="modal-dialog modal-dialog-centered">
+    							<div class="modal-content">
+    								<!-- Modal Header -->
+    								<div class="modal-header">
+    									<h4 class="modal-title">Copia este link para acceder a tu encuesta</h4>
+    									<button type="button" class="close" data-dismiss="modal">&times;</button>
+    								</div>
+    								<!-- Modal body -->
+    								<div class="modal-body">
+    									<div class="input-group mb-3" >
+    										<input class="form-control" type="text" id="copyTarget<?= $encues->idEncuesta ?>" style="color:#22D9B8 !important"value="<?= base_url() ?>PrincipalC/index/?e=<?= base64_encode($encues->idEncuesta) ?>" readonly> <button class="fas fa-copy btn btn-outline-success" id="copyButton<?= $encues->idEncuesta ?>"></button>
+
+    									</div>
+    								</div>
+    								<!-- Modal footer -->
+    								<div class="modal-footer">
+    									<input type="button" value="Aceptar" class="btn btn-rounded btn-outline-success" data-dismiss="modal">
+    								</div>
+    								</form>
+    							</div>
+    						</div>
+    					</div>
+    				<?php } ?>
+    				<!-- ========================================================================================================================== -->
+    				<!-- Fin del primer modal -->
+					<!-- ========================================================================================================================== -->
+					<?php foreach ($encuestas as $encues) { ?>
+    				<script>
+    					document.getElementById("copyButton<?= $encues->idEncuesta ?>").addEventListener("click", function() {
+    						copyToClipboard(document.getElementById("copyTarget<?= $encues->idEncuesta ?>"));
+    					});
+
+    					function copyToClipboard(elem) {
+    						// crea un elemento oculto de texto, si no existe.
+    						var targetId = "_hiddenCopyText_";
+    						var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+    						var origSelectionStart, origSelectionEnd;
+    						if (isInput) {
+    							// Solo puede usar el elemento original para la selección y copiado.
+    							target = elem;
+    							origSelectionStart = elem.selectionStart;
+    							origSelectionEnd = elem.selectionEnd;
+    						} else {
+    							// Se utiliza un elemento temporal para la selección y copia.
+    							target = document.getElementById(targetId);
+    							if (!target) {
+    								var target = document.createElement("textarea");
+    								target.style.position = "absolute";
+    								target.style.left = "-9999px";
+    								target.style.top = "0";
+    								target.id = targetId;
+    								document.body.appendChild(target);
+    							}
+    							target.textContent = elem.textContent;
+    						}
+    						// selecciona el contenido.
+    						var currentFocus = document.activeElement;
+    						target.focus();
+    						target.setSelectionRange(0, target.value.length);
+
+    						// copia la seleccion.
+    						var succeed;
+    						try {
+    							succeed = document.execCommand("copy");
+    						} catch (e) {
+    							succeed = false;
+    						}
+    						// restaura el focus original.
+    						if (currentFocus && typeof currentFocus.focus === "function") {
+    							currentFocus.focus();
+    						}
+
+    						if (isInput) {
+    							// restore prior selection
+    							elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+    						} else {
+    							// Limpia el contenido temporal
+    							target.textContent = "";
+    						}
+    						return succeed;
+    					}
+					</script>
+						<?php } ?>
