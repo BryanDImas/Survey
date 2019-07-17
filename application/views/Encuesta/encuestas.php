@@ -175,48 +175,50 @@
     				<div class="card">
     					<div class="card-body"><br>
     						<div class="table-responsive">
-    							<table class="tablesaw table-bordered table table-sm" data-tablesaw-mode="stack">
-    								<thead>
-    									<tr class="table-bordered">
-    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nombre de la encuesta</th>
-    										<th data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="3">Objetivo de la encuesta</th>
-    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Estado</th>
-    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Fecha de creación</th>
-    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Fecha de finalización</th>
-    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Mensaje de inicio</th>
-    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="6">Mensaje de finalización</th>
-    										<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7" colspan="4">Opciones</th>
-    									</tr>
-    								</thead>
-    								<tbody>
-    									<?php foreach ($encuestas as $encues) { ?>
-    										<tr>
-    											<td><?= $encues->NombreEncuesta ?></td>
-    											<td><?= $encues->ObjetivoEncuesta ?></td>
-    											<td><?= $encues->Estado ?></td>
-    											<td><?= $encues->FechaCreacion ?></td>
-    											<td><?= $encues->FechaFinalizacion ?></td>
-    											<td><?= $encues->MensajeInicio ?></td>
-    											<td><?= $encues->MensajeFinalizacion ?></td>
-    											<td>
-    												<a href="<?= base_url() ?>EncuestasC/eliminar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-danger i fas fa-trash-alt"> Borrar </a>
-    											</td>
-    											<td>
-    												<a href="<?= base_url() ?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-success i fas fa-pencil-alt"> Editar </a>
-    											</td>
-    											<td>
-    												<a href="javascript:avoid(0)" class=" btn btn-block btn-outline-primary i fas fa-link" onclick="alert('<?= base_url() ?>PrincipalC/index/?e=<?= base64_encode($encues->idEncuesta) ?>')"> Link</a>
-    											</td>
-    											<td>
-    												<form action="<?= base_url() ?>EncuestasC/generarQR/" method="post">
-    													<input type="hidden" name="url" value="<?= $encues->Url ?>">
-    													<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode"><br> QR</button>
-    												</form>
-    											</td>
+    							<center>
+    								<table class="tablesaw table-bordered table table-sm" data-tablesaw-mode="stack">
+    									<thead>
+    										<tr class="table-bordered">
+    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nombre de la encuesta</th>
+    											<th data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="3">Objetivo de la encuesta</th>
+    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Estado</th>
+    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Fecha de creación</th>
+    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Fecha de finalización</th>
+    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Mensaje de inicio</th>
+    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="6">Mensaje de finalización</th>
+    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7" colspan="4">Opciones</th>
     										</tr>
-    									<?php  } ?>
-    								</tbody>
-    							</table>
+    									</thead>
+    									<tbody align="center">
+    										<?php foreach ($encuestas as $encues) { ?>
+    											<tr>
+    												<td><?= $encues->NombreEncuesta ?></td>
+    												<td><?= $encues->ObjetivoEncuesta ?></td>
+    												<td><?= $encues->Estado ?></td>
+    												<td><?= $encues->FechaCreacion ?></td>
+    												<td><?= $encues->FechaFinalizacion ?></td>
+    												<td><?= $encues->MensajeInicio ?></td>
+    												<td><?= $encues->MensajeFinalizacion ?></td>
+    												<td>
+    													<a href="<?= base_url() ?>EncuestasC/eliminar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-danger i fas fa-trash-alt"> Borrar </a>
+    												</td>
+    												<td>
+    													<a href="<?= base_url() ?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-success i fas fa-pencil-alt"> Editar </a>
+    												</td>
+    												<td>
+    													<button type="button" data-toggle="modal" data-target="#myModal<?= $encues->idEncuesta ?>" class="btn btn-block btn-outline-primary i fas fa-link" title="Editar"><br> Link</button>
+    												</td>
+    												<td>
+    													<form action="<?= base_url() ?>EncuestasC/generarQR/" method="post">
+    														<input type="hidden" name="url" value="<?= $encues->Url ?>">
+    														<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode"><br> QR</button>
+    													</form>
+    												</td>
+    											</tr>
+    										<?php  } ?>
+    									</tbody>
+    								</table>
+    							</center>
     						</div>
     					</div>
     				</div>
@@ -226,3 +228,35 @@
     				<!-- ================================================================================================ -->
     				<!-- Fin del contenido -->
     				<!-- ================================================================================================ -->
+    				<!-- ========================================================================================================================== -->
+    				<!-- The Modal -->
+    				<!-- ========================================================================================================================== -->
+    				<?php foreach ($encuestas as $encues) { ?>
+    					<div class="modal" id="myModal<?= $encues->idEncuesta ?>">
+    						<div class="modal-dialog modal-dialog-centered">
+    							<div class="modal-content">
+    								<!-- Modal Header -->
+    								<div class="modal-header">
+    									<h4 class="modal-title">Copia este link para acceder a tu encuesta</h4>
+    									<button type="button" class="close" data-dismiss="modal">&times;</button>
+    								</div>
+    								<!-- Modal body -->
+    								<div class="modal-body">
+    									<div class="input-group mb-3">
+											<br>
+    										<h4><?= base_url() ?>PrincipalC/index/?e=<?= base64_encode($encues->idEncuesta) ?></h4>
+
+    									</div>
+    								</div>
+    								<!-- Modal footer -->
+    								<div class="modal-footer">
+    									<input type="button" value="Aceptar" class="btn btn-rounded btn-outline-success" data-dismiss="modal">
+    								</div>
+    								</form>
+    							</div>
+    						</div>
+    					</div>
+    				<?php } ?>
+    				<!-- ========================================================================================================================== -->
+    				<!-- Fin del primer modal -->
+    				<!-- ========================================================================================================================== -->
