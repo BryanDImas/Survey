@@ -90,7 +90,9 @@
                                             <li role="separator" class="divider"></li>
                                             <li><a href="<?= base_url() ?>EncuestasC/perfil/<?= $this->session->usuario->idUsuario ?>"><i class="ti-user"></i> Mi Perfil</a></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="<?= base_url() ?>Login/cerrar"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li>
+											<li><a href="<?= base_url() ?>Login/cerrar"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li>
+											<li role="separator" class="divider"></li>
+                                            <li><a href="<?= base_url() ?>emailC/index"><i class="fa fa-email"></i> Email</a></li>
                                         </ul>
                                     </li>
                                 </ul>

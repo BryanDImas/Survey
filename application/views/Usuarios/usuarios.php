@@ -90,8 +90,8 @@
                                             </li>
                                             <li role="separator" class="divider"></li>
                                             <li><a href="<?= base_url() ?>EncuestasC/perfil/<?= $this->session->usuario->idUsuario ?>"><i class="ti-user"></i> Mi Perfil</a></li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="<?= base_url() ?>Login/cerrar"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li>
+											<li role="separator" class="divider"></li>
+											<li><a href="<?= base_url() ?>Login/cerrar"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -129,7 +129,7 @@
                         <li> <a class="waves-effect" href="<?= base_url() ?>ResultadosC/grafi"><i class="icon-Pie-Chart3"></i><span class="hide-menu">Estadísticas</span></a></li>
                         <!--<span class="label label-rounded label-success">25</span>-->
                         <li> <a class="waves-effect" href="<?= base_url() ?>ResultadosC/tutorial"><i class="mdi mdi-youtube-play"></i><span class="hide-menu">Tutorial</span></a></li>
-                    </ul>
+					</ul>
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
