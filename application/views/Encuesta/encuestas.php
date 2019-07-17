@@ -242,9 +242,8 @@
     								</div>
     								<!-- Modal body -->
     								<div class="modal-body">
-    									<div class="input-group mb-3">
-											<br>
-    										<h4><?= base_url() ?>PrincipalC/index/?e=<?= base64_encode($encues->idEncuesta) ?></h4>
+    									<div class="input-group mb-3" >
+    										<input class="form-control" type="text" id="copyTarget<?= $encues->idEncuesta ?>" style="color:#22D9B8 !important"value="<?= base_url() ?>PrincipalC/index/?e=<?= base64_encode($encues->idEncuesta) ?>" readonly> <button class="fas fa-copy btn btn-outline-success" id="copyButton<?= $encues->idEncuesta ?>"></button>
 
     									</div>
     								</div>
@@ -259,4 +258,61 @@
     				<?php } ?>
     				<!-- ========================================================================================================================== -->
     				<!-- Fin del primer modal -->
-    				<!-- ========================================================================================================================== -->
+					<!-- ========================================================================================================================== -->
+					<?php foreach ($encuestas as $encues) { ?>
+    				<script>
+    					document.getElementById("copyButton<?= $encues->idEncuesta ?>").addEventListener("click", function() {
+    						copyToClipboard(document.getElementById("copyTarget<?= $encues->idEncuesta ?>"));
+    					});
+
+    					function copyToClipboard(elem) {
+    						// crea un elemento oculto de texto, si no existe.
+    						var targetId = "_hiddenCopyText_";
+    						var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+    						var origSelectionStart, origSelectionEnd;
+    						if (isInput) {
+    							// Solo puede usar el elemento original para la selección y copiado.
+    							target = elem;
+    							origSelectionStart = elem.selectionStart;
+    							origSelectionEnd = elem.selectionEnd;
+    						} else {
+    							// Se utiliza un elemento temporal para la selección y copia.
+    							target = document.getElementById(targetId);
+    							if (!target) {
+    								var target = document.createElement("textarea");
+    								target.style.position = "absolute";
+    								target.style.left = "-9999px";
+    								target.style.top = "0";
+    								target.id = targetId;
+    								document.body.appendChild(target);
+    							}
+    							target.textContent = elem.textContent;
+    						}
+    						// selecciona el contenido.
+    						var currentFocus = document.activeElement;
+    						target.focus();
+    						target.setSelectionRange(0, target.value.length);
+
+    						// copia la seleccion.
+    						var succeed;
+    						try {
+    							succeed = document.execCommand("copy");
+    						} catch (e) {
+    							succeed = false;
+    						}
+    						// restaura el focus original.
+    						if (currentFocus && typeof currentFocus.focus === "function") {
+    							currentFocus.focus();
+    						}
+
+    						if (isInput) {
+    							// restore prior selection
+    							elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+    						} else {
+    							// Limpia el contenido temporal
+    							target.textContent = "";
+    						}
+    						return succeed;
+    					}
+					</script>
+						<?php } ?>

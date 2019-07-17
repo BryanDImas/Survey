@@ -11,68 +11,71 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/images/logo3.png">
 </head>
 
-<body style="background:#F4F6F6">
-	<div  class="container-fluid" style="background:none">
-		<div class="container" style="background:white;box-shadow: 5px -5px 0 2px #444 inset;">
-			<div id="header"class="">
-				<div class="col-12" style="display:inline">
+<body>
+	<div class="container-fluid">
+		<div class="container">
+			<div id="header" class="col-12">
+				<div class="img-responsive">
+					<img src="<?= base_url() ?>assets/images/Logo.png" alt="survey">
+				</div>
+				<div class="col-md-2 offset-10">
+					<h3><?= $encuesta->NombreEncuesta ?></h3>
+					<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
+				</div>
+			</div>
+				<div class="mensaje">
 					<div class="img-responsive">
 						<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
 					</div>
-					<div class="col-md-2 offset-10">
-						<h3><?= $encuesta->NombreEncuesta ?></h3>
-						<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
-					</div>
-				</div>
-			</div><br>
-			<div class="mensaje">
-				<h3 class=""><?php echo nl2br($encuesta->MensajeInicio); ?></h3>
-				<br><br>
-				<?php if ($encuesta->preguntas != '') { ?>
-					<p> Nos gustaría saber más información sobre usted. Por favor conteste estas cortas preguntas:</p>
-					<br>
-					<form class="form-group" action="<?= base_url('PrincipalC/CapDemo') ?>" method="post">
-						<div class="col-md-8 offset-2">
-							<h6><?= $encuesta->preguntas[0]->Pregunta ?></h6><br>
-							<input class="form-control" type="number" name="edad" min="15" max="100">
-						</div>
-						<br><br><br>
-						<div class="form-check col-md-8 offset-2">
-							<h6><?= $encuesta->preguntas[1]->Pregunta ?></h6><br>
-							<div class="form-check-inline">
-								<label><input name="genero" class="form-check-input" type="radio" value="Femenino"> Femenino</label>
-								<label><input name="genero" class="form-check-input" type="radio" value="Masculino">Masculino</label>
-								<label><input name="genero" class="form-check-input" type="radio" value="Otro">Otro</label>
+					<h3 class=""><?php echo nl2br($encuesta->MensajeInicio); ?></h3>
+					<br><br>
+					<?php if ($encuesta->preguntas != '') { ?>
+						<p> Nos gustaría saber más información sobre usted. Por favor conteste estas cortas preguntas:</p>
+						<br>						
+						<form class="form-group" action="<?= base_url('PrincipalC/CapDemo') ?>" method="post">
+							<div class="col-md-8 offset-2">
+								<h6><?= $encuesta->preguntas[0]->Pregunta ?></h6><br>
+								<input class="form-control" type="number" name="edad" min="15" max="100">
 							</div>
-						</div>
-						<br><br>
-						<p>
-							<div class="form-group col-md-8 offset-2" sss>
-								<h6><?= $encuesta->preguntas[2]->Pregunta ?></h6><br>
-								<select name="ciudad" id="" class="custom-select">
-									<?php foreach ($ciudad as $c) { ?>
-										<option value="<?= $c->Municipio ?>"><?= $c->Municipio ?></option>
-									<?php } ?>
-								</select>
-						</p><br>
-				</div>
-				<input type="hidden" name="idEncuesta" value="<?= base64_encode($encuesta->idEncuesta) ?>">
-				<div class="boton">
-					<input type="submit" value="Iniciar" class="btn btn-pri btn-rounder btn-lg float-right">
-				</div>
-				</form>
-			<?php } else { ?>
-				<div class="boton">
-					<a href="<?= base_url('PrincipalC/iniciar/') ?>?a=<?= base64_encode($encuesta->idEncuesta) ?>" class="btn btn-pri btn-rounder btn-lg float-right">Iniciar</a>
-				</div>
-			<?php } ?>
+							<br><br><br>
+							<div class="form-check col-md-8 offset-2">
+								<h6><?= $encuesta->preguntas[1]->Pregunta ?></h6><br>
+								<div class="form-check">
+									<label><input name="genero" class="form-check-input" type="radio" value="Femenino">   Femenino</label><br>
+									<label><input name="genero" class="form-check-input offset-1" type="radio" value="Masculino">   Masculino</label><br>
+									<label><input name="genero" class="form-check-input offset-1" type="radio" value="Otro">  Otro</label>
+								</div>
+							</div>
+							<br><br>
+							<p>
+								<div class="form-group col-md-8 offset-2" sss>
+									<h6><?= $encuesta->preguntas[2]->Pregunta ?></h6><br>
+									<select name="ciudad" id="" class="custom-select">
+										<?php foreach ($ciudad as $c) { ?>
+											<option value="<?= $c->Municipio ?>"><?= $c->Municipio ?></option>
+										<?php } ?>
+									</select>
+							</p><br>
+					</div>
+					<input type="hidden" name="idEncuesta" value="<?= base64_encode($encuesta->idEncuesta) ?>">
+					<div class="boton">
+						<input type="submit" value="Iniciar" class="btn btn-pri btn-rounder btn-lg float-right">
+					</div>
+					</form>
+				<?php } else { ?>
+					<div class="boton">
+						<a href="<?= base_url('PrincipalC/iniciar/') ?>?a=<?= base64_encode($encuesta->idEncuesta) ?>" class="btn btn-pri btn-rounder btn-lg float-right">Iniciar</a>
+					</div>
+				<?php } ?>
+			</div>
 		</div>
-	</div>
-	<center>
-		<footer class="img-responsive">
-			<img src="<?= base_url() ?>assets/images/Logo.png" alt="survey">
-		</footer>
-	</center>
+		<center>
+			<footer class="">
+				&copy; 2019 Survey, The Next Services, SA de CV. Todos los Derechos Reservados.
+			</footer>
+		</center>
+		
 </body>
+
 
 </html>
