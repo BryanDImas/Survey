@@ -36,6 +36,14 @@ class PrincipalC extends CI_Controller
         $datos['encuesta'] = $this->PrincipalModel->encuesta($id);
         $this->load->view('Principal/Fin', $datos);
     }
+    # acción que nos envia a la encuesta luego de capturar valores demograficos
+    public function CapDemo(){
+        $datos = [
+            $this->input->post('edad'),$this->input->post('genero'),$this->input->post('ciudad')
+        ];
+        $this->PrincipalModel->
+        print_r($datos); die;
+    }
     public function iniciar()
     {
         $id =  base64_decode($_GET['a']);

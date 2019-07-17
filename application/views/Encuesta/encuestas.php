@@ -91,7 +91,7 @@
     										<li role="separator" class="divider"></li>
     										<li><a href="<?= base_url() ?>EncuestasC/perfil/<?= $this->session->usuario->idUsuario ?>"><i class="ti-user"></i> Mi Perfil</a></li>
     										<li role="separator" class="divider"></li>
-    										<li><a href="<?= base_url() ?>Login/cerrar"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li>
+    										<li><a href="<?= base_url() ?>Login/cerrar"><i class="fa fa-power-off"></i> Cerrar Sesión</a></li>
     									</ul>
     								</li>
     							</ul>
@@ -175,21 +175,21 @@
     				<div class="card">
     					<div class="card-body"><br>
     						<div class="table-responsive">
-    							<center>
-    								<table class="tablesaw table-bordered table table-sm" data-tablesaw-mode="stack">
+    							
+    								<table class=" tablesaw table-bordered table table-sm" data-tablesaw-mode="stack">
     									<thead>
     										<tr class="table-bordered">
-    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nombre de la encuesta</th>
-    											<th data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="3">Objetivo de la encuesta</th>
-    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Estado</th>
-    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Fecha de creación</th>
-    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Fecha de finalización</th>
-    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Mensaje de inicio</th>
-    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="6">Mensaje de finalización</th>
-    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7" colspan="4">Opciones</th>
+    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nombre de la encuesta</th>
+    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="3">Objetivo de la encuesta</th>
+    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Estado</th>
+    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Fecha de creación</th>
+    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Fecha de finalización</th>
+    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Mensaje de inicio</th>
+    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="6">Mensaje de finalización</th>
+    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7" colspan = "4"> Opciones </th><br>
     										</tr>
     									</thead>
-    									<tbody align="center">
+    									<tbody> 
     										<?php foreach ($encuestas as $encues) { ?>
     											<tr>
     												<td><?= $encues->NombreEncuesta ?></td>
@@ -199,26 +199,26 @@
     												<td><?= $encues->FechaFinalizacion ?></td>
     												<td><?= $encues->MensajeInicio ?></td>
     												<td><?= $encues->MensajeFinalizacion ?></td>
-    												<td>
+    												<td >
     													<a href="<?= base_url() ?>EncuestasC/eliminar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-danger i fas fa-trash-alt"> Borrar </a>
-    												</td>
-    												<td>
+													</td>
+    												<td class=" text-center">
     													<a href="<?= base_url() ?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-success i fas fa-pencil-alt"> Editar </a>
     												</td>
     												<td>
-    													<button type="button" data-toggle="modal" data-target="#myModal<?= $encues->idEncuesta ?>" class="btn btn-block btn-outline-primary i fas fa-link" title="Editar"><br> Link</button>
+    													<button type="button" data-toggle="modal" data-target="#myModal<?= $encues->idEncuesta ?>" class="btn btn-block btn-outline-primary i fas fa-link" title="Editar"> Link </button>
     												</td>
     												<td>
     													<form action="<?= base_url() ?>EncuestasC/generarQR/" method="post">
     														<input type="hidden" name="url" value="<?= $encues->Url ?>">
-    														<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode"><br> QR</button>
+    														<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode"> QR </button>
     													</form>
     												</td>
     											</tr>
     										<?php  } ?>
     									</tbody>
     								</table>
-    							</center>
+    							
     						</div>
     					</div>
     				</div>
@@ -242,9 +242,8 @@
     								</div>
     								<!-- Modal body -->
     								<div class="modal-body">
-    									<div class="input-group mb-3">
-											<br>
-    										<h4><?= base_url() ?>PrincipalC/index/?e=<?= base64_encode($encues->idEncuesta) ?></h4>
+    									<div class="input-group mb-3" >
+    										<input class="form-control" type="text" id="copyTarget<?= $encues->idEncuesta ?>" style="color:#22D9B8 !important"value="<?= base_url() ?>PrincipalC/index/?e=<?= base64_encode($encues->idEncuesta) ?>" readonly> <button class="fas fa-copy btn btn-outline-success" id="copyButton<?= $encues->idEncuesta ?>"></button>
 
     									</div>
     								</div>
@@ -259,4 +258,61 @@
     				<?php } ?>
     				<!-- ========================================================================================================================== -->
     				<!-- Fin del primer modal -->
-    				<!-- ========================================================================================================================== -->
+					<!-- ========================================================================================================================== -->
+					<?php foreach ($encuestas as $encues) { ?>
+    				<script>
+    					document.getElementById("copyButton<?= $encues->idEncuesta ?>").addEventListener("click", function() {
+    						copyToClipboard(document.getElementById("copyTarget<?= $encues->idEncuesta ?>"));
+    					});
+
+    					function copyToClipboard(elem) {
+    						// crea un elemento oculto de texto, si no existe.
+    						var targetId = "_hiddenCopyText_";
+    						var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+    						var origSelectionStart, origSelectionEnd;
+    						if (isInput) {
+    							// Solo puede usar el elemento original para la selección y copiado.
+    							target = elem;
+    							origSelectionStart = elem.selectionStart;
+    							origSelectionEnd = elem.selectionEnd;
+    						} else {
+    							// Se utiliza un elemento temporal para la selección y copia.
+    							target = document.getElementById(targetId);
+    							if (!target) {
+    								var target = document.createElement("textarea");
+    								target.style.position = "absolute";
+    								target.style.left = "-9999px";
+    								target.style.top = "0";
+    								target.id = targetId;
+    								document.body.appendChild(target);
+    							}
+    							target.textContent = elem.textContent;
+    						}
+    						// selecciona el contenido.
+    						var currentFocus = document.activeElement;
+    						target.focus();
+    						target.setSelectionRange(0, target.value.length);
+
+    						// copia la seleccion.
+    						var succeed;
+    						try {
+    							succeed = document.execCommand("copy");
+    						} catch (e) {
+    							succeed = false;
+    						}
+    						// restaura el focus original.
+    						if (currentFocus && typeof currentFocus.focus === "function") {
+    							currentFocus.focus();
+    						}
+
+    						if (isInput) {
+    							// restore prior selection
+    							elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+    						} else {
+    							// Limpia el contenido temporal
+    							target.textContent = "";
+    						}
+    						return succeed;
+    					}
+					</script>
+						<?php } ?>
