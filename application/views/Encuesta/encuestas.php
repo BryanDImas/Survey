@@ -91,7 +91,7 @@
     										<li role="separator" class="divider"></li>
     										<li><a href="<?= base_url() ?>EncuestasC/perfil/<?= $this->session->usuario->idUsuario ?>"><i class="ti-user"></i> Mi Perfil</a></li>
     										<li role="separator" class="divider"></li>
-    										<li><a href="<?= base_url() ?>Login/cerrar"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li>
+    										<li><a href="<?= base_url() ?>Login/cerrar"><i class="fa fa-power-off"></i> Cerrar Sesión</a></li>
     									</ul>
     								</li>
     							</ul>
@@ -175,21 +175,21 @@
     				<div class="card">
     					<div class="card-body"><br>
     						<div class="table-responsive">
-    							<center>
-    								<table class="tablesaw table-bordered table table-sm" data-tablesaw-mode="stack">
+    							
+    								<table class=" tablesaw table-bordered table table-sm" data-tablesaw-mode="stack">
     									<thead>
     										<tr class="table-bordered">
-    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nombre de la encuesta</th>
-    											<th data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="3">Objetivo de la encuesta</th>
-    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Estado</th>
-    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Fecha de creación</th>
-    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Fecha de finalización</th>
-    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Mensaje de inicio</th>
-    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="6">Mensaje de finalización</th>
-    											<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7" colspan="4">Opciones</th>
+    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nombre de la encuesta</th>
+    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="3">Objetivo de la encuesta</th>
+    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Estado</th>
+    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Fecha de creación</th>
+    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Fecha de finalización</th>
+    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Mensaje de inicio</th>
+    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="6">Mensaje de finalización</th>
+    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7" colspan = "4"> Opciones </th><br>
     										</tr>
     									</thead>
-    									<tbody align="center">
+    									<tbody> 
     										<?php foreach ($encuestas as $encues) { ?>
     											<tr>
     												<td><?= $encues->NombreEncuesta ?></td>
@@ -199,26 +199,26 @@
     												<td><?= $encues->FechaFinalizacion ?></td>
     												<td><?= $encues->MensajeInicio ?></td>
     												<td><?= $encues->MensajeFinalizacion ?></td>
-    												<td>
+    												<td >
     													<a href="<?= base_url() ?>EncuestasC/eliminar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-danger i fas fa-trash-alt"> Borrar </a>
-    												</td>
-    												<td>
+													</td>
+    												<td class=" text-center">
     													<a href="<?= base_url() ?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-success i fas fa-pencil-alt"> Editar </a>
     												</td>
     												<td>
-    													<button type="button" data-toggle="modal" data-target="#myModal<?= $encues->idEncuesta ?>" class="btn btn-block btn-outline-primary i fas fa-link" title="Editar"><br> Link</button>
+    													<button type="button" data-toggle="modal" data-target="#myModal<?= $encues->idEncuesta ?>" class="btn btn-block btn-outline-primary i fas fa-link" title="Editar"> Link </button>
     												</td>
     												<td>
     													<form action="<?= base_url() ?>EncuestasC/generarQR/" method="post">
     														<input type="hidden" name="url" value="<?= $encues->Url ?>">
-    														<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode"><br> QR</button>
+    														<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode"> QR </button>
     													</form>
     												</td>
     											</tr>
     										<?php  } ?>
     									</tbody>
     								</table>
-    							</center>
+    							
     						</div>
     					</div>
     				</div>
