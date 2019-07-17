@@ -12,19 +12,19 @@
 </head>
 
 <body style="background:#F4F6F6">
-	<div class="container-fluid" style="background:none">
-		<div class="container" style="background:white;box-shadow: 5px -5px 0 2px #444 inset;" >
-			<header class="col-12">
-				<div class="row">
+	<div  class="container-fluid" style="background:none">
+		<div class="container" style="background:white;box-shadow: 5px -5px 0 2px #444 inset;">
+			<div id="header"class="">
+				<div class="col-12" style="display:inline">
 					<div class="img-responsive">
 						<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
 					</div>
-					<div class="offset-8">
+					<div class="col-md-2 offset-10">
 						<h3><?= $encuesta->NombreEncuesta ?></h3>
 						<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
 					</div>
 				</div>
-			</header><br>
+			</div><br>
 			<div class="mensaje">
 				<h3 class=""><?php echo nl2br($encuesta->MensajeInicio); ?></h3>
 				<br><br>
@@ -72,7 +72,7 @@
 		<footer class="img-responsive">
 			<img src="<?= base_url() ?>assets/images/Logo.png" alt="survey">
 		</footer>
-		</center>
+	</center>
 </body>
 
 </html>

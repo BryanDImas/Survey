@@ -1,78 +1,93 @@
-*{
-    margin: 0;
-    padding: 0;}
-                                .container {
-                                    border: 1px solid silver;
-                                    border-radius: 12px;
-                                    text-align: center;
-                                    background-color: black;
-                                    max-width: 1000px !important;
-                                }
-                                
-                                body {
-                                    padding: 100px;
-                                    background: ;
-                                    background-repeat: no-repeat;
-                                    background-size: cover;
-                                    color: rgb(0, 0, 0)!important;
-                                    margin: 1%;
-                                }
-                                
-                                header {
-                                    position: relative;
-                                    background-color: skyblue;
-                                    border-radius: 12px;
-                                    max-width: 1000px !important;
-                                    color: black !important;
-                                    text-align: right;
-                                    height: 170px;
-                                    width: 200px;
-                                }
-                                
-                                .img-responsive {
-                                    width: 10%;
-                                    height: 10%;
-                                }
-                                
-                                img {
-                                    width: 130%;
-                                    padding-left: 10%;
-                                    padding-top: 10%;
-                                    padding-right: 10%;
-                                }
-                                
-                                .mensaje {
-                                    margin-block: 60px;
-                                    text-align: center;
-                                }
-                                
-                                .boton {
-                                    display: inline-block;
-                                    padding: 20px;
-                                    margin: 10px;
-                                }
-                                
-                                .btn-pri,
-                                .btn-pri.disabled {
-                                    background: linear-gradient(#0088b6, #51D1F6, white);
-                                }
-                                
-                                .btn-pri:hover,
-                                .btn-pri.disabled:hover {
-                                    opacity: 0.8;
-                                    background: linear-gradient(white, #0088b6, white);
-                                }
-                                
-                                .btn-lg {
-                                    padding: .400rem 2rem;
-                                    font-size: 1.3rem;
-                                }
-                                
-                                .btn-rounder {
-                                    border-radius: 120px;
-                                    padding: 7px 18px;
-                                }
-                                
-                                .float-right {
-                                    float: center;
-                                }
+* {
+	padding: 0;
+}
+#inner {
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 50%;
+    background: black;
+    border-radius: 10px;
+    padding: 40px;
+    }
+
+
+
+@media screen and (max-width: 480px) {
+  #inner {
+    width: calc(100% - 80px);
+  }
+}
+.container {
+	border: 1px solid silver;
+	border-radius: 12px;
+	text-align: center;
+	background-color: black;
+	max-width: 1000px !important;
+}
+
+body {
+	padding: 100px;
+	background: ;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: rgb(0, 0, 0) !important;
+	margin: 1%;
+}
+
+#header {
+	background-color: skyblue;
+	border-radius: 12px;
+	max-width: 1000px !important;
+	color: black !important;
+	text-align: right;
+    height: 170px;
+    width: 991px;
+    margin: -8px;
+}
+
+.img-responsive {
+	width: 10%;
+	height: 10%;
+}
+
+img {
+	width: 130%;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.mensaje {
+	margin-block: 60px;
+	text-align: center;
+}
+
+.boton {
+	display: inline-block;
+	padding: 20px;
+	margin: 10px;
+}
+
+.btn-pri,
+.btn-pri.disabled {
+	background: linear-gradient(#0088b6, #51d1f6, white);
+}
+
+.btn-pri:hover,
+.btn-pri.disabled:hover {
+	opacity: 0.8;
+	background: linear-gradient(white, #0088b6, white);
+}
+
+.btn-lg {
+	padding: 0.4rem 2rem;
+	font-size: 1.3rem;
+}
+
+.btn-rounder {
+	border-radius: 120px;
+	padding: 7px 18px;
+}
+
+.float-right {
+	float: center;
+}
