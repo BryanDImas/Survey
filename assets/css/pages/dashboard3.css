@@ -26,6 +26,7 @@ File: scss
     fill-opacity: 0.1; }
   .campaign .ct-series-b .ct-line, .campaign .ct-series-b .ct-point {
     stroke: #20aee3;
+    
     stroke-width: 2px; }
   .campaign .ct-series-a .ct-point, .campaign .ct-series-b .ct-point {
     stroke-width: 6px; }
