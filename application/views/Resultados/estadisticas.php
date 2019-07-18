@@ -22,6 +22,49 @@
 
     <!-- Info box -->
     <!-- ============================================================== -->
+    <div class="card">
+        <div class="col-12">
+            <div class="row m-t-30">
+                <!-- Column -->
+                <div class="col-md-6 col-lg-3 col-xlg-3">
+                    <div class="card">
+                        <div class="box bg-info text-center">
+                            <h1 class="font-light text-white">2,064</h1>
+                            <h6 class="text-white">Encuestas respondidas</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <div class="col-md-6 col-lg-3 col-xlg-3">
+                    <div class="card">
+                        <div class="box bg-primary text-center">
+                            <h1 class="font-light text-white">1,738</h1>
+                            <h6 class="text-white">Preguntas Respondidas</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <div class="col-md-6 col-lg-3 col-xlg-3">
+                    <div class="card">
+                        <div class="box bg-success text-center">
+                            <h1 class="font-light text-white">1100</h1>
+                            <h6 class="text-white">Resolve</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <div class="col-md-6 col-lg-3 col-xlg-3">
+                    <div class="card">
+                        <div class="box bg-dark text-center">
+                            <h1 class="font-light text-white">964</h1>
+                            <h6 class="text-white">Pending</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+            </div>
+        </div>
+    </div>
     <div class="card-group">
         <div class="card">
             <div class="card-body">
