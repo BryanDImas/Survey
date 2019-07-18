@@ -37,7 +37,9 @@ class emailC extends CI_Controller{
 		$this->email->subject($asunto);                                                                      
 		$this->email->set_newline("\r\n");                                                                   
 		$this->email->message($mensaje);                                                          
-		$this->email->send();  
+		if($this->email->send()){
+			$this->email->clear();
+		} 
 		redirect('emailC');
 	}
 

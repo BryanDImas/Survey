@@ -116,11 +116,11 @@
                     <ul id="sidebarnav">
                         <?php if ($this->session->usuario->Rol == 'Administrador') { ?>
                             <li class="nav-small-cap">--- Menú Administrador</li>
-                            <li> <a class="waves-effect" href="<?= base_url() ?>InicioC/"><i class="icon-Home"></i><span class="hide-menu">Inicio
+                            <li> <a class="waves-effect" href="<?= base_url() ?>InicioC/"><i class="mdi mdi-home"></i><span class="hide-menu">Inicio
                                         <!--<span class="label label-rounded label-danger">4</span>--></span></a>
-                            <li> <a class="waves-effect" href="<?= base_url() ?>EmpresasC/"><i class="icon-Building"></i><span class="hide-menu">Empresas
+                            <li> <a class="waves-effect" href="<?= base_url() ?>EmpresasC/"><i class="far fa-building"></i><span class="hide-menu">Empresas
                                         <!--<span class="label label-rounded label-danger">4</span>--></span></a>
-                            <li> <a class="waves-effect" href="<?= base_url() ?>UsuariosC/"><i class="icon-Business-Mens"></i><span class="hide-menu">Usuarios
+                            <li> <a class="waves-effect" href="<?= base_url() ?>UsuariosC/"><i class="mdi mdi-account"></i><span class="hide-menu">Usuarios
                                         <!--<span class="label label-rounded label-danger">4</span>--></span></a>
                             </li><?php } ?>
                         <li class="nav-small-cap">--- Menú Principal</li>
