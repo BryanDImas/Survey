@@ -23,8 +23,8 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="<?= base_url() ?>inicioC/">
                         <b>
-                            <img src="<?= base_url() ?>assets/images/logo3.png" alt="homepage" class="dark-logo" width="50px" height="50px" />
-                            <img src="<?= base_url() ?>assets/images/logo3.png" alt="homepage" class="light-logo" width="50px" height="50px" />
+                            <img src="<?= base_url() ?>assets/images/logo3.png" alt="homepage" class="dark-logo" width="60px" height="50px" />
+                            <img src="<?= base_url() ?>assets/images/logo3.png" alt="homepage" class="light-logo" width="60px" height="50px" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>

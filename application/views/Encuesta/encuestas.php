@@ -115,18 +115,18 @@
     				<ul id="sidebarnav">
     					<?php if ($this->session->usuario->Rol == 'Administrador') { ?>
     						<li class="nav-small-cap">--- Menú Administrador</li>
-    						<li> <a class="waves-effect" href="<?= base_url() ?>InicioC/"><i class="icon-Home"></i><span class="hide-menu">Inicio
+    						<li> <a class="waves-effect" href="<?= base_url() ?>InicioC/"><i class="icon icon-Home"></i><span class="hide-menu">Inicio
     									<!--<span class="label label-rounded label-danger">4</span>--></span></a>
-    						<li> <a class="waves-effect" href="<?= base_url() ?>EmpresasC/"><i class="icon-Building"></i><span class="hide-menu">Empresas
+    						<li> <a class="waves-effect" href="<?= base_url() ?>EmpresasC/"><i class="icon icon-Building"></i><span class="hide-menu">Empresas
     									<!--<span class="label label-rounded label-danger">4</span>--></span></a>
-    						<li> <a class="waves-effect" href="<?= base_url() ?>UsuariosC/"><i class="icon-Business-Mens"></i><span class="hide-menu">Usuarios
+    						<li> <a class="waves-effect" href="<?= base_url() ?>UsuariosC/"><i class="icon icon-Business-Mens"></i><span class="hide-menu">Usuarios
     									<!--<span class="label label-rounded label-danger">4</span>--></span></a>
     						</li><?php } ?>
     					<li class="nav-small-cap">--- Menú Principal</li>
-    					<li> <a href="<?= base_url() ?>EncuestasC/" class="waves-effect"><i class="icon-Double-Circle"></i><span class="hide-menu">Encuestas</span></a></li>
+    					<li> <a href="<?= base_url() ?>EncuestasC/" class="waves-effect"><i class="icon icon-Double-Circle"></i><span class="hide-menu">Encuestas</span></a></li>
     					<!--<span class="label label-rounded label-danger">4</span>-->
-    					<li> <a href="<?= base_url() ?>ResultadosC/" class="waves-effect"><i class="icon-Split-Vertical"></i><span class="hide-menu">Resultados</span></a></li>
-    					<li> <a class="waves-effect" href="<?= base_url() ?>ResultadosC/grafi"><i class="icon-Pie-Chart3"></i><span class="hide-menu">Estadísticas</span></a></li>
+    					<li> <a href="<?= base_url() ?>ResultadosC/" class="waves-effect"><i class="icon icon-Split-Vertical"></i><span class="hide-menu">Resultados</span></a></li>
+    					<li> <a class="waves-effect" href="<?= base_url() ?>ResultadosC/grafi"><i class="icon icon-Pie-Chart3"></i><span class="hide-menu">Estadísticas</span></a></li>
     					<!--<span class="label label-rounded label-success">25</span>-->
     					<li> <a class="waves-effect" href="<?= base_url() ?>ResultadosC/tutorial"><i class="mdi mdi-youtube-play"></i><span class="hide-menu">Tutorial</span></a></li>
     				</ul>
