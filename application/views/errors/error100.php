@@ -27,18 +27,19 @@
 <![endif]-->
 </head>
 
-<body class="fix-header card-no-border fix-sidebar">
+<body>
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <section id="wrapper" class="error-page">
         <div class="error-box">
             <div class="error-body text-center">
-                <h1 class="text-info">&#x1F641</h1><br><br><br>
-                <h3 class="text-info text-uppercase">Lo sentimos esta encuesta ya no se encuentra disponible</h3><br><br><br><br><br><br>
+                <h1 class="text-info">&#x1F641</h1><br>
+                <h1 class="text-info">Oops!!!</h1><br><br>
+            <h3 class="text-info text-uppercase">Lo sentimos esta página no se encuentra disponible por el momento</h3>
                 <p class="text-muted m-t-30 m-b-30"></p><br>
                
-    <footer class="footer text-center">© 2019 The Next Services, SA de CV. Todos los derechos reservador.</footer>
+    <footer class="footer text-center text-info">© 2019 Survey, The Next Services, SA de CV. Todos los derechos reservados.</footer>
         </div>
       
     </section>

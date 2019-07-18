@@ -16,7 +16,7 @@ class PrincipalC extends CI_Controller
         $datos['encuesta'] = $this->PrincipalModel->encuesta($id); //Traemos la informacion de la encuesta.
         /* echo "<pre>";print_r($datos);die; */
         if (date('Y-m-d') >= $datos['encuesta']->FechaFinalizacion || $datos['encuesta']->Estado != 'Activo') {
-            echo "<script>alert('Esta encuesta ya no esta disponible');</script>";
+            $this->load->view('errors/error100');
         } else {
             $us = $this->PrincipalModel->usuario($datos['encuesta']->idUsuario);
             $datos['encuesta']->logo = $this->PrincipalModel->logo($us->idEmpresa); //traemos el logo de la empresa.
