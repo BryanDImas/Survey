@@ -176,7 +176,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <!-- Export Data -->
-                                <a href='<?= base_url() ?>index.php/UsuariosC/exportCSV'>Exportar CSV</a><br><br>
+                                <a class="btn btn-primary" href='<?= base_url() ?>index.php/UsuariosC/exportCSV'>Exportar CSV</a><br><br>
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-responsive text-center">
                                         <thead>
