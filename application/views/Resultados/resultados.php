@@ -17,6 +17,9 @@
 			<button class="right-side-toggle waves-effect waves-light  btn-themecolor btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
 		</div>
 	</div>
+	<!-- ======================================================================= -->
+	<!-- Inicio del contenido de la página -->
+	<!-- ======================================================================= -->
 	<div class="card-group">
 		<div class="card">
 			<div class="card-body">
@@ -38,14 +41,35 @@
 				</div>
 			</div>
 		</div>
+		<div class="card">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12">
+
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	<!--Tabla resultados -->
+	<!-- Card de la tabla de contenido -->
 	<div class="row">
 		<div class="col-md-12 align-center">
 			<div class="card">
 				<div class="card-body">
 					<!-- Export Data -->
-					<a href='<?= base_url() ?>ResultadosC/exportCSV/<?= $preguntas[0]->IdEncuesta ?>'>Exportar CSV</a><br><br>
+					<a class="btn btn-primary" href='<?= base_url() ?>ResultadosC/exportCSV/<?= $preguntas[0]->IdEncuesta ?>'>Exportar CSV</a>
+					<!-- Boton de las encuestas-->
+					<div class="btn-group">
+						<button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Encuestas</button>
+						<div class="dropdown-menu">
+							<?php foreach ($ids as $id) { ?>
+								<a class="btn btn-outline-success dropdown-item" href="<?= base_url() ?>ResultadosC/index/<?= $id->idEncuesta ?>"><?= $id->NombreEncuesta ?></a>
+							<?php } ?>
+						</div>
+					</div><br><br>
+					<!-- ======================================================================================================================================= -->
+					<!-- Tabla de respuestas -->
+					<!-- ====================================================================================================================================== -->
 					<div class="table-responsive table-sm">
 						<table class="table  table-bordered text-center">
 							<thead class="table-bordered">
@@ -69,16 +93,14 @@
 								} ?>
 							</tbody>
 						</table>
+						<!-- =========================================================================================================================================== -->
+						<!-- Fin de la tabla -->
+						<!-- =========================================================================================================================================== -->
 					</div>
 				</div>
-			</div>
-			<div class="offset-3">
-				<?php foreach($ids as $id){ ?>
-					<a class="btn btn-outline-success" href="<?=base_url()?>ResultadosC/index/<?=$id->idEncuesta?>"><?= $id->NombreEncuesta?></a>
-				<?php } ?>
 			</div>
 		</div>
 	</div>
 	<!-- ============================================================== -->
-	<!-- End Page Content -->
+	<!-- Fin de la página de contenido -->
 	<!-- ============================================================== -->
