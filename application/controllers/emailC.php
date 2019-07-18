@@ -32,7 +32,7 @@ class emailC extends CI_Controller{
 		$mensaje = $this->input->post('mensaje');
 		$config = $this->Mail_config();
 		$this->email->initialize($config);
-		$this->email->from('leandrocarpio24@gmail.com', 'Leandro Carpio');       
+		$this->email->from();       
 		$this->email->to($destinatario);                                                          
 		$this->email->subject($asunto);                                                                      
 		$this->email->set_newline("\r\n");                                                                   

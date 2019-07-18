@@ -17,7 +17,7 @@
 
 		<div class="card">
 			<div class="container">
-				<form action="<?= base_url() ?>emailC/enviar" method="post" autocomplete="off">
+				<form action="<?= base_url() ?>emailC/enviar" method="post" autocomplete="on">
 					<table>
 						<div class="form-group has-success">
 							<tr>
@@ -43,7 +43,7 @@
 									<label for="mensaje">Mensaje: </label>
 								</td>
 								<td>
-									<textarea name="mensaje" cols="22" rows="8" class="form-control" style="border-color:#24d2b5;" required></textarea>
+									<textarea name="mensaje" cols="22" rows="8" class="form-control" style="border-color:#24d2b5;" required>Mi cuesta esta bloqueda necesito ayuda para reestablecerla</textarea>
 								</td>
 							</tr>
 							<tr>

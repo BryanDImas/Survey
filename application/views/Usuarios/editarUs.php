@@ -64,11 +64,10 @@
                                 <input name="telefono" id="phone-mask" type="tel" class="form-control form-control-line phone-inputmask" value="<?= $user->Numero ?>">
                             </p>
                             <p><br>
-                                <div class="col-md-7 align-self-center text-right d-none d-md-block">
-                                    <input type="submit" value="Guardar" class="btn btn-rounded btn-outline-success float-right" />
+                                <div class="col-md-2 align-self-left text-right ">
+                                    <input type="submit" value="Guardar" class="btn btn-rounded btn-outline-success " />
                                 </div>
                             </p>
-
                         </div>
                     </form>
                 </div>
