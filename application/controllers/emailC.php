@@ -1,6 +1,6 @@
 <?php
 
-class emailC extends CI_Controller{
+class EmailC extends CI_Controller{
 	public function __construct(){
 		parent:: __construct();
 	}

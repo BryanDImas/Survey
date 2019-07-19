@@ -103,9 +103,8 @@ class EncuestasC extends CI_Controller
 		];
 		$this->EncuestasModel->crear($datos);
 		$array = [];
-		$array = [$this->input->post('nom'), $this->session->usuario->idUsuario];
+		$array = $this->session->usuario->idUsuario;
 		$id = $this->EncuestasModel->obid($array);
-print_r($id); die;
 		if ($this->input->post('check')) {
 			$this->Preguntasmodel->guardar([1, '¿Cuál es su edad?', 1, $id]);
 			$this->Preguntasmodel->guardar([2, '¿Cuál es su género?', 1, $id]);
