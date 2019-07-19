@@ -16,14 +16,80 @@
     color: rgb(255, 230, 0) !important;
 }
 
-.container {
+.contenedor {
     justify-items: center;
     border: 1px solid black;
-    border-radius: 12px;
+    border-radius: 10px;
     text-align: center;
-    max-width: 73% !important;
-/*     background-color !important; */
+    max-width: 88% !important;
+ /*    max-height:90%!important;  */
+/*     align-content: center; */
+
+background: linear-gradient(#86c185 40%, whitesmoke 70%)!important;
     box-shadow: 5px -5px 0 2px #444 inset;
+
+}
+
+body {
+    padding-left: 12%;
+    padding-right: 5%;
+    padding-top: 2%;
+    width: 100%;
+
+    background-color:#2d572c !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(0, 0, 0) !important;
+    margin: 1%;
+  /*   height: 60% !important; */
+}
+
+.header {
+   /*  background-color:#86c185; */
+    border-radius: 12px;
+ /*    padding-top: 4%; */
+   /*  max-width: 100% !important; */
+    color: black !important;
+    text-align: center;
+/*  height: 10%; */
+    width: 1107px !important;
+/*     padding-top: 2%; */
+/*     padding-inline: 1%; */
+/*     margin: 1px; */
+}
+
+.header-responsive {
+    width:auto;
+    height: auto;
+}
+
+.img-responsive {
+    padding-top: 3%;
+    width: 5%;
+    height: 5%;
+}
+
+img {
+    width: 130%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.logo-responsive {
+    padding-top: 3%;
+    width: 15%;
+    height: 15%;
+}
+
+p {
+    text-align: right;
+    color: white;
+}
+
+.mensaje {
+    margin-block: 60px;
+    height: 850px; 
+    text-align: center;
 }
 
 .boton {
@@ -32,27 +98,33 @@
     margin: 10px;
 }
 
-.btn-pon,
+.btn-pri,
 .btn-pri.disabled {
-    background: linear-gradient(#18927e, #24d2b5, #A9F5A9);
+    background: linear-gradient(#A9F5A9, #F7D358);
 }
 
-.btn-pon:hover,
+.btn-pri:hover,
 .btn-pri.disabled:hover {
-    opacity: 0.8;
-    background: linear-gradient(#A9F5A9, #24d2b5, #18927e );
+    opacity: 0.9;
+    background: #A9F5A9 ;
 }
-.card-header{
-    background-color: #18927e !important;
-    text-align: right;
+
+.btn-lg {
+    padding: 0.4rem 2rem;
+    font-size: 1.3rem;
 }
-body {
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 2%;
-    background-color: #797d7f !important;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: rgb(0, 0, 0) !important;
-    margin: 1%;
+
+.btn-rounder {
+    border-radius: 120px;
+    padding: 7px 18px;
+}
+
+.float-right {
+    float: center;
+}
+
+footer {
+    padding-top: 4%;
+    text-align: center;
+    color: #A9F5A9;
 }

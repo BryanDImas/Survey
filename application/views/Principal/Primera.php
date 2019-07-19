@@ -24,7 +24,7 @@
 			</div>
 					<h5><?= $encuesta->NombreEncuesta ?></h5>
 					<p><?= $encuesta->ObjetivoEncuesta ?></p>
-				</div>
+			</div>
 			</div>
 				<div class="mensaje">
 				
