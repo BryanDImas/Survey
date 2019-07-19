@@ -11,8 +11,8 @@
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/pages/card-page.css">
 
 </head>
-
 <body>
+
 	<div class="container-fluid">
 		<div class="card text-center">
 			<div class="card-header">
@@ -39,7 +39,7 @@
 								<?php  } ?>
 								<?php break; ?>
 							<?php case 7: ?>
-								<select name="respuestas[]" id="">
+								<select name="respuestas[<?= $pregunta->idPregunta ?>]" id="">
 									<?php foreach ($pregunta->respuestas as $res) { ?>
 										<option value="<?= $res['IdRespuestas'] ?>"><?= $res['Respuestas'] ?></option>
 									<?php  } ?>

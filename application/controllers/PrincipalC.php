@@ -34,8 +34,12 @@ class PrincipalC extends CI_Controller
     public function capturar()
     {
         $id = $this->input->post('idencuesta');
+        $respuesta = $this->input->post('respuestas[]');
+        foreach($respuesta as $clave => $valor) {
+            $this->PrincipalModel->actCont($this->PrincipalModel->obtenerContadorPorIdRespuesta($valor) + 1, $valor);
+        }
         $datos['encuesta'] = $this->PrincipalModel->encuesta($id);
-        $this->load->view('Principal/Fin', $datos);
+        $this->load->view('Principal/Fin', $datos);//redirigimos a la ultima vista de la encuesta.
     }
     # acción que nos envia a la encuesta luego de capturar valores demograficos
     public function CapDemo()
