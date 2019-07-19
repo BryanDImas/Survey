@@ -1,18 +1,18 @@
 <!-- Área de las empresas para su fácil acceso a sus encuestas enlinea -->
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
 <div class="row">
-    <div class="col-xs- col-sm-6 col-md-8">
-        <div style=" text-align:center; margin:5% auto; width:15rem; heigth:15rem;">
+	<div class="container-fluid">
+    <div class="col-xs-4 col-sm-4 col-md-5">
+        <div style=" text-align:center; margin:auto; width:15rem; heigth:15rem;">
             <ul id="flexiselDemo" style="display: inline-flex">
-                <li><img src="<?= base_url('assets/images/empresas1.png') ?>"  /></li>
-                <li><img src="<?= base_url('assets/images/empresas1.png') ?>"  /></li>
-                <li><img src="<?= base_url('assets/images/empresas1.png') ?>"  /></li>
-                <li><img src="<?= base_url('assets/images/empresas1.png') ?>"  /></li>
+                <img src="<?= base_url('assets/images/empresas1.png') ?>" class="img-responsive" />
+                <img src="<?= base_url('assets/images/empresas1.png') ?>"  class="img-responsive"/>
+                <img src="<?= base_url('assets/images/empresas1.png') ?>"  class="img-responsive"/>
+                <img src="<?= base_url('assets/images/empresas1.png') ?>"  class="img-responsive"/>
             </ul>
-
-            <div class="clearout"></div>
         </div>
     </div>
+</div>
 </div>
 </div>
 <!-------------------------------------------------------------------------------------------------------------------------------------------->

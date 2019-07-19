@@ -31,8 +31,8 @@ class EncuestasModel extends CI_Model
         $sql = "SELECT idEncuesta FROM encuestas WHERE NombreEncuesta = ? AND idUsuario = ?";
         return $this->db->query($sql,$datos)->row()->idEncuesta;
     }
-    public function actualizar($a){
-        $s = "UPDATE encuestas SET NombreEncuesta = ?, ObjetivoEncuesta = ?, Estado =?, MensajeInicio = ?, MensajeFinalizacion = ? WHERE idEncuesta = ? ";
+    public function actualizar($a, $date){
+        $s = "UPDATE encuestas SET NombreEncuesta = ?, ObjetivoEncuesta = ?, Estado =? ".$date.", MensajeInicio = ?, MensajeFinalizacion = ? WHERE idEncuesta = ? ";
          $this->db->query($s, $a);
     }
 
