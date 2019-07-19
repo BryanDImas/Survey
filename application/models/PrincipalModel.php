@@ -13,6 +13,11 @@ Class PrincipalModel extends CI_Model{
         $sql = "SELECT * FROM respuestas WHERE idPregunta = ".$idp;
         return $this->db->query($sql)->result_array(); 
     }
+
+    public function respuestas2 ($idp) {
+        $sql = "SELECT * FROM respuestas WHERE idPregunta = ".$idp;
+        return $this->db->query($sql)->result();
+    }
     public function actualizar($array){
 /*         $sql ="UPDATE respuestas SET Contador = Contador+1 WHERE IdPregunta in [?] AND IdRespuestas  in [?]";
         $this->db->query($sql, $array); */
@@ -35,6 +40,10 @@ Class PrincipalModel extends CI_Model{
     }
     public function IngrRes($respuesta,$idpregunta){
         $sql = "INSERT INTO respuestas (Respuestas,Contador,IdPregunta) VALUES ('$respuesta', 1, $idpregunta)";
+        $this->db->query($sql);
+    }
+    public function actCont($contador, $idRespuesta){
+        $sql = "UPDATE respuestas SET Contador = $contador WHERE IdRespuestas = $idRespuesta";
         $this->db->query($sql);
     }
     
