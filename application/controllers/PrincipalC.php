@@ -14,31 +14,25 @@ class PrincipalC extends CI_Controller
     {
         $id = base64_decode($_GET['e']); //Desencriptamos el id que nos pasan por la url.
         $datos['encuesta'] = $this->PrincipalModel->encuesta($id); //Traemos la informacion de la encuesta.
-        /* echo "<pre>";print_r($datos);die; */
+        //Comprobamos si la encuesta esta Activa y su fecha de vencimiento no ha caducado.
         if (date('Y-m-d') >= $datos['encuesta']->FechaFinalizacion || $datos['encuesta']->Estado != 'Activo') {
-            $this->load->view('errors/error100');
+            $this->load->view('errors/error100'); // cargamos la vista de error.
         } else {
+            // Cargamos la encuesta.
             $us = $this->PrincipalModel->usuario($datos['encuesta']->idUsuario);
             $datos['encuesta']->logo = $this->PrincipalModel->logo($us->idEmpresa); //traemos el logo de la empresa.
-            if ($datos['encuesta']->Demograficos == 'Si') { //traemos las preguntas demograficas si la encuesta las posee.
-                $datos['encuesta']->preguntas = $this->PrincipalModel->preguntas($id, $idp = 1);
+            if ($datos['encuesta']->Demograficos == 'Si') {
+                $datos['encuesta']->preguntas = $this->PrincipalModel->preguntas($id, $idp = 1); //traemos las preguntas demograficas si la encuesta las posee.
             } else {
-                $datos['encuesta']->preguntas = '';
+                $datos['encuesta']->preguntas = ''; // Si no posee datos demograficos lo igualamos a cadena vacia.
             }
-            $datos['ciudad'] = $this->PrincipalModel->ciudad();
-            $this->load->view('Principal/Primera', $datos);
+            $datos['ciudad'] = $this->PrincipalModel->ciudad(); //traemos los municipios del modelo.
+            $this->load->view('Principal/Primera', $datos); // cargamos la vista.
         }
-/*         echo "<pre>";
-        print_r($datos);
-        print_r(date('Y-m-d'));
-        die; */
     }
-    # Acción que captura las respuestas de la encuesta y las manda al modelo.
+    # Acción que cambia la vista a la de encuesta que mo posee valores demograficos.
     public function capturar()
     {
-        /*  $datos = $this->input->post('respuestas');
-        $this->PrincipalModel->actualizar($datos);
-        var_dump($datos); */
         $id = $this->input->post('idencuesta');
         $datos['encuesta'] = $this->PrincipalModel->encuesta($id);
         $this->load->view('Principal/Fin', $datos);
@@ -46,11 +40,28 @@ class PrincipalC extends CI_Controller
     # acción que nos envia a la encuesta luego de capturar valores demograficos
     public function CapDemo()
     {
-        $datos = [
-            $this->input->post('edad'), $this->input->post('genero'), $this->input->post('ciudad')
-        ];
-        $this->PrincipalModel->print_r($datos);
-        die;
+        $datos = [$this->input->post('edad'), $this->input->post('genero'), $this->input->post('ciudad')]; //Capturamos los datos del formulario
+        $idEncuesta = base64_decode($this->input->post('idEncuesta'));
+        $ids = $this->PrincipalModel->ids($idEncuesta);
+        for ($i = 0; $i < count($ids); $i++) {
+            $ids[$i]->respuestas = $this->PrincipalModel->respuestas2($ids[$i]->idPregunta);
+            if (count($ids[$i]->respuestas) < 1) { # Si está sin respuestas la pregunta
+                $this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
+            } else {
+                $contador = 0;
+                foreach ($ids[$i]->respuestas as $respuesta) {
+                    if ($respuesta->Respuestas == $datos[$i]) {
+                        $this->PrincipalModel->actCont(++$respuesta->Contador, $respuesta->IdRespuestas); # Actualizamos el contador
+                    } else {
+                        $contador++;
+                    }
+                }
+                if ($contador < 0) {
+                    $this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
+                }
+            }
+        }
+        redirect('PrincipalC/iniciar/?a=' . $this->input->post('idEncuesta'));
     }
     # Acción que construye la estructura de la encuesta.
     public function iniciar()

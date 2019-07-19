@@ -16,8 +16,8 @@
 	<div class="container-fluid">
 		<div class="card text-center">
 			<div class="card-header">
-			<H5><?= $encuesta->ObjetivoEncuesta ?></H5>
-			<h5 class="card-title"><?= $encuesta->NombreEncuesta ?></h5>
+				<H5><?= $encuesta->ObjetivoEncuesta ?></H5>
+				<h5 class="card-title"><?= $encuesta->NombreEncuesta ?></h5>
 			</div>
 			<form method="POST" action="<?= base_url('PrincipalC/capturar/') ?>">
 				<div class="card-body">
@@ -56,7 +56,7 @@
 				</div>
 			</form>
 			<div class="card-footer text-muted">
-			<img src="<?=base_url()?>assets/images/Logo.png" alt="">
+				<img src="<?= base_url() ?>assets/images/Logo.png" alt="">
 			</div>
 		</div>
 	</div>
