@@ -28,8 +28,8 @@ class EncuestasModel extends CI_Model
     # Método para trear el id de la encuesta recien ingresada por usuario
     public function obid($datos)
     {
-        $sql = "SELECT idEncuesta FROM encuestas WHERE NombreEncuesta = ? AND idUsuario = ?";
-        return $this->db->query($sql,$datos)->row()->idEncuesta;
+        $sql = "SELECT  @@identity AS id FROM encuestas WHERE idUsuario = $datos";
+        return $this->db->query($sql,$datos)->row()->id;
     }
     public function actualizar($a, $date){
         $s = "UPDATE encuestas SET NombreEncuesta = ?, ObjetivoEncuesta = ?, Estado =? ".$date.", MensajeInicio = ?, MensajeFinalizacion = ? WHERE idEncuesta = ? ";

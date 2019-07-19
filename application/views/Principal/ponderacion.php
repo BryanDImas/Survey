@@ -17,15 +17,21 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="contenedor">
         <div class="card card-inverse text-center">
-            <div class="card-header">
-                Survey
-            </div>
+            <div class="header">
+                <div class="container-fluid">
+                <div class="logo-responsive">
+                    <img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
+                </div>
+                <h5><?= $encuesta->NombreEncuesta ?></h5>
+                <p><?= $encuesta->ObjetivoEncuesta ?></p>
+
+            </div> 
+         </div>
             <form method="POST" action="<?= base_url('PrincipalC/capturar/') ?>">
-                <div class="card-body">
-                    <h4 class="card-title"><?= $encuesta->NombreEncuesta ?></h4>
-                    <h6><?= $encuesta->ObjetivoEncuesta ?></h6>
+                <div class="mensaje">
+
                     <?php $num = 1;
                     foreach ($encuesta->preguntas as $pregunta) { ?>
                         <p></p>
@@ -47,12 +53,9 @@
                 </div>
                 <input type="hidden" name="idencuesta" value="<?= $encuesta->idEncuesta ?>">
                 <div class="col-md-12 text-center">
-                    <input type="submit" class="btn btn-primary btn-lg" value="Listo">
-                </div>
+                    <input type="submit" class="btn btn-pri btn-lg" value="Listo">
+                </div><br><br>
             </form>
-            <div class="card-footer text-muted">
-                <?= $encuesta->ObjetivoEncuesta ?>
-            </div>
         </div>
     </div>
     <?php $num = 1;
@@ -82,6 +85,12 @@
         </script>
         <?php $num++;
     } ?>
+
+    <footer>
+        <div class="card-footer">
+            © 2019 Survey, The Next Services, SA de CV. Todos los derechos reservados
+        </div>
+    </footer>
 </body>
 
 </html>

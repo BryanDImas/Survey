@@ -13,6 +13,17 @@ Class PrincipalModel extends CI_Model{
         $sql = "SELECT * FROM respuestas WHERE idPregunta = ".$idp;
         return $this->db->query($sql)->result_array(); 
     }
+
+    public function respuestas2 ($idp) {
+        $sql = "SELECT * FROM respuestas WHERE idPregunta = ".$idp;
+        return $this->db->query($sql)->result();
+    }
+
+    public function obtenerContadorPorIdRespuesta ($id) {
+        $sql = "SELECT Contador FROM respuestas WHERE IdRespuestas = $id";
+        return $this->db->query($sql)->row()->Contador;
+    }
+
     public function actualizar($array){
 /*         $sql ="UPDATE respuestas SET Contador = Contador+1 WHERE IdPregunta in [?] AND IdRespuestas  in [?]";
         $this->db->query($sql, $array); */
@@ -29,4 +40,17 @@ Class PrincipalModel extends CI_Model{
         $sql = "SELECT LogoEMpresa FROM empresas WHERE idEmpresa = ".$id;
         return $this->db->query($sql)->row()->LogoEMpresa;
     }
+    public function ids($idEncuesta){
+        $sql = "SELECT idPregunta FROM preguntas WHERE PorDefecto = 1 AND IdEncuesta = ".$idEncuesta;
+        return $this->db->query($sql)->result();
+    }
+    public function IngrRes($respuesta,$idpregunta){
+        $sql = "INSERT INTO respuestas (Respuestas,Contador,IdPregunta) VALUES ('$respuesta', 1, $idpregunta)";
+        $this->db->query($sql);
+    }
+    public function actCont($contador, $idRespuesta){
+        $sql = "UPDATE respuestas SET Contador = $contador WHERE IdRespuestas = $idRespuesta";
+        $this->db->query($sql);
+    }
+    
 }

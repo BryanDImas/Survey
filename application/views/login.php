@@ -43,6 +43,9 @@
 											<div class="col-xs-3 col-md-5 offset-1">
 												<button class="btn btn-nue text-uppercase btn-rounded">Ingresar</button>
 											</div>
+											<br>
+											<label class="text-success"for="">¿Olvidaste tu contraseña? Presiona<a href="<?=base_url()?>EmailC/">aqui</a></label>
+											
 										</div>
 										<div class="form-group">
 												<h6 class="text-themecolor"><?= validation_errors(); ?></h6>

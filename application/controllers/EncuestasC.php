@@ -13,27 +13,21 @@ class EncuestasC extends CI_Controller
 		}
 	}
 
-	public function generarQR ()
-	{	/* $Url = $_GET['u'] ?? ''; */
+	public function generarQR()
+	{	
 		$this->load->library('ciqrcode');
 		$Url = $this->input->post('url');
 		$params['data'] = $Url;
-        $params['level'] = 'S';
-        $params['size'] = 9;
-
-        //decimos el directorio a guardar el codigo qr, en este 
+		$params['level'] = 'S';
+		$params['size'] = 9;
+		//decimos el directorio a guardar el codigo qr, en este 
 		//caso una carpeta en la raíz llamada qr_code
 		$nombre = uniqid() . rand(0, 999);
-        $params['savename'] = FCPATH . "uploads/qr_code/qr_$nombre.png";
-        //generamos el código qr
-        $this->ciqrcode->generate($params);
-
+		$params['savename'] = FCPATH . "uploads/qr_code/qr_$nombre.png";
+		//generamos el código qr
+		$this->ciqrcode->generate($params);
 		$data['img'] = "qr_$nombre.png";
-		
-		/* $this->load->view('layouts/head'); */
 		$this->load->view('Encuesta/codigo_qr', $data);
-	/* 	$this->load->view('layouts/footer'); */
-		/* echo "<img src='" . base_url() . "uploads/qr_code/" . $data['img'] . "' />"; */
 	}
 
 	# Vista principal de este controlador.
@@ -47,9 +41,9 @@ class EncuestasC extends CI_Controller
 		$config['num_links'] = 4; # Número de digitos a mostrar en la paginacion si son varios numeros.
 		$config['use_page_numbers'] = TRUE; #para ver el numero de la pagina en la url.
 		$this->pagination->initialize($config);
-		if($pag != 0){
-			$inicia = ($pag * $config['per_page'])-$config['per_page'];
-		}else{
+		if ($pag != 0) {
+			$inicia = ($pag * $config['per_page']) - $config['per_page'];
+		} else {
 			$inicia = $pag;
 		}
 		if (count($dato['encuestas'] = $this->EncuestasModel->obtener($inicia, $config['per_page'], $key, $this->session->usuario->idUsuario)) > 0) {
@@ -67,15 +61,14 @@ class EncuestasC extends CI_Controller
 	public function cargar($pagina)
 	{
 		$cont = $this->EncuestasModel->total($key = '');
-	/* 	print_r($cont); die; */
-		if($cont > 3 && $this->session->empresa->TipoCuenta == 'Basica'){
+		if ($cont > 3 && $this->session->empresa->TipoCuenta == 'Basica') {
 			echo "<script>alert('Máximo de encuestas alcanzadas Si desea crear mas Cambie su suscripción a Avanzada')</script>";
 			self::index();
-		}else{
-		$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
-		$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
-		$this->load->view('encuesta/' . $pagina); #cargamos la vista que contiene la nueva encuesta.
-		$this->load->view('layouts/footer'); #cargamos la vista que contiene el pie de página.
+		} else {
+			$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
+			$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
+			$this->load->view('encuesta/' . $pagina); #cargamos la vista que contiene la nueva encuesta.
+			$this->load->view('layouts/footer'); #cargamos la vista que contiene el pie de página.
 		}
 	}
 	# Acción que le dice al modelo que elimine una encuesta del registro
@@ -104,20 +97,18 @@ class EncuestasC extends CI_Controller
 	# Acción que nos permite crear una encuesta.
 	public function crear()
 	{
-
 		$datos = [
 			$this->input->post('msj'), $this->input->post('nom'), $this->input->post('obj'), $this->input->post('fve'),
 			$this->session->usuario->idUsuario, $this->input->post('demo')
 		];
 		$this->EncuestasModel->crear($datos);
 		$array = [];
-		$array = [$this->input->post('nom'), $this->session->usuario->idUsuario];
+		$array = $this->session->usuario->idUsuario;
 		$id = $this->EncuestasModel->obid($array);
-
 		if ($this->input->post('check')) {
-			$this->Preguntasmodel->guardar([1, '¿Cuál es su edad?',1, $id]);
-			$this->Preguntasmodel->guardar([2, '¿Cuál es su género?',1, $id]);
-			$this->Preguntasmodel->guardar([3, '¿Cuál es su ciudad de residencia?',1, $id]);
+			$this->Preguntasmodel->guardar([1, '¿Cuál es su edad?', 1, $id]);
+			$this->Preguntasmodel->guardar([2, '¿Cuál es su género?', 1, $id]);
+			$this->Preguntasmodel->guardar([3, '¿Cuál es su ciudad de residencia?', 1, $id]);
 		}
 
 		$this->session->set_userdata('idEncuesta', $id);

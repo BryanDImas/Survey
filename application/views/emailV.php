@@ -17,7 +17,7 @@
 
 		<div class="card">
 			<div class="container">
-				<form action="<?= base_url() ?>emailC/enviar" method="post" autocomplete="on">
+				<form action="<?= base_url() ?>EmailC/enviar" method="post" autocomplete="on">
 					<table>
 						<div class="form-group has-success">
 							<tr>
@@ -31,7 +31,7 @@
 							<tr>
 								<td>
 									<div class="form-group">
-										<label for="asunto">Asunto: </label>
+										<label for="asunto">Correo: </label>
 								</td>
 								<td>
 									<input type="text" name="asunto" class="form-control" style="border-color:#24d2b5;" required>
@@ -51,7 +51,7 @@
 									<input class="btn btn-info" type="submit" name="enviar" value="Enviar Email">
 								</td>
 								<td>
-								<a class="btn btn-success" href="<?= base_url() ?>InicioC/">Regresar</a>
+								<a class="btn btn-success" href="<?= base_url() ?>Login/">Regresar</a>
 								</td>
 							</tr>
 						</div>

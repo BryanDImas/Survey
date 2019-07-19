@@ -1,10 +1,16 @@
 <?php
 
+<<<<<<< HEAD
 class emailC extends CI_Controller
 {
 	public function __construct()
 	{
 		parent::__construct();
+=======
+class EmailC extends CI_Controller{
+	public function __construct(){
+		parent:: __construct();
+>>>>>>> 7ca6f4cd10fcf4bdb28d0219d389b9e9aa1576b0
 	}
 
 	public function index()
