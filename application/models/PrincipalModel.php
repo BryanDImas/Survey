@@ -29,4 +29,8 @@ Class PrincipalModel extends CI_Model{
         $sql = "SELECT LogoEMpresa FROM empresas WHERE idEmpresa = ".$id;
         return $this->db->query($sql)->row()->LogoEMpresa;
     }
+    public function ids($idEncuesta){
+        $sql = "SELECT idPregunta FROM preguntas WHERE PorDefecto = 1 AND IdEncuesta = ".$idEncuesta;
+        return $this->db->query($sql)->result();
+    }
 }
