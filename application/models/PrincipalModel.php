@@ -33,4 +33,9 @@ Class PrincipalModel extends CI_Model{
         $sql = "SELECT idPregunta FROM preguntas WHERE PorDefecto = 1 AND IdEncuesta = ".$idEncuesta;
         return $this->db->query($sql)->result();
     }
+    public function IngrRes($respuesta,$idpregunta){
+        $sql = "INSERT INTO respuestas (Respuestas,Contador,IdPregunta) VALUES ('$respuesta', 1, $idpregunta)";
+        $this->db->query($sql);
+    }
+    
 }

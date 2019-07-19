@@ -52,10 +52,18 @@ class PrincipalC extends CI_Controller
         $idEncuesta = $this->input->post('idEncuesta');
         $idEncuesta = base64_decode($idEncuesta);
         $ids = $this->PrincipalModel->ids($idEncuesta);
-        for ($i=0; $i <= count($ids) ; $i++) {
-            
+        for ($i=0; $i < count($ids) ; $i++) {
+            $respuestas = $this->PrincipalModel->respuestas($ids[$i]->idPregunta);
+            if(count($respuestas) == 0){
+                $this->PrincipalModel->IngrRes($datos[$i],$ids[$i]->idPregunta);
+            }else if(count($respuestas) > 0){
+                for($j=0; $j < count($respuestas) ; $j++){
+                    echo "<pre>";print_r($respuestas[$j]);
+   /*  if($datos[$i] == $respuestas[$j]->Respuestas) */
+}
+                /*if() */
+            }
         }
-        echo "<pre>";print_r($datos);
         die;
     }
     # Acción que construye la estructura de la encuesta.
