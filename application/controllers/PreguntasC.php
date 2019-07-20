@@ -37,11 +37,7 @@ class PreguntasC extends CI_Controller
 	public function guardar()
 	{
 		$num = $this->input->post('num');
-		$datos = [
-			$num + 1,
-			$_POST['pregunta'],
-			$this->session->idEncuesta
-		];
+		$datos = [$num + 1,$_POST['pregunta'],$this->session->idEncuesta];
 		$this->PreguntasModel->guardar($datos);
 	}
 	# Acción que le dice al modelo que elimine una pregunta según su id.

@@ -39,6 +39,7 @@ class PrincipalC extends CI_Controller
             $this->PrincipalModel->actCont($this->PrincipalModel->obtenerContadorPorIdRespuesta($valor) + 1, $valor);
         }
         $datos['encuesta'] = $this->PrincipalModel->encuesta($id);
+        $this->PrincipalModel->ContEnc($datos['encuesta']->Contador+1,$datos['encuesta']->idEncuesta);
         $this->load->view('Principal/Fin', $datos);//redirigimos a la ultima vista de la encuesta.
     }
     # acción que nos envia a la encuesta luego de capturar valores demograficos

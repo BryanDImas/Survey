@@ -52,5 +52,9 @@ Class PrincipalModel extends CI_Model{
         $sql = "UPDATE respuestas SET Contador = $contador WHERE IdRespuestas = $idRespuesta";
         $this->db->query($sql);
     }
+    public function contEnc($con,$id){
+        $sql = "UPDATE encuestas SET Contador = $con WHERE idEncuesta = $id";
+        $this->db->query($sql);
+    }
     
 }
