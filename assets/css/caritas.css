@@ -1,0 +1,112 @@
+.clasificacion input[type='radio'] {
+    opacity: 0;
+}
+
+.clasificacion label {
+    font-size: 30px;
+    color: rgb(150, 150, 150);
+    cursor: pointer;
+}
+
+.clasificacion label:hover {
+    color: rgb(217, 215, 11);
+}
+
+.activo+label {
+    color: rgb(255, 230, 0) !important;
+}
+
+.contenedor {
+    justify-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 88% !important;
+background: linear-gradient(#86c185 40%, whitesmoke 70%)!important;
+    box-shadow: 5px -5px 0 2px #444 inset;
+
+}
+
+body {
+    padding-left: 12%;
+    padding-right: 5%;
+    padding-top: 2%;
+    width: 100%;
+    background-color:#2d572c !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(0, 0, 0) !important;
+    margin: 1%;
+}
+
+.header-responsive {
+    width:auto;
+    height: auto;
+}
+
+.img-responsive {
+    padding-top: 3%;
+    width: 5%;
+    height: 5%;
+}
+
+img {
+    display: inline-flex;
+    width: 30%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.logo-responsive {
+    padding-top: 3%;
+    width: 15%;
+    height: 15%;
+}
+
+p {
+    text-align: right;
+    color: white;
+}
+
+.mensaje {
+    margin-block: 60px;
+    height: 850px; 
+    text-align: center;
+}
+
+.boton {
+    display: inline-block;
+    padding: 20px;
+    margin: 10px;
+}
+
+.btn-pri,
+.btn-pri.disabled {
+    background: linear-gradient(#A9F5A9, #F7D358);
+}
+
+.btn-pri:hover,
+.btn-pri.disabled:hover {
+    opacity: 0.9;
+    background: #A9F5A9 ;
+}
+
+.btn-lg {
+    padding: 0.4rem 2rem;
+    font-size: 1.3rem;
+}
+
+.btn-rounder {
+    border-radius: 120px;
+    padding: 7px 18px;
+}
+
+.float-right {
+    float: center;
+}
+
+footer {
+    padding-top: 4%;
+    text-align: center;
+    color: #A9F5A9;
+}

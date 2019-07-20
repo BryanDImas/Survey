@@ -36,15 +36,20 @@
 						<form class="form-group" action="<?= base_url('PrincipalC/CapDemo') ?>" method="post">
 							<div class="col-md-8 offset-2">
 								<h6><?= $encuesta->preguntas[0]->Pregunta ?></h6><br>
-								<input class="form-control" type="number" name="edad" min="15" max="100">
+								<select name="edad" id="">
+									<option value="">de 18 a 28 años</option>
+									<option value="">de 28 a 38 años</option>
+									<option value="">de 38 a 48 años</option>
+									<option value="">de 48 a 58 años</option>
+									<option value="">de 59 años o mas</option>
+								</select>
 							</div>
 							<br><br><br>
 							<div class="form-check col-md-8 offset-2">
 								<h6><?= $encuesta->preguntas[1]->Pregunta ?></h6><br>
 								<div class="form-check">
 									<label><input name="genero" class="form-check-input" type="radio" value="Femenino">   Femenino</label><br>
-									<label><input name="genero" class="form-check-input offset-1" type="radio" value="Masculino">   Masculino</label><br>
-									<label><input name="genero" class="form-check-input offset-1" type="radio" value="Otro">  Otro</label>
+									<label><input name="genero" class="form-check-input offset-1" type="radio" value="Masculino">   Masculino</label>
 								</div>
 							</div>
 							<br><br>

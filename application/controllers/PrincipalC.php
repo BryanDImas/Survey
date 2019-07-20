@@ -100,4 +100,9 @@ class PrincipalC extends CI_Controller
                 break;
         }
     }
+    public function capturar2(){
+        $id = $this->input->post('idencuesta');
+        $respuesta = $this->input->post('respuestas[]');
+        echo "<pre>"; print_r($respuesta); die;
+    }
 }
