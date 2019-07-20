@@ -19,7 +19,6 @@
 
 				<!-- <div class="col-md-2 offset-10">  -->
 				<div class="logo-responsive">
-<<<<<<< HEAD
 				<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
 			</div>
 					<h5><?= $encuesta->NombreEncuesta ?></h5>
@@ -62,10 +61,6 @@
 										<?php } ?>
 									</select>
 							</p><br>
-=======
-					
-					<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
->>>>>>> a7fdff2ca85ffde5b8e28111cbc6235501784b54
 					</div>
 					<div class="header">
 						<h2><?= $encuesta->NombreEncuesta ?> </h2>
