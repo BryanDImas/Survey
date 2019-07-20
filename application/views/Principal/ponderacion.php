@@ -24,8 +24,8 @@
                 <div class="logo-responsive">
                     <img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
                 </div>
-                <h5><?= $encuesta->NombreEncuesta ?></h5>
-                <p><?= $encuesta->ObjetivoEncuesta ?></p>
+                <h2><?= $encuesta->NombreEncuesta ?></h2>
+                <h4><?= $encuesta->ObjetivoEncuesta ?></h4>
 
             </div> 
          </div>
