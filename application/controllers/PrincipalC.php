@@ -110,19 +110,23 @@ class PrincipalC extends CI_Controller
             if (count($ids[$i]->respuestas) < 1) { # Si está sin respuestas la pregunta
                 $this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
             } else {
-                $contador = 0;
                 foreach ($ids[$i]->respuestas as $respuesta) {
+                    $contador = 0;
                     if ($respuesta->Respuestas == $datos[$i]) {
+                        echo "entro a actualizar cont";
                         $this->PrincipalModel->actCont(++$respuesta->Contador, $respuesta->IdRespuestas); # Actualizamos el contador
                     } else {
+                        echo "entro al contdor";
                         $contador++;
+                        echo $contador;
                     }
                 }
-                if ($contador < 0) {
+                if ($contador > 0) {
+                    echo "entro a ingresar nuevas";
                     $this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
                 }
             }
         }
-        echo "<pre>"; print_r($ids); die;
+        echo "<pre>"; print_r($ids); 
     }
 }
