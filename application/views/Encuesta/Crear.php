@@ -33,7 +33,7 @@
 						<div class="small">
 							<span>*El mensaje de inicio es una introducción que aparecera al inicio de la encuesta. Puede incluir el nombre de la compañia, las instrucciones para completar la encuesta o un mensaje de bienvenida.</span>
 						</div>
-						<textarea name="msj" class="form-control" rows="5" style="border-color:#24d2b5; align-text:center;" placeholder="">Bienvenido(a). Gracias por su visita, contestando la siguiente encuesta, nos ayudara a mejorar.</textarea>
+						<textarea name="msj" class="form-control" rows="5" style="border-color:#24d2b5; align-text:center;" placeholder="">¡Gracias por su visita!. Su opinión es muy importante, por favor conteste la siguiente encuesta, sus comentarios nos ayudarán a mejorar. </textarea>
 					</div>
 					<div class="form-group">
 						<label>Nombre de la encuesta: </label>
@@ -68,7 +68,7 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<label for="example">¿Cuál es su ciudad de residencia?</label>
+							<label for="example">¿Cuál es su municipio de residencia?</label>
 							<input type="text" name="ciudad" class="form-control" style="border-color:#24d2b5;" readonly>
 						</div>
 						<!-- ================================================================================= -->
