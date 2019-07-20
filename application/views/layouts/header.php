@@ -23,8 +23,8 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="<?= base_url() ?>inicioC/">
                         <b>
-                            <img src="<?= base_url() ?>assets/images/logo3.png" alt="homepage" class="dark-logo" width="50px" height="50px" />
-                            <img src="<?= base_url() ?>assets/images/logo3.png" alt="homepage" class="light-logo" width="50px" height="50px" />
+                            <img src="<?= base_url() ?>assets/images/logo3.png" alt="homepage" class="dark-logo" width="60px" height="50px" />
+                            <img src="<?= base_url() ?>assets/images/logo3.png" alt="homepage" class="light-logo" width="60px" height="50px" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
@@ -43,8 +43,8 @@
                     <!-- ============================================================== -->
                     <ul class="navbar-nav mr-auto">
                         <!-- This is  -->
-                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="sl-icon-menu"></i></a> </li>
-                        <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="sl-icon-menu"></i></a> </li>
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu-alt"></i></a> </li>
+                        <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu-alt"></i></a> </li>
                         <!-- ============================================================== -->
                         <!-- Search -->
                         <!-- ============================================================== -->
@@ -90,9 +90,9 @@
                                             <li role="separator" class="divider"></li>
                                             <li><a href="<?= base_url() ?>EncuestasC/perfil/<?= $this->session->usuario->idUsuario ?>"><i class="ti-user"></i> Mi Perfil</a></li>
                                             <li role="separator" class="divider"></li>
-											<li><a href="<?= base_url() ?>Login/cerrar"><i class="fa fa-power-off"></i> Cerrar Sesion</a></li>
+											<li><a href="<?= base_url() ?>Login/cerrar"><i class="fa fa-power-off"></i> Cerrar Sesión</a></li>
 											<li role="separator" class="divider"></li>
-                                            <li><a href="<?= base_url() ?>emailC/index"><i class="fa fa-email"></i> Email</a></li>
+                                            <li><a href="<?= base_url() ?>emailC/index"><i class="ti-email"></i> Email</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -116,11 +116,11 @@
                     <ul id="sidebarnav">
                         <?php if ($this->session->usuario->Rol == 'Administrador') { ?>
                             <li class="nav-small-cap">--- Menú Administrador</li>
-                            <li> <a class="waves-effect" href="<?= base_url() ?>InicioC/"><i class="icon-Home"></i><span class="hide-menu">Inicio
+                            <li> <a class="waves-effect" href="<?= base_url() ?>InicioC/"><i class="mdi mdi-home"></i><span class="hide-menu">Inicio
                                         <!--<span class="label label-rounded label-danger">4</span>--></span></a>
-                            <li> <a class="waves-effect" href="<?= base_url() ?>EmpresasC/"><i class="icon-Building"></i><span class="hide-menu">Empresas
+                            <li> <a class="waves-effect" href="<?= base_url() ?>EmpresasC/"><i class="far fa-building"></i><span class="hide-menu">Empresas
                                         <!--<span class="label label-rounded label-danger">4</span>--></span></a>
-                            <li> <a class="waves-effect" href="<?= base_url() ?>UsuariosC/"><i class="icon-Business-Mens"></i><span class="hide-menu">Usuarios
+                            <li> <a class="waves-effect" href="<?= base_url() ?>UsuariosC/"><i class="mdi mdi-account"></i><span class="hide-menu">Usuarios
                                         <!--<span class="label label-rounded label-danger">4</span>--></span></a>
                             </li><?php } ?>
                         <li class="nav-small-cap">--- Menú Principal</li>

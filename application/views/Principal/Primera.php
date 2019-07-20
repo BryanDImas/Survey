@@ -12,21 +12,22 @@
 </head>
 
 <body>
-	<div class="container-fluid">
-		<div class="container">
+
+	<div class="container">
+		<div class="contenedor">
 			<div id="header" class="col-12">
-				<div class="img-responsive">
-					<img src="<?= base_url() ?>assets/images/Logo.png" alt="survey">
-				</div>
-				<div class="col-md-2 offset-10">
-					<h3><?= $encuesta->NombreEncuesta ?></h3>
-					<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
-				</div>
+			
+			<!-- <div class="col-md-2 offset-10">  -->
+				<div class="header">
+				<div class="logo-responsive">
+				<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
+			</div>
+					<h5><?= $encuesta->NombreEncuesta ?></h5>
+					<p><?= $encuesta->ObjetivoEncuesta ?></p>
+			</div>
 			</div>
 				<div class="mensaje">
-					<div class="img-responsive">
-						<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
-					</div>
+				
 					<h3 class=""><?php echo nl2br($encuesta->MensajeInicio); ?></h3>
 					<br><br>
 					<?php if ($encuesta->preguntas != '') { ?>
@@ -69,11 +70,14 @@
 				<?php } ?>
 			</div>
 		</div>
-		<center>
+	<!-- 	<center> -->
 			<footer class="">
+			<div class="img-responsive">
+				<img src="<?= base_url() ?>assets/images/Logo.png" alt="survey">
+		    </div> 
 				&copy; 2019 Survey, The Next Services, SA de CV. Todos los Derechos Reservados.
-			</footer>
-		</center>
+			</footer><br><br>
+		<!-- </center> -->
 		
 </body>
 

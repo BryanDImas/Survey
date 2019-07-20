@@ -123,9 +123,9 @@
                                         <!--<span class="label label-rounded label-danger">4</span>--></span></a>
                             </li><?php } ?>
                         <li class="nav-small-cap">--- Menú Principal</li>
-                        <li> <a href="<?= base_url() ?>EncuestasC/" class="waves-effect"><i class="icon-Double-Circle"></i><span class="hide-menu">Encuestas</span></a></li>
+                        <li> <a href="<?= base_url() ?>EncuestasC/" class="waves-effect"><i class="icon icon-Double-Circle"></i><span class="hide-menu">Encuestas</span></a></li>
                         <!--<span class="label label-rounded label-danger">4</span>-->
-                        <li> <a href="<?= base_url() ?>ResultadosC/" class="waves-effect"><i class="icon-Split-Vertical"></i><span class="hide-menu">Resultados</span></a></li>
+                        <li> <a href="<?= base_url() ?>ResultadosC/" class="waves-effect"><i class="icon icon-Split-Vertical"></i><span class="hide-menu">Resultados</span></a></li>
                         <li> <a class="waves-effect" href="<?= base_url() ?>ResultadosC/grafi"><i class="icon-Pie-Chart3"></i><span class="hide-menu">Estadísticas</span></a></li>
                         <!--<span class="label label-rounded label-success">25</span>-->
                         <li> <a class="waves-effect" href="<?= base_url() ?>ResultadosC/tutorial"><i class="mdi mdi-youtube-play"></i><span class="hide-menu">Tutorial</span></a></li>
@@ -176,7 +176,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <!-- Export Data -->
-                                <a href='<?= base_url() ?>index.php/UsuariosC/exportCSV'>Exportar CSV</a><br><br>
+                                <a class="btn btn-primary" href='<?= base_url() ?>index.php/UsuariosC/exportCSV'>Exportar CSV</a><br><br>
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-responsive text-center">
                                         <thead>

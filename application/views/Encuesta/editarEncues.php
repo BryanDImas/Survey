@@ -24,7 +24,8 @@
 				<div class="card col-md-12">
 					<br>
 					<form action="<?= base_url('EncuestasC/actualizar') ?>" method="POST" class="form-horizontal mt-8" autocomplete="off">
-						<input type="hidden" name="id" value="<?= $encuesta->idEncuesta ?>">
+						<input type="hidden" name="id" value="<?= $encuesta->idEncuesta ?>" />
+						<input	type="hidden" value="<?= date('y-m-d')?>" />
 						<div class="form-group">
 							<label>Nombre de la encuesta: </label>
 							<input type="text" class="form-control" name="nom" style="border-color:#24d2b5;" value="<?= $encuesta->NombreEncuesta ?>">
