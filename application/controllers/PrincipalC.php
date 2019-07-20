@@ -101,8 +101,28 @@ class PrincipalC extends CI_Controller
         }
     }
     public function capturar2(){
-        $id = $this->input->post('idencuesta');
-        $respuesta = $this->input->post('respuestas[]');
-        echo "<pre>"; print_r($respuesta); die;
+        $datos = $this->input->post('respuestas[]'); //Capturamos los datos del formulario
+        $idEncuesta = $this->input->post('idEncuesta');
+        $ids = $this->PrincipalModel->ids2($idEncuesta);
+        echo "<pre>"; print_r($datos);
+        for ($i = 0; $i < count($ids); $i++) {
+            $ids[$i]->respuestas = $this->PrincipalModel->respuestas2($ids[$i]->idPregunta);
+            if (count($ids[$i]->respuestas) < 1) { # Si está sin respuestas la pregunta
+                $this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
+            } else {
+                $contador = 0;
+                foreach ($ids[$i]->respuestas as $respuesta) {
+                    if ($respuesta->Respuestas == $datos[$i]) {
+                        $this->PrincipalModel->actCont(++$respuesta->Contador, $respuesta->IdRespuestas); # Actualizamos el contador
+                    } else {
+                        $contador++;
+                    }
+                }
+                if ($contador < 0) {
+                    $this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
+                }
+            }
+        }
+        echo "<pre>"; print_r($ids); die;
     }
 }
