@@ -128,5 +128,8 @@ class PrincipalC extends CI_Controller
             }
         }
         echo "<pre>"; print_r($ids); 
+        $datos['encuesta'] = $this->PrincipalModel->encuesta($idEncuesta);
+        $this->PrincipalModel->ContEnc($datos['encuesta']->Contador+1,$datos['encuesta']->idEncuesta);
+        $this->load->view('Principal/Fin', $datos);//redirigimos a la ultima vista de la encuesta.
     }
 }
