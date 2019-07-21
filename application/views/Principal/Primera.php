@@ -47,7 +47,7 @@
 							<div class="form-check">
 								<label><input name="genero" class="form-check-input" type="radio" value="Femenino"> Femenino</label><br>
 								<label><input name="genero" class="form-check-input offset-1" type="radio" value="Masculino"> Masculino</label><br>
-								
+								 
 							</div>
 						</div>
 						<br><br>
@@ -75,9 +75,7 @@
 	</div>
 	<!-- 	<center> -->
 	<footer class="">
-		<div class="img-responsive">
-			<img src="<?= base_url() ?>assets/images/Logo.png" alt="survey">
-		</div>
+		
 		&copy; 2019 Survey, The Next Services, SA de CV. Todos los Derechos Reservados.
 	</footer><br><br>
 	<!-- </center> -->
