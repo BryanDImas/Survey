@@ -44,12 +44,8 @@
 							<h6><?= $encuesta->preguntas[1]->Pregunta ?></h6><br>
 							<div class="form-check">
 								<label><input name="genero" class="form-check-input" type="radio" value="Femenino"> Femenino</label><br>
-<<<<<<< HEAD
 								<label><input name="genero" class="form-check-input offset-1" type="radio" value="Masculino"> Masculino</label><br>
 								 
-=======
-								<label><input name="genero" class="form-check-input offset-1" type="radio" value="Masculino"> Masculino</label>
->>>>>>> ba814ddab2532dd1a21008b3e12e23e2446f2993
 							</div>
 						</div>
 						<br><br>

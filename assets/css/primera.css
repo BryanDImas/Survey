@@ -60,7 +60,7 @@ img {
 }
 
 h2, {
-    /* display: inline; */
+    display: inline; 
     text-align: right;
     color:black;
   
