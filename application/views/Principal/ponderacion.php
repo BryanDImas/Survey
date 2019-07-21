@@ -32,20 +32,20 @@
             <form method="POST" action="<?= base_url('PrincipalC/capturar2/') ?>">
                 <div class="mensaje">
 
-                    <?php $num = 1;
+                    <?php $num = 0;
                     foreach ($encuesta->preguntas as $pregunta) { ?>
                         <p></p>
-                        <h4 class="col-md-offset-1"><?= $num ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h4>
+                        <h4 class="col-md-offset-1"><?= $num+1 ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h4>
                         <p class="clasificacion clasificacion<?= $pregunta->idPregunta ?>">
-                            <input id="radio1<?= $num ?>" type="radio" name="respuestas[<?= $pregunta->idPregunta ?>]" value="1">
+                            <input id="radio1<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="1">
                             <label for="radio1<?= $num ?>">★</label>
-                            <input id="radio2<?= $num ?>" type="radio" name="respuestas[<?= $pregunta->idPregunta ?>]" value="2">
+                            <input id="radio2<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="2">
                             <label for="radio2<?= $num ?>">★</label>
-                            <input id="radio3<?= $num ?>" type="radio" name="respuestas[<?= $pregunta->idPregunta ?>]" value="3">
+                            <input id="radio3<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="3">
                             <label for="radio3<?= $num ?>">★</label>
-                            <input id="radio4<?= $num ?>" type="radio" name="respuestas[<?= $pregunta->idPregunta ?>]" value="4">
+                            <input id="radio4<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="4">
                             <label for="radio4<?= $num ?>">★</label>
-                            <input id="radio5<?= $num ?>" type="radio" name="respuestas[<?= $pregunta->idPregunta ?>]" value="5">
+                            <input id="radio5<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="5">
                             <label for="radio5<?= $num ?>">★</label>
                         </p>
                         <?php $num++;
