@@ -36,12 +36,12 @@ class ResultadosC extends CI_Controller
 			echo "<script>alert('Para tener acceso a esta área comuniquese con el administrador y cambie su cuenta a Avanzada');</script>";
 			self::index($this->session->idEncuesta);
 		} else {
+			$datos['encuesta'] = $this->EncuestasModel->buscarid($ide);
 			$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 			$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
 			$this->load->view('resultados/estadisticas'); #cargamos la vista que contiene los resultados.
 			$this->load->view('layouts/footer'); #cargamos la vista que contiene el pie de página.
 		}
-		/* redirect('ResultadosC/'); */
 	}
 	//Acción que nos devuelve la vista del tutorial.
 	public function tutorial()

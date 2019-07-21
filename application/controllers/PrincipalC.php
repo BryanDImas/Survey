@@ -100,4 +100,36 @@ class PrincipalC extends CI_Controller
                 break;
         }
     }
+    public function capturar2(){
+        $datos = $this->input->post('respuestas[]'); //Capturamos los datos del formulario
+        $idEncuesta = $this->input->post('idEncuesta');
+        $ids = $this->PrincipalModel->ids2($idEncuesta);
+        echo "<pre>"; print_r($datos);
+        for ($i = 0; $i < count($ids); $i++) {
+            $ids[$i]->respuestas = $this->PrincipalModel->respuestas2($ids[$i]->idPregunta);
+            if (count($ids[$i]->respuestas) < 1) { # Si está sin respuestas la pregunta
+                $this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
+            } else {
+                foreach ($ids[$i]->respuestas as $respuesta) {
+                    $contador = 0;
+                    if ($respuesta->Respuestas == $datos[$i]) {
+                        echo "entro a actualizar cont";
+                        $this->PrincipalModel->actCont(++$respuesta->Contador, $respuesta->IdRespuestas); # Actualizamos el contador
+                    } else {
+                        echo "entro al contdor";
+                        $contador++;
+                        echo $contador;
+                    }
+                }
+                if ($contador > 0) {
+                    echo "entro a ingresar nuevas";
+                    $this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
+                }
+            }
+        }
+        echo "<pre>"; print_r($ids); 
+        $datos['encuesta'] = $this->PrincipalModel->encuesta($idEncuesta);
+        $this->PrincipalModel->ContEnc($datos['encuesta']->Contador+1,$datos['encuesta']->idEncuesta);
+        $this->load->view('Principal/Fin', $datos);//redirigimos a la ultima vista de la encuesta.
+    }
 }

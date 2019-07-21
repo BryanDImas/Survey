@@ -18,7 +18,7 @@
 			<div class="card-header">
 				Survey
 			</div>
-			<form method="POST" action="<?= base_url('PrincipalC/capturar/') ?>">
+			<form method="POST" action="<?= base_url('PrincipalC/capturar2/') ?>">
 				<div class="card-body">
 					<h4 class="card-title"><?= $encuesta->NombreEncuesta ?></h4>
 					<?php $num = 1;
@@ -26,13 +26,13 @@
 						<p></p>
 						<h4 class="col-md-offset-1"><?= $num ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h4>
 						<p>
-							<input type="range" id="toPrice" min="0" max="10" oninput="document.getElementById('tPrice<?= $num ?>').innerHTML = this.value" />
+							<input name="respuestas[]" type="range" id="toPrice" min="0" max="10" oninput="document.getElementById('tPrice<?= $num ?>').innerHTML = this.value" />
 							<h2><label id="tPrice<?= $num ?>"></label></h2>
 						</p>
 						<?php $num++;
 					} ?>
 				</div>
-				<input type="hidden" name="idencuesta" value="<?= $encuesta->idEncuesta ?>">
+				<input type="hidden" name="idEncuesta" value="<?= $encuesta->idEncuesta ?>">
 				<div class="col-md-12 text-center">
 					<input type="submit" class="btn btn-primary btn-lg" value="Listo">
 				</div>

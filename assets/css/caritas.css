@@ -22,9 +22,6 @@
     border-radius: 10px;
     text-align: center;
     max-width: 88% !important;
- /*    max-height:90%!important;  */
-/*     align-content: center; */
-
 background: linear-gradient(#86c185 40%, whitesmoke 70%)!important;
     box-shadow: 5px -5px 0 2px #444 inset;
 
@@ -35,27 +32,11 @@ body {
     padding-right: 5%;
     padding-top: 2%;
     width: 100%;
-
     background-color:#2d572c !important;
     background-repeat: no-repeat;
     background-size: cover;
     color: rgb(0, 0, 0) !important;
     margin: 1%;
-  /*   height: 60% !important; */
-}
-
-.header {
-   /*  background-color:#86c185; */
-    border-radius: 12px;
- /*    padding-top: 4%; */
-   /*  max-width: 100% !important; */
-    color: black !important;
-    text-align: center;
-/*  height: 10%; */
-    width: 1107px !important;
-/*     padding-top: 2%; */
-/*     padding-inline: 1%; */
-/*     margin: 1px; */
 }
 
 .header-responsive {
@@ -70,9 +51,10 @@ body {
 }
 
 img {
-    width: 130%;
-    padding-left: 10%;
-    padding-right: 10%;
+    display: inline-flex;
+    width: 30%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .logo-responsive {
@@ -81,14 +63,9 @@ img {
     height: 15%;
 }
 
-h2 {
+p {
     text-align: right;
     color: white;
-}
-
-h4 {
-    text-align: right;
-    color: black;
 }
 
 .mensaje {
