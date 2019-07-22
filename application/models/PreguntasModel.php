@@ -31,7 +31,7 @@ class PreguntasModel extends CI_Model
         $sql = "SELECT * FROM preguntas WHERE idPregunta =".$id;
                return $this->db->query($sql)->row();
     }
-# Función que nos ayuda a cambiar un registo de la  babla
+# Función que nos ayuda a cambiar un registo de la Tabla
     public function actualizar($a)
     {
         $s="UPDATE preguntas SET Numero = ?, Pregunta = ?  WHERE idPregunta = ?";

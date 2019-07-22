@@ -106,9 +106,9 @@ class EncuestasC extends CI_Controller
 		$array = $this->session->usuario->idUsuario;
 		$id = $this->EncuestasModel->obid($array);
 		if ($this->input->post('check')) {
-			$this->Preguntasmodel->guardar([1, '¿Cuál es su edad?', 1, $id]);
-			$this->Preguntasmodel->guardar([2, '¿Cuál es su género?', 1, $id]);
-			$this->Preguntasmodel->guardar([3, '¿Cuál es su ciudad de residencia?', 1, $id]);
+			$this->PreguntasModel->guardar([1, '¿Cuál es su edad?', 1, $id]);
+			$this->PreguntasModel->guardar([2, '¿Cuál es su género?', 1, $id]);
+			$this->PreguntasModel->guardar([3, '¿Cuál es su municipio de residencia?', 1, $id]);
 		}
 
 		$this->session->set_userdata('idEncuesta', $id);
