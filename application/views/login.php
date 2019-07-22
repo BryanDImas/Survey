@@ -44,8 +44,9 @@
 												<button class="btn btn-nue btn-rounded font-9 btn-rounded">Ingresar</button>
 											</div>
 											<br>
+											<div class="text-center">
 											<span><a href="<?=base_url()?>EmailC/">¿Olvidaste tu contraseña?</a></span>
-											
+											</div>
 										</div>
 										<div class="form-group">
 												<h6 class="text-themecolor"><?= validation_errors(); ?></h6>
@@ -63,11 +64,12 @@
 					<div class="col-md-12" id=""><br>
 						<div class="col-md-8 offset-2" id="publicidad"></div>
 					</div>
-				</div><br>
+				</div>
+				<br><br><br><br><br><br><br><br><br><br><br>
 				<!-- ============================================================== -->
 				<!--  barra verde -->
 	<div class="container-fluid">
-<!-- 					<div class="col-md-10" style="background-color:none">
+<!-- <div class="col-md-10" style="background-color:none">
 						<div id="empresas"></div>
 					</div> -->
 				</div>

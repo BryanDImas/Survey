@@ -11,13 +11,14 @@
 	<div class="container-fluid">
 		<header>
 			<nav class="navbar navbar-light" style="background-color:#18927e; height:100px; ">
+			<img src="<?= base_url() ?>assets/images/logo.png" type="image" width="200px">
 				<h5>Recupera tu contraseña enviando un correo al administrador</h5>
 			</nav>
 		</header>
 
 		<div class="card">
 			<div class="container">
-				<form action="<?= base_url() ?>EmailC/enviar" method="post" autocomplete="on">
+				<form action="<?= base_url() ?>EmailC/enviar" method="post" autocomplete="off">
 					<table>
 						<div class="form-group has-success">
 							<tr>
@@ -25,7 +26,8 @@
 									<label for="destinatario">Destinatario: </label>
 								</td>
 								<td>
-									<input type="email" name="destinatario" class="form-control" style="border-color:#24d2b5;" required>
+									<input type="hidden" value="">
+									<input type="email" name="destinatario" class="form-control" style="border-color:#24d2b5;" value="leandrocarpio24@gmail.com" required>
 								</td>
 							</tr>
 							<tr>
@@ -34,7 +36,7 @@
 										<label for="asunto">Correo: </label>
 								</td>
 								<td>
-									<input type="text" name="asunto" class="form-control" style="border-color:#24d2b5;" required>
+									<input type="text" name="asunto" class="form-control" style="border-color:#24d2b5;" placeholder="Ingresa tu correo aquí" required>
 								</td>
 							</tr>
 
@@ -57,7 +59,7 @@
 						</div>
 						</table>	
 				</form>
-			</div>
+			</div><br><br><br><br><br><br><br>
 		<footer style="background-color:#18927e; height:100px;">
 			<div>
 				<br>
