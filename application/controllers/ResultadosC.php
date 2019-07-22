@@ -33,9 +33,11 @@ class ResultadosC extends CI_Controller
 	// Acción que nos devuelve la vista de las estadisticas.
 	public function grafi($ide = '')
 	{
+		$datos['ids'] = $this->EncuestasModel->ids($this->session->usuario->idUsuario);
 		if ($ide == '') {
-			$ide = $this->session->idEncuesta;
+			$ide = $datos['ids'][0]->idEncuesta;
 		}
+		$this->session->set_userdata('idEncuesta', $ide);
 		if ($this->session->empresa->TipoCuenta == 'Basica') {
 			echo "<script>alert('Para tener acceso a esta área comuniquese con el administrador y cambie su cuenta a Avanzada');</script>";
 			self::index($this->session->idEncuesta);
@@ -53,11 +55,11 @@ class ResultadosC extends CI_Controller
 			foreach ($datos['encuesta']->Demo as $p) {
 				$p->respuestas = $this->ResultadosM->respuestas($p->idPregunta);
 			}
-			$datos['preguntas'] = $this->ResultadosM->preguntas($ide); 
-			foreach($datos['preguntas'] as $pregunta){
+			$datos['preguntas'] = $this->ResultadosM->preguntas($ide);
+			foreach ($datos['preguntas'] as $pregunta) {
 				$pregunta->respuestas = $this->ResultadosM->respuestas($pregunta->idPregunta);
 			}
-		 
+
 			/* echo "<pre>"; print_r($datos); die; */
 			$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 			$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 

@@ -70,5 +70,13 @@ class EncuestasModel extends CI_Model
            $sql = "SELECT idEncuesta, NombreEncuesta FROM encuestas WHERE idUsuario = ".$id;
            return $this->db->query($sql)->result();
        }
+       public function total2($key,$id)
+       {
+        $sql = "SELECT count(*) total FROM encuestas WHERE idUsuario = $id ";
+        if($key != ''){
+            $sql.= "AND NombreEncuesta LIKE '%{$key}%'"; # Cambia si entra algún parametro de busqueda. 
+        }
+        return $this->db->query($sql)->row()->total;
+    }
    }
 
