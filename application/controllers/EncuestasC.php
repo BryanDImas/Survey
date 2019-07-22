@@ -142,21 +142,13 @@ class EncuestasC extends CI_Controller
 		$this->load->view('layouts/footer');
 	}
 
-	public function actualizar()
-	{
-		if($this->input->post('esta') == 'Activo'){
-			$datos = [
-				$this->input->post('nom'), $this->input->post('obj'),
-				date('y-m-d'), $this->input->post('msj'),
-				$this->input->post('msjd'), $this->input->post('id')
-			];
-		}else{
+	public function actualizar(){
 			$datos = [
 				$this->input->post('nom'), $this->input->post('obj'),
 				$this->input->post('esta'), $this->input->post('msj'),
 				$this->input->post('msjd'), $this->input->post('id')
 			];
-		}
+		
 		$this->EncuestasModel->actualizar($datos);
 		redirect('EncuestasC/');
 	}

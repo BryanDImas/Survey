@@ -25,7 +25,7 @@
 					<div class="col-md-12 col-xs-2">
 						<div class="login-container-box">
 								<a href='#' data-toggle='dropdown' class="col-md-12   btn-lg text-uppercase m-t-2 btn btn-nue font-10 btn-rounded" >INICIAR SESION</a>
-								<div class='dropdown-menu' style='padding: 12%; padding-bottom: 12%; background: #2f3d4a; width: 101%'>
+								<div class='dropdown-menu' style='padding: 15%; padding-bottom: 15%; background: #2f3d4a; width: 109%'>
 									<form class="form-horizontal form-material" id="loginform" action="<?= base_url() ?>login/validar" method="post" autocomplete="off">
 										<a href="javascript:void(0)" class="text-center db"><img src="<?= base_url() ?>assets/images/logo3.png" alt="Home" width="15%" /><span><img src="<?= base_url() ?>assets/images/text-logo.png" alt="Home" width="42%" /></span></a>
 										<br>
@@ -41,10 +41,10 @@
 										</div>
 										<div class="form-group m-t-5">
 											<div class="col-xs-3 col-md-5 offset-1">
-												<button class="btn btn-nue text-uppercase btn-rounded">Ingresar</button>
+												<button class="btn btn-nue btn-rounded font-9 btn-rounded">Ingresar</button>
 											</div>
 											<br>
-											<label class="text-success"for="">¿Olvidaste tu contraseña? Presiona<a href="<?=base_url()?>EmailC/">aqui</a></label>
+											<span><a href="<?=base_url()?>EmailC/">¿Olvidaste tu contraseña?</a></span>
 											
 										</div>
 										<div class="form-group">
@@ -66,11 +66,10 @@
 				</div><br>
 				<!-- ============================================================== -->
 				<!--  barra verde -->
-				<!-- ============================================================== -->
-				<div class="container-fluid">
-					<div class="col-md-10" style="background-color:none">
+	<div class="container-fluid">
+<!-- 					<div class="col-md-10" style="background-color:none">
 						<div id="empresas"></div>
-					</div>
+					</div> -->
 				</div>
 		</div>
 			<!-- ============================================================== -->
