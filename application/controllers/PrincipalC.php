@@ -39,6 +39,8 @@ class PrincipalC extends CI_Controller
             $this->PrincipalModel->actCont($this->PrincipalModel->obtenerContadorPorIdRespuesta($valor) + 1, $valor);
         }
         $datos['encuesta'] = $this->PrincipalModel->encuesta($id);
+        $us = $this->PrincipalModel->usuario($datos['encuesta']->idUsuario); // Obtenemos el idUsuario de la encuesta que traemos.
+        $datos['encuesta']->logo = $this->PrincipalModel->logo($us->idEmpresa);
         $this->PrincipalModel->ContEnc($datos['encuesta']->Contador+1,$datos['encuesta']->idEncuesta);
         $this->load->view('Principal/Fin', $datos);//redirigimos a la ultima vista de la encuesta.
     }
@@ -129,6 +131,8 @@ class PrincipalC extends CI_Controller
         }
         /* echo "<pre>"; print_r($ids);  */
         $datos['encuesta'] = $this->PrincipalModel->encuesta($idEncuesta);
+        $us = $this->PrincipalModel->usuario($datos['encuesta']->idUsuario); // Obtenemos el idUsuario de la encuesta que traemos.
+        $datos['encuesta']->logo = $this->PrincipalModel->logo($us->idEmpresa);
         $this->PrincipalModel->ContEnc($datos['encuesta']->Contador+1,$datos['encuesta']->idEncuesta);
         $this->load->view('Principal/Fin', $datos);//redirigimos a la ultima vista de la encuesta.
     }

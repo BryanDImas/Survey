@@ -17,7 +17,7 @@
 		<div class="contenedor">
 			<div id="header" class="col-12">
 				<div class="logo-responsive">
-					<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
+					<img class="rounded-circle" src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
 				</div>
 				<h2><?= $encuesta->NombreEncuesta ?></h2>
 				<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
@@ -31,7 +31,7 @@
 					<form class="form-group" action="<?= base_url('PrincipalC/CapDemo') ?>" method="post">
 						<div class="col-md-8 offset-2">
 							<h6><?= $encuesta->preguntas[0]->Pregunta ?></h6><br>
-							<select name="edad" id="">
+							<select name="edad"  class="custom-select" style="width:150px;">
 								<option value="">de 18 a 28 años</option>
 								<option value="">de 28 a 38 años</option>
 								<option value="">de 38 a 48 años</option>
@@ -52,7 +52,7 @@
 						<p>
 							<div class="form-group col-md-8 offset-2" sss>
 								<h6><?= $encuesta->preguntas[2]->Pregunta ?></h6><br>
-								<select name="ciudad" id="" class="custom-select">
+								<select name="ciudad" id="" class="custom-select" style="width:150px;">
 									<?php foreach ($ciudad as $c) { ?>
 										<option value="<?= $c->Municipio ?>"><?= $c->Municipio ?></option>
 									<?php } ?>

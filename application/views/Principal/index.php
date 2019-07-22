@@ -21,7 +21,7 @@
 
 			<div class="card-header">
 			<div class="logo-responsive">
-		 	<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
+		 	<img class="rounded-circle" src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
 	</div>
 				<div class="card-title">
 					<h2><?= $encuesta->NombreEncuesta ?></h2>
