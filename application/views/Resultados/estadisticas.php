@@ -29,8 +29,8 @@
                 <div class="col-md-6 col-lg-3 col-xlg-3">
                     <div class="card">
                         <div class="box bg-info text-center">
-                            <h1 class="font-light text-white">2,064</h1>
-                            <h6 class="text-white">Encuestas respondidas</h6>
+                            <h1 class="font-light text-white"><?= $encuesta->Contador ?? 0 ?></h1>
+                            <h6 class="text-white">Encuestas <br> contestadas</h6>
                         </div>
                     </div>
                 </div>
@@ -38,8 +38,8 @@
                 <div class="col-md-6 col-lg-3 col-xlg-3">
                     <div class="card">
                         <div class="box bg-primary text-center">
-                            <h1 class="font-light text-white">1,738</h1>
-                            <h6 class="text-white">Preguntas Respondidas</h6>
+                            <h1 class="font-light text-white"><?= $encuesta->totalRes ?? 0 ?></h1>
+                            <h6 class="text-white">Preguntas <br> contestadas</h6>
                         </div>
                     </div>
                 </div>
@@ -47,8 +47,8 @@
                 <div class="col-md-6 col-lg-3 col-xlg-3">
                     <div class="card">
                         <div class="box bg-success text-center">
-                            <h1 class="font-light text-white">1100</h1>
-                            <h6 class="text-white">Resolve</h6>
+                            <h1 class="font-light text-white"><?= $encuesta->Demo[1]->respuestas[0]->Contador ?? 0?></h1>
+                            <h6 class="text-white">Datos demograficos: <br> Hombres</h6>
                         </div>
                     </div>
                 </div>
@@ -56,80 +56,12 @@
                 <div class="col-md-6 col-lg-3 col-xlg-3">
                     <div class="card">
                         <div class="box bg-dark text-center">
-                            <h1 class="font-light text-white">964</h1>
-                            <h6 class="text-white">Pending</h6>
+                            <h1 class="font-light text-white"><?= $encuesta->Demo[1]->respuestas[1]->Contador ?? 0?></h1>
+                            <h6 class="text-white">Datos demograficos: <br> Mujeres</h6>
                         </div>
                     </div>
                 </div>
                 <!-- Column -->
-            </div>
-        </div>
-    </div>
-    <div class="card-group">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12">
-                        <h3>86%</h3>
-                        <h6 class="card-subtitle">Encuestas</h6>
-                    </div>
-                    <div class="col-12">
-                        <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 85%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Column -->
-        <!-- Column -->
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12">
-                        <h3>40%</h3>
-                        <h6 class="card-subtitle"></h6>
-                    </div>
-                    <div class="col-12">
-                        <div class="progress">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 40%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Column -->
-        <!-- Column -->
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12">
-                        <h3>56%</h3>
-                        <h6 class="card-subtitle">Alcance</h6>
-                    </div>
-                    <div class="col-12">
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 56%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Column -->
-        <!-- Column -->
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12">
-                        <h3>26%</h3>
-                        <h6 class="card-subtitle">Visitas esta semana</h6>
-                    </div>
-                    <div class="col-12">
-                        <div class="progress">
-                            <div class="progress-bar bg-inverse" role="progressbar" style="width: 26%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -186,8 +118,8 @@
                             <h6 class="card-subtitle text-white op-5">Genero</h6>
                             <div class="d-flex no-block">
                                 <div class="align-self-end no-shrink">
-                                    <h2 class="m-b-0 text-white">Hombre: 0</h2>
-                                    <h2 class="m-b-0 text-white">Mujeres: 0</h2>
+                                    <h2 class="m-b-0 text-white"></h2>
+                                    <h2 class="m-b-0 text-white">Mujeres: </h2>
                                 </div>
                                 <div class="ml-auto">
                                     <div class="spark-count" style="height:120px"></div>

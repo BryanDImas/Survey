@@ -48,7 +48,7 @@
 			<div class="card">
 				<div class="card-body">
 					<!-- Export Data -->
-					<a class="btn btn-primary" href='<?= base_url() ?>ResultadosC/exportCSV/<?= $preguntas[0]->IdEncuesta ?>'>Exportar CSV</a>
+					<a class="btn btn-primary" href='<?= base_url() ?>ResultadosC/exportCSV/<?= $preguntas[0]->IdEncuesta ?? '' ?>'>Exportar CSV</a>
 					<!-- Boton de las encuestas-->
 					<div class="btn-group float-right">
 						<button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Encuestas</button>

@@ -19,6 +19,7 @@ class ResultadosC extends CI_Controller
 		if ($ide == '') {
 			$ide = $datos['ids'][0]->idEncuesta;
 		}
+		$this->session->set_userdata('idEncuesta', $ide);
 		$datos['encuesta'] = $this->EncuestasModel->buscarid($ide);
 		$datos['preguntas'] = $this->ResultadosM->preguntas($ide);
 		foreach ($datos['preguntas'] as $preguntas) {
@@ -30,16 +31,32 @@ class ResultadosC extends CI_Controller
 		$this->load->view('layouts/footer'); #cargamos la vista que contiene el pie de página.
 	}
 	// Acción que nos devuelve la vista de las estadisticas.
-	public function grafi()
+	public function grafi($ide = '')
 	{
+		if($ide == ''){
+			$ide = $this->session->idEncuesta;
+		}
 		if ($this->session->empresa->TipoCuenta == 'Basica') {
 			echo "<script>alert('Para tener acceso a esta área comuniquese con el administrador y cambie su cuenta a Avanzada');</script>";
 			self::index($this->session->idEncuesta);
 		} else {
 			$datos['encuesta'] = $this->EncuestasModel->buscarid($ide);
+			$ids = $this->ResultadosM->ids($ide);
+			$total = 0;
+			for($i=0; $i < count($ids) ; $i++) { 
+				$cont = $this->ResultadosM->respuestas2($ids[$i]->idPregunta);
+				$ids[$i]->respuestas = $cont;
+			$total += $ids[$i]->respuestas;
+			}
+			$datos['encuesta']->totalRes = $total;
+			$datos['encuesta']->Demo = $this->ResultadosM->demo($ide);
+			foreach($datos['encuesta']->Demo as $p){
+				$p->respuestas = $this->ResultadosM->respuestas($p->idPregunta);
+			}
+			/* echo "<pre>"; print_r($datos); die; */
 			$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 			$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
-			$this->load->view('resultados/estadisticas'); #cargamos la vista que contiene los resultados.
+			$this->load->view('resultados/estadisticas', $datos); #cargamos la vista que contiene los resultados.
 			$this->load->view('layouts/footer'); #cargamos la vista que contiene el pie de página.
 		}
 	}
