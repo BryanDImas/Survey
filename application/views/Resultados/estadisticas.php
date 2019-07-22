@@ -19,7 +19,7 @@
     </div>
     <!-- Boton de las encuestas-->
     <div class="btn-group float-right">
-        <button class="btn dropdown-toggle btn-rounded btn-outline-info" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Encuestas</button>
+        <button class="btn dropdown-toggle btn-rounded btn-outline-success" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Encuestas</button>
         <div class="dropdown-menu">
             <?php foreach ($ids as $id) { ?>
                 <a class="btn btn-outline-success dropdown-item" href="<?= base_url() ?>ResultadosC/index/<?= $id->idEncuesta ?>"><?= $id->NombreEncuesta ?></a>
@@ -33,6 +33,11 @@
     <!-- ============================================================== -->
     <div class="card">
         <div class="col-12">
+            <br>
+            <div>
+                <h3 class="text-center">Encuesta: <small><?= $encuesta->NombreEncuesta ?></small></h3>
+            </div>
+
             <div class="row m-t-30">
                 <!-- Column -->
                 <div class="col-md-6 col-lg-3 col-xlg-3">
@@ -80,49 +85,19 @@
     <!-- ============================================================== -->
     <!-- Over Visitor, Our income , slaes different and  sales prediction -->
     <!-- ============================================================== -->
-    <div class="row">
-        <!-- Column -->
-        <div class="col-lg-5 col-md-12">
-            <div class="card bg-primary band">
-                <div class="card-body">
-                    <h4 class="card-title text-white"></h4>
-                    <h6 class="card-subtitle text-white op-5">March 2018</h6>
-                    <div class="d-flex no-block">
-                        <div class="align-self-end no-shrink">
-                            <h2 class="m-b-0 text-white">68 TB</h2>
-                        </div>
-                        <div class="ml-auto">
-                            <div id="sales" style="width:150px; height:130px;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- column -->
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Datos demograficos: <br>Edad</h4>
-                    <div>
-                        <canvas id="chart4" height="150"> </canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- column -->
 
     <div class="row">
         <?php $num = 0;
         foreach ($preguntas as $pregunta) { ?>
             <!-- Column -->
-            <div class="col-lg-7 col-md-6">
+            <div class="col-lg-6 col-md-6">
                 <!-- column -->
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title"><?= $num + 1; ?>.- <?= $pregunta->Pregunta ?></h4>
 
                         <div>
-                            <canvas id="chart2<?= $pregunta->idPregunta ?>"></canvas>
+                            <canvas id="chart2<?= $pregunta->idPregunta ?>" height="150"></canvas>
                         </div>
                     </div>
                 </div>
@@ -131,8 +106,8 @@
             <?php $num++;
         } ?>
         <!-- Column -->
-
     </div>
+    <!-- column -->
     <!-- ============================================================== -->
     <!-- Sales Chart and browser state-->
     <!-- ============================================================== -->
@@ -142,26 +117,6 @@
     <!-- Chart JS -->
     <script src="<?= base_url() ?>assets/node_modules/Chart.js/chartjs.init.js"></script>
     <script src="<?= base_url() ?>assets/node_modules/Chart.js/Chart.min.js"></script>
-    <?php foreach ($encuesta->Demo as $pregunta) {
-        ?>
-        <script>
-            new Chart(document.getElementById("chart4"), {
-                        "type": "doughnut",
-                        "data": {
-                            "labels": [<?php foreach ($pregunta->respuestas as $respuesta) {
-                                            echo "'" . $respuesta->Respuestas . ",";
-                                        } ?> "],
-                                "datasets": [{
-                                    "label": "My First Dataset",
-                                    "data": [<?php foreach ($pregunta->respuestas as $respuesta) {
-                                                    echo $respuesta->Contador . ",";
-                                                }  ?>],
-                                    "backgroundColor": ["rgb(239, 83, 80)", "rgb(57, 139, 247)", "rgb(255, 178, 43)"]
-                                }]
-                            }
-                        });
-        </script>
-    <?php } ?>
     <?php $n = 0;
     foreach ($preguntas as $pregunta) { ?>
         <script>

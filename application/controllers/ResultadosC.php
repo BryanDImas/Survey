@@ -59,8 +59,6 @@ class ResultadosC extends CI_Controller
 			foreach ($datos['preguntas'] as $pregunta) {
 				$pregunta->respuestas = $this->ResultadosM->respuestas($pregunta->idPregunta);
 			}
-
-			/* echo "<pre>"; print_r($datos); die; */
 			$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 			$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
 			$this->load->view('resultados/estadisticas', $datos); #cargamos la vista que contiene los resultados.
