@@ -133,18 +133,20 @@
     <!-- Chart JS -->
     <script src="<?= base_url() ?>assets/node_modules/Chart.js/chartjs.init.js"></script>
     <script src="<?= base_url() ?>assets/node_modules/Chart.js/Chart.min.js"></script>
-    <?php for ($i = 0; $i < 6; $i++) { ?>
+    <?php foreach($encuesta->Demo as $pregunta){ 
+         ?>
         <script>
             new Chart(document.getElementById("chart4"), {
                 "type": "doughnut",
                 "data": {
-                    "labels": ["<?php foreach ($encuesta->Demo[0]->respuestas as $r) {
-                                    echo "<pre>";
-                                    print_r($r);
+                    "labels": [<?php foreach($pregunta->respuestas as $respuesta){
+                                    echo "'". $respuesta->Respuestas.",";
                                 } ?>"],
                     "datasets": [{
                         "label": "My First Dataset",
-                        "data": [<?= $encuesta->Demo[0]->respuestas[$i]->Contador ?? 20 ?>],
+                        "data": [<?php foreach($pregunta->respuestas as $respuesta){
+                            echo $respuesta->Contador.",";
+                        }  ?>],
                         "backgroundColor": ["rgb(239, 83, 80)", "rgb(57, 139, 247)", "rgb(255, 178, 43)"]
                     }]
                 }
