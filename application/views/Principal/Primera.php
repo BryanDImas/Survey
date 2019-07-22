@@ -36,7 +36,7 @@
 								<option value="">de 28 a 38 años</option>
 								<option value="">de 38 a 48 años</option>
 								<option value="">de 48 a 58 años</option>
-								<option value="">de 59 años o mas</option>
+								<option value="">de 58 años o mas</option>
 							</select>
 						</div>
 						<br><br><br>

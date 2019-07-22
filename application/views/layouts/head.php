@@ -14,6 +14,11 @@
     <link href="<?= base_url() ?>assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">   
     <!-- chartist CSS -->
     <link href="<?= base_url() ?>assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="<?=base_url()?>assets/node_modules/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets/node_modules/chartist-js/dist/chartist-init.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets/node_modules/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    
     <!--c3 CSS -->
     <link href="<?= base_url() ?>assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
     <!--Toaster Popup message CSS -->

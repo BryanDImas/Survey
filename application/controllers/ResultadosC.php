@@ -33,7 +33,7 @@ class ResultadosC extends CI_Controller
 	// Acción que nos devuelve la vista de las estadisticas.
 	public function grafi($ide = '')
 	{
-		if($ide == ''){
+		if ($ide == '') {
 			$ide = $this->session->idEncuesta;
 		}
 		if ($this->session->empresa->TipoCuenta == 'Basica') {
@@ -43,16 +43,21 @@ class ResultadosC extends CI_Controller
 			$datos['encuesta'] = $this->EncuestasModel->buscarid($ide);
 			$ids = $this->ResultadosM->ids($ide);
 			$total = 0;
-			for($i=0; $i < count($ids) ; $i++) { 
+			for ($i = 0; $i < count($ids); $i++) {
 				$cont = $this->ResultadosM->respuestas2($ids[$i]->idPregunta);
 				$ids[$i]->respuestas = $cont;
-			$total += $ids[$i]->respuestas;
+				$total += $ids[$i]->respuestas;
 			}
 			$datos['encuesta']->totalRes = $total;
 			$datos['encuesta']->Demo = $this->ResultadosM->demo($ide);
-			foreach($datos['encuesta']->Demo as $p){
+			foreach ($datos['encuesta']->Demo as $p) {
 				$p->respuestas = $this->ResultadosM->respuestas($p->idPregunta);
 			}
+			$datos['preguntas'] = $this->ResultadosM->preguntas($ide); 
+			foreach($datos['preguntas'] as $pregunta){
+				$pregunta->respuestas = $this->ResultadosM->respuestas($pregunta->idPregunta);
+			}
+		 
 			/* echo "<pre>"; print_r($datos); die; */
 			$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 			$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
