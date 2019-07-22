@@ -32,7 +32,7 @@
 
 						<?php $num = 1;
 						foreach ($encuesta->preguntas as $pregunta) { ?>
-							<p></p>
+							
 							<h5 class="col-md-offset-1"><?= $num ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h5>
 							<p>
 								<input name="respuestas[]" type="range" id="toPrice" min="0" max="10" oninput="document.getElementById('tPrice<?= $num ?>').innerHTML = this.value" />
@@ -42,7 +42,7 @@
 						} ?>
 					</div>
 					<input type="hidden" name="idEncuesta" value="<?= $encuesta->idEncuesta ?>">
-					<div class="boton col-md-11">
+					<div class="boton col-md-11 text center">
 						<input type="submit" class="btn btn-pri btn-lg" value="Listo">
 					</div>
 				</form>

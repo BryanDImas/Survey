@@ -55,6 +55,7 @@
                     <div class="boton col-md-12 text-center">
                         <input type="submit" class="btn btn-pri btn-lg" value="Listo">
                     </div>
+                    <p></p><br>
             </form>
             </center>
         </div>

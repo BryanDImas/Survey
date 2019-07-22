@@ -65,7 +65,7 @@ h4{
 
 .mensaje {
     margin-block: 70px; 
-    height: 850px; 
+    height: auto; 
     text-align: center;
 }
 
