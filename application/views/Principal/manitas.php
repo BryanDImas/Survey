@@ -44,9 +44,9 @@
                         </div>
                         <?php $num++;
                     } ?>
-                </div>
+                </div><br>
                 <input type="hidden" name="idEncuesta" value="<?= $encuesta->idEncuesta ?>">
-                <div class="col-md-2 text-center">
+                <div class="col-md-12 text-center">
                     <input type="submit" class="btn btn-pri btn-lg" value="Listo">
                 </div>
                 <p></p> <br><br>

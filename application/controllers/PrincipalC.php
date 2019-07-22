@@ -104,7 +104,7 @@ class PrincipalC extends CI_Controller
         $datos = $this->input->post('respuestas[]'); //Capturamos los datos del formulario
         $idEncuesta = $this->input->post('idEncuesta');
         $ids = $this->PrincipalModel->ids2($idEncuesta);
-        echo "<pre>"; print_r($datos);
+/*         echo "<pre>"; print_r($datos); */
         for ($i = 0; $i < count($ids); $i++) {
             $ids[$i]->respuestas = $this->PrincipalModel->respuestas2($ids[$i]->idPregunta);
             if (count($ids[$i]->respuestas) < 1) { # Si está sin respuestas la pregunta
@@ -118,7 +118,7 @@ class PrincipalC extends CI_Controller
                     } else {
                         /* echo "entro al contdor"; */
                         $contador++;
-                        echo $contador;
+                       /*  echo $contador; */
                     }
                 }
                 if ($contador > 0) {

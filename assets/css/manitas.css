@@ -69,14 +69,14 @@ body {
 
 img {
     display: inline-block;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
 .logo-responsive {
     padding-top: 3%;
-    width: 5%;
-    height: 5%;
+    width: 1% !important;
+    height: 1% !important;
    
 }
 
