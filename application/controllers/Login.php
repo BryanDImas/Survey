@@ -27,7 +27,7 @@ class Login extends CI_Controller 					# Controlador del área del login.
 	# Acción que verifica la validación del usuario.
 	public function validar()
 	{
-		$this->form_validation->set_rules('usua', 'Usuario', 'required|regex_match[/[a-z]/]', ['required' => 'El campo %s es requerido', 'regex_match' => 'Uno de los campos no coincide ']);
+		$this->form_validation->set_rules('usua', 'Correo', 'required|regex_match[/[a-z]/]', ['required' => 'El campo %s es requerido', 'regex_match' => 'Uno de los campos no coincide ']);
 		$this->form_validation->set_rules('clave', 'Contraseña', 'required|regex_match[/[1-9]{5,10}/]', ['required' => 'El campo %s es requerido', 'regex_match' => 'Uno de los campos no coincide']);
 		if ($this->form_validation->run()) {
 			$pass = sha1($this->input->post('clave'));

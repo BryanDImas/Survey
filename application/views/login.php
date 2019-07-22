@@ -61,11 +61,11 @@
 				<!-- Contenido del area de publicidad -->
 				<!-- ============================================================== -->
 				<div class="container-fluid">
-					<div class="col-md-12" id=""><br>
+					<div class="col-md-12 col-xs-8" id=""><br>
 						<div class="col-md-8 offset-2" id="publicidad"></div>
 					</div>
 				</div>
-				<br><br><br><br><br><br><br><br><br><br><br>
+				<br><br><br><br><br>
 				<!-- ============================================================== -->
 				<!--  barra verde -->
 	<div class="container-fluid">

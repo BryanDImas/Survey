@@ -56,13 +56,14 @@
 								<a class="btn btn-success" href="<?= base_url() ?>Login/">Regresar</a>
 								</td>
 							</tr>
+							</div>
 						</div>
 						</table>	
 				</form>
 			</div><br><br><br><br><br><br><br>
 		<footer style="background-color:#18927e; height:100px;">
 			<div>
-				<br>
+				<br><br>
 				<h4 class="text-center"> 2019 &copy; The Next Services, SA de CV. Todos los Derechos Reservados.</h4>
 			</div>
 		</footer>

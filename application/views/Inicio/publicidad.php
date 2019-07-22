@@ -8,7 +8,7 @@
         <div class="carousel-inner">
             <?php for ($i = 0; $i < count($imgs); $i++) { ?>
                 <div class="<?= $i == 1 ? 'carousel-item active' : 'carousel-item' ?>">
-                    <img src="<?= base_url($imgs[$i]->Imagen) ?>" class="d-block w-100 " alt="...">
+					<img src="<?= base_url($imgs[$i]->Imagen) ?>" class="d-block w-100 " alt="..." width="250px" height="400px">
                 </div>
             <?php } ?>
             <br><br>
