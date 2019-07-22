@@ -47,7 +47,7 @@
                 <div class="col-md-6 col-lg-3 col-xlg-3">
                     <div class="card">
                         <div class="box bg-success text-center">
-                            <h1 class="font-light text-white"><?= $encuesta->Demo[1]->respuestas[0]->Contador ?? 0?></h1>
+                            <h1 class="font-light text-white"><?= $encuesta->Demo[1]->respuestas[0]->Contador ?? 0 ?></h1>
                             <h6 class="text-white">Datos demograficos: <br> Hombres</h6>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                 <div class="col-md-6 col-lg-3 col-xlg-3">
                     <div class="card">
                         <div class="box bg-dark text-center">
-                            <h1 class="font-light text-white"><?= $encuesta->Demo[1]->respuestas[1]->Contador ?? 0?></h1>
+                            <h1 class="font-light text-white"><?= $encuesta->Demo[1]->respuestas[1]->Contador ?? 0 ?></h1>
                             <h6 class="text-white">Datos demograficos: <br> Mujeres</h6>
                         </div>
                     </div>
@@ -72,23 +72,22 @@
     <!-- Over Visitor, Our income , slaes different and  sales prediction -->
     <!-- ============================================================== -->
     <div class="row">
+        <?php foreach($preguntas as $pregunta){?>
         <!-- Column -->
         <div class="col-lg-8 col-md-12">
-            <div class="card income-o-year">
+            <!-- column -->
+            <div class="card">
                 <div class="card-body">
-                    <div class="d-flex m-b-30 no-block">
-                        <h5 class="card-title m-b-0 align-self-center">Income of the Year</h5>
-                        <div class="ml-auto">
-                            <ul class="list-inline font-12">
-                                <li><i class="fa fa-circle text-info"></i> Growth</li>
-                                <li><i class="fa fa-circle text-success"></i> Net</li>
-                            </ul>
-                        </div>
+                    <h4 class="card-title"><?= $pregunta->Pregunta?></h4>
+
+                    <div>
+                        <canvas id="chart2<?= $pregunta->idPregunta?>" height="150"></canvas>
                     </div>
-                    <div id="income-year" style="height:460px; width:100%;"></div>
                 </div>
             </div>
+            <!-- column -->
         </div>
+        <?php } ?>
         <!-- Column -->
         <!-- Column -->
         <div class="col-lg-4 col-md-12">
@@ -110,28 +109,74 @@
                         </div>
                     </div>
                 </div>
-                <!-- Column -->
+                <!-- column -->
                 <div class="col-md-12">
-                    <div class="card bg-info">
+                    <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title text-white">Datos demograficos</h4>
-                            <h6 class="card-subtitle text-white op-5">Genero</h6>
-                            <div class="d-flex no-block">
-                                <div class="align-self-end no-shrink">
-                                    <h2 class="m-b-0 text-white"></h2>
-                                    <h2 class="m-b-0 text-white">Mujeres: </h2>
-                                </div>
-                                <div class="ml-auto">
-                                    <div class="spark-count" style="height:120px"></div>
-                                </div>
+                            <h4 class="card-title">Datos demograficos: <br>Edad</h4>
+                            <div>
+                                <canvas id="chart4" height="150"> </canvas>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Column -->
+                <!-- column -->
             </div>
         </div>
     </div>
     <!-- ============================================================== -->
     <!-- Sales Chart and browser state-->
     <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!-- Chart JS -->
+    <script src="<?= base_url() ?>assets/node_modules/Chart.js/chartjs.init.js"></script>
+    <script src="<?= base_url() ?>assets/node_modules/Chart.js/Chart.min.js"></script>
+    <?php for ($i = 0; $i < 6; $i++) { ?>
+        <script>
+            new Chart(document.getElementById("chart4"), {
+                "type": "doughnut",
+                "data": {
+                    "labels": ["<?php foreach ($encuesta->Demo[0]->respuestas as $r) {
+                                    echo "<pre>";
+                                    print_r($r);
+                                } ?>"],
+                    "datasets": [{
+                        "label": "My First Dataset",
+                        "data": [<?= $encuesta->Demo[0]->respuestas[$i]->Contador ?? 20 ?>],
+                        "backgroundColor": ["rgb(239, 83, 80)", "rgb(57, 139, 247)", "rgb(255, 178, 43)"]
+                    }]
+                }
+            });
+        </script>
+    <?php } ?>
+    <?php $n = 0; foreach($preguntas as $pregunta){?>
+    <script>
+            /*<!-- ============================================================== -->*/
+    /*<!-- Bar Chart -->*/
+    /*<!-- ============================================================== -->*/
+    new Chart(document.getElementById("chart2<?= $pregunta->idPregunta?>"),
+        {
+            "type":"bar",
+            "data":{"labels":["<?php 
+                        foreach($pregunta->respuestas as $respuesta){
+                           echo $respuesta->Respuestas;
+                            }?>
+                           "],
+            "datasets":[{
+                            "label":"My First Dataset",
+                            "data":[<?php
+                            foreach($pregunta->respuestas as $respuesta){
+                            echo $respuesta->Contador; }?>],
+                            "fill":false,
+                            "backgroundColor":["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)"],
+                            "borderColor":["rgb(239, 83, 80)","rgb(255, 159, 64)","rgb(255, 178, 43)","rgb(86, 192, 216)","rgb(57, 139, 247)","rgb(153, 102, 255)","rgb(201, 203, 207)"],
+                            "borderWidth":1}
+                        ]},
+            "options":{
+                "scales":{"yAxes":[{"ticks":{"beginAtZero":true}}]}
+            }
+        });
+    </script>
+    <?php $n++; } ?>
