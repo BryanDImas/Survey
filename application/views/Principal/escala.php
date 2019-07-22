@@ -7,42 +7,61 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Survey</title>
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/rango.css">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/images/logo3.png">
 	<link href="<?= base_url() ?>assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/pages/card-page.css">
 
 </head>
 
 <body>
-	<div class="container-fluid">
-		<div class="card text-center">
-			<div class="card-header">
-				Survey
-			</div>
-			<form method="POST" action="<?= base_url('PrincipalC/capturar2/') ?>">
-				<div class="card-body">
-					<h4 class="card-title"><?= $encuesta->NombreEncuesta ?></h4>
-					<?php $num = 1;
-					foreach ($encuesta->preguntas as $pregunta) { ?>
-						<p></p>
-						<h4 class="col-md-offset-1"><?= $num ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h4>
-						<p>
-							<input name="respuestas[]" type="range" id="toPrice" min="0" max="10" oninput="document.getElementById('tPrice<?= $num ?>').innerHTML = this.value" />
-							<h2><label id="tPrice<?= $num ?>"></label></h2>
-						</p>
-						<?php $num++;
-					} ?>
+	<div class="container">
+		<div class="contenedor">
+			
+				<div class="card-header">
+				<div class="logo-responsive">
+					<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
 				</div>
-				<input type="hidden" name="idEncuesta" value="<?= $encuesta->idEncuesta ?>">
-				<div class="col-md-12 text-center">
-					<input type="submit" class="btn btn-primary btn-lg" value="Listo">
+					<div class="card-title">
+						<h2><?= $encuesta->NombreEncuesta ?></h2>
+						<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
+					</div>
+
 				</div>
-			</form>
-			<div class="card-footer text-muted">
-				<?= $encuesta->ObjetivoEncuesta ?>
-			</div>
+				<form method="POST" action="<?= base_url('PrincipalC/capturar2/') ?>">
+					<div class="card-body">
+
+						<?php $num = 1;
+						foreach ($encuesta->preguntas as $pregunta) { ?>
+							<p></p>
+							<h5 class="col-md-offset-1"><?= $num ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h5>
+							<p>
+								<input name="respuestas[]" type="range" id="toPrice" min="0" max="10" oninput="document.getElementById('tPrice<?= $num ?>').innerHTML = this.value" />
+								<h2><label id="tPrice<?= $num ?>"></label></h2>
+							</p>
+							<?php $num++;
+						} ?>
+					</div>
+					<input type="hidden" name="idEncuesta" value="<?= $encuesta->idEncuesta ?>">
+					<div class="boton col-md-11">
+						<input type="submit" class="btn btn-pri btn-lg" value="Listo">
+					</div>
+				</form>
+
+				<div>
+
+				</div>
+		
+	
+		</form>
 		</div>
 	</div>
-	</form>
+	<footer>
+		<div>
+			<span >&copy; 2019 Survey, The Next Services, SA de CV. Todos los Derechos Reservados.</span>
+		</div>
+
+	</footer>
+
 </body>
 
 </html>

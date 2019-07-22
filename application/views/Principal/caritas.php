@@ -15,47 +15,57 @@
 </head>
 
 <body>
-	<div class="container-fluid">
-		<div class="card text-center">
+	<div class="container">
+		<div class="contenedor">
 			<div class="card-header">
-				Survey
+				<div class="logo-responsive">
+					<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
+				</div>
+				<div class="card-title">
+					<h2><?= $encuesta->NombreEncuesta ?></h2>
+					<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
+				</div>
 			</div>
 			<form method="POST" action="<?= base_url('PrincipalC/capturar2/') ?>">
 				<div class="card-body">
-					<h4 class="card-title"><?= $encuesta->NombreEncuesta ?></h4>
+
 					<?php $num = 0;
 					foreach ($encuesta->preguntas as $pregunta) { ?>
 						<p></p>
-						<h4 class="col-md-offset-1"><?= $num+1 ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h4>
-						<div class="card-deck">
+						<h5 class="col-md-offset-1"><?= $num + 1 ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h5>
+						<div class="image-responsive card-deck">
 							<div class="col-md-2 col-xs-1 offset-3">
 								<label for="radio1<?= $pregunta->Pregunta ?>"><img src="<?= base_url('assets/images/icon/triste.png') ?>"></label><br>
-								<input id="radio1<?= $pregunta->Pregunta ?>" type="radio" name="respuestas[<?= $num?>]" value="1">
+								<input id="radio1<?= $pregunta->Pregunta ?>" type="radio" name="respuestas[<?= $num ?>]" value="1">
 							</div>
 							<div class="col-md-2 col-xs-1">
 								<label for="radio2<?= $pregunta->Pregunta ?>"><img src="<?= base_url('assets/images/icon/confundido.png') ?>"></label><br>
-								<input id="radio2<?= $pregunta->Pregunta ?>" type="radio" name="respuestas[<?= $num?>]" value="2">
+								<input id="radio2<?= $pregunta->Pregunta ?>" type="radio" name="respuestas[<?= $num ?>]" value="2">
 							</div>
 							<div class="col-md-2 col-xs-1">
 								<label for="radio3<?= $pregunta->Pregunta ?>"><img src="<?= base_url('assets/images/icon/feliz.png') ?>"></label><br>
-								<input id="radio3<?= $pregunta->Pregunta ?>" type="radio" name="respuestas[<?= $num?>]" value="3">
+								<input id="radio3<?= $pregunta->Pregunta ?>" type="radio" name="respuestas[<?= $num ?>]" value="3">
 							</div>
 						</div>
 						<?php $num++;
 					} ?>
 				</div>
 				<input type="hidden" name="idEncuesta" value="<?= $encuesta->idEncuesta ?>">
-				<div class="col-md-12 text-center">
-					<input type="submit" class="btn btn-primary btn-lg" value="Listo">
+				<div class="boton col-md-12 text-center">
+					<input type="submit" class="btn btn-pri btn-lg" value="Listo">
 				</div>
 			</form>
-			<div class="card-footer text-muted">
-				<?= $encuesta->ObjetivoEncuesta ?>
-				<span class="float-right">2019 NextServices</span>
-			</div>
+
+
 		</div>
 	</div>
-	</form>
+
+
+	<footer>
+		<div>
+			<span class="">&copy; 2019 Survey, The Next Services, SA de CV. Todos los Derechos Reservados.</span>
+		</div>
+	</footer>
 </body>
 
 </html>

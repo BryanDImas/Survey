@@ -19,8 +19,8 @@
 				<div class="logo-responsive">
 					<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
 				</div>
-				<h5><?= $encuesta->NombreEncuesta ?></h5>
-				<p><?= $encuesta->ObjetivoEncuesta ?></p>
+				<h2><?= $encuesta->NombreEncuesta ?></h2>
+				<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
 			</div>
 			<div class="mensaje">
 				<h3 class=""><?php echo nl2br($encuesta->MensajeInicio); ?></h3>
@@ -72,7 +72,6 @@
 		</div>
 	</div>
 	<footer class="">
-		
 		&copy; 2019 Survey, The Next Services, SA de CV. Todos los Derechos Reservados.
 	</footer><br><br>
 
