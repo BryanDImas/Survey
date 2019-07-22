@@ -6,18 +6,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Survey</title>
+	
+	<link rel="stylesheet" href="<?= base_url() ?>assets/css/caritas.css">
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/images/logo3.png">
 	<link href="<?= base_url() ?>assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/pages/card-page.css">
 
 </head>
+
 <body>
 
-	<div class="container-fluid">
-		<div class="card text-center">
+	<div class="container">
+		<div class="contenedor">
+
 			<div class="card-header">
-				<H5><?= $encuesta->ObjetivoEncuesta ?></H5>
-				<h5 class="card-title"><?= $encuesta->NombreEncuesta ?></h5>
+			<div class="logo-responsive">
+		 	<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
+	</div>
+				<div class="card-title">
+					<h2><?= $encuesta->NombreEncuesta ?></h2>
+					<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
+				</div>
 			</div>
 			<form method="POST" action="<?= base_url('PrincipalC/capturar/') ?>">
 				<div class="card-body">
@@ -51,15 +60,18 @@
 					} ?>
 				</div>
 				<input type="hidden" name="idencuesta" value="<?= $encuesta->idEncuesta ?>">
-				<div class="col-md-12 text-center">
-					<input type="submit" class="btn btn-primary btn-lg" value="Listo">
+				<div class="boton col-md-12 text-center">
+					<input type="submit" class="btn btn-pri btn-lg" value="Listo">
 				</div>
 			</form>
-			<div class="card-footer text-muted">
-				<img src="<?= base_url() ?>assets/images/Logo.png" alt="">
-			</div>
 		</div>
 	</div>
+	</div>
+	<footer>
+	<div>
+			<span class="">&copy; 2019 Survey, The Next Services, SA de CV. Todos los Derechos Reservados.</span>
+		</div>
+	</footer>
 </body>
 
 </html>

@@ -19,8 +19,8 @@
 				<div class="logo-responsive">
 					<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
 				</div>
-				<h5><?= $encuesta->NombreEncuesta ?></h5>
-				<p><?= $encuesta->ObjetivoEncuesta ?></p>
+				<h2><?= $encuesta->NombreEncuesta ?></h2>
+				<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
 			</div>
 			<div class="mensaje">
 				<h3 class=""><?php echo nl2br($encuesta->MensajeInicio); ?></h3>
@@ -44,7 +44,8 @@
 							<h6><?= $encuesta->preguntas[1]->Pregunta ?></h6><br>
 							<div class="form-check">
 								<label><input name="genero" class="form-check-input" type="radio" value="Femenino"> Femenino</label><br>
-								<label><input name="genero" class="form-check-input offset-1" type="radio" value="Masculino"> Masculino</label>
+								<label><input name="genero" class="form-check-input offset-1" type="radio" value="Masculino"> Masculino</label><br>
+								 
 							</div>
 						</div>
 						<br><br>
@@ -71,9 +72,6 @@
 		</div>
 	</div>
 	<footer class="">
-		<div class="img-responsive">
-			<img src="<?= base_url() ?>assets/images/Logo.png" alt="survey">
-		</div>
 		&copy; 2019 Survey, The Next Services, SA de CV. Todos los Derechos Reservados.
 	</footer><br><br>
 

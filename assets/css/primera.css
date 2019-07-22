@@ -26,17 +26,7 @@ body {
 }
 
 .header {
-    /* background-color:#86c185; */
-  /*   border-radius: 12px; */
- /*    padding-top: 4%; */
-   /*  max-width: 100% !important; */
- /*    color: black !important; */
     text-align: right !important 
-/*  height: 10%; */
- /*    width: 910px !important;
-    padding-top: 1%; */
- 
-/*     margin: 1px; */
 }
 
 .img-responsive {
@@ -59,15 +49,15 @@ img {
     
 }
 
-h2, {
-    /* display: inline; */
+h2 {
+    
     text-align: right;
     color:black;
   
 }
 
 h4{
-    /* text-align: right; */
+    text-align: right; 
     color: #2d572c !important;
 } 
 
