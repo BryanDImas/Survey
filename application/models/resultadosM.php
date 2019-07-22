@@ -41,4 +41,16 @@ if($id != ''){
 
         return $this->db->query($s)->result();
     }
+    public function ContEnc($ide){
+        $sql = "SELECT Contador FROM encuestas WHERE idEncuesta = $ide";
+        return $this->db->query($sql)->row()->Contador;
+    }
+    public function ids($idEncuesta){
+        $sql = "SELECT idPregunta FROM preguntas WHERE PorDefecto = 2 AND IdEncuesta = ".$idEncuesta;
+        return $this->db->query($sql)->result();
+    }
+    public function respuestas2($idp){
+        $sql = "SELECT SUM(Contador) AS Total FROM respuestas WHERE idPregunta = ".$idp;
+        return $this->db->query($sql)->row()->Total; 
+    }
 }

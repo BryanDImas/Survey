@@ -113,21 +113,21 @@ class PrincipalC extends CI_Controller
                 foreach ($ids[$i]->respuestas as $respuesta) {
                     $contador = 0;
                     if ($respuesta->Respuestas == $datos[$i]) {
-                        echo "entro a actualizar cont";
+                        /* echo "entro a actualizar cont"; */
                         $this->PrincipalModel->actCont(++$respuesta->Contador, $respuesta->IdRespuestas); # Actualizamos el contador
                     } else {
-                        echo "entro al contdor";
+                        /* echo "entro al contdor"; */
                         $contador++;
                         echo $contador;
                     }
                 }
                 if ($contador > 0) {
-                    echo "entro a ingresar nuevas";
+                    /* echo "entro a ingresar nuevas"; */
                     $this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
                 }
             }
         }
-        echo "<pre>"; print_r($ids); 
+        /* echo "<pre>"; print_r($ids);  */
         $datos['encuesta'] = $this->PrincipalModel->encuesta($idEncuesta);
         $this->PrincipalModel->ContEnc($datos['encuesta']->Contador+1,$datos['encuesta']->idEncuesta);
         $this->load->view('Principal/Fin', $datos);//redirigimos a la ultima vista de la encuesta.

@@ -30,16 +30,28 @@ class ResultadosC extends CI_Controller
 		$this->load->view('layouts/footer'); #cargamos la vista que contiene el pie de página.
 	}
 	// Acción que nos devuelve la vista de las estadisticas.
-	public function grafi()
+	public function grafi($ide)
 	{
+		if($ide == ''){
+			echo "hola".$this->session->idEncuesta;
+			$ide = $this->session->idEncuesta;
+		}
+		/* die; */
 		if ($this->session->empresa->TipoCuenta == 'Basica') {
 			echo "<script>alert('Para tener acceso a esta área comuniquese con el administrador y cambie su cuenta a Avanzada');</script>";
 			self::index($this->session->idEncuesta);
 		} else {
 			$datos['encuesta'] = $this->EncuestasModel->buscarid($ide);
+			$ids = $this->ResultadosM->ids($ide);
+			echo "<pre>";print_r($ids);
+			for($i=0; $i < count($ids) ; $i++) { 
+				$cont = $this->ResultadosM->respuestas2($ids[$i]->idPregunta);
+			echo "<pre>";print_r($cont);
+			}
+			/* print_r($ids); */ die;
 			$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 			$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
-			$this->load->view('resultados/estadisticas'); #cargamos la vista que contiene los resultados.
+			$this->load->view('resultados/estadisticas', $datos); #cargamos la vista que contiene los resultados.
 			$this->load->view('layouts/footer'); #cargamos la vista que contiene el pie de página.
 		}
 	}

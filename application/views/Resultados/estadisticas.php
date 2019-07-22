@@ -29,7 +29,7 @@
                 <div class="col-md-6 col-lg-3 col-xlg-3">
                     <div class="card">
                         <div class="box bg-info text-center">
-                            <h1 class="font-light text-white">2,064</h1>
+                            <h1 class="font-light text-white"><?= $encuesta->Contador?></h1>
                             <h6 class="text-white">Encuestas respondidas</h6>
                         </div>
                     </div>
