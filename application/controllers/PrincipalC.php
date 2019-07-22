@@ -39,6 +39,8 @@ class PrincipalC extends CI_Controller
             $this->PrincipalModel->actCont($this->PrincipalModel->obtenerContadorPorIdRespuesta($valor) + 1, $valor);
         }
         $datos['encuesta'] = $this->PrincipalModel->encuesta($id);
+        $us = $this->PrincipalModel->usuario($datos['encuesta']->idUsuario); // Obtenemos el idUsuario de la encuesta que traemos.
+        $datos['encuesta']->logo = $this->PrincipalModel->logo($us->idEmpresa);
         $this->PrincipalModel->ContEnc($datos['encuesta']->Contador+1,$datos['encuesta']->idEncuesta);
         $this->load->view('Principal/Fin', $datos);//redirigimos a la ultima vista de la encuesta.
     }
@@ -104,7 +106,7 @@ class PrincipalC extends CI_Controller
         $datos = $this->input->post('respuestas[]'); //Capturamos los datos del formulario
         $idEncuesta = $this->input->post('idEncuesta');
         $ids = $this->PrincipalModel->ids2($idEncuesta);
-        echo "<pre>"; print_r($datos);
+/*         echo "<pre>"; print_r($datos); */
         for ($i = 0; $i < count($ids); $i++) {
             $ids[$i]->respuestas = $this->PrincipalModel->respuestas2($ids[$i]->idPregunta);
             if (count($ids[$i]->respuestas) < 1) { # Si está sin respuestas la pregunta
@@ -118,7 +120,7 @@ class PrincipalC extends CI_Controller
                     } else {
                         /* echo "entro al contdor"; */
                         $contador++;
-                        echo $contador;
+                       /*  echo $contador; */
                     }
                 }
                 if ($contador > 0) {
@@ -129,6 +131,8 @@ class PrincipalC extends CI_Controller
         }
         /* echo "<pre>"; print_r($ids);  */
         $datos['encuesta'] = $this->PrincipalModel->encuesta($idEncuesta);
+        $us = $this->PrincipalModel->usuario($datos['encuesta']->idUsuario); // Obtenemos el idUsuario de la encuesta que traemos.
+        $datos['encuesta']->logo = $this->PrincipalModel->logo($us->idEmpresa);
         $this->PrincipalModel->ContEnc($datos['encuesta']->Contador+1,$datos['encuesta']->idEncuesta);
         $this->load->view('Principal/Fin', $datos);//redirigimos a la ultima vista de la encuesta.
     }

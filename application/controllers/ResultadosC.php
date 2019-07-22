@@ -70,7 +70,7 @@ class ResultadosC extends CI_Controller
 	{
 		$this->load->view('layouts/head'); # Cargamos la vista que tiene el encabezado. 
 		$this->load->view('layouts/header'); # cargamos la vista que tiene el toolbar. 
-		$this->load->view('resultados/tutorial'); #cargamos la vista que contiene los resultados.
+		$this->load->view('resultados/tutoriales'); #cargamos la vista que contiene los resultados.
 		$this->load->view('layouts/footer'); #cargamos la vista que contiene el pie de página.
 
 	}

@@ -43,12 +43,12 @@
                     <!-- ============================================================== -->
                     <ul class="navbar-nav mr-auto">
                         <!-- This is  -->
-                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu-alt"></i></a> </li>
-                        <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu-alt"></i></a> </li>
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="fas fa-th-list"></i></a> </li>
+                        <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="fas fa-th-list"></i></a> </li>
                         <!-- ============================================================== -->
                         <!-- Search -->
                         <!-- ============================================================== -->
-                        <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="icon-Magnifi-Glass2"></i></a>
+                        <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class=" fas fa-search"></i></a>
                             <form class="app-search">
                                 <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
                         </li>
@@ -90,7 +90,7 @@
                                             <li role="separator" class="divider"></li>
                                             <li><a href="<?= base_url() ?>EncuestasC/perfil/<?= $this->session->usuario->idUsuario ?>"><i class="ti-user"></i> Mi Perfil</a></li>
                                             <li role="separator" class="divider"></li>
-											<li><a href="<?= base_url() ?>Login/cerrar"><i class="fa fa-power-off"></i> Cerrar Sesión</a></li>
+											<li><a href="<?= base_url() ?>Login/cerrar"><i class=" fas fa-power-off"></i> Cerrar Sesión</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -122,10 +122,10 @@
                                         <!--<span class="label label-rounded label-danger">4</span>--></span></a>
                             </li><?php } ?>
                         <li class="nav-small-cap">--- Menú Principal</li>
-                        <li> <a href="<?= base_url() ?>EncuestasC/" class="waves-effect"><i class="icon-Double-Circle"></i><span class="hide-menu">Encuestas</span></a></li>
+                        <li> <a href="<?= base_url() ?>EncuestasC/" class="waves-effect"><i class="fas fa-clipboard-list"></i><span class="hide-menu">Encuestas</span></a></li>
                         <!--<span class="label label-rounded label-danger">4</span>-->
-                        <li> <a href="<?= base_url() ?>ResultadosC/" class="waves-effect"><i class="icon-Split-Vertical"></i><span class="hide-menu">Resultados</span></a></li>
-                        <li> <a class="waves-effect" href="<?= base_url() ?>ResultadosC/grafi"><i class="icon-Pie-Chart3"></i><span class="hide-menu">Estadísticas</span></a></li>
+                        <li> <a href="<?= base_url() ?>ResultadosC/" class="waves-effect"><i class="mdi mdi-table"></i><span class="hide-menu">Resultados</span></a></li>
+                        <li> <a class="waves-effect" href="<?= base_url() ?>ResultadosC/grafi"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Estadísticas</span></a></li>
                         <!--<span class="label label-rounded label-success">25</span>-->
                         <li> <a class="waves-effect" href="<?= base_url() ?>ResultadosC/tutorial"><i class="mdi mdi-youtube-play"></i><span class="hide-menu">Tutorial</span></a></li>
                     </ul>

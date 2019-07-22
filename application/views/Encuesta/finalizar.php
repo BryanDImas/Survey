@@ -42,7 +42,7 @@
                         <p>
                             <h5>Escriba un mensaje de finalización en el cuadro de texto.</h5>
                         </p>
-                        <textarea name="msj" class="form-control themecolor" rows="4" style="border-color:#24d2b5; text-align:center; margin:1% auto;" placeholder="">Muchas Gracias por contestar la encuesta</textarea>
+                        <textarea name="msj" class="form-control themecolor" rows="4" style="border-color:#24d2b5; text-align:center; margin:1% auto;" placeholder="">Agradecemos que se tomara el tiempo de completar la encuesta, sus comentarios nos permiten mejorar nuestros servicios.</textarea>
                     </div>
                 </div>
         </div>

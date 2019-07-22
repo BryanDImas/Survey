@@ -9,10 +9,6 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/fin.css">
     <link href="<?= base_url() ?>assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/images/logo3.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/images/logo3.png">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>Survey</title>
     <!-- page css -->
     <link href="<?= base_url() ?>assets/css/pages/error-pages.css" rel="stylesheet">
 
@@ -23,6 +19,9 @@
         <div class="contenedor">
             <div class="card-header">
                 <div class="card-title">
+                <div class="logo-responsive">
+					<img class="rounded-circle" src="<?= base_url() ?><?= $encuesta->logo?>" alt="">
+				</div>
                     <h2><?= $encuesta->NombreEncuesta ?></h2>
                     <h4><?= $encuesta->ObjetivoEncuesta ?></h4>
                 </div>

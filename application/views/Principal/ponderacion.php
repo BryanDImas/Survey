@@ -10,7 +10,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/images/logo3.png">
     <link href="<?= base_url() ?>assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="<?= base_url('assets/js/ponderacion.js') ?>"></script>
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/pages/cardpage.css">
