@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-07-2019 a las 00:11:59
+-- Tiempo de generación: 22-07-2019 a las 21:25:08
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.0.33
 
@@ -191,17 +191,14 @@ CREATE TABLE `encuestas` (
 --
 
 INSERT INTO `encuestas` (`idEncuesta`, `NombreEncuesta`, `ObjetivoEncuesta`, `Estado`, `FechaCreacion`, `FechaActivacion`, `FechaFinalizacion`, `MensajeInicio`, `MensajeFinalizacion`, `idUsuario`, `Demograficos`, `Resultados`, `IdFormato`, `Url`, `Contador`) VALUES
-(4, 'Encuesta', 'Evaluacion', 'Inactivo', '2019-07-09 14:10:40', '0000-00-00', '2019-07-19', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'Si', 'Si', 3, 'http://localhost/Survey/PrincipalC/index/?e=NA==', 0),
-(10, 'Caritas', 'ejemplo', 'Inactivo', '2019-07-11 19:25:57', '0000-00-00', '2019-07-25', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 2, 'No', 'No', 3, 'http://localhost/Survey/PrincipalC/index/?e=MTA=', 0),
-(13, 'Simple', 'Ejemplo', 'Inactivo', '2019-07-11 23:46:55', '0000-00-00', '0000-00-00', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 1, 'http://localhost/Survey/PrincipalC/index/?e=MTM=', 0),
+(13, 'Simple', 'Ejemplo', 'Activo', '2019-07-11 23:46:55', '0000-00-00', '2019-07-31', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 7, 'http://localhost/Survey/PrincipalC/index/?e=MTM=', 13),
 (15, 'Caritas', 'Ejemplo', 'Inactivo', '2019-07-12 00:00:54', '0000-00-00', '0000-00-00', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 3, 'http://localhost/Survey/PrincipalC/index/?e=MTU=', 0),
-(16, 'Ponderaciones', 'Ejemplo', 'Inactivo', '2019-07-12 01:43:13', '0000-00-00', '2019-07-12', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 4, 'http://localhost/Survey/PrincipalC/index/?e=MTY=', 0),
+(16, 'Ponderaciones', 'Ejemplo', '', '2019-07-12 01:43:13', '0000-00-00', '2019-07-12', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 4, 'http://localhost/Survey/PrincipalC/index/?e=MTY=', 0),
 (17, 'Manitas', 'Ejemplo', 'Inactivo', '2019-07-12 01:50:09', '0000-00-00', '2019-07-12', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 5, 'http://localhost/Survey/PrincipalC/index/?e=MTc=', 0),
 (18, 'Escala', 'Ejemplo', 'Inactivo', '2019-07-12 01:53:02', '0000-00-00', '0000-00-00', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'Si', 6, 'http://localhost/Survey/PrincipalC/index/?e=MTg=', 0),
 (19, 'Combobox', 'Ejemplo', 'Inactivo', '2019-07-12 01:55:36', '0000-00-00', '2019-07-12', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'Si', 'Si', 7, 'http://localhost/Survey/PrincipalC/index/?e=MTk=', 0),
 (20, 'Multiple', 'Ejemplo', 'Inactivo', '2019-07-12 02:25:13', '0000-00-00', '2019-07-12', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', '', 1, 'No', 'No', 2, 'http://localhost/Survey/PrincipalC/index/?e=MjA=', 0),
-(21, 'example q', 'ver qr', 'Inactivo', '2019-07-16 14:45:39', '0000-00-00', '2019-07-31', 'Bienvenido(a). Gracias por su visita, contestando la siguiente encuesta, nos ayudara a mejorar.', 'Muchas Gracias por contestar la encuesta', 2, 'Si', 'No', 1, 'http://localhost/Survey/PrincipalC/index/?e=MjE=', 0),
-(22, 'env', 'ghg', 'Inactivo', '2019-07-17 22:45:30', '0000-00-00', '0000-00-00', 'Bienvenido(a). Gracias por su visita, contestando la siguiente encuesta, nos ayudara a mejorar.', '', 1, 'No', 'No', NULL, '', 0);
+(29, 'encuesta', 'alimentacion', 'Inactivo', '2019-07-19 22:17:51', '0000-00-00', '2019-07-31', 'Bienvenido(a). Gracias por su visita, contestando la siguiente encuesta, nos ayudara a mejorar.', '', 1, 'Si', 'No', 3, '', 0);
 
 -- --------------------------------------------------------
 
@@ -572,14 +569,9 @@ INSERT INTO `preguntas` (`idPregunta`, `Numero`, `Pregunta`, `PorDefecto`, `IdEn
 (31, 1, '¿Nos recomendaría con un amigo?', '2', 20),
 (32, 2, '¿Le gustaron nuestras instalaciones?', '2', 20),
 (33, 3, '¿Le parecieron limpias nuestras instalaciones?', '2', 20),
-(34, 1, '¿Cuál es su edad?', '1', 21),
-(35, 2, '¿Cuál es su género?', '1', 21),
-(36, 3, '¿Cuál es su ciudad de residencia?', '1', 21),
-(37, 4, 'algo', '2', 21),
-(38, 5, 'dos', '2', 21),
-(39, 1, '¿Cuál es su edad?', '1', 4),
-(40, 2, '¿Cuál es su género?', '1', 4),
-(41, 3, '¿Cuál es su ciudad de residencia?', '1', 4);
+(51, 1, '¿Cuál es su edad?', '1', 29),
+(52, 2, '¿Cuál es su género?', '1', 29),
+(53, 3, '¿Cuál es su ciudad de residencia?', '1', 29);
 
 -- --------------------------------------------------------
 
@@ -623,15 +615,15 @@ CREATE TABLE `respuestas` (
 --
 
 INSERT INTO `respuestas` (`IdRespuestas`, `Numero`, `Respuestas`, `IdPregunta`, `Contador`) VALUES
-(9, 1, 'Si', 7, 0),
-(10, 2, 'No', 7, 0),
-(11, 3, 'Talvez', 7, 0),
-(12, 1, 'Limpias', 8, 0),
-(14, 3, 'Sucias', 8, 0),
-(15, 4, 'Amigables con el medio ambiente', 8, 0),
-(17, 2, 'Calidad', 9, 0),
-(18, 3, 'Presentación', 9, 0),
-(19, 4, 'Precio', 9, 0),
+(9, 1, 'Si', 7, 6),
+(10, 2, 'No', 7, 6),
+(11, 3, 'Talvez', 7, 1),
+(12, 1, 'Limpias', 8, 2),
+(14, 3, 'Sucias', 8, 4),
+(15, 4, 'Amigables con el medio ambiente', 8, 7),
+(17, 2, 'Calidad', 9, 3),
+(18, 3, 'Presentación', 9, 5),
+(19, 4, 'Precio', 9, 5),
 (22, 1, 'Si', 28, 0),
 (23, 2, 'No', 28, 0),
 (24, 3, 'Talvez', 28, 0),
@@ -845,7 +837,7 @@ ALTER TABLE `empresas`
 -- AUTO_INCREMENT de la tabla `encuestas`
 --
 ALTER TABLE `encuestas`
-  MODIFY `idEncuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `idEncuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `formato`
@@ -869,7 +861,7 @@ ALTER TABLE `paises`
 -- AUTO_INCREMENT de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
-  MODIFY `idPregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `idPregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `publicidad`
@@ -881,7 +873,7 @@ ALTER TABLE `publicidad`
 -- AUTO_INCREMENT de la tabla `respuestas`
 --
 ALTER TABLE `respuestas`
-  MODIFY `IdRespuestas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `IdRespuestas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT de la tabla `telefonos`
