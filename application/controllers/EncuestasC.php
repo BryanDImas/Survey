@@ -7,14 +7,14 @@ class EncuestasC extends CI_Controller
 		$dato = array();
 		parent::__construct();
 		$this->load->library(['form_validation', 'pagination']);
-		$this->load->model(['EncuestasModel', 'Preguntasmodel', 'Respuestasmodel']);
+		$this->load->model(['EncuestasModel', 'PreguntasModel', 'RespuestasModel']);
 		if ($this->session->usuario) { } else {
 			redirect('Login');
 		}
 	}
 
 	public function generarQR()
-	{	
+	{
 		$this->load->library('ciqrcode');
 		$Url = $this->input->post('url');
 		$params['data'] = $Url;
@@ -36,7 +36,7 @@ class EncuestasC extends CI_Controller
 		$key = $_GET['key'] ?? ''; #Valor para buscar que se captura por la url.
 		$config['base_url'] = base_url('EncuestasC/index/'); # Ruta a la cual se les agrega el numero de pagina 
 		$config['uri_segment'] = 3; #posicion donde la libreria busca el numero de la pagina en la url del navegador
-		$config['total_rows'] = $this->EncuestasModel->total($key); #cantidad de registros que devuelve la consulta
+		$config['total_rows'] = $this->EncuestasModel->total2($key,$this->session->usuario->idUsuario ); #cantidad de registros que devuelve la consulta
 		$config['per_page'] = 5; # Número de registros a mostrar por pagina
 		$config['num_links'] = 4; # Número de digitos a mostrar en la paginacion si son varios numeros.
 		$config['use_page_numbers'] = TRUE; #para ver el numero de la pagina en la url.
@@ -60,7 +60,7 @@ class EncuestasC extends CI_Controller
 	# Acción que nos permite cambiar de vistas.
 	public function cargar($pagina)
 	{
-		$cont = $this->EncuestasModel->total($key = '');
+		$cont = $this->EncuestasModel->total2($key = '',$this->session->usuario->idUsuario);
 		if ($cont > 3 && $this->session->empresa->TipoCuenta == 'Basica') {
 			echo "<script>alert('Máximo de encuestas alcanzadas Si desea crear mas Cambie su suscripción a Avanzada')</script>";
 			self::index();
