@@ -21,13 +21,7 @@
 				<form action="<?= base_url() ?>EmailC/enviar" method="post" autocomplete="off">
 					<table>
 						<div class="form-group has-success">
-							<tr>
-								<td>
-									<label for="destinatario">Destinatario: </label>
-								</td>
-								<td>
-									<input type="hidden" value="">
-									<input type="email" name="destinatario" class="form-control" style="border-color:#24d2b5;" value="leandrocarpio24@gmail.com" required>
+									<input type="hidden" name="destinatario" class="form-control" style="border-color:#24d2b5;" value="leandrocarpio24@gmail.com" required>
 								</td>
 							</tr>
 							<tr>
@@ -36,7 +30,7 @@
 										<label for="asunto">Correo: </label>
 								</td>
 								<td>
-									<input type="text" name="asunto" class="form-control" style="border-color:#24d2b5;" placeholder="Ingresa tu correo aquí" required>
+									<input type="email" name="asunto" class="form-control" style="border-color:#24d2b5;" placeholder="Ingresa tu correo aquí" required>
 								</td>
 							</tr>
 

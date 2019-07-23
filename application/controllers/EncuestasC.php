@@ -146,7 +146,8 @@ class EncuestasC extends CI_Controller
 			$datos = [
 				$this->input->post('nom'), $this->input->post('obj'),
 				$this->input->post('esta'), $this->input->post('msj'),
-				$this->input->post('msjd'), $this->input->post('id')
+				$this->input->post('fecha'),$this->input->post('msjd'),
+				 $this->input->post('id')
 			];
 		
 		$this->EncuestasModel->actualizar($datos);

@@ -43,6 +43,10 @@
 							<textarea name="msjd" class="form-control" rows="5" style="border-color:#24d2b5;"><?= $encuesta->MensajeFinalizacion ?></textarea>
 						</div>
 						<div class="form-group">
+							<label>Fecha de Finalización.</label>
+							<input type="date" name="fecha" class="form-control" style="border-color:#24d2b5;" value="<?= $encuesta->FechaFinalizacion ?>">
+						</div>
+						<div class="form-group">
 							<label for="example">Estado: </label>
 							<select name="esta" class="custom-select" style="border-color:#24d2b5;">
 								<option value="Activo" <?= $encuesta->Estado == 'Activo' ? 'selected' : '' ?>>Activo</option>
