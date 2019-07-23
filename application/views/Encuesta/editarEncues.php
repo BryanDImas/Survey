@@ -43,6 +43,10 @@
 							<textarea name="msjd" class="form-control" rows="5" style="border-color:#24d2b5;"><?= $encuesta->MensajeFinalizacion ?></textarea>
 						</div>
 						<div class="form-group">
+							<label>Fecha de Finalización.</label>
+							<input type="date" name="fecha" class="form-control" id="fechaReserva"  min="2019-01-01" style="border-color:#24d2b5;" value="<?= $encuesta->FechaFinalizacion ?>">
+						</div>
+						<div class="form-group">
 							<label for="example">Estado: </label>
 							<select name="esta" class="custom-select" style="border-color:#24d2b5;">
 								<option value="Activo" <?= $encuesta->Estado == 'Activo' ? 'selected' : '' ?>>Activo</option>
@@ -57,3 +61,21 @@
 					</form>
 				</div>
 			</div>
+
+			<script>
+		var baseUrl = "<?= base_url() ?>";
+	</script>
+	<script type="text/javascript">
+			var fecha = new Date();
+		var anio = fecha.getFullYear();
+		var dia = fecha.getDate();
+		var _mes = fecha.getMonth(); //viene con valores de 0 al 11
+		_mes = _mes + 1; //ahora lo tienes de 1 al 12
+		if (_mes < 10) //ahora le agregas un 0 para el formato date
+		{
+			var mes = "0" + _mes;
+		} else {
+			var mes = _mes.toString;
+		}
+		document.getElementById("fechaReserva").min = anio + '-' + mes + '-' + dia;
+	</script>
