@@ -27,7 +27,7 @@
 	<div class="card">
 		<div class="card-body" id="form">
 			<h5 class="text-center">Ingrese su pregunta</h5>
-			<input type="hidden" name="form" id="form" value="">
+			<input type="hidden" name="formato" id="formato" value="<?= $formato ?>">
 			<div>
 				<input id="pregunta" name="pregunta" type="text" class="form-control" placeholder="Ingrese su pregunta" autocomplete="off">
 			</div>

@@ -21,6 +21,7 @@
 				</div>
 				<h2><?= $encuesta->NombreEncuesta ?></h2>
 				<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
+<!-- 				<?php date_default_timezone_set('America/El_Salvador'); echo date("Y-m-d h:m:s")?> -->
 			</div>
 			<div class="mensaje">
 				<h3 class=""><?php echo nl2br($encuesta->MensajeInicio); ?></h3>

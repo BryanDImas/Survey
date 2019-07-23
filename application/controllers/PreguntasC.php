@@ -28,6 +28,7 @@ class PreguntasC extends CI_Controller
 		$this->session->set_userdata('formato', $id);
 		$datos['preguntas'] = $this->PreguntasModel->obpreguntas($this->session->idEncuesta);
 		$datos['idEncuesta'] = $this->session->idEncuesta;
+		$datos['formato'] = $id;
 		$this->load->view('layouts/head');
 		$this->load->view('layouts/header');
 		$this->load->view('encuesta/' . $pagina, $datos);
@@ -38,6 +39,18 @@ class PreguntasC extends CI_Controller
 	{
 		$datos = [$_POST['pregunta'],$this->session->idEncuesta];
 		$this->PreguntasModel->guardar($datos);
+	}
+	public function guardar2()
+	{
+		$datos = [$_POST['pregunta'],$this->session->idEncuesta];
+		$this->PreguntasModel->guardar($datos);
+		$tipo = $this->input->post('formato');
+		switch($tipo){
+			case 3: break;
+			case 4: break;
+			case 5: break;
+			case 6: break;
+		}
 	}
 	# Acción que le dice al modelo que elimine una pregunta según su id.
 	public function eliminar($id)
