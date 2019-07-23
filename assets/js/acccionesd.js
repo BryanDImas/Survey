@@ -31,6 +31,7 @@ function asignareventos() {
 /* Funcion que nos ayuda a guardar las preguntas de una en una */
 function guardar() {
     var pregunta = document.getElementById('pregunta').value;
+    var formato = document.getElementById('formato').value;
 
     if (pregunta != '') {
         var peticion = new XMLHttpRequest();
@@ -40,10 +41,10 @@ function guardar() {
                 document.getElementById('pregunta').value = '';
             }
         };
-        var url = baseUrl + 'PreguntasC/guardar';
+        var url = baseUrl + 'PreguntasC/guardar2';
         peticion.open('POST', url);
         peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        peticion.send("pregunta=" + pregunta);
+        peticion.send("pregunta=" + pregunta + "&formato=" + formato);
     }
 }
 
