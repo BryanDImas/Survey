@@ -22,7 +22,7 @@
         <button class="btn dropdown-toggle btn-rounded btn-outline-success" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Encuestas</button>
         <div class="dropdown-menu">
             <?php foreach ($ids as $id) { ?>
-                <a class="btn btn-outline-success dropdown-item" href="<?= base_url() ?>ResultadosC/index/<?= $id->idEncuesta ?>"><?= $id->NombreEncuesta ?></a>
+                <a class="btn btn-outline-success dropdown-item" href="<?= base_url() ?>ResultadosC/grafi/<?= $id->idEncuesta ?>"><?= $id->NombreEncuesta ?></a>
             <?php } ?>
         </div>
     </div><br><br><br>
