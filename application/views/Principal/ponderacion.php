@@ -63,8 +63,6 @@
     
     <?php $num = 1;
     foreach ($encuesta->preguntas as $pregunta) { ?>
-
-
         <script>
             $(".clasificacion<?= $pregunta->idPregunta ?>").find("input").change(function() {
                 var valor = $(this).val()
@@ -77,7 +75,7 @@
                 })
             })
 
-            $(".clasificacion<?= $pregunta->idPregunta ?>").find("label").mouseover(function() {
+            $(".clasificacion<?= $pregunta->idPregunta ?>").find("label").click(function() {
                 var valor = $(this).prev("input").val()
                 $(".clasificacion<?= $pregunta->idPregunta ?>").find("input").removeClass("activo")
                 $(".clasificacion<?= $pregunta->idPregunta ?>").find("input").each(function(index) {
@@ -90,7 +88,6 @@
         </script>
         <?php $num++;
     } ?>
-
 <footer>
         <div class="">
            <p> © 2019 Survey, The Next Services, SA de CV. Todos los derechos reservados</p><br>

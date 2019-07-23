@@ -11,7 +11,7 @@ class EncuestasModel extends CI_Model
 		if($key != ''){
 			$sql .= " AND NombreEncuesta LIKE '%{$key}%' ";
 		}
-		$sql .= " LIMIT $inicio, $limit";
+		$sql .= " ORDER BY E.idEncuesta DESC  LIMIT $inicio, $limit ";
         return $this->db->query($sql)->result();
     }
     # Método que elimina una encuesta seleccionada.

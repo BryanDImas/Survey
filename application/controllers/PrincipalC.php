@@ -105,32 +105,33 @@ class PrincipalC extends CI_Controller
         }
     }
     public function capturar2(){
-        $datos = $this->input->post('respuestas[]'); //Capturamos los datos del formulario
-        $idEncuesta = $this->input->post('idEncuesta');
-        $ids = $this->PrincipalModel->ids2($idEncuesta);
-/*         echo "<pre>"; print_r($datos); */
-        for ($i = 0; $i < count($ids); $i++) {
-            $ids[$i]->respuestas = $this->PrincipalModel->respuestas2($ids[$i]->idPregunta);
-            if (count($ids[$i]->respuestas) < 1) { # Si está sin respuestas la pregunta
+        $datos = $this->input->post('respuestas[]'); //array con las respuestas.
+        $idEncuesta = $this->input->post('idEncuesta'); // obtenemos el id de la encuesta actual.
+        $ids = $this->PrincipalModel->ids2($idEncuesta); // obtengo los ids de las preguntas.
+        for ($i = 0; $i < count($ids); $i++) { // recorremos los arreglos.
+            $ids[$i]->respuestas = $this->PrincipalModel->respuestas2($ids[$i]->idPregunta); // obtengo las respuestas de las preguntas de la encuesta actual.
+            if (count($ids[$i]->respuestas) == 0) { # Si está sin respuestas la pregunta
                 $this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
             } else {
-                foreach ($ids[$i]->respuestas as $respuesta) {
-                    $contador = 0;
+                foreach ($ids[$i]->respuestas as $respuesta) { // recorremos las respuestas.
+                    $contador = 0; // contador inicia.
+                    echo $respuesta->Respuestas. "=" . $datos[$i]."<br>";  
                     if ($respuesta->Respuestas == $datos[$i]) {
-                        /* echo "entro a actualizar cont"; */
+                        echo "entro a actualizar cont<br>";
                         $this->PrincipalModel->actCont(++$respuesta->Contador, $respuesta->IdRespuestas); # Actualizamos el contador
                     } else {
-                        /* echo "entro al contdor"; */
+                        echo "entro al contador<br>";
                         $contador++;
                        /*  echo $contador; */
                     }
                 }
-                if ($contador > 0) {
-                    /* echo "entro a ingresar nuevas"; */
+                if ($contador < 0) {
+                    echo "entro a ingresar nuevas<br>";
                     $this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
                 }
             }
         }
+        die;
         /* echo "<pre>"; print_r($ids);  */
         $datos['encuesta'] = $this->PrincipalModel->encuesta($idEncuesta);
         $us = $this->PrincipalModel->usuario($datos['encuesta']->idUsuario); // Obtenemos el idUsuario de la encuesta que traemos.

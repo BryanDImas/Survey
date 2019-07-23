@@ -17,7 +17,7 @@ class ResultadosC extends CI_Controller
 	{
 		$datos['ids'] = $this->EncuestasModel->ids($this->session->usuario->idUsuario);
 		if ($ide == '') {
-			$ide = $datos['ids'][0]->idEncuesta;
+			$ide = $this->ResultadosM->last($this->session->usuario->idUsuario);
 		}
 		$this->session->set_userdata('idEncuesta', $ide);
 		$datos['encuesta'] = $this->EncuestasModel->buscarid($ide);
@@ -35,7 +35,7 @@ class ResultadosC extends CI_Controller
 	{
 		$datos['ids'] = $this->EncuestasModel->ids($this->session->usuario->idUsuario);
 		if ($ide == '') {
-			$ide = $datos['ids'][0]->idEncuesta;
+			$ide = $ide = $this->ResultadosM->last($this->session->usuario->idUsuario);
 		}
 		$this->session->set_userdata('idEncuesta', $ide);
 		if ($this->session->empresa->TipoCuenta == 'Basica') {

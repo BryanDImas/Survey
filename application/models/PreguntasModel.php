@@ -12,11 +12,11 @@ class PreguntasModel extends CI_Model
     # Método que nos permite guardar las preguntas a la base de datos.
     public function guardar($datos)
     {
-        $sql = "INSERT INTO preguntas (Numero, Pregunta, ";
+        $sql = "INSERT INTO preguntas (Pregunta, ";
         if(count($datos)>3){
-            $sql.=" PorDefecto,IdEncuesta) VALUES ( ?,?,?,? )";
+            $sql.=" PorDefecto,IdEncuesta) VALUES ( ?,?,? )";
         }else{
-            $sql.=" IdEncuesta) VALUES (?,?,? )";
+            $sql.=" IdEncuesta) VALUES (?,? )";
         }
         $this->db->query($sql, $datos);
     }
@@ -34,7 +34,7 @@ class PreguntasModel extends CI_Model
 # Función que nos ayuda a cambiar un registo de la Tabla
     public function actualizar($a)
     {
-        $s="UPDATE preguntas SET Numero = ?, Pregunta = ?  WHERE idPregunta = ?";
+        $s="UPDATE preguntas SET Pregunta = ?  WHERE idPregunta = ?";
         return $this->db->query($s, $a);
     }
 }

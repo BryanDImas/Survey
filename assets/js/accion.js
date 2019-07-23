@@ -31,7 +31,6 @@ function asignareventos() {
 //Esta funcion nos ayudara  a guardar las respuestas 
 function guardar() {
     var respuesta = document.getElementById('respuesta').value;
-    var num = document.getElementById('num').value;
     var idp = document.getElementById('idp').value;
     if (respuesta != '') {
         var peticion = new XMLHttpRequest();
@@ -39,13 +38,12 @@ function guardar() {
             if (this.readyState == 4) {
                 recargar();
                 document.getElementById('respuesta').value = '';
-                document.getElementById('num').value++;
             }
         };
         var url = baseUrl + 'RespuestasC/guardar';
         peticion.open('POST', url);
         peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        peticion.send("respuesta=" + respuesta + "&num=" + num + "&idp=" + idp);
+        peticion.send("respuesta=" + respuesta + "&idp=" + idp);
     }
 }
 
@@ -67,7 +65,6 @@ function actualizar() {
 function editar() {
     if (document.getElementById('btnGuardar').value == 'actualizar') {
         var respuesta = document.getElementById('respuesta').value;
-        var num = document.getElementById('num').value;
         var idr = document.getElementById('idr').value;
         var peticion = new XMLHttpRequest();
         peticion.onreadystatechange = function() {
@@ -82,7 +79,7 @@ function editar() {
         var url = baseUrl + 'RespuestasC/actualizar';
         peticion.open('POST', url);
         peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        peticion.send("respuesta=" + respuesta + "&num=" + num + "&idp=" + idr);
+        peticion.send("respuesta=" + respuesta + "&idp=" + idr);
     }
 }
 
