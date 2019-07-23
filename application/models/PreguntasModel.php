@@ -6,7 +6,7 @@ class PreguntasModel extends CI_Model
     # Método que trae informacion desde la base de datos de la tabla preguntas.
     public function obpreguntas($id)
     {
-        $sql = "SELECT * FROM preguntas WHERE IdEncuesta = " .$id;
+        $sql = "SELECT * FROM preguntas WHERE PorDefecto = 2 AND IdEncuesta = " .$id ;
         return $this->db->query($sql)->result();
     }
     # Método que nos permite guardar las preguntas a la base de datos.
