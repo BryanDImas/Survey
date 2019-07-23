@@ -23,9 +23,6 @@
 				</form>
 			</div>
 		</div>
-		<div class="form-group">
-			<a href="<?= base_url('preguntasC/') ?>?id=<?= $f ?>" class= "btn btn-rounded btn-xl  btn-outline-new">Volver</a>
-		</div>
 		<br>
 		<div class="">
 			<button class="right-side-toggle waves-effect waves-light  btn-themecolor btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
