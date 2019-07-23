@@ -33,7 +33,7 @@ class ResultadosM extends CI_Model
     # Método que nos devulve las respuestas asignadas a cada pregunta.
     public function respuestas($id)
     {
-        $sql = "SELECT * FROM respuestas WHERE IdPregunta = " . $id;
+        $sql = "SELECT * FROM respuestas  WHERE IdPregunta = " . $id ." ORDER BY Respuestas DESC";
         return $this->db->query($sql)->result();
     }
     public function export($id)
@@ -60,6 +60,10 @@ class ResultadosM extends CI_Model
     public function demo($idEncuesta){
         $sql = "SELECT * FROM preguntas WHERE PorDefecto = 1 AND IdEncuesta = " . $idEncuesta;
         return $this->db->query($sql)->result();
+    }
+    public function last($idUsuario){
+        $sql = "SELECT @@identity AS id FROM encuestas WHERE idUsuario = $idUsuario";
+        return $this->db->query($sql)->row()->id; 
     }
 
 }

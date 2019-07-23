@@ -12,7 +12,7 @@ class RespuestasModel extends CI_Model
 	//accion que guarda las nuevas respuesta en la base de datos
     public function guardar($datos)
     {
-        $sql = "INSERT INTO respuestas (Numero, Respuestas,IdPregunta) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO respuestas (Respuestas,IdPregunta) VALUES (?, ?)";
         $this->db->query($sql, $datos);
 	}
 
@@ -26,7 +26,7 @@ class RespuestasModel extends CI_Model
 	//función que nos permite editar las respuestas y las actualiza en la base de datos.
 	public function actualizar($a)
     {
-        $s="UPDATE respuestas SET Numero = ?, Respuestas = ?  WHERE IdRespuestas = ?";
+        $s="UPDATE respuestas SET Respuestas = ?  WHERE IdRespuestas = ?";
         return $this->db->query($s, $a);
 	}
 	

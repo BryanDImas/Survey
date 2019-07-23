@@ -36,8 +36,7 @@ class PreguntasC extends CI_Controller
 	# Acción que envia los datos al modelo para su insercción a la base de datos.
 	public function guardar()
 	{
-		$num = $this->input->post('num');
-		$datos = [$num + 1,$_POST['pregunta'],$this->session->idEncuesta];
+		$datos = [$_POST['pregunta'],$this->session->idEncuesta];
 		$this->PreguntasModel->guardar($datos);
 	}
 	# Acción que le dice al modelo que elimine una pregunta según su id.
@@ -61,7 +60,6 @@ class PreguntasC extends CI_Controller
 	public function actualizar()
 	{
 		$datos = [
-			$this->input->post('num'),
 			$this->input->post('pregunta'),
 			$this->input->post('idp')
 		];
@@ -72,7 +70,6 @@ class PreguntasC extends CI_Controller
 	public function actualizardos()
 	{
 		$datos = [
-			$this->input->post('num'),
 			$this->input->post('pregunta'),
 			$this->input->post('idp')
 		];

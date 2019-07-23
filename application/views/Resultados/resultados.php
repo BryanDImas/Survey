@@ -26,7 +26,7 @@
 				<div class="row">
 					<div class="col-12">
 						<h6 class="card-subtitle">Encuesta:</h6>
-						<h3><?= $encuesta->NombreEncuesta ?></h3>
+						<h3><?= $encuesta->NombreEncuesta ?? ''?></h3>
 					</div>
 				</div>
 			</div>
@@ -36,7 +36,7 @@
 				<div class="row">
 					<div class="col-12">
 						<h6 class="card-subtitle">Objetivo de la encuesta:</h6>
-						<h3><?= $encuesta->ObjetivoEncuesta ?></h3>
+						<h3><?= $encuesta->ObjetivoEncuesta ?? '' ?></h3>
 					</div>
 				</div>
 			</div>
@@ -72,16 +72,31 @@
 							</thead>
 							<tbody>
 								<?php
-								foreach ($preguntas as $pregunta) {
-									$n = count($pregunta->respuestas); ?>
-									<tr>
-										<td rowspan="<?= $n ?>" style="vertical-align:middle"><?= $pregunta->Pregunta ?></td>
-										<?php foreach ($pregunta->respuestas as $respuesta) { ?>
-											<td><?= $respuesta->Respuestas ?></td>
-											<td><?= $respuesta->Contador ?></td>
+									foreach ($preguntas as $pregunta) {
+										$n = count($pregunta->respuestas); ?>
+										<tr>
+											<td rowspan="<?= $n ?>" style="vertical-align:middle"><?= $pregunta->Pregunta ?></td>
+											<?php foreach ($pregunta->respuestas as $respuesta) { 
+												switch($encuesta->IdFormato){ 
+												case 1: 
+												case 2:
+												case 7:
+												?>
+													<td><?= $respuesta->Respuestas ?></td>
+													<td><?= $respuesta->Contador ?></td>
+												<?php break;
+												case 3: 
+												case 5:?>
+													<td><img src="<?=base_url()?>assets/images/icon/<?= $respuesta->Respuestas ?>.png" alt="" width="30px"></td>
+													<td><?= $respuesta->Contador ?></td>
+												<?php break;
+												case 4: ?>
+													<td><label style="color: rgb(255, 230, 0)"><?= str_repeat("★",($respuesta->Respuestas ?? 0)); ?></label></td>
+													<td><?= $respuesta->Contador ?></td>												
+												<?php break;
+											}?>
 										</tr>
-									<?php }
-								} ?>
+									<?php }} ?>
 							</tbody>
 						</table>
 						<!-- =========================================================================================================================================== -->

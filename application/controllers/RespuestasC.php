@@ -25,9 +25,7 @@ class RespuestasC extends CI_Controller
     //permite guardar las respuestas que ingresen los usuarios
     public function guardar()
     {
-        $num = $this->input->post('num');
         $datos = [
-            $num + 1,
             $_POST['respuesta'],
             $_POST['idp']
         ];
@@ -42,9 +40,7 @@ class RespuestasC extends CI_Controller
     //Nos permite actualizar los datos que se editaron 
     public function actualizar()
     {
-        $num = $this->input->post('num');
         $datos = [
-            $num,
             $_POST['respuesta'],
             $_POST['idp']
         ];
