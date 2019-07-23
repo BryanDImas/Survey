@@ -47,8 +47,6 @@ class PrincipalC extends CI_Controller
     # acción que nos envia a la encuesta luego de capturar valores demograficos
     public function CapDemo()
     {
-		$this->form_validation->set_rules('usua', 'Correo', 'required|regex_match[/[a-z]/]', ['required' => 'El campo %s es requerido']);
-		$this->form_validation->set_rules('clave', 'Contraseña', 'required|regex_match[/[1-9]{5,10}/]', ['required' => 'El campo %s es requerido']);
         $datos = [$this->input->post('edad'), $this->input->post('genero'), $this->input->post('ciudad')]; //Capturamos los datos del formulario
         $idEncuesta = base64_decode($this->input->post('idEncuesta'));
         $ids = $this->PrincipalModel->ids($idEncuesta);
@@ -105,33 +103,32 @@ class PrincipalC extends CI_Controller
         }
     }
     public function capturar2(){
-        $datos = $this->input->post('respuestas[]'); //array con las respuestas.
-        $idEncuesta = $this->input->post('idEncuesta'); // obtenemos el id de la encuesta actual.
-        $ids = $this->PrincipalModel->ids2($idEncuesta); // obtengo los ids de las preguntas.
-        for ($i = 0; $i < count($ids); $i++) { // recorremos los arreglos.
-            $ids[$i]->respuestas = $this->PrincipalModel->respuestas2($ids[$i]->idPregunta); // obtengo las respuestas de las preguntas de la encuesta actual.
-            if (count($ids[$i]->respuestas) == 0) { # Si está sin respuestas la pregunta
+        $datos = $this->input->post('respuestas[]'); //Capturamos los datos del formulario
+        $idEncuesta = $this->input->post('idEncuesta');
+        $ids = $this->PrincipalModel->ids2($idEncuesta);
+/*         echo "<pre>"; print_r($datos); */
+        for ($i = 0; $i < count($ids); $i++) {
+            $ids[$i]->respuestas = $this->PrincipalModel->respuestas2($ids[$i]->idPregunta);
+            if (count($ids[$i]->respuestas) < 1) { # Si está sin respuestas la pregunta
                 $this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
             } else {
-                foreach ($ids[$i]->respuestas as $respuesta) { // recorremos las respuestas.
-                    $contador = 0; // contador inicia.
-                    echo $respuesta->Respuestas. "=" . $datos[$i]."<br>";  
+                foreach ($ids[$i]->respuestas as $respuesta) {
+                    $contador = 0;
                     if ($respuesta->Respuestas == $datos[$i]) {
-                        echo "entro a actualizar cont<br>";
+                        /* echo "entro a actualizar cont"; */
                         $this->PrincipalModel->actCont(++$respuesta->Contador, $respuesta->IdRespuestas); # Actualizamos el contador
                     } else {
-                        echo "entro al contador<br>";
+                        /* echo "entro al contdor"; */
                         $contador++;
                        /*  echo $contador; */
                     }
                 }
-                if ($contador < 0) {
-                    echo "entro a ingresar nuevas<br>";
+                if ($contador > 0) {
+                    /* echo "entro a ingresar nuevas"; */
                     $this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
                 }
             }
         }
-        die;
         /* echo "<pre>"; print_r($ids);  */
         $datos['encuesta'] = $this->PrincipalModel->encuesta($idEncuesta);
         $us = $this->PrincipalModel->usuario($datos['encuesta']->idUsuario); // Obtenemos el idUsuario de la encuesta que traemos.
