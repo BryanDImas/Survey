@@ -47,6 +47,8 @@ class PrincipalC extends CI_Controller
     # acción que nos envia a la encuesta luego de capturar valores demograficos
     public function CapDemo()
     {
+		$this->form_validation->set_rules('usua', 'Correo', 'required|regex_match[/[a-z]/]', ['required' => 'El campo %s es requerido']);
+		$this->form_validation->set_rules('clave', 'Contraseña', 'required|regex_match[/[1-9]{5,10}/]', ['required' => 'El campo %s es requerido']);
         $datos = [$this->input->post('edad'), $this->input->post('genero'), $this->input->post('ciudad')]; //Capturamos los datos del formulario
         $idEncuesta = base64_decode($this->input->post('idEncuesta'));
         $ids = $this->PrincipalModel->ids($idEncuesta);
