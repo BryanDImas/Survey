@@ -21,6 +21,7 @@
 				</div>
 				<h2><?= $encuesta->NombreEncuesta ?></h2>
 				<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
+<!-- 				<?php date_default_timezone_set('America/El_Salvador'); echo date("Y-m-d h:m:s")?> -->
 			</div>
 			<div class="mensaje">
 				<h3 class=""><?php echo nl2br($encuesta->MensajeInicio); ?></h3>
@@ -31,12 +32,15 @@
 					<form class="form-group" action="<?= base_url('PrincipalC/CapDemo') ?>" method="post">
 						<div class="col-md-8 offset-2">
 							<h6><?= $encuesta->preguntas[0]->Pregunta ?></h6><br>
-							<select name="edad"  class="custom-select" style="width:150px;">
+							<select name="edad"  class="custom-select" style="width:250px;">
+							<option>-- Selecione su edad</option>
+							
 								<option value="">de 18 a 28 años</option>
 								<option value="">de 28 a 38 años</option>
 								<option value="">de 38 a 48 años</option>
 								<option value="">de 48 a 58 años</option>
 								<option value="">de 58 años o mas</option>
+								
 							</select>
 						</div>
 						<br><br><br>
