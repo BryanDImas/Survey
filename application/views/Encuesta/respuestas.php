@@ -5,7 +5,8 @@
 	<!-- Bread crumb and right sidebar toggle -->
 	<!-- ============================================================== -->
 	<div class="container-fluid">
-		<?php $f = $_GET['f']; $id = $_GET['id'];
+		<?php $f = $_GET['f'];
+		$id = $_GET['id'];
 		$num = count($respuestas); ?>
 		<div class="" id="form">
 			<h1 class="text-center">Cree sus respuestas</h1>
@@ -38,6 +39,9 @@
 			<div class="col-12">
 				<div class="card">
 					<div class="card-body">
+					<div class="form-group">
+			<a href="<?= base_url('preguntasC/') ?>?id=<?= $f ?>" class="btn btn-rounded btn-xl  btn-outline-light">Volver</a>
+		</div>
 						<table class="table table-hover table-bordered text-center">
 
 							<thead>
@@ -62,7 +66,7 @@
 				</div>
 			</div>
 		</div>
-
+	
 		<!-- ============================================================= -->
 		<!-- FIn del contenido -->
 		<!-- ============================================================= -->
