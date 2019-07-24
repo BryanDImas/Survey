@@ -35,7 +35,7 @@
 							
 							<h5 class="col-md-offset-1"><?= $num ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h5>
 							<p>
-								<input name="respuestas[]" type="range" id="toPrice" min="0" max="10" oninput="document.getElementById('tPrice<?= $num ?>').innerHTML = this.value" />
+								<h5>Malo <input name="respuestas[]" type="range" id="toPrice" step="25" value="" oninput="document.getElementById('tPrice<?= $num ?>').innerHTML = this.value + '%';" /> Bueno</h5>
 								<h2><label id="tPrice<?= $num ?>"></label></h2>
 							</p>
 							<?php $num++;

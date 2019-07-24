@@ -15,10 +15,11 @@ class ResultadosC extends CI_Controller
 	// Acción principal.
 	public function index($ide = '')
 	{
-		$datos['ids'] = $this->EncuestasModel->ids($this->session->usuario->idUsuario);
+		
 		if ($ide == '') {
 			$ide = $this->ResultadosM->last($this->session->usuario->idUsuario);
 		}
+		$datos['ids'] = $this->EncuestasModel->ids($this->session->usuario->idUsuario);
 		$this->session->set_userdata('idEncuesta', $ide);
 		$datos['encuesta'] = $this->EncuestasModel->buscarid($ide);
 		$datos['preguntas'] = $this->ResultadosM->preguntas($ide);
@@ -33,11 +34,11 @@ class ResultadosC extends CI_Controller
 	// Acción que nos devuelve la vista de las estadisticas.
 	public function grafi($ide = '')
 	{
-		$datos['ids'] = $this->EncuestasModel->ids($this->session->usuario->idUsuario);
+		
 		if ($ide == '') {
-			$ide = $ide = $this->ResultadosM->last($this->session->usuario->idUsuario);
+			$ide  = $this->ResultadosM->last($this->session->usuario->idUsuario);
 		}
-		$this->session->set_userdata('idEncuesta', $ide);
+		$datos['ids'] = $this->EncuestasModel->ids($this->session->usuario->idUsuario);
 		if ($this->session->empresa->TipoCuenta == 'Basica') {
 			echo "<script>alert('Para tener acceso a esta área comuniquese con el administrador y cambie su cuenta a Avanzada');</script>";
 			self::index($this->session->idEncuesta);
@@ -89,8 +90,8 @@ class ResultadosC extends CI_Controller
 			$usersData[$i]['respuestasCSV'] = ''; # declaramos la posicion del arreglo a utilizar.
 			$usersData[$i]['contadorCSV'] = ''; # declaramos la posicion del arreglo a utilizar.
 			for ($j = 0; $j < count($usersData[$i]['respuestas']); $j++) {
-				$usersData[$i]['respuestasCSV'] .= $usersData[$i]['respuestas'][$j]['Respuestas'] . '|'; # concatenamos las respuestas en una sola linea separados por |
-				$usersData[$i]['contadorCSV'] .= $usersData[$i]['respuestas'][$j]['Contador'] . '|'; # concatenamos los contadores en una sola linea separados por |
+				$usersData[$i]['respuestasCSV'] .= $usersData[$i]['respuestas'][$j]['Respuestas'] . ','; # concatenamos las respuestas en una sola linea separados por |
+				$usersData[$i]['contadorCSV'] .= $usersData[$i]['respuestas'][$j]['Contador'] . ','; # concatenamos los contadores en una sola linea separados por |
 			}
 			$usersData[$i]['respuestasCSV'] = substr($usersData[$i]['respuestasCSV'], 0, strlen($usersData[$i]['respuestasCSV']) - 1); #Eliminamos el | del final del arreglo
 			$usersData[$i]['contadorCSV'] = substr($usersData[$i]['contadorCSV'], 0, strlen($usersData[$i]['contadorCSV']) - 1); #Eliminamos el | del final del arreglo
@@ -99,10 +100,10 @@ class ResultadosC extends CI_Controller
 		$file = fopen('php://output', 'w');
 		fprintf($file, chr(0xEF) . chr(0xBB) . chr(0xBF)); # Funcion que nos permite intrepretar caracterews de UTF8
 		$header = array("Pregunta", "Respuestas", "Total");
-		fputcsv($file, $header);
+		fputcsv($file, $header, ";");
 		foreach ($usersData as $line) {
 			$formato = array($line['Pregunta'], $line['respuestasCSV'], $line['contadorCSV']);
-			fputcsv($file, $formato);
+			fputcsv($file, $formato, ";");
 		}
 		fclose($file);
 		exit;
