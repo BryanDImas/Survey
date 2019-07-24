@@ -26,7 +26,7 @@
 					<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
 				</div>
 			</div>
-			<form method="POST" action="<?= base_url('PrincipalC/capturar2/') ?>">
+			<form method="POST" action="<?= base_url('PrincipalC/capturar/') ?>">
 				<div class="card-body">
 
 					<?php $num = 0;
@@ -36,21 +36,21 @@
 						<div class="image-responsive card-deck">
 							<div class="col-md-2 col-xs-1 offset-3">
 								<label for="radio1<?= $pregunta->Pregunta ?>"><img src="<?= base_url('assets/images/icon/triste.png') ?>"></label><br>
-								<input id="radio1<?= $pregunta->Pregunta ?>" type="radio" name="respuestas[<?= $num ?>]" value="1">
+								<input id="radio1<?= $pregunta->Pregunta ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[0]['IdRespuestas']?>">
 							</div>
 							<div class="col-md-2 col-xs-1">
 								<label for="radio2<?= $pregunta->Pregunta ?>"><img src="<?= base_url('assets/images/icon/confundido.png') ?>"></label><br>
-								<input id="radio2<?= $pregunta->Pregunta ?>" type="radio" name="respuestas[<?= $num ?>]" value="2">
+								<input id="radio2<?= $pregunta->Pregunta ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[1]['IdRespuestas']?>">
 							</div>
 							<div class="col-md-2 col-xs-1">
 								<label for="radio3<?= $pregunta->Pregunta ?>"><img src="<?= base_url('assets/images/icon/feliz.png') ?>"></label><br>
-								<input id="radio3<?= $pregunta->Pregunta ?>" type="radio" name="respuestas[<?= $num ?>]" value="3">
+								<input id="radio3<?= $pregunta->Pregunta ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[2]['IdRespuestas']?>">
 							</div>
 						</div>
 						<?php $num++;
 					} ?>
 				</div>
-				<input type="hidden" name="idEncuesta" value="<?= $encuesta->idEncuesta ?>">
+				<input type="hidden" name="idencuesta" value="<?= $encuesta->idEncuesta ?>">
 				<div class="boton col-md-12 text-center">
 					<input type="submit" class="btn btn-pri btn-lg" value="Listo">
 				</div>

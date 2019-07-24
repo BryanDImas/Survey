@@ -64,16 +64,17 @@ class PreguntasC extends CI_Controller
 				$this->RespuestasModel->establecidas('Me gusta', $idp);
 				break;
 			case 6: // Si la Encuesta es de tipo de Escala.
-				$this->RespuestasModel->establecidas('10%', $idp);
-				$this->RespuestasModel->establecidas('20%', $idp);
-				$this->RespuestasModel->establecidas('30%', $idp);
-				$this->RespuestasModel->establecidas('40%', $idp);
-				$this->RespuestasModel->establecidas('50%', $idp);
-				$this->RespuestasModel->establecidas('60%', $idp);
-				$this->RespuestasModel->establecidas('70%', $idp);
-				$this->RespuestasModel->establecidas('80%', $idp);
-				$this->RespuestasModel->establecidas('90%', $idp);
-				$this->RespuestasModel->establecidas('100%', $idp);
+				$this->RespuestasModel->establecidas('0', $idp);
+				$this->RespuestasModel->establecidas('10', $idp);
+				$this->RespuestasModel->establecidas('20', $idp);
+				$this->RespuestasModel->establecidas('30', $idp);
+				$this->RespuestasModel->establecidas('40', $idp);
+				$this->RespuestasModel->establecidas('50', $idp);
+				$this->RespuestasModel->establecidas('60', $idp);
+				$this->RespuestasModel->establecidas('70', $idp);
+				$this->RespuestasModel->establecidas('80', $idp);
+				$this->RespuestasModel->establecidas('90', $idp);
+				$this->RespuestasModel->establecidas('100', $idp);
 				break;
 		}
 	}
