@@ -32,7 +32,7 @@
 					<form class="form-group" action="<?= base_url('PrincipalC/CapDemo') ?>" method="post">
 						<div class="col-md-8 offset-2">
 							<h6><?= $encuesta->preguntas[0]->Pregunta ?></h6><br>
-							<select name="edad"  class="custom-select" style="width:150px;">
+							<select name="edad"  class="custom-select" style="width:150px;" required>
 								<option value="">de 18 a 28 años</option>
 								<option value="">de 28 a 38 años</option>
 								<option value="">de 38 a 48 años</option>
@@ -53,9 +53,9 @@
 						<p>
 							<div class="form-group col-md-8 offset-2" sss>
 								<h6><?= $encuesta->preguntas[2]->Pregunta ?></h6><br>
-								<select name="ciudad" id="" class="custom-select" style="width:150px;">
+								<select name="ciudad" id="" class="custom-select" style="width:150px;" >
 									<?php foreach ($ciudad as $c) { ?>
-										<option value="<?= $c->Municipio ?>"><?= $c->Municipio ?></option>
+										<option value="<?= $c->Municipio ?>" required><?= $c->Municipio ?></option>
 									<?php } ?>
 								</select>
 						</p><br>
@@ -63,6 +63,10 @@
 				<input type="hidden" name="idEncuesta" value="<?= base64_encode($encuesta->idEncuesta) ?>">
 				<div class="boton">
 					<input type="submit" value="Iniciar" class="btn btn-pri btn-rounder btn-lg float-right">
+				</div>
+
+				<div class="form-group">
+					<h6 class="text-themecolor"><?= validation_errors(); ?></h6>
 				</div>
 				</form>
 			<?php } else { ?>
