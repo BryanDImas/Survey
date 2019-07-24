@@ -39,7 +39,7 @@ class PreguntasModel extends CI_Model
     }
 #Método que nos devuelve el id de la pregunta ingresada.
     public function idpreg($pregunta, $idEncuesta){
-        $sql = "SELECT idPregunta FROM preguntas WHERE Pregunta = $pregunta AND PorDefecto = 2 AND IdEncuesta = $idEncuesta";
+        $sql = "SELECT idPregunta FROM preguntas WHERE Pregunta = '$pregunta' AND PorDefecto = 2 AND IdEncuesta = $idEncuesta";
         return $this->db->query($sql)->row()->idPregunta;
     }
 }
