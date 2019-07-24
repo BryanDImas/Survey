@@ -48,28 +48,35 @@ class PrincipalC extends CI_Controller
     # acción que nos envia a la encuesta luego de capturar valores demograficos
     public function CapDemo()
     {
-        $datos = [$this->input->post('edad'), $this->input->post('genero'), $this->input->post('ciudad')]; //Capturamos los datos del formulario
-        $idEncuesta = base64_decode($this->input->post('idEncuesta'));
-        $ids = $this->PrincipalModel->ids($idEncuesta);
-        for ($i = 0; $i < count($ids); $i++) {
-            $ids[$i]->respuestas = $this->PrincipalModel->respuestas2($ids[$i]->idPregunta);
-            if (count($ids[$i]->respuestas) < 1) { # Si está sin respuestas la pregunta
-                $this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
-            } else {
-                $contador = 0;
-                foreach ($ids[$i]->respuestas as $respuesta) {
-                    if ($respuesta->Respuestas == $datos[$i]) {
-                        $this->PrincipalModel->actCont(++$respuesta->Contador, $respuesta->IdRespuestas); # Actualizamos el contador
-                    } else {
-                        $contador++;
-                    }
-                }
-                if ($contador < 0) {
-                    $this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
-                }
-            }
-        }
-        redirect('PrincipalC/iniciar/?a=' . $this->input->post('idEncuesta'));
+		$this->form_validation->set_rules('edad', 'Edad', 'required', ['required' => 'El campo %s es requerido']);
+		$this->form_validation->set_rules('genero', 'genero', 'required', ['required' => 'El campo %s es requerido']);
+		$this->form_validation->set_rules('ciudad', 'ciudad', 'required', ['required' => 'El campo %s es requerido']);
+
+		if($this->form_validation->run()){
+			$datos = [$this->input->post('edad'), $this->input->post('genero'), $this->input->post('ciudad')]; //Capturamos los datos del formulario
+			$idEncuesta = base64_decode($this->input->post('idEncuesta'));
+			$ids = $this->PrincipalModel->ids($idEncuesta);
+			for ($i = 0; $i < count($ids); $i++) {
+				$ids[$i]->respuestas = $this->PrincipalModel->respuestas2($ids[$i]->idPregunta);
+				if (count($ids[$i]->respuestas) < 1) { # Si está sin respuestas la pregunta
+					$this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
+				} else {
+					$contador = 0;
+					foreach ($ids[$i]->respuestas as $respuesta) {
+						if ($respuesta->Respuestas == $datos[$i]) {
+							$this->PrincipalModel->actCont(++$respuesta->Contador, $respuesta->IdRespuestas); # Actualizamos el contador
+						} else {
+							$contador++;
+						}
+					}
+					if ($contador < 0) {
+						$this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
+					}
+				}
+			}
+		}else{
+			redirect('PrincipalC/iniciar/?a=' . $this->input->post('idEncuesta'));
+		}
     }
     # Acción que construye la estructura de la encuesta.
     public function iniciar()
