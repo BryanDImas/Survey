@@ -13,7 +13,7 @@ class ResultadosM extends CI_Model
     }
     public function exportar($id)
     {
-        $sql = "SELECT p.idPregunta, p.Pregunta FROM preguntas p WHERE p.idEncuesta = " . $id;
+        $sql = "SELECT p.idPregunta, p.Pregunta FROM preguntas p WHERE p.PorDefecto = 2 AND p.idEncuesta = " . $id;
         return $this->db->query($sql)->result_array();
     }
     public function obtenerRespuestas($idPregunta)
@@ -38,7 +38,7 @@ class ResultadosM extends CI_Model
     }
     public function export($id)
     {
-        $s = "SELECT P.idPregunta, P.Pregunta, R.Respuestas, R.Contador FROM respuestas R INNER JOIN preguntas P ON R.IdPregunta = P.idPregunta INNER JOIN encuestas E ON E.idEncuesta = P.IdEncuesta WHERE E.idEncuesta = $id AND P.PorDefecto = 2";
+        $s = "SELECT P.idPregunta, P.Pregunta, R.Respuestas, R.Contador FROM respuestas R INNER JOIN preguntas P ON R.IdPregunta = P.idPregunta INNER JOIN encuestas E ON E.idEncuesta = P.IdEncuesta WHERE P.PorDefecto = 2 AND E.idEncuesta = $id";
 
         return $this->db->query($s)->result();
     }
