@@ -33,12 +33,12 @@ class ResultadosM extends CI_Model
     # Método que nos devulve las respuestas asignadas a cada pregunta.
     public function respuestas($id)
     {
-        $sql = "SELECT * FROM respuestas  WHERE IdPregunta = " . $id ." ORDER BY Respuestas DESC";
+        $sql = "SELECT * FROM respuestas  WHERE IdPregunta = " . $id ." ORDER BY IdRespuestas ASC";
         return $this->db->query($sql)->result();
     }
     public function export($id)
     {
-        $s = "SELECT P.idPregunta, P.Pregunta, R.Respuestas, R.Contador FROM respuestas R INNER JOIN preguntas P ON R.IdPregunta = P.idPregunta INNER JOIN encuestas E ON E.idEncuesta = P.IdEncuesta WHERE E.idEncuesta = $id";
+        $s = "SELECT P.idPregunta, P.Pregunta, R.Respuestas, R.Contador FROM respuestas R INNER JOIN preguntas P ON R.IdPregunta = P.idPregunta INNER JOIN encuestas E ON E.idEncuesta = P.IdEncuesta WHERE E.idEncuesta = $id AND P.PorDefecto = 2";
 
         return $this->db->query($s)->result();
     }

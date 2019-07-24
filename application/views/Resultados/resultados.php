@@ -114,13 +114,26 @@
 													<td><?= $respuesta->Contador ?></td>												
 												<?php break;
 												case 6: 
-													if($respuesta->Respuestas < 50){?>
-													<td><?= $respuesta->Respuestas ?>% Malo</td>
-													<?php }else{?>
-														<td><?= $respuesta->Respuestas ?>% Bueno</td>
-													<?php } ?>
-													<td><?= $respuesta->Contador ?></td>
-										<?php }?>
+													switch($respuesta->Respuestas){
+														case 0:
+														echo "<td>". $respuesta->Respuestas ."% Muy malo. </td>";
+														break;
+														case 25: 
+														echo "<td>". $respuesta->Respuestas ."% Malo. </td>";
+														break;
+														case 50:
+														echo "<td>". $respuesta->Respuestas ."% Regular. </td>";
+														break;
+														case 75:
+														echo "<td>". $respuesta->Respuestas ."% Bueno. </td>";
+														break;
+														case 100: 
+														echo "<td>". $respuesta->Respuestas ."% Excelente. </td>";
+														break;
+													}
+													echo "<td>".$respuesta->Contador ."</td>"; 
+												break;
+										 }?>
 										</tr>
 									<?php }} ?>
 							</tbody>
