@@ -9,7 +9,7 @@ class PreguntasC extends CI_Controller
 	{
 		$datos = array();
 		parent::__construct();
-		$this->load->model(['PreguntasModel', 'EncuestasModel']);
+		$this->load->model(['PreguntasModel', 'EncuestasModel','RespuestasModel']);
 	}
 	# Función principal de este controlador.
 	public function index()
@@ -21,7 +21,6 @@ class PreguntasC extends CI_Controller
 		} elseif ($id == 3 || $id == 4 || $id == 5 || $id == 6) {
 			$pagina = 'preguntasII';
 		};
-
 		$a = [];
 		$a = [$id, $this->session->idEncuesta];
 		$this->EncuestasModel->formato($a);
@@ -44,12 +43,37 @@ class PreguntasC extends CI_Controller
 	{
 		$datos = [$_POST['pregunta'],$this->session->idEncuesta];
 		$this->PreguntasModel->guardar($datos);
+		$idp = $this->PreguntasModel->idpreg($datos);
 		$tipo = $this->input->post('formato');
 		switch($tipo){
-			case 3: break;
-			case 4: break;
-			case 5: break;
-			case 6: break;
+			case 3: // Si la Encuesta es de tipo de Caritas. 
+			$this->RespuestasModel->guardar('Lo odio',$idp);
+			$this->RespuestasModel->guardar('Normal',$idp);
+			$this->RespuestasModel->guardar('Me encanta',$idp);
+			break;
+			case 4: // Si la Encuesta es de tipo de Ponderaciones.
+			$this->RespuestasModel->guardar('1',$idp);
+			$this->RespuestasModel->guardar('2',$idp);
+			$this->RespuestasModel->guardar('3',$idp);
+			$this->RespuestasModel->guardar('4',$idp);
+			$this->RespuestasModel->guardar('5',$idp);
+			break;
+			case 5: // Si la Encuesta es de tipo de Manitas.
+			$this->RespuestasModel->guardar('No me gusta',$idp);
+			$this->RespuestasModel->guardar('Me gusta',$idp);
+			break;
+			case 6: // Si la Encuesta es de tipo de Escala.
+			$this->RespuestasModel->guardar('10%',$idp);
+			$this->RespuestasModel->guardar('20%',$idp);
+			$this->RespuestasModel->guardar('30%',$idp);
+			$this->RespuestasModel->guardar('40%',$idp);
+			$this->RespuestasModel->guardar('50%',$idp);
+			$this->RespuestasModel->guardar('60%',$idp);
+			$this->RespuestasModel->guardar('70%',$idp);
+			$this->RespuestasModel->guardar('80%',$idp);
+			$this->RespuestasModel->guardar('90%',$idp);
+			$this->RespuestasModel->guardar('100%',$idp);
+			break;
 		}
 	}
 	# Acción que le dice al modelo que elimine una pregunta según su id.

@@ -13,7 +13,7 @@ class PreguntasModel extends CI_Model
     public function guardar($datos)
     {
         $sql = "INSERT INTO preguntas (Pregunta, ";
-        if(count($datos)>3){
+        if(count($datos)>2){
             $sql.=" PorDefecto,IdEncuesta) VALUES ( ?,?,? )";
         }else{
             $sql.=" IdEncuesta) VALUES (?,? )";
@@ -36,5 +36,10 @@ class PreguntasModel extends CI_Model
     {
         $s="UPDATE preguntas SET Pregunta = ?  WHERE idPregunta = ?";
         return $this->db->query($s, $a);
+    }
+#Método que nos devuelve el id de la pregunta ingresada.
+    public function idpreg($pregunta, $idEncuesta){
+        $sql = "SELECT idPregunta FROM preguntas WHERE Pregunta = $pregunta AND PorDefecto = 2 AND IdEncuesta = $idEncuesta";
+        return $this->db->query($sql)->row()->idPregunta;
     }
 }
