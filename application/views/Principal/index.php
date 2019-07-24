@@ -28,7 +28,7 @@
 					<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
 				</div>
 			</div>
-			<form method="POST" action="<?= base_url('PrincipalC/capturar/') ?>">
+			<form method="POST" action="<?= base_url('PrincipalC/capturar2/') ?>">
 				<div class="card-body">
 
 					<?php $num = 1;

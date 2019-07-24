@@ -38,7 +38,7 @@ class EncuestasC extends CI_Controller
 		$config['uri_segment'] = 3; #posicion donde la libreria busca el numero de la pagina en la url del navegador
 		$config['total_rows'] = $this->EncuestasModel->total2($key,$this->session->usuario->idUsuario ); #cantidad de registros que devuelve la consulta
 		$config['per_page'] = 5; # Número de registros a mostrar por pagina
-		$config['num_links'] = 4; # Número de digitos a mostrar en la paginacion si son varios numeros.
+		$config['num_links'] = 2; # Número de digitos a mostrar en la paginacion si son varios numeros.
 		$config['use_page_numbers'] = TRUE; #para ver el numero de la pagina en la url.
 		$this->pagination->initialize($config);
 		if ($pag != 0) {

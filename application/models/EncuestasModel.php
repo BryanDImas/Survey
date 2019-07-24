@@ -67,7 +67,7 @@ class EncuestasModel extends CI_Model
        }
        #Metodo que nos devuelve todos los ids de las encuestas
        public function ids($id){
-           $sql = "SELECT idEncuesta, NombreEncuesta FROM encuestas WHERE idUsuario = ".$id;
+           $sql = "SELECT idEncuesta, NombreEncuesta FROM encuestas WHERE idUsuario = $id ORDER BY idEncuesta DESC";
            return $this->db->query($sql)->result();
        }
        public function total2($key,$id)

@@ -13,7 +13,7 @@ class ResultadosM extends CI_Model
     }
     public function exportar($id)
     {
-        $sql = "SELECT p.idPregunta, p.Pregunta FROM preguntas p WHERE p.idEncuesta = " . $id;
+        $sql = "SELECT p.idPregunta, p.Pregunta FROM preguntas p WHERE p.PorDefecto = 2 AND p.idEncuesta = " . $id;
         return $this->db->query($sql)->result_array();
     }
     public function obtenerRespuestas($idPregunta)
@@ -33,12 +33,12 @@ class ResultadosM extends CI_Model
     # Método que nos devulve las respuestas asignadas a cada pregunta.
     public function respuestas($id)
     {
-        $sql = "SELECT * FROM respuestas  WHERE IdPregunta = " . $id ." ORDER BY Respuestas DESC";
+        $sql = "SELECT * FROM respuestas  WHERE IdPregunta = " . $id ." ORDER BY IdRespuestas ASC";
         return $this->db->query($sql)->result();
     }
     public function export($id)
     {
-        $s = "SELECT P.idPregunta, P.Pregunta, R.Respuestas, R.Contador FROM respuestas R INNER JOIN preguntas P ON R.IdPregunta = P.idPregunta INNER JOIN encuestas E ON E.idEncuesta = P.IdEncuesta WHERE E.idEncuesta = $id";
+        $s = "SELECT P.idPregunta, P.Pregunta, R.Respuestas, R.Contador FROM respuestas R INNER JOIN preguntas P ON R.IdPregunta = P.idPregunta INNER JOIN encuestas E ON E.idEncuesta = P.IdEncuesta WHERE P.PorDefecto = 2 AND E.idEncuesta = $id";
 
         return $this->db->query($s)->result();
     }
@@ -62,8 +62,8 @@ class ResultadosM extends CI_Model
         return $this->db->query($sql)->result();
     }
     public function last($idUsuario){
-        $sql = "SELECT @@identity AS id FROM encuestas WHERE idUsuario = $idUsuario";
-        return $this->db->query($sql)->row()->id; 
+        $sql = "SELECT IdEncuesta  FROM encuestas WHERE idUsuario = $idUsuario ORDER BY IdEncuesta DESC LIMIT 1";
+        return $this->db->query($sql)->row()->IdEncuesta;
     }
 
 }
