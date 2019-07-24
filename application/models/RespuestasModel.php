@@ -34,6 +34,6 @@ class RespuestasModel extends CI_Model
 	public function  eliminar($id)
     {
         $this->db->query("DELETE FROM respuestas WHERE IdRespuestas = $id");
-	}
+    }
 
 }

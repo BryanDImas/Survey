@@ -32,12 +32,15 @@
 					<form class="form-group" action="<?= base_url('PrincipalC/CapDemo') ?>" method="post">
 						<div class="col-md-8 offset-2">
 							<h6><?= $encuesta->preguntas[0]->Pregunta ?></h6><br>
-							<select name="edad"  class="custom-select" style="width:150px;" required>
+							<select name="edad"  class="custom-select" style="width:250px;" required>
+							<option>-- Selecione su edad</option>
+							
 								<option value="">de 18 a 28 años</option>
 								<option value="">de 28 a 38 años</option>
 								<option value="">de 38 a 48 años</option>
 								<option value="">de 48 a 58 años</option>
 								<option value="">de 58 años o mas</option>
+								
 							</select>
 						</div>
 						<br><br><br>
