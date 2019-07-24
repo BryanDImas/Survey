@@ -62,8 +62,8 @@ class ResultadosM extends CI_Model
         return $this->db->query($sql)->result();
     }
     public function last($idUsuario){
-        $sql = "SELECT @@identity AS id FROM encuestas WHERE idUsuario = $idUsuario";
-        return $this->db->query($sql)->row()->id; 
+        $sql = "SELECT IdEncuesta  FROM encuestas WHERE idUsuario = $idUsuario ORDER BY IdEncuesta DESC LIMIT 1";
+        return $this->db->query($sql)->row()->IdEncuesta;
     }
 
 }

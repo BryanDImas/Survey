@@ -25,8 +25,19 @@
 			<div class="card-body">
 				<div class="row">
 					<div class="col-12">
-						<h6 class="card-subtitle">Encuesta:</h6>
-						<h3><?= $encuesta->NombreEncuesta ?? ''?></h3>
+						<h6 class="card-subtitle">Exportar datos:</h6>
+					<!-- Export Data -->
+					<a class="btn btn-primary" href='<?= base_url() ?>ResultadosC/exportCSV/<?= $preguntas[0]->IdEncuesta ?? '' ?>'>Excel.csv</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12">
+						<h6 class="card-subtitle">Encuesta actual:</h6>
+						<h3><?= $encuesta->NombreEncuesta ?? '' ?></h3>
 					</div>
 				</div>
 			</div>
@@ -41,16 +52,13 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- Card de la tabla de contenido -->
-	<div class="row">
-		<div class="col-md-12 align-center">
-			<div class="card">
-				<div class="card-body">
-					<!-- Export Data -->
-					<a class="btn btn-primary" href='<?= base_url() ?>ResultadosC/exportCSV/<?= $preguntas[0]->IdEncuesta ?? '' ?>'>Exportar CSV</a>
+		<div class="card">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12">
+					<h6 class="card-subtitle">Seleccione la encuesta que desea ver:</h6>
 					<!-- Boton de las encuestas-->
-					<div class="btn-group float-right">
+					<div class="btn-group">
 						<button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Encuestas</button>
 						<div class="dropdown-menu">
 							<?php foreach ($ids as $id) { ?>
@@ -58,6 +66,17 @@
 							<?php } ?>
 						</div>
 					</div><br><br>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Card de la tabla de contenido -->
+	<div class="row">
+		<div class="col-md-12 align-center">
+			<div class="card">
+				<div class="card-body">
+
 					<!-- ======================================================================================================================================= -->
 					<!-- Tabla de respuestas -->
 					<!-- ====================================================================================================================================== -->

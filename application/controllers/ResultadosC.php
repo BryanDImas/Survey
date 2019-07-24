@@ -36,10 +36,9 @@ class ResultadosC extends CI_Controller
 	{
 		
 		if ($ide == '') {
-			$ide = $ide = $this->ResultadosM->last($this->session->usuario->idUsuario);
+			$ide  = $this->ResultadosM->last($this->session->usuario->idUsuario);
 		}
 		$datos['ids'] = $this->EncuestasModel->ids($this->session->usuario->idUsuario);
-		$this->session->set_userdata('idEncuesta', $ide);
 		if ($this->session->empresa->TipoCuenta == 'Basica') {
 			echo "<script>alert('Para tener acceso a esta área comuniquese con el administrador y cambie su cuenta a Avanzada');</script>";
 			self::index($this->session->idEncuesta);
@@ -52,7 +51,7 @@ class ResultadosC extends CI_Controller
 				$ids[$i]->respuestas = $cont;
 				$total += $ids[$i]->respuestas;
 			}
-			$datos['encuesta']->totalRes = $total ?? 0;
+			$datos['encuesta']->totalRes = $total;
 			$datos['encuesta']->Demo = $this->ResultadosM->demo($ide);
 			foreach ($datos['encuesta']->Demo as $p) {
 				$p->respuestas = $this->ResultadosM->respuestas($p->idPregunta);
