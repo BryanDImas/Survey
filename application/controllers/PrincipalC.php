@@ -109,6 +109,7 @@ class PrincipalC extends CI_Controller
         $datos = $this->input->post('respuestas[]'); //Capturamos los datos del formulario
         $idEncuesta = $this->input->post('idEncuesta'); //obtenemos el id de la encuesta
         $ids = $this->PrincipalModel->ids2($idEncuesta); // id de las preguntas.
+    /*     echo "<pre>"; print_r($datos); die; */
         for ($i = 0; $i < count($ids); $i++) {  //recorremos los ids
             $ids[$i]->respuestas = $this->PrincipalModel->respuestas2($ids[$i]->idPregunta); //obtenemos los ids de las respuestas
                 foreach ($ids[$i]->respuestas as $respuesta) { // recorremos las respuestas.

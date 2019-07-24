@@ -122,9 +122,9 @@ class UsuariosC extends CI_Controller
 		// creación del archivo
 		$file = fopen('php://output', 'w');
 		$header = array("Usuario", "Correo", "Telefono", "Cargo", "Departamento", "Rol", "Estado de la cuenta", "Empresa");
-		fputcsv($file, $header);
+		fputcsv($file, $header, ";");
 		foreach ($usersData as $line) {
-			fputcsv($file, $line);
+			fputcsv($file, $line, ";");
 		}
 		fclose($file);
 		exit;

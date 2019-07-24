@@ -94,7 +94,14 @@
 													<td><label style="color: rgb(255, 230, 0)"><?= str_repeat("★",($respuesta->Respuestas ?? 0)); ?></label></td>
 													<td><?= $respuesta->Contador ?></td>												
 												<?php break;
-											}?>
+												case 6: 
+													if($respuesta->Respuestas < 50){?>
+													<td><?= $respuesta->Respuestas ?>% Malo</td>
+													<?php }else{?>
+														<td><?= $respuesta->Respuestas ?>% Bueno</td>
+													<?php } ?>
+													<td><?= $respuesta->Contador ?></td>
+										<?php }?>
 										</tr>
 									<?php }} ?>
 							</tbody>
