@@ -37,5 +37,9 @@ Error Page
     line-height: 210px; }
 
     h1 {
-      color:  #145a32  !important;
+      color:black!important;
+    }
+ 
+    footer{
+      color:#a9F5A9 !important;
     }

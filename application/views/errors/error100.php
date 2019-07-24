@@ -27,10 +27,10 @@
             <div class="error-body text-center">
                 <h1 class="text-warning">&#x1F641</h1><br>
                 <h1 class="">Oops!!!</h1><br><br>
-            <h3 class="text-success text-uppercase">Lo sentimos esta página no se encuentra disponible por el momento</h3>
-                <p class="text-info m-t-30 m-b-30"></p><br>
+            <h3 class="text-warning text-uppercase">Lo sentimos esta página no se encuentra disponible por el momento</h3>
+                <p class=" m-t-30 m-b-30"></p><br>
                
-    <footer class="footer text-center text-success">© 2019 Survey, The Next Services, SA de CV. Todos los derechos reservados.</footer>
+    <footer class="footer text-center">© 2019, The Next Services, SA de CV. Todos los derechos reservados.</footer>
         </div>
       
     </section>
