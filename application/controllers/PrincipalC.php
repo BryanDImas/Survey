@@ -6,7 +6,8 @@ class PrincipalC extends CI_Controller
     public function __construct()
     {
         $datos = array();
-        parent::__construct();
+		parent::__construct();
+		$this->load->library('form_validation');
         $this->load->model('PrincipalModel');
     }
     # Acción que nos trae la primera vista de las encuestas.
