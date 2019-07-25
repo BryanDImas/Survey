@@ -167,19 +167,19 @@ class EncuestasC extends CI_Controller
 			case 1: //Si es encuesta de tipo simple.
 			case 2: //Si es encuesta de tipo multiple.
 			case 7: // Si es encuesta de tipo combobox.
-				$this->load->view('Principal/index', $datos);
+				$this->load->view('previsualizar/index', $datos);
 				break;
 			case 3: //Si es encuesta de tipo icono caritas.
-				$this->load->View('Principal/caritas', $datos);
+				$this->load->View('previsualizar/caritas', $datos);
 				break;
 			case 4: //Si es encuesta de tipo ponderaciones.
-				$this->load->View('Principal/ponderacion', $datos);
+				$this->load->View('previsualizar/ponderacion', $datos);
 				break;
 			case 5: //Si es encuesta de tipo icono manitas.
-				$this->load->View('Principal/manitas', $datos);
+				$this->load->View('previsualizar/manitas', $datos);
 				break;
 			case 6: //Si es encuesta de tipo icono escala o rango.
-				$this->load->view('Principal/escala', $datos);
+				$this->load->view('previsualizar/escala', $datos);
 				break;
 		}
 	 }
