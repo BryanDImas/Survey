@@ -19,6 +19,7 @@
 				<div class="logo-responsive">
 					<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
 				</div>
+				<h3 style="color:#1b4f32; text-align:right;">* Vista preliminar.</h3>
 				<div class="card-title">
 					<h2><?= $encuesta->NombreEncuesta ?></h2>
 					<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
@@ -34,6 +35,7 @@
 							<label for="radio1<?= $pregunta->Pregunta ?>"><img src="<?= base_url('assets/images/icon/triste.png') ?>"></label><br>
 							<input id="radio1<?= $pregunta->Pregunta ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[0]['IdRespuestas'] ?>">
 						</div>
+<<<<<<< HEAD
 						<div class="col-md-2 col-xs-1">
 							<label for="radio2<?= $pregunta->Pregunta ?>"><img src="<?= base_url('assets/images/icon/confundido.png') ?>"></label><br>
 							<input id="radio2<?= $pregunta->Pregunta ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[1]['IdRespuestas'] ?>">
@@ -50,6 +52,18 @@
 				<a href="<?= base_url('EncuestasC/') ?>" class="btn btn-pri btn-lg">Listo</a>
 			</div>
 			<h3>Vista Preliminar. NO captura datos. </h3>
+=======
+						<?php $num++;
+					} ?>
+				</div>
+				<input type="hidden" name="idencuesta" value="<?= $encuesta->idEncuesta ?>">
+				<div class="boton col-md-12 text-center">
+					<input type="submit" class="btn btn-pri btn-lg" value="Listo">
+				</div>
+			</form>
+
+
+>>>>>>> 89a489647352e8264b12760aff46ce68853b0ccf
 		</div>
 	</div>
 	<footer>

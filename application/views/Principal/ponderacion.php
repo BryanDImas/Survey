@@ -21,6 +21,7 @@
             <div class="card-header">
                 <div class="logo-responsive">
                     <img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
+                    
                 </div>
                 <div class="card-title">
                     <h2><?= $encuesta->NombreEncuesta ?></h2>
@@ -57,6 +58,7 @@
                     <p></p><br>
             </form>
             </center>
+            
         </div>
     </div>
 
@@ -88,6 +90,7 @@
         </script>
         <?php $num++;
     } ?>
+  
 <footer>
         <div class="">
            <p> © 2019 Survey, The Next Services, SA de CV. Todos los derechos reservados</p><br>

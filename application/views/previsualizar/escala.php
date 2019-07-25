@@ -18,6 +18,7 @@
 				<div class="logo-responsive">
 					<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
 				</div>
+<<<<<<< HEAD
 				<div class="card-title">
 					<h2><?= $encuesta->NombreEncuesta ?></h2>
 					<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
@@ -38,6 +39,42 @@
 				<a href="<?= base_url('EncuestasC/') ?>" class="btn btn-pri btn-lg">Listo</a>
 			</div>
 			<h3>Vista Preliminar. NO captura datos. </h3>
+=======
+				<h3 style="color:#1b4f32; text-align:right;">* Vista preliminar.</h3>
+					<div class="card-title">
+						<h2><?= $encuesta->NombreEncuesta ?></h2>
+						<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
+					</div>
+
+				</div>
+				<form method="POST" action="<?= base_url('PrincipalC/capturar2/') ?>">
+					<div class="card-body">
+
+						<?php $num = 1;
+						foreach ($encuesta->preguntas as $pregunta) { ?>
+							
+							<h5 class="col-md-offset-1"><?= $num ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h5>
+							<p>
+								<h5>Malo <input name="respuestas[]" type="range" id="toPrice" step="25" value="" oninput="document.getElementById('tPrice<?= $num ?>').innerHTML = this.value + '%';" /> Bueno</h5>
+								<h2><label id="tPrice<?= $num ?>"></label></h2>
+							</p>
+							<?php $num++;
+						} ?>
+					</div>
+					<input type="hidden" name="idEncuesta" value="<?= $encuesta->idEncuesta ?>">
+					<div class="boton col-md-11 text center">
+						<input type="submit" class="btn btn-pri btn-lg" value="Listo">
+					</div>
+				</form>
+
+				<div>
+
+				</div>
+		
+	
+		</form><br>
+	
+>>>>>>> 89a489647352e8264b12760aff46ce68853b0ccf
 		</div>
 	</div>
 	<footer>

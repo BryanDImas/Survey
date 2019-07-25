@@ -50,12 +50,12 @@
                 </div>
                 <p></p> <br><br>
             </form>
-
+     
         </div>
 
 
     </div>
-
+	
     <footer>
         <div>
             <span class="">&copy; 2019 Survey, The Next Services, SA de CV. Todos los Derechos Reservados.</span>

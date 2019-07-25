@@ -20,7 +20,8 @@
                 <div class="logo-responsive">
                     <img src="<?= base_url() ?><?= $encuesta->logo ?>">
                 </div>
-                <div class="card-title">
+                <h3 style="color:#1b4f32; text-align:right;">* Vista preliminar.</h3>
+                <h2 class="card-title">
                     <h2><?= $encuesta->NombreEncuesta ?></h2>
                     <h4><?= $encuesta->ObjetivoEncuesta ?></h4>
 
