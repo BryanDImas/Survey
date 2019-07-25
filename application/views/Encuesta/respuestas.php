@@ -12,7 +12,7 @@
 			<div class="card-body" id="form">
 				<h5 class="text-center">Cree sus respuestas</h5>
 
-				<div style=" text-align:center; margin:3% auto; width:35rem; heigth:40rem;" class="list-group">
+				<div style=" text-align:center; margin:3% auto; width:35rem;" class="list-group">
 
 					<div class="form-group has-success">
 						<input type="hidden" id="num" name="num" value="<?= $num ?>">
