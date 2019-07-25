@@ -15,10 +15,8 @@
 </head>
 
 <body>
-
 	<div class="container">
 		<div class="contenedor">
-
 			<div class="card-header">
 			<div class="logo-responsive">
 		 	<img class="rounded-circle" src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
@@ -30,7 +28,6 @@
 				</div>
 			</div>
 				<div class="card-body">
-
 					<?php $num = 1;
 					foreach ($encuesta->preguntas as $pregunta) { ?>
 						<div class="form-group">
@@ -62,13 +59,13 @@
 				<div class="boton col-md-12 text-center">
 					<a href="<?= base_url('EncuestasC/') ?>" class="btn btn-pri btn-lg">Listo</a>
 				</div>
-			
+			<h3>Vista preliminar. No captura datos.</h3>
 		</div>
 	</div>
 	</div>
 	<footer>
 	<div>
-			<span class="">&copy; 2019 Survey, The Next Services, SA de CV. Todos los Derechos Reservados.</span>
+		<span class="">&copy; 2019 Survey, The Next Services, SA de CV. Todos los Derechos Reservados.</span>
 		</div>
 	</footer>
 </body>
