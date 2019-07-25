@@ -49,7 +49,7 @@ class PrincipalC extends CI_Controller
 	public function CapDemo()
 	{
  		$this->form_validation->set_rules('edad', 'Edad', 'required', ['required' => 'El campo %s es requerido']);
-		$this->form_validation->set_rules('genero', 'Genero', 'required', ['required' => 'El campo %s es requerido']);
+		$this->form_validation->set_rules('genero', 'Género', 'required', ['required' => 'El campo %s es requerido']);
 		$this->form_validation->set_rules('ciudad', 'Ciudad', 'required', ['required' => 'El campo %s es requerido']); 
 
 		 if ($this->form_validation->run()) {

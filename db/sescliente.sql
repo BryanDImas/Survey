@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-07-2019 a las 21:25:08
+-- Tiempo de generación: 25-07-2019 a las 19:21:11
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.0.33
 
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `sescliente`
 --
-CREATE DATABASE IF NOT EXISTS `sescliente` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `sescliente` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `sescliente`;
 
 DELIMITER $$
@@ -42,35 +42,6 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ingr_us` (IN `usuario` VARCHAR(5
 END$$
 
 DELIMITER ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `bitacorausuarios`
---
-
-CREATE TABLE `bitacorausuarios` (
-  `IdBitUs` int(11) NOT NULL,
-  `IdUsuario` int(11) NOT NULL,
-  `Acceso` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `Salida` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `Actividad` varchar(100) NOT NULL,
-  `DescripcionAct` text NOT NULL,
-  `Ip` varchar(15) DEFAULT NULL,
-  `DispositivoCon` enum('Computadora','Tablet','Movil') NOT NULL DEFAULT 'Computadora'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `comentarios`
---
-
-CREATE TABLE `comentarios` (
-  `IdComentarios` int(11) NOT NULL,
-  `Comentarios` text NOT NULL,
-  `idEncuesta` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -173,7 +144,7 @@ CREATE TABLE `encuestas` (
   `NombreEncuesta` varchar(45) NOT NULL,
   `ObjetivoEncuesta` varchar(100) DEFAULT NULL,
   `Estado` enum('Activo','Inactivo') DEFAULT 'Inactivo',
-  `FechaCreacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `FechaCreacion` date DEFAULT NULL,
   `FechaActivacion` date NOT NULL,
   `FechaFinalizacion` date DEFAULT NULL,
   `MensajeInicio` text NOT NULL,
@@ -191,14 +162,13 @@ CREATE TABLE `encuestas` (
 --
 
 INSERT INTO `encuestas` (`idEncuesta`, `NombreEncuesta`, `ObjetivoEncuesta`, `Estado`, `FechaCreacion`, `FechaActivacion`, `FechaFinalizacion`, `MensajeInicio`, `MensajeFinalizacion`, `idUsuario`, `Demograficos`, `Resultados`, `IdFormato`, `Url`, `Contador`) VALUES
-(13, 'Simple', 'Ejemplo', 'Activo', '2019-07-11 23:46:55', '0000-00-00', '2019-07-31', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 7, 'http://localhost/Survey/PrincipalC/index/?e=MTM=', 13),
-(15, 'Caritas', 'Ejemplo', 'Inactivo', '2019-07-12 00:00:54', '0000-00-00', '0000-00-00', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 3, 'http://localhost/Survey/PrincipalC/index/?e=MTU=', 0),
-(16, 'Ponderaciones', 'Ejemplo', '', '2019-07-12 01:43:13', '0000-00-00', '2019-07-12', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 4, 'http://localhost/Survey/PrincipalC/index/?e=MTY=', 0),
-(17, 'Manitas', 'Ejemplo', 'Inactivo', '2019-07-12 01:50:09', '0000-00-00', '2019-07-12', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 5, 'http://localhost/Survey/PrincipalC/index/?e=MTc=', 0),
-(18, 'Escala', 'Ejemplo', 'Inactivo', '2019-07-12 01:53:02', '0000-00-00', '0000-00-00', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'Si', 6, 'http://localhost/Survey/PrincipalC/index/?e=MTg=', 0),
-(19, 'Combobox', 'Ejemplo', 'Inactivo', '2019-07-12 01:55:36', '0000-00-00', '2019-07-12', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'Si', 'Si', 7, 'http://localhost/Survey/PrincipalC/index/?e=MTk=', 0),
-(20, 'Multiple', 'Ejemplo', 'Inactivo', '2019-07-12 02:25:13', '0000-00-00', '2019-07-12', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', '', 1, 'No', 'No', 2, 'http://localhost/Survey/PrincipalC/index/?e=MjA=', 0),
-(29, 'encuesta', 'alimentacion', 'Inactivo', '2019-07-19 22:17:51', '0000-00-00', '2019-07-31', 'Bienvenido(a). Gracias por su visita, contestando la siguiente encuesta, nos ayudara a mejorar.', '', 1, 'Si', 'No', 3, '', 0);
+(13, 'Simple', 'Ejemplo', 'Activo', '2019-07-11', '0000-00-00', '2019-07-31', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 1, 'http://localhost/Survey/PrincipalC/index/?e=MTM=', 13),
+(19, 'Combobox', 'Ejemplo', 'Inactivo', '2019-07-11', '0000-00-00', '2019-07-12', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'Si', 'Si', 7, 'http://localhost/Survey/PrincipalC/index/?e=MTk=', 0),
+(20, 'Multiple', 'Ejemplo', 'Inactivo', '2019-07-11', '0000-00-00', '2019-07-12', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', '', 1, 'No', 'No', 2, 'http://localhost/Survey/PrincipalC/index/?e=MjA=', 0),
+(24, 'Caritas', 'Prueba', 'Activo', '2019-07-24', '0000-00-00', '2019-07-31', '¡Gracias por su visita!. Su opinión es muy importante, por favor conteste la siguiente encuesta, sus comentarios nos ayudarán a mejorar. ', 'Agradecemos que se tomara el tiempo de completar la encuesta, sus comentarios nos permiten mejorar nuestros servicios.', 1, 'Si', 'No', 3, 'http://localhost/Survey/PrincipalC/index/?e=MjQ=', 3),
+(25, 'Ponderaciones', 'prueba', 'Activo', '2019-07-24', '0000-00-00', '2019-07-31', '¡Gracias por su visita!. Su opinión es muy importante, por favor conteste la siguiente encuesta, sus comentarios nos ayudarán a mejorar. ', 'Agradecemos que se tomara el tiempo de completar la encuesta, sus comentarios nos permiten mejorar nuestros servicios.', 1, 'No', 'Si', 4, 'http://localhost/Survey/PrincipalC/index/?e=MjU=', 8),
+(26, 'Manitas', 'prueba', 'Activo', '2019-07-24', '0000-00-00', '2019-07-31', '¡Gracias por su visita!. Su opinión es muy importante, por favor conteste la siguiente encuesta, sus comentarios nos ayudarán a mejorar. ', 'Agradecemos que se tomara el tiempo de completar la encuesta, sus comentarios nos permiten mejorar nuestros servicios.', 1, 'Si', 'No', 5, 'http://localhost/Survey/PrincipalC/index/?e=MjY=', 4),
+(29, 'Escala', 'prueba', 'Activo', '2019-07-24', '0000-00-00', '2019-07-31', '¡Gracias por su visita!. Su opinión es muy importante, por favor conteste la siguiente encuesta, sus comentarios nos ayudarán a mejorar. ', 'Agradecemos que se tomara el tiempo de completar la encuesta, sus comentarios nos permiten mejorar nuestros servicios.', 1, 'Si', 'No', 6, 'http://localhost/Survey/PrincipalC/index/?e=Mjk=', 3);
 
 -- --------------------------------------------------------
 
@@ -534,7 +504,6 @@ INSERT INTO `paises` (`idPais`, `Nombre`) VALUES
 
 CREATE TABLE `preguntas` (
   `idPregunta` int(11) NOT NULL,
-  `Numero` int(11) NOT NULL,
   `Pregunta` varchar(250) DEFAULT NULL,
   `PorDefecto` enum('1','2') DEFAULT '2',
   `IdEncuesta` int(11) DEFAULT NULL
@@ -544,34 +513,40 @@ CREATE TABLE `preguntas` (
 -- Volcado de datos para la tabla `preguntas`
 --
 
-INSERT INTO `preguntas` (`idPregunta`, `Numero`, `Pregunta`, `PorDefecto`, `IdEncuesta`) VALUES
-(7, 1, '¿Nos recomendaría con amigo?', '2', 13),
-(8, 2, '¿Cómo le parecieron nuestras instalaciones?', '2', 13),
-(9, 3, '¿qué le parecieron nuestros nuevos productos?', '2', 13),
-(11, 1, '¿Cuál fue el grado de satisfación de su visita?', '2', 15),
-(12, 2, '¿Le gustaron nuestras instalaciones?', '2', 15),
-(15, 5, '¿Encontró limpias nuestras instalaciones?', '2', 15),
-(16, 1, '¿Cómo fue la atención de nuestro personal?', '2', 16),
-(17, 2, '¿Encontro limpias y ordenadas nuestras instalaciones?', '2', 16),
-(18, 3, '¿Le gustaron nuestros productos?', '2', 16),
-(19, 1, '¿Nos recomendría con un amigo?', '2', 17),
-(20, 2, '¿Volvería a visitarnos en los proximos treinta días?', '2', 17),
-(21, 3, '¿Compraría de nuevo nuestros productos?', '2', 17),
-(22, 1, '¿Considera que nuestros precios son competitivos?', '2', 18),
-(23, 2, '¿Cómo calificaría nuestros productos?', '2', 18),
-(24, 3, '¿Califique nuestra atención?', '2', 18),
-(25, 1, '¿Cuál es su edad?', '1', 19),
-(26, 2, '¿Cuál es su género?', '1', 19),
-(27, 3, '¿Cuál es su ciudad de residencia?', '1', 19),
-(28, 4, '¿Nos recomendaría con un amigo?', '2', 19),
-(29, 5, '¿Cómo se entero de nuestros servicios?', '2', 19),
-(30, 6, '¿Le parece novedosos nuestros productos?', '2', 19),
-(31, 1, '¿Nos recomendaría con un amigo?', '2', 20),
-(32, 2, '¿Le gustaron nuestras instalaciones?', '2', 20),
-(33, 3, '¿Le parecieron limpias nuestras instalaciones?', '2', 20),
-(51, 1, '¿Cuál es su edad?', '1', 29),
-(52, 2, '¿Cuál es su género?', '1', 29),
-(53, 3, '¿Cuál es su ciudad de residencia?', '1', 29);
+INSERT INTO `preguntas` (`idPregunta`, `Pregunta`, `PorDefecto`, `IdEncuesta`) VALUES
+(7, '¿Nos recomendaría con amigo?', '2', 13),
+(8, '¿Cómo le parecieron nuestras instalaciones?', '2', 13),
+(9, '¿qué le parecieron nuestros nuevos productos?', '2', 13),
+(25, '¿Cuál es su edad?', '1', 19),
+(26, '¿Cuál es su género?', '1', 19),
+(27, '¿Cuál es su ciudad de residencia?', '1', 19),
+(28, '¿Nos recomendaría con un amigo?', '2', 19),
+(29, '¿Cómo se entero de nuestros servicios?', '2', 19),
+(30, '¿Le parece novedosos nuestros productos?', '2', 19),
+(31, '¿Nos recomendaría con un amigo?', '2', 20),
+(32, '¿Le gustaron nuestras instalaciones?', '2', 20),
+(33, '¿Le parecieron limpias nuestras instalaciones?', '2', 20),
+(57, '¿Cuál es su edad?', '1', 24),
+(58, '¿Cuál es su género?', '1', 24),
+(59, '¿Cuál es su municipio de residencia?', '1', 24),
+(60, '¿Cómo le pareció nuestro servicio?', '2', 24),
+(61, '¿Le atendieron amablemente?', '2', 24),
+(62, '¿Qué le parecieron nuestras instalaciones?', '2', 24),
+(63, '¿Como fue su experiencia con nosotros?', '2', 25),
+(64, '¿Encontro la solucion a su respuesta?', '2', 25),
+(65, '¿Fue util la informacion proporcionada?', '2', 25),
+(66, '¿Cuál es su edad?', '1', 26),
+(67, '¿Cuál es su género?', '1', 26),
+(68, '¿Cuál es su municipio de residencia?', '1', 26),
+(69, '¿Le gusto nuestro servicio?', '2', 26),
+(70, '¿Como nos califica?', '2', 26),
+(71, '¿Ha sido util la informacion?', '2', 26),
+(81, '¿Cuál es su edad?', '1', 29),
+(82, '¿Cuál es su género?', '1', 29),
+(83, '¿Cuál es su municipio de residencia?', '1', 29),
+(84, 'pregunta 1', '2', 29),
+(85, 'pregunta 2', '2', 29),
+(86, 'pregunta 3', '2', 29);
 
 -- --------------------------------------------------------
 
@@ -604,7 +579,6 @@ INSERT INTO `publicidad` (`IdPub`, `Imagen`, `IdUsuario`) VALUES
 
 CREATE TABLE `respuestas` (
   `IdRespuestas` int(11) NOT NULL,
-  `Numero` int(11) NOT NULL,
   `Respuestas` varchar(45) DEFAULT NULL,
   `IdPregunta` int(11) NOT NULL,
   `Contador` int(11) NOT NULL
@@ -614,38 +588,92 @@ CREATE TABLE `respuestas` (
 -- Volcado de datos para la tabla `respuestas`
 --
 
-INSERT INTO `respuestas` (`IdRespuestas`, `Numero`, `Respuestas`, `IdPregunta`, `Contador`) VALUES
-(9, 1, 'Si', 7, 6),
-(10, 2, 'No', 7, 6),
-(11, 3, 'Talvez', 7, 1),
-(12, 1, 'Limpias', 8, 2),
-(14, 3, 'Sucias', 8, 4),
-(15, 4, 'Amigables con el medio ambiente', 8, 7),
-(17, 2, 'Calidad', 9, 3),
-(18, 3, 'Presentación', 9, 5),
-(19, 4, 'Precio', 9, 5),
-(22, 1, 'Si', 28, 0),
-(23, 2, 'No', 28, 0),
-(24, 3, 'Talvez', 28, 0),
-(25, 1, '18 años a 28 años', 25, 0),
-(26, 2, '29 años a 38 años', 25, 0),
-(27, 3, '39 años a 48 años', 25, 0),
-(28, 3, '49 años a 58 años', 25, 0),
-(29, 4, 'Mayor de 59 años', 25, 0),
-(30, 1, 'Radio', 29, 0),
-(31, 2, 'Television', 29, 0),
-(32, 3, 'Redes sociales', 29, 0),
-(34, 2, 'Si son muy innovadores', 30, 0),
-(35, 3, 'No no son innovadores', 30, 0),
-(36, 1, 'Si', 31, 0),
-(37, 2, 'No', 31, 0),
-(38, 3, 'Talvez', 31, 0),
-(39, 1, 'Si', 32, 0),
-(40, 2, 'No', 32, 0),
-(41, 3, 'Talvez', 32, 0),
-(42, 1, 'Si', 33, 0),
-(43, 2, 'No', 33, 0),
-(44, 3, 'Talvez', 33, 0);
+INSERT INTO `respuestas` (`IdRespuestas`, `Respuestas`, `IdPregunta`, `Contador`) VALUES
+(9, 'Si', 7, 6),
+(10, 'No', 7, 6),
+(11, 'Talvez', 7, 1),
+(12, 'Limpias', 8, 2),
+(14, 'Sucias', 8, 4),
+(15, 'Amigables con el medio ambiente', 8, 7),
+(17, 'Calidad', 9, 3),
+(18, 'Presentación', 9, 5),
+(19, 'Precio', 9, 5),
+(22, 'Si', 28, 0),
+(23, 'No', 28, 0),
+(24, 'Talvez', 28, 0),
+(25, '18 años a 28 años', 25, 0),
+(26, '29 años a 38 años', 25, 0),
+(27, '39 años a 48 años', 25, 0),
+(28, '49 años a 58 años', 25, 0),
+(29, 'Mayor de 59 años', 25, 0),
+(30, 'Radio', 29, 0),
+(31, 'Television', 29, 0),
+(32, 'Redes sociales', 29, 0),
+(34, 'Si son muy innovadores', 30, 0),
+(35, 'No no son innovadores', 30, 0),
+(36, 'Si', 31, 0),
+(37, 'No', 31, 0),
+(38, 'Talvez', 31, 0),
+(39, 'Si', 32, 0),
+(40, 'No', 32, 0),
+(41, 'Talvez', 32, 0),
+(42, 'Si', 33, 0),
+(43, 'No', 33, 0),
+(44, 'Talvez', 33, 0),
+(96, 'Lo odio', 60, 3),
+(97, 'Normal', 60, 1),
+(98, 'Me encanta', 60, 1),
+(99, 'Lo odio', 61, 1),
+(100, 'Normal', 61, 3),
+(101, 'Me encanta', 61, 1),
+(102, 'Lo odio', 62, 3),
+(103, 'Normal', 62, 1),
+(104, 'Me encanta', 62, 1),
+(105, '-- Selecione su edad', 57, 1),
+(106, '', 58, 1),
+(107, 'Acajutla', 59, 1),
+(108, '1', 63, 1),
+(109, '2', 63, 1),
+(110, '3', 63, 1),
+(111, '4', 63, 1),
+(112, '5', 63, 1),
+(113, '1', 64, 1),
+(114, '2', 64, 1),
+(115, '3', 64, 1),
+(116, '4', 64, 1),
+(117, '5', 64, 1),
+(118, '1', 65, 1),
+(119, '2', 65, 1),
+(120, '3', 65, 1),
+(121, '4', 65, 1),
+(122, '5', 65, 1),
+(123, 'No me gusta', 69, 2),
+(124, 'Me gusta', 69, 2),
+(125, 'No me gusta', 70, 2),
+(126, 'Me gusta', 70, 2),
+(127, 'No me gusta', 71, 2),
+(128, 'Me gusta', 71, 2),
+(129, '-- Selecione su edad', 66, 1),
+(130, '', 67, 1),
+(131, 'Acajutla', 68, 1),
+(198, '0', 84, 1),
+(199, '25', 84, 1),
+(200, '50', 84, 0),
+(201, '75', 84, 1),
+(202, '100', 84, 0),
+(203, '0', 85, 1),
+(204, '25', 85, 1),
+(205, '50', 85, 1),
+(206, '75', 85, 0),
+(207, '100', 85, 0),
+(208, '0', 86, 1),
+(209, '25', 86, 1),
+(210, '50', 86, 0),
+(211, '75', 86, 1),
+(212, '100', 86, 0),
+(213, '-- Selecione su edad', 81, 1),
+(214, '', 82, 1),
+(215, 'Acajutla', 83, 1);
 
 -- --------------------------------------------------------
 
@@ -696,20 +724,6 @@ INSERT INTO `usuarios` (`idUsuario`, `Usuario`, `Clave`, `Cargo`, `Departamento`
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `bitacorausuarios`
---
-ALTER TABLE `bitacorausuarios`
-  ADD PRIMARY KEY (`IdBitUs`),
-  ADD KEY `fk_bita_usu` (`IdUsuario`);
-
---
--- Indices de la tabla `comentarios`
---
-ALTER TABLE `comentarios`
-  ADD PRIMARY KEY (`IdComentarios`),
-  ADD KEY `fk_comentarios_encuesta` (`idEncuesta`);
 
 --
 -- Indices de la tabla `correos`
@@ -804,18 +818,6 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT de la tabla `bitacorausuarios`
---
-ALTER TABLE `bitacorausuarios`
-  MODIFY `IdBitUs` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `comentarios`
---
-ALTER TABLE `comentarios`
-  MODIFY `IdComentarios` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `correos`
 --
 ALTER TABLE `correos`
@@ -861,7 +863,7 @@ ALTER TABLE `paises`
 -- AUTO_INCREMENT de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
-  MODIFY `idPregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `idPregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT de la tabla `publicidad`
@@ -873,7 +875,7 @@ ALTER TABLE `publicidad`
 -- AUTO_INCREMENT de la tabla `respuestas`
 --
 ALTER TABLE `respuestas`
-  MODIFY `IdRespuestas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `IdRespuestas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=216;
 
 --
 -- AUTO_INCREMENT de la tabla `telefonos`
@@ -890,18 +892,6 @@ ALTER TABLE `usuarios`
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `bitacorausuarios`
---
-ALTER TABLE `bitacorausuarios`
-  ADD CONSTRAINT `fk_bita_usu` FOREIGN KEY (`IdUsuario`) REFERENCES `usuarios` (`idUsuario`);
-
---
--- Filtros para la tabla `comentarios`
---
-ALTER TABLE `comentarios`
-  ADD CONSTRAINT `fk_comentarios_encuesta` FOREIGN KEY (`idEncuesta`) REFERENCES `encuestas` (`idEncuesta`);
 
 --
 -- Filtros para la tabla `correos`

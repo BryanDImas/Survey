@@ -21,7 +21,6 @@
 				</div>
 				<h2><?= $encuesta->NombreEncuesta ?></h2>
 				<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
-<!-- 				<?php date_default_timezone_set('America/El_Salvador'); echo date("Y-m-d h:m:s")?> -->
 			</div>
 			<div class="mensaje">
 				<h3 class=""><?php echo nl2br($encuesta->MensajeInicio); ?></h3>
@@ -32,9 +31,9 @@
 					<form class="form-group" action="<?= base_url('PrincipalC/CapDemo') ?>" method="post" >
 						<div class="col-md-8 offset-2">
 							<h6><?= $encuesta->preguntas[0]->Pregunta ?></h6><br>
-							<select name="edad" class="custom-select" style="width:250px;" >
-							<!-- <option>-- Selecione su edad</option> -->
 							
+							<select name="edad" class="custom-select" style="width:320px; border-color:#24d2b5;">
+							<option disabled selected>Seleccione su rango de edad</option>
 								<option>de 18 a 28 años</option>
 								<option>de 28 a 38 años</option>
 								<option>de 38 a 48 años</option>
@@ -56,7 +55,8 @@
 						<p>
 							<div class=" col-md-8 offset-2" >
 								<h6><?= $encuesta->preguntas[2]->Pregunta ?></h6><br>
-								<select name="ciudad" class="custom-select" style="width:150px;">
+								<select name="ciudad" class="custom-select" style="width:320px; border-color:#24d2b5;">
+								<option disabled selected>Seleccione su municipio de residencia</option>
 									<?php foreach ($ciudad as $c) { ?>
 										<option value="<?= $c->Municipio ?>"><?= $c->Municipio ?></option>
 									<?php } ?>

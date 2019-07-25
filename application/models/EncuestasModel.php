@@ -22,7 +22,7 @@ class EncuestasModel extends CI_Model
     # Método para crear un registro en la tabla encuestas.
     public function crear($datos)
     {
-        $sql = "INSERT INTO encuestas(MensajeInicio, NombreEncuesta, ObjetivoEncuesta, FechaFinalizacion,idUsuario,Demograficos) VALUES (?,?,?,?,?,?)";
+        $sql = "INSERT INTO encuestas(MensajeInicio, NombreEncuesta, ObjetivoEncuesta, FechaFinalizacion,idUsuario,Demograficos,FechaCreacion) VALUES (?,?,?,?,?,?,?)";
         $this->db->query($sql, $datos);
     }
     # Método para trear el id de la encuesta recien ingresada por usuario
@@ -31,8 +31,12 @@ class EncuestasModel extends CI_Model
         $sql = "SELECT  @@identity AS id FROM encuestas WHERE idUsuario = $datos";
         return $this->db->query($sql,$datos)->row()->id;
     }
-    public function actualizar($a, $date){
-        $s = "UPDATE encuestas SET NombreEncuesta = ?, ObjetivoEncuesta = ?, Estado =?, MensajeInicio = ?, FechaFinalizacion=?, MensajeFinalizacion = ? WHERE idEncuesta = ? ";
+    public function actualizar($a){
+		$s = "UPDATE encuestas SET NombreEncuesta = ?, ObjetivoEncuesta = ?, Estado =?, MensajeInicio = ?, FechaFinalizacion=?, MensajeFinalizacion = ?,";
+		if($a > 7){
+			$s .="FechaActivacion = ? ";
+		}
+		$s .="WHERE idEncuesta = ? ";
          $this->db->query($s, $a);
     }
 

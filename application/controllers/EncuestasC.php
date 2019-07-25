@@ -75,7 +75,7 @@ class EncuestasC extends CI_Controller
 	public function eliminar($id)
 	{
 		$this->EncuestasModel->eliminar($id);
-		self::index($pag = 1);
+		redirect('EncuestasC/index/?pag=1');
 	}
 	# Acción que nos devuelve los datos del usuario para el perfil.
 	public function perfil($id)
@@ -97,9 +97,10 @@ class EncuestasC extends CI_Controller
 	# Acción que nos permite crear una encuesta.
 	public function crear()
 	{
+		date_default_timezone_set('America/El_Salvador');
 		$datos = [
 			$this->input->post('msj'), $this->input->post('nom'), $this->input->post('obj'), $this->input->post('fve'),
-			$this->session->usuario->idUsuario, $this->input->post('demo')
+			$this->session->usuario->idUsuario, $this->input->post('demo'),date("Y-m-d")
 		];
 		$this->EncuestasModel->crear($datos);
 		$array = [];
@@ -143,12 +144,24 @@ class EncuestasC extends CI_Controller
 	}
 
 	public function actualizar(){
+		date_default_timezone_set('America/El_Salvador');
+		if($this->input->post('esta') == 'Activo'){
+			$datos = [
+				$this->input->post('nom'), $this->input->post('obj'),
+				$this->input->post('esta'), $this->input->post('msj'),
+				$this->input->post('fecha'),$this->input->post('msjd'),
+				date("Y-m-d"),
+				$this->input->post('id')
+			];
+		}else{
 			$datos = [
 				$this->input->post('nom'), $this->input->post('obj'),
 				$this->input->post('esta'), $this->input->post('msj'),
 				$this->input->post('fecha'),$this->input->post('msjd'),
 				 $this->input->post('id')
 			];
+		}
+
 		
 		$this->EncuestasModel->actualizar($datos);
 		redirect('EncuestasC/');
