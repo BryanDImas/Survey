@@ -32,9 +32,9 @@
 					<form class="form-group" action="<?= base_url('PrincipalC/CapDemo') ?>" method="post" >
 						<div class="col-md-8 offset-2">
 							<h6><?= $encuesta->preguntas[0]->Pregunta ?></h6><br>
-							<select name="edad" class="custom-select" style="width:250px;" >
-							<!-- <option>-- Selecione su edad</option> -->
 							
+							<select name="edad" class="custom-select" style="width:250px;" >
+							<option selected>Seleccione su rango de edad</option>
 								<option>de 18 a 28 años</option>
 								<option>de 28 a 38 años</option>
 								<option>de 38 a 48 años</option>
@@ -47,7 +47,7 @@
 						<div class="form-check col-md-8 offset-2">
 							<h6><?= $encuesta->preguntas[1]->Pregunta ?></h6><br>
 							<div class="form-check">
-								<label><input name="genero" checked class="form-check-input" type="radio" value="Femenino"> Femenino</label><br>
+								<label><input name="genero" class="form-check-input" type="radio" value="Femenino"> Femenino</label><br>
 								<label><input name="genero" class="form-check-input offset-1" type="radio" value="Masculino"> Masculino</label><br>
 								 
 							</div>
@@ -58,6 +58,7 @@
 								<h6><?= $encuesta->preguntas[2]->Pregunta ?></h6><br>
 								<select name="ciudad" class="custom-select" style="width:150px;">
 									<?php foreach ($ciudad as $c) { ?>
+										<option value=""></option>
 										<option value="<?= $c->Municipio ?>"><?= $c->Municipio ?></option>
 									<?php } ?>
 								</select>
