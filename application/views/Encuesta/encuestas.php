@@ -198,7 +198,13 @@
     												<td><?= $encues->FechaCreacion ?></td>
     												<td><?= $encues->FechaFinalizacion ?></td>
     												<td><?= $encues->MensajeInicio ?></td>
-    												<td><?= $encues->MensajeFinalizacion ?></td>
+													<td><?= $encues->MensajeFinalizacion ?></td>
+													<td>
+    													<form action="<?= base_url() ?>EncuestasC/previsualizar/" method="post">
+															<input type="hidden" name="id" value="<?= $encues->idEncuesta ?>">
+    														<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode"> Vista </button>
+														</form>
+													</td>
     												<td >
     													<a href="<?= base_url() ?>EncuestasC/eliminar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-danger i fas fa-trash-alt"> Borrar </a>
 													</td>

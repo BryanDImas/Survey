@@ -35,11 +35,7 @@
         <div class="col-12">
             <br>
             <div>
-<<<<<<< HEAD
- 					<h3 class="text-center">Encuesta: <small><?= $encuesta->NombreEncuesta ?></small></h3>
-=======
                 <h3 class="text-center">Encuesta: <small><?= $encuesta->NombreEncuesta ?? ''?></small></h3>
->>>>>>> a2a0899204d3b3f43f99a8b8ca152bef44733557
             </div>
 
             <div class="row m-t-30">
