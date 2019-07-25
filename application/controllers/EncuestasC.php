@@ -75,7 +75,7 @@ class EncuestasC extends CI_Controller
 	public function eliminar($id)
 	{
 		$this->EncuestasModel->eliminar($id);
-		self::index();
+		self::index($pag = 1);
 	}
 	# Acción que nos devuelve los datos del usuario para el perfil.
 	public function perfil($id)
