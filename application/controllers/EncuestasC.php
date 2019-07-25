@@ -7,12 +7,12 @@ class EncuestasC extends CI_Controller
 		$dato = array();
 		parent::__construct();
 		$this->load->library(['form_validation', 'pagination']);
-		$this->load->model(['EncuestasModel', 'PreguntasModel', 'RespuestasModel']);
+		$this->load->model(['EncuestasModel', 'PreguntasModel', 'RespuestasModel','PrincipalModel']);
 		if ($this->session->usuario) { } else {
 			redirect('Login');
 		}
 	}
-
+# Acción que genera el codigo QR.
 	public function generarQR()
 	{
 		$this->load->library('ciqrcode');
@@ -153,4 +153,34 @@ class EncuestasC extends CI_Controller
 		$this->EncuestasModel->actualizar($datos);
 		redirect('EncuestasC/');
 	}
+	 public function previsualizar(){
+		$id =  $this->input->post('id'); // Recibimos el id encriptado y lo desincriptamos.
+		$datos['encuesta'] = $this->PrincipalModel->encuesta($id); // Obtenemos los datos de la encuesta.
+		$us = $this->PrincipalModel->usuario($datos['encuesta']->idUsuario); // Obtenemos el idUsuario de la encuesta que traemos.
+		$datos['encuesta']->logo = $this->PrincipalModel->logo($us->idEmpresa); // Obtenemos el logo de la empresa al que pertenece el usuario.
+		$datos['encuesta']->preguntas = $this->PrincipalModel->preguntas($id, $idp = 2); //Obtenemos las preguntas de la encuesta.
+		foreach ($datos['encuesta']->preguntas as $pregunta) {
+			$pregunta->respuestas = $this->PrincipalModel->respuestas($pregunta->idPregunta); //Obtenemos las respuestas de cada pregunta.
+		}
+		$idf = $datos['encuesta']->IdFormato;
+		switch ($idf) {
+			case 1: //Si es encuesta de tipo simple.
+			case 2: //Si es encuesta de tipo multiple.
+			case 7: // Si es encuesta de tipo combobox.
+				$this->load->view('Principal/index', $datos);
+				break;
+			case 3: //Si es encuesta de tipo icono caritas.
+				$this->load->View('Principal/caritas', $datos);
+				break;
+			case 4: //Si es encuesta de tipo ponderaciones.
+				$this->load->View('Principal/ponderacion', $datos);
+				break;
+			case 5: //Si es encuesta de tipo icono manitas.
+				$this->load->View('Principal/manitas', $datos);
+				break;
+			case 6: //Si es encuesta de tipo icono escala o rango.
+				$this->load->view('Principal/escala', $datos);
+				break;
+		}
+	 }
 }
