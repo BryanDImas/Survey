@@ -1,4 +1,4 @@
-
+<br><br>
 <div class="bd-example">
     <div id="carouselExampleCaptions" class="carousel" data-ride="carousel">
             <?php for ($i = 0; $i < count($imgs); $i++) { ?>
