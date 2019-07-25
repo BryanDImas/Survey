@@ -18,16 +18,10 @@
 	<div class="container">
 		<div class="contenedor">
 			<div class="card-header">
-<<<<<<< HEAD
-				<div class="logo-responsive">
-		 			<img class="rounded-circle" src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
-				</div>
-=======
 			<div class="logo-responsive">
 		 	<img class="rounded-circle" src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
 	</div>
 	<h3 style="color:#1b4f32; text-align:right;">* Vista preliminar.</h3>
->>>>>>> 89a489647352e8264b12760aff46ce68853b0ccf
 				<div class="card-title">
 					<h2><?= $encuesta->NombreEncuesta ?></h2>
 					<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
@@ -65,11 +59,7 @@
 				<div class="boton col-md-12 text-center">
 					<a href="<?= base_url('EncuestasC/') ?>" class="btn btn-pri btn-lg">Listo</a>
 				</div>
-<<<<<<< HEAD
 			<h3>Vista preliminar. No captura datos.</h3>
-=======
-			
->>>>>>> 89a489647352e8264b12760aff46ce68853b0ccf
 		</div>
 	</div>
 	</div>
