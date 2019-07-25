@@ -97,9 +97,10 @@ class EncuestasC extends CI_Controller
 	# Acción que nos permite crear una encuesta.
 	public function crear()
 	{
+		date_default_timezone_set('America/El_Salvador');
 		$datos = [
 			$this->input->post('msj'), $this->input->post('nom'), $this->input->post('obj'), $this->input->post('fve'),
-			$this->session->usuario->idUsuario, $this->input->post('demo')
+			$this->session->usuario->idUsuario, $this->input->post('demo'),date("Y-m-d")
 		];
 		$this->EncuestasModel->crear($datos);
 		$array = [];

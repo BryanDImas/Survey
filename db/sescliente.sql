@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-07-2019 a las 16:57:07
+-- Tiempo de generación: 25-07-2019 a las 19:21:11
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.0.33
 
@@ -42,35 +42,6 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ingr_us` (IN `usuario` VARCHAR(5
 END$$
 
 DELIMITER ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `bitacorausuarios`
---
-
-CREATE TABLE `bitacorausuarios` (
-  `IdBitUs` int(11) NOT NULL,
-  `IdUsuario` int(11) NOT NULL,
-  `Acceso` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `Salida` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `Actividad` varchar(100) NOT NULL,
-  `DescripcionAct` text NOT NULL,
-  `Ip` varchar(15) DEFAULT NULL,
-  `DispositivoCon` enum('Computadora','Tablet','Movil') NOT NULL DEFAULT 'Computadora'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `comentarios`
---
-
-CREATE TABLE `comentarios` (
-  `IdComentarios` int(11) NOT NULL,
-  `Comentarios` text NOT NULL,
-  `idEncuesta` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -173,7 +144,7 @@ CREATE TABLE `encuestas` (
   `NombreEncuesta` varchar(45) NOT NULL,
   `ObjetivoEncuesta` varchar(100) DEFAULT NULL,
   `Estado` enum('Activo','Inactivo') DEFAULT 'Inactivo',
-  `FechaCreacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `FechaCreacion` date DEFAULT NULL,
   `FechaActivacion` date NOT NULL,
   `FechaFinalizacion` date DEFAULT NULL,
   `MensajeInicio` text NOT NULL,
@@ -191,13 +162,13 @@ CREATE TABLE `encuestas` (
 --
 
 INSERT INTO `encuestas` (`idEncuesta`, `NombreEncuesta`, `ObjetivoEncuesta`, `Estado`, `FechaCreacion`, `FechaActivacion`, `FechaFinalizacion`, `MensajeInicio`, `MensajeFinalizacion`, `idUsuario`, `Demograficos`, `Resultados`, `IdFormato`, `Url`, `Contador`) VALUES
-(13, 'Simple', 'Ejemplo', 'Activo', '2019-07-11 23:46:55', '0000-00-00', '2019-07-31', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 1, 'http://localhost/Survey/PrincipalC/index/?e=MTM=', 13),
-(19, 'Combobox', 'Ejemplo', 'Inactivo', '2019-07-12 01:55:36', '0000-00-00', '2019-07-12', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'Si', 'Si', 7, 'http://localhost/Survey/PrincipalC/index/?e=MTk=', 0),
-(20, 'Multiple', 'Ejemplo', 'Inactivo', '2019-07-12 02:25:13', '0000-00-00', '2019-07-12', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', '', 1, 'No', 'No', 2, 'http://localhost/Survey/PrincipalC/index/?e=MjA=', 0),
-(24, 'Caritas', 'Prueba', 'Activo', '2019-07-24 15:31:09', '0000-00-00', '2019-07-31', '¡Gracias por su visita!. Su opinión es muy importante, por favor conteste la siguiente encuesta, sus comentarios nos ayudarán a mejorar. ', 'Agradecemos que se tomara el tiempo de completar la encuesta, sus comentarios nos permiten mejorar nuestros servicios.', 1, 'Si', 'No', 3, 'http://localhost/Survey/PrincipalC/index/?e=MjQ=', 3),
-(25, 'Ponderaciones', 'prueba', 'Activo', '2019-07-24 16:45:46', '0000-00-00', '2019-07-31', '¡Gracias por su visita!. Su opinión es muy importante, por favor conteste la siguiente encuesta, sus comentarios nos ayudarán a mejorar. ', 'Agradecemos que se tomara el tiempo de completar la encuesta, sus comentarios nos permiten mejorar nuestros servicios.', 1, 'No', 'Si', 4, 'http://localhost/Survey/PrincipalC/index/?e=MjU=', 8),
-(26, 'Manitas', 'prueba', 'Activo', '2019-07-24 17:04:22', '0000-00-00', '2019-07-31', '¡Gracias por su visita!. Su opinión es muy importante, por favor conteste la siguiente encuesta, sus comentarios nos ayudarán a mejorar. ', 'Agradecemos que se tomara el tiempo de completar la encuesta, sus comentarios nos permiten mejorar nuestros servicios.', 1, 'Si', 'No', 5, 'http://localhost/Survey/PrincipalC/index/?e=MjY=', 4),
-(29, 'Escala', 'prueba', 'Activo', '2019-07-24 22:25:01', '0000-00-00', '2019-07-31', '¡Gracias por su visita!. Su opinión es muy importante, por favor conteste la siguiente encuesta, sus comentarios nos ayudarán a mejorar. ', 'Agradecemos que se tomara el tiempo de completar la encuesta, sus comentarios nos permiten mejorar nuestros servicios.', 1, 'Si', 'No', 6, 'http://localhost/Survey/PrincipalC/index/?e=Mjk=', 3);
+(13, 'Simple', 'Ejemplo', 'Activo', '2019-07-11', '0000-00-00', '2019-07-31', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'No', 'No', 1, 'http://localhost/Survey/PrincipalC/index/?e=MTM=', 13),
+(19, 'Combobox', 'Ejemplo', 'Inactivo', '2019-07-11', '0000-00-00', '2019-07-12', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', 'Muchas Gracias por contestar la encuesta', 1, 'Si', 'Si', 7, 'http://localhost/Survey/PrincipalC/index/?e=MTk=', 0),
+(20, 'Multiple', 'Ejemplo', 'Inactivo', '2019-07-11', '0000-00-00', '2019-07-12', 'Gracias por su visita. Contestando esta encuesta, nos ayudará a mejorar nuestros servicios.', '', 1, 'No', 'No', 2, 'http://localhost/Survey/PrincipalC/index/?e=MjA=', 0),
+(24, 'Caritas', 'Prueba', 'Activo', '2019-07-24', '0000-00-00', '2019-07-31', '¡Gracias por su visita!. Su opinión es muy importante, por favor conteste la siguiente encuesta, sus comentarios nos ayudarán a mejorar. ', 'Agradecemos que se tomara el tiempo de completar la encuesta, sus comentarios nos permiten mejorar nuestros servicios.', 1, 'Si', 'No', 3, 'http://localhost/Survey/PrincipalC/index/?e=MjQ=', 3),
+(25, 'Ponderaciones', 'prueba', 'Activo', '2019-07-24', '0000-00-00', '2019-07-31', '¡Gracias por su visita!. Su opinión es muy importante, por favor conteste la siguiente encuesta, sus comentarios nos ayudarán a mejorar. ', 'Agradecemos que se tomara el tiempo de completar la encuesta, sus comentarios nos permiten mejorar nuestros servicios.', 1, 'No', 'Si', 4, 'http://localhost/Survey/PrincipalC/index/?e=MjU=', 8),
+(26, 'Manitas', 'prueba', 'Activo', '2019-07-24', '0000-00-00', '2019-07-31', '¡Gracias por su visita!. Su opinión es muy importante, por favor conteste la siguiente encuesta, sus comentarios nos ayudarán a mejorar. ', 'Agradecemos que se tomara el tiempo de completar la encuesta, sus comentarios nos permiten mejorar nuestros servicios.', 1, 'Si', 'No', 5, 'http://localhost/Survey/PrincipalC/index/?e=MjY=', 4),
+(29, 'Escala', 'prueba', 'Activo', '2019-07-24', '0000-00-00', '2019-07-31', '¡Gracias por su visita!. Su opinión es muy importante, por favor conteste la siguiente encuesta, sus comentarios nos ayudarán a mejorar. ', 'Agradecemos que se tomara el tiempo de completar la encuesta, sus comentarios nos permiten mejorar nuestros servicios.', 1, 'Si', 'No', 6, 'http://localhost/Survey/PrincipalC/index/?e=Mjk=', 3);
 
 -- --------------------------------------------------------
 
@@ -755,20 +726,6 @@ INSERT INTO `usuarios` (`idUsuario`, `Usuario`, `Clave`, `Cargo`, `Departamento`
 --
 
 --
--- Indices de la tabla `bitacorausuarios`
---
-ALTER TABLE `bitacorausuarios`
-  ADD PRIMARY KEY (`IdBitUs`),
-  ADD KEY `fk_bita_usu` (`IdUsuario`);
-
---
--- Indices de la tabla `comentarios`
---
-ALTER TABLE `comentarios`
-  ADD PRIMARY KEY (`IdComentarios`),
-  ADD KEY `fk_comentarios_encuesta` (`idEncuesta`);
-
---
 -- Indices de la tabla `correos`
 --
 ALTER TABLE `correos`
@@ -861,18 +818,6 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT de la tabla `bitacorausuarios`
---
-ALTER TABLE `bitacorausuarios`
-  MODIFY `IdBitUs` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `comentarios`
---
-ALTER TABLE `comentarios`
-  MODIFY `IdComentarios` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `correos`
 --
 ALTER TABLE `correos`
@@ -947,18 +892,6 @@ ALTER TABLE `usuarios`
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `bitacorausuarios`
---
-ALTER TABLE `bitacorausuarios`
-  ADD CONSTRAINT `fk_bita_usu` FOREIGN KEY (`IdUsuario`) REFERENCES `usuarios` (`idUsuario`);
-
---
--- Filtros para la tabla `comentarios`
---
-ALTER TABLE `comentarios`
-  ADD CONSTRAINT `fk_comentarios_encuesta` FOREIGN KEY (`idEncuesta`) REFERENCES `encuestas` (`idEncuesta`);
 
 --
 -- Filtros para la tabla `correos`
