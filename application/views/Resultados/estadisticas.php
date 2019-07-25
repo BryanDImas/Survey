@@ -17,25 +17,55 @@
             <button class="right-side-toggle waves-effect waves-light  btn-themecolor btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
         </div>
     </div>
-    <!-- Boton de las encuestas-->
-    <div class="btn-group float-right">
-        <button class="btn dropdown-toggle btn-rounded btn-outline-success" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Encuestas</button>
-        <div class="dropdown-menu">
-            <?php foreach ($ids as $id) { ?>
-                <a class="btn btn-outline-success dropdown-item" href="<?= base_url() ?>ResultadosC/grafi/<?= $id->idEncuesta ?>"><?= $id->NombreEncuesta ?></a>
-            <?php } ?>
-        </div>
-    </div><br><br><br>
     <!-- ============================================================== -->
     <!-- End Bread crumb and right sidebar toggle -->
-
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h6 class="card-subtitle">Encuesta actual:</h6>
+                        <h3><?= $encuesta->NombreEncuesta ?? '' ?></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h6 class="card-subtitle">Objetivo de la encuesta:</h6>
+                        <h3><?= $encuesta->ObjetivoEncuesta ?? '' ?></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h6 class="card-subtitle">Seleccione la encuesta que desea ver:</h6>
+                        <!-- Boton de las encuestas-->
+                        <div class="btn-group">
+                            <button class="btn dropdown-toggle  btn-outline-success" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Encuestas</button>
+                            <div class="dropdown-menu">
+                                <?php foreach ($ids as $id) { ?>
+                                    <a class="btn btn-outline-success dropdown-item" href="<?= base_url() ?>ResultadosC/grafi/<?= $id->idEncuesta ?>"><?= $id->NombreEncuesta ?></a>
+                                <?php } ?>
+                            </div>
+                        </div><br><br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Info box -->
     <!-- ============================================================== -->
     <div class="card">
         <div class="col-12">
             <br>
             <div>
-                <h3 class="text-center">Encuesta: <small><?= $encuesta->NombreEncuesta ?? ''?></small></h3>
+                <h3 class="text-center">Encuesta: <small><?= $encuesta->NombreEncuesta ?? '' ?></small></h3>
             </div>
 
             <div class="row m-t-30">
@@ -137,7 +167,7 @@
                                         echo  $respuesta->Contador . ",";
                                     } ?>],
                         "fill": false,
-                        "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)","rgba(255, 99, 100, 0.2)"],
+                        "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)", "rgba(255, 99, 100, 0.2)"],
                         "borderColor": ["rgb(239, 83, 80)", "rgb(255, 159, 64)", "rgb(255, 178, 43)", "rgb(86, 192, 216)", "rgb(57, 139, 247)", "rgb(153, 102, 255)", "rgb(201, 203, 207)"],
                         "borderWidth": 1
                     }]
@@ -147,7 +177,7 @@
                         "yAxes": [{
                             "ticks": {
                                 "beginAtZero": true
-                                
+
                             }
                         }]
                     }
