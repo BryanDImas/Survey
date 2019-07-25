@@ -21,6 +21,7 @@
 				<div class="logo-responsive">
 					<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
 				</div>
+				<h3 style="color:#1b4f32; text-align:right;">* Vista preliminar.</h3>
 				<div class="card-title">
 					<h2><?= $encuesta->NombreEncuesta ?></h2>
 					<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
@@ -56,7 +57,7 @@
 				</div>
 			</form>
 
-					<h3>* este modo es únicamente demostrativo. NO captura datos. </h3>
+
 		</div>
 	</div>
 
