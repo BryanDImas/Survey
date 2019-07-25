@@ -32,7 +32,7 @@
 						<div class="col-md-8 offset-2">
 							<h6><?= $encuesta->preguntas[0]->Pregunta ?></h6><br>
 							
-							<select name="edad" class="custom-select" style="width:320px;" >
+							<select name="edad" class="custom-select" style="width:320px; border-color:#24d2b5;">
 							<option disabled selected>Seleccione su rango de edad</option>
 								<option>de 18 a 28 años</option>
 								<option>de 28 a 38 años</option>
@@ -55,7 +55,7 @@
 						<p>
 							<div class=" col-md-8 offset-2" >
 								<h6><?= $encuesta->preguntas[2]->Pregunta ?></h6><br>
-								<select name="ciudad" class="custom-select" style="width:320px;">
+								<select name="ciudad" class="custom-select" style="width:320px; border-color:#24d2b5;">
 								<option disabled selected>Seleccione su municipio de residencia</option>
 									<?php foreach ($ciudad as $c) { ?>
 										<option value="<?= $c->Municipio ?>"><?= $c->Municipio ?></option>
