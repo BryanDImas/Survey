@@ -43,6 +43,9 @@
 								<button type="submit" class="btn btn-success" name="enviar" value="Enviar Email">Enviar Correo</button>
 							</div>
 					</div>
+					<div class="form-group">
+					<h6 class="text-themecolor"><?= $this->session->flashdata('errors') ?? validation_errors(); ?></h6>
+				</div>
 					</form>
 					</div>
 				</div><br><br><br><br><br><br><br><br>
