@@ -65,5 +65,13 @@ class ResultadosM extends CI_Model
         $sql = "SELECT IdEncuesta  FROM encuestas WHERE idUsuario = $idUsuario ORDER BY IdEncuesta DESC LIMIT 1";
         return $this->db->query($sql)->row()->IdEncuesta;
     }
+    public function preg($id){
+        $sql = "SELECT idPregunta FROM preguntas WHERE PorDefecto = 1 AND Pregunta = '¿Cuál es su municipio de residencia?' AND IdEncuesta = $id";
+        return $this->db->query($sql)->row()->idPregunta;
+    }
+    public function municipios($id){
+        $sql = "SELECT * FROM respuestas WHERE idPregunta = $id ORDER BY Contador DESC LIMIT 3";
+        return $this->db->query($sql)->result();
+    }
 
 }
