@@ -34,7 +34,7 @@
 										<div class="input-group-prepend">
 											<span class="input-group-text" id="basic-addon22"><i class="mdi mdi-message-text"></i></span>
 										</div>
-										<textarea name="mensaje" rows="3" class="form-control" style="border-color:#24d2b5;" required>Mi cuenta esta bloqueda necesito ayuda para reestablecerla</textarea>
+										<textarea name="mensaje" rows="3" class="form-control" style="border-color:#24d2b5;">Mi cuenta esta bloqueda necesito ayuda para reestablecerla</textarea>
 									</div>
 								</div>
 								<td>

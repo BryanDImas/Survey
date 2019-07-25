@@ -47,7 +47,7 @@
 							<thead>
 								<tr>
 									<th colspan="4">
-										<h4><?= $pregunta->Numero ?>. | <?= $pregunta->Pregunta ?></h4>
+										<h4><?= $pregunta->Pregunta ?></h4>
 									</th>
 								</tr>
 								<tr>
