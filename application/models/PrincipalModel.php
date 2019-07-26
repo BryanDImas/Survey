@@ -23,11 +23,6 @@ Class PrincipalModel extends CI_Model{
         $sql = "SELECT Contador FROM respuestas WHERE IdRespuestas = $id";
         return $this->db->query($sql)->row()->Contador;
     }
-
-    public function actualizar($array){
-/*         $sql ="UPDATE respuestas SET Contador = Contador+1 WHERE IdPregunta in [?] AND IdRespuestas  in [?]";
-        $this->db->query($sql, $array); */
-    }
     public function ciudad(){
     
         $sql ="SELECT * FROM municipios ORDER BY Municipio ASC";
