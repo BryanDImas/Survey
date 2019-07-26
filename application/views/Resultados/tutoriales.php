@@ -93,9 +93,9 @@
 					<h4 class="m-b-0 text-white">Video 1</h4>
 				</div>
 				<div class="card-body">
-					<p class="card-title">¿Cómo agregar contenido publicitario?</p>
+					<p class="card-title">Bienvenidos</p>
 					<div class="embed-responsive embed-responsive-16by9">
-						<video controls src="<?= base_url() ?>assets/videos/Survey.mp4" width="385" height="200"></video>
+						<video controls src="<?= base_url() ?>assets/videos/Bienvenido.mp4" width="385" height="200"></video>
 					</div>
 				</div>
 			</div>
@@ -106,9 +106,9 @@
 					<h4 class="m-b-0 text-white">Video 2</h4>
 				</div>
 				<div class="card-body">
-					<p class="card-title">¿nombre?</p>
+					<p class="card-title">¿Como funciona?</p>
 					<div class="embed-responsive embed-responsive-16by9">
-						<video controls src="<?= base_url() ?>assets/videos/Survey.mp4" width="385" height="200"></video>
+						<video controls src="<?= base_url() ?>assets/videos/Funcionamiento.mp4" width="385" height="200"></video>
 					</div>
 				</div>
 			</div>
@@ -119,9 +119,9 @@
 					<h4 class="m-b-0 text-white">Video 3</h4>
 				</div>
 				<div class="card-body">
-					<p class="card-title">Special title treatment</p>
+					<p class="card-title">Pasos para crear encuesta</p>
 					<div class="embed-responsive embed-responsive-16by9">
-						<video controls src="<?= base_url() ?>assets/videos/Survey.mp4" width="385" height="200"></video>
+						<video controls src="<?= base_url() ?>assets/videos/Pasos.mp4" width="385" height="200"></video>
 					</div>
 				</div>
 			</div>
@@ -132,9 +132,9 @@
 					<h4 class="m-b-0 text-white">Video 4</h4>
 				</div>
 				<div class="card-body">
-					<p class="card-title">Special title treatment</p>
+					<p class="card-title">Formatos simple, multiple y combobox</p>
 					<div class="embed-responsive embed-responsive-16by9">
-						<video controls src="<?= base_url() ?>assets/videos/Survey.mp4" width="385" height="200"></video>
+						<video controls src="<?= base_url() ?>assets/videos/simple.mp4" width="385" height="200"></video>
 					</div>
 				</div>
 			</div>
@@ -145,14 +145,14 @@
 					<h4 class="m-b-0 text-white">Video 5</h4>
 				</div>
 				<div class="card-body">
-					<p class="card-title">Special title treatment</p>
+					<p class="card-title">Formato iconos</p>
 					<div class="embed-responsive embed-responsive-16by9">
-						<video controls src="<?= base_url() ?>assets/videos/Survey.mp4" width="385" height="200"></video>
+						<video controls src="<?= base_url() ?>assets/videos/iconos.mp4" width="385" height="200"></video>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-6">
+	<!-- 	<div class="col-md-6">
 			<div class="card card-inverse card-new">
 				<div class="card-header">
 					<h4 class="m-b-0 text-white">Video 6</h4>
@@ -164,6 +164,6 @@
 							</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 	<!-- End Row -->
