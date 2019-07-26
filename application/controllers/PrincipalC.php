@@ -34,7 +34,7 @@ class PrincipalC extends CI_Controller
 	# Acción que cambia la vista a la de encuesta que mo posee valores demograficos.
 	public function capturar()
 	{
-		$id = $this->input->post('idencuesta');
+		$id = $this->input->post('idEncuesta');
 		$respuesta = $this->input->post('respuestas[]');
 		foreach ($respuesta as $clave => $valor) {
 			$this->PrincipalModel->actCont($this->PrincipalModel->obtenerContadorPorIdRespuesta($valor) + 1, $valor);

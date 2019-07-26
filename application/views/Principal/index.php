@@ -59,7 +59,7 @@
 						<?php $num++;
 					} ?>
 				</div>
-				<input type="hidden" name="idencuesta" value="<?= $encuesta->idEncuesta ?>">
+				<input type="hidden" name="idEncuesta" value="<?= $encuesta->idEncuesta ?>">
 				<div class="boton col-md-12 text-center">
 					<input type="submit" class="btn btn-pri btn-lg" value="Listo">
 				</div>
