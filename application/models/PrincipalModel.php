@@ -29,7 +29,8 @@ Class PrincipalModel extends CI_Model{
         $this->db->query($sql, $array); */
     }
     public function ciudad(){
-        $sql ="SELECT * FROM municipios";
+    
+        $sql ="SELECT * FROM municipios ORDER BY Municipio ASC";
         return $this->db->query($sql)->result();
     }
     public function usuario($id){

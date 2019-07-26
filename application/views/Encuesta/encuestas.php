@@ -42,12 +42,12 @@
     				<!-- ============================================================== -->
     				<ul class="navbar-nav mr-auto">
     					<!-- This is  -->
-    					<li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="sl-icon-menu"></i></a> </li>
-    					<li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="sl-icon-menu"></i></a> </li>
+    					<li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+    					<li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
     					<!-- ============================================================== -->
     					<!-- Search -->
     					<!-- ============================================================== -->
-    					<li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="icon-Magnifi-Glass2"></i></a>
+    					<li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-magnify"></i></a>
     						<form class="app-search" action="<?= base_url('EncuestasC/index/') ?>">
     							<input type="hidden" name="pag" value="1">
     							<input name="key" type="text" class="form-control" placeholder="Search & enter" id="search"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
@@ -115,18 +115,18 @@
     				<ul id="sidebarnav">
     					<?php if ($this->session->usuario->Rol == 'Administrador') { ?>
     						<li class="nav-small-cap">--- Menú Administrador</li>
-    						<li> <a class="waves-effect" href="<?= base_url() ?>InicioC/"><i class="icon icon-Home"></i><span class="hide-menu">Inicio
+    						<li> <a class="waves-effect" href="<?= base_url() ?>InicioC/"><i class="mdi mdi-home"></i><span class="hide-menu">Inicio
     									<!--<span class="label label-rounded label-danger">4</span>--></span></a>
-    						<li> <a class="waves-effect" href="<?= base_url() ?>EmpresasC/"><i class="icon icon-Building"></i><span class="hide-menu">Empresas
+    						<li> <a class="waves-effect" href="<?= base_url() ?>EmpresasC/"><i class="far fa-building"></i><span class="hide-menu">Empresas
     									<!--<span class="label label-rounded label-danger">4</span>--></span></a>
-    						<li> <a class="waves-effect" href="<?= base_url() ?>UsuariosC/"><i class="icon icon-Business-Mens"></i><span class="hide-menu">Usuarios
+    						<li> <a class="waves-effect" href="<?= base_url() ?>UsuariosC/"><i class="mdi mdi-account"></i><span class="hide-menu">Usuarios
     									<!--<span class="label label-rounded label-danger">4</span>--></span></a>
     						</li><?php } ?>
     					<li class="nav-small-cap">--- Menú Principal</li>
-    					<li> <a href="<?= base_url() ?>EncuestasC/" class="waves-effect"><i class="icon icon-Double-Circle"></i><span class="hide-menu">Encuestas</span></a></li>
+    					<li> <a href="<?= base_url() ?>EncuestasC/" class="waves-effect"><i class="fas fa-clipboard-list"></i><span class="hide-menu">Encuestas</span></a></li>
     					<!--<span class="label label-rounded label-danger">4</span>-->
-    					<li> <a href="<?= base_url() ?>ResultadosC/" class="waves-effect"><i class="icon icon-Split-Vertical"></i><span class="hide-menu">Resultados</span></a></li>
-    					<li> <a class="waves-effect" href="<?= base_url() ?>ResultadosC/grafi"><i class="icon icon-Pie-Chart3"></i><span class="hide-menu">Estadísticas</span></a></li>
+    					<li> <a href="<?= base_url() ?>ResultadosC/" class="waves-effect"><i class="mdi mdi-table"></i><span class="hide-menu">Resultados</span></a></li>
+    					<li> <a class="waves-effect" href="<?= base_url() ?>ResultadosC/grafi"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Estadísticas</span></a></li>
     					<!--<span class="label label-rounded label-success">25</span>-->
     					<li> <a class="waves-effect" href="<?= base_url() ?>ResultadosC/tutorial"><i class="mdi mdi-youtube-play"></i><span class="hide-menu">Tutorial</span></a></li>
     				</ul>
@@ -186,7 +186,8 @@
     											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Fecha de finalización</th>
     											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Mensaje de inicio</th>
     											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="6">Mensaje de finalización</th>
-    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7" colspan = "4"> Opciones </th><br>
+												<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7" colspan = "3"> Opciones </th><br>
+												<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7" colspan = "2"> Difusión </th><br>
     										</tr>
     									</thead>
     									<tbody> 
@@ -198,20 +199,27 @@
     												<td><?= $encues->FechaCreacion ?></td>
     												<td><?= $encues->FechaFinalizacion ?></td>
     												<td><?= $encues->MensajeInicio ?></td>
-    												<td><?= $encues->MensajeFinalizacion ?></td>
+													<td><?= $encues->MensajeFinalizacion ?></td>
+													
     												<td >
-    													<a href="<?= base_url() ?>EncuestasC/eliminar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-danger i fas fa-trash-alt"> Borrar </a>
-													</td>
+														<a href="<?= base_url() ?>EncuestasC/eliminar/<?= $encues->idEncuesta ?>" class=" btn btn-sm btn-outline-danger i fas fa-trash-alt"><br>Borrar</a>
+													</td> 
     												<td class=" text-center">
-    													<a href="<?= base_url() ?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-success i fas fa-pencil-alt"> Editar </a>
-    												</td>
+    													<a href="<?= base_url() ?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-sm btn-outline-success i fas fa-pencil-alt"><br>Editar</a>
+												    </td>
+													<td>
+													<form action="<?= base_url() ?>EncuestasC/previsualizar/" method="post">
+															<input type="hidden" name="id" value="<?= $encues->idEncuesta ?>">
+    														<button type="submit" class="btn btn-sm btn-outline-nuevo i fas fa-eye"><br>Vista</button>
+													</form>
+													</td>
     												<td>
-    													<button type="button" data-toggle="modal" data-target="#myModal<?= $encues->idEncuesta ?>" class="btn btn-block btn-outline-primary i fas fa-link" title="Editar"> Link </button>
+    													<button type="button" data-toggle="modal" data-target="#myModal<?= $encues->idEncuesta ?>" class="btn btn-sm btn-outline-primary i fas fa-link" title="Editar"><br>Link</button>
     												</td>
     												<td>
     													<form action="<?= base_url() ?>EncuestasC/generarQR/" method="post">
     														<input type="hidden" name="url" value="<?= $encues->Url ?>">
-    														<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode"> QR </button>
+    														<button type="submit" class="btn btn-sm btn-outline-new i fas fa-qrcode"><br>QR</button>
     													</form>
     												</td>
     											</tr>

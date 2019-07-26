@@ -15,7 +15,6 @@ function asignareventos() {
 /* Funcion que nos ayuda a guardar las preguntas de una en una */
 function guardar() {
     var pregunta = document.getElementById('pregunta').value;
-    var num = document.getElementById('num').value;
 
     if (pregunta != '') {
         var peticion = new XMLHttpRequest();
@@ -23,13 +22,12 @@ function guardar() {
             if (this.readyState == 4) {
                 recargar();
                 document.getElementById('pregunta').value = '';
-                document.getElementById('num').value++;
             }
         };
         var url = baseUrl + 'PreguntasC/guardar';
         peticion.open('POST', url);
         peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        peticion.send("pregunta=" + pregunta + "&num=" + num);
+        peticion.send("pregunta=" + pregunta);
     }
 }
 /* Funcion que nos ayudara a editar una pregunta*/
@@ -41,8 +39,10 @@ function actualizar() {
             document.getElementById('btnGuardar').addEventListener('click', editar);
         }
     };
+
+    var locacion = location.href.split('=');
     var url = baseUrl + 'PreguntasC/editar/';
-    peticion.open('GET', url + this.value);
+    peticion.open('GET', url + this.value + '/?f=' + locacion[locacion.length - 1]);
     peticion.send();
 }
 /* Funcion que nos ayuda a eliminar una pregunta */
@@ -74,7 +74,6 @@ function recargar() {
 function editar() {
     if (document.getElementById('btnGuardar').value == 'actualizar') {
         var pregunta = document.getElementById('pregunta').value;
-        var num = document.getElementById('num').value;
         var idp = document.getElementById('idp').value;
         var peticion = new XMLHttpRequest();
         peticion.onreadystatechange = function() {
@@ -89,6 +88,6 @@ function editar() {
         var url = baseUrl + 'PreguntasC/actualizar';
         peticion.open('POST', url);
         peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        peticion.send("pregunta=" + pregunta + "&num=" + num + "&idp=" + idp);
+        peticion.send("pregunta=" + pregunta + "&idp=" + idp);
     }
 }

@@ -50,28 +50,28 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<b>Agregar datos demográficos?</b>&nbsp
+						<b>Agregar datos demográficos?</b> &nbsp  &nbsp
 						<input type="checkbox" name="check" id="check" value="1" onchange="javascript:showContent()" style="border-color:#24d2b5;" />
 					</div>
 					<p></p>
 					<input type="hidden" name="demo" id="demo" value="No">
 					<div id="content" style="display: none;">
+					<div class="card-body">
+						<h6>Como datos demográficos se incluirán las siguientes preguntas:</h6><br>
 						<div class="form-group">
-							<label for="">¿Cuál es su edad? </label>
-							<input type="number" name="edad" class="form-control" min="18" max="85" pattern="{1,2}" style="border-color:#24d2b5;" readonly>
+							<label for="">¿Cuál es su edad? &nbsp  &nbsp</label>
+							<span  style="color:#24d2b5;font-size:25px;line-height:25px; font-family:monospace;"> &#10003; </span> 
 						</div>
 						<div class="form-group">
-							<label for="">¿Cuál es su género? </label>
-							<select class="form-control custom-select" name="genero" style="border-color:#24d2b5;" readonly>
-								<option value="">Femenino</option>
-								<option value="">Masculino</option>
-							</select>
+							<label for="">¿Cuál es su género? &nbsp  &nbsp </label>
+							<span  style="color:#24d2b5;font-size:25px;line-height:25px; font-family:monospace;"> &#10003; </span> 
 						</div>
 						<div class="form-group">
-							<label for="example">¿Cuál es su municipio de residencia?</label>
-							<input type="text" name="ciudad" class="form-control" style="border-color:#24d2b5;" readonly>
-						</div>
+							<label  for="example">¿Cuál es su municipio de residencia? &nbsp  &nbsp</label>
+                            <span  style="color:#24d2b5;font-size:25px;line-height:25px; font-family:monospace;"> &#10003; </span> 
+						</div><br><br>
 						<!-- ================================================================================= -->
+					</div>
 					</div>
 				</div>
 			</div>
@@ -111,3 +111,9 @@
 	<div class="form-group">
 		<a href="<?= base_url('EncuestasC/') ?>" class="btn btn-rounded btn-xl  btn-outline-info">Volver</a>
 	</div>
+
+
+
+
+
+

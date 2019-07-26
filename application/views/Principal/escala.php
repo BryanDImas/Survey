@@ -16,52 +16,38 @@
 <body>
 	<div class="container">
 		<div class="contenedor">
-			
-				<div class="card-header">
+			<div class="card-header">
 				<div class="logo-responsive">
 					<img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
 				</div>
-					<div class="card-title">
-						<h2><?= $encuesta->NombreEncuesta ?></h2>
-						<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
-					</div>
-
+				<div class="card-title">
+					<h2><?= $encuesta->NombreEncuesta ?></h2>
+					<h4><?= $encuesta->ObjetivoEncuesta ?></h4>
 				</div>
-				<form method="POST" action="<?= base_url('PrincipalC/capturar2/') ?>">
-					<div class="card-body">
-
-						<?php $num = 1;
-						foreach ($encuesta->preguntas as $pregunta) { ?>
-							
-							<h5 class="col-md-offset-1"><?= $num ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h5>
-							<p>
-								<input name="respuestas[]" type="range" id="toPrice" min="0" max="10" oninput="document.getElementById('tPrice<?= $num ?>').innerHTML = this.value" />
-								<h2><label id="tPrice<?= $num ?>"></label></h2>
-							</p>
-							<?php $num++;
-						} ?>
-					</div>
-					<input type="hidden" name="idEncuesta" value="<?= $encuesta->idEncuesta ?>">
-					<div class="boton col-md-11 text center">
-						<input type="submit" class="btn btn-pri btn-lg" value="Listo">
-					</div>
-				</form>
-
-				<div>
-
+			</div>
+			<form method="POST" action="<?= base_url('PrincipalC/capturar2/') ?>">
+				<div class="card-body">
+					<?php $num = 1;
+					foreach ($encuesta->preguntas as $pregunta) { ?>
+						<h5 class="col-md-offset-1"><?= $num ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h5>
+						<p>
+							<h5>0 <input name="respuestas[]" type="range" id="toPrice" step="25" value="" oninput="document.getElementById('tPrice<?= $num ?>').innerHTML = this.value + '%';" /> 100</h5>
+							<h2><label id="tPrice<?= $num ?>">50%</label></h2>
+						</p>
+						<?php $num++;
+					} ?>
 				</div>
-		
-	
-		</form>
+				<input type="hidden" name="idEncuesta" value="<?= $encuesta->idEncuesta ?>">
+				<div class="boton col-md-11 text center">
+					<input type="submit" class="btn btn-pri btn-lg" value="Listo">
+				</div>
+			</form>
 		</div>
 	</div>
 	<footer>
 		<div>
-			<span >&copy; 2019 Survey, The Next Services, SA de CV. Todos los Derechos Reservados.</span>
+			<span>&copy; 2019 The Next Services, SA de CV. Todos los Derechos Reservados.</span>
 		</div>
-
 	</footer>
-
 </body>
-
 </html>

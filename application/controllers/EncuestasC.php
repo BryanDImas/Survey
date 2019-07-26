@@ -7,12 +7,12 @@ class EncuestasC extends CI_Controller
 		$dato = array();
 		parent::__construct();
 		$this->load->library(['form_validation', 'pagination']);
-		$this->load->model(['EncuestasModel', 'PreguntasModel', 'RespuestasModel']);
+		$this->load->model(['EncuestasModel', 'PreguntasModel', 'RespuestasModel','PrincipalModel']);
 		if ($this->session->usuario) { } else {
 			redirect('Login');
 		}
 	}
-
+# Acción que genera el codigo QR.
 	public function generarQR()
 	{
 		$this->load->library('ciqrcode');
@@ -38,7 +38,7 @@ class EncuestasC extends CI_Controller
 		$config['uri_segment'] = 3; #posicion donde la libreria busca el numero de la pagina en la url del navegador
 		$config['total_rows'] = $this->EncuestasModel->total2($key,$this->session->usuario->idUsuario ); #cantidad de registros que devuelve la consulta
 		$config['per_page'] = 5; # Número de registros a mostrar por pagina
-		$config['num_links'] = 4; # Número de digitos a mostrar en la paginacion si son varios numeros.
+		$config['num_links'] = 2; # Número de digitos a mostrar en la paginacion si son varios numeros.
 		$config['use_page_numbers'] = TRUE; #para ver el numero de la pagina en la url.
 		$this->pagination->initialize($config);
 		if ($pag != 0) {
@@ -75,7 +75,7 @@ class EncuestasC extends CI_Controller
 	public function eliminar($id)
 	{
 		$this->EncuestasModel->eliminar($id);
-		self::index();
+		redirect('EncuestasC/index/?pag=1');
 	}
 	# Acción que nos devuelve los datos del usuario para el perfil.
 	public function perfil($id)
@@ -97,18 +97,19 @@ class EncuestasC extends CI_Controller
 	# Acción que nos permite crear una encuesta.
 	public function crear()
 	{
+		date_default_timezone_set('America/El_Salvador');
 		$datos = [
 			$this->input->post('msj'), $this->input->post('nom'), $this->input->post('obj'), $this->input->post('fve'),
-			$this->session->usuario->idUsuario, $this->input->post('demo')
+			$this->session->usuario->idUsuario, $this->input->post('demo'),date("Y-m-d")
 		];
 		$this->EncuestasModel->crear($datos);
 		$array = [];
 		$array = $this->session->usuario->idUsuario;
 		$id = $this->EncuestasModel->obid($array);
 		if ($this->input->post('check')) {
-			$this->PreguntasModel->guardar([1, '¿Cuál es su edad?', 1, $id]);
-			$this->PreguntasModel->guardar([2, '¿Cuál es su género?', 1, $id]);
-			$this->PreguntasModel->guardar([3, '¿Cuál es su municipio de residencia?', 1, $id]);
+			$this->PreguntasModel->guardar(['¿Cuál es su edad?', 1, $id]);
+			$this->PreguntasModel->guardar(['¿Cuál es su género?', 1, $id]);
+			$this->PreguntasModel->guardar(['¿Cuál es su municipio de residencia?', 1, $id]);
 		}
 
 		$this->session->set_userdata('idEncuesta', $id);
@@ -143,13 +144,56 @@ class EncuestasC extends CI_Controller
 	}
 
 	public function actualizar(){
+		date_default_timezone_set('America/El_Salvador');
+		if($this->input->post('esta') == 'Activo'){
 			$datos = [
 				$this->input->post('nom'), $this->input->post('obj'),
 				$this->input->post('esta'), $this->input->post('msj'),
-				$this->input->post('msjd'), $this->input->post('id')
+				$this->input->post('fecha'),$this->input->post('msjd'),
+				date("Y-m-d"),
+				$this->input->post('id')
 			];
+		}else{
+			$datos = [
+				$this->input->post('nom'), $this->input->post('obj'),
+				$this->input->post('esta'), $this->input->post('msj'),
+				$this->input->post('fecha'),$this->input->post('msjd'),
+				 $this->input->post('id')
+			];
+		}
+
 		
 		$this->EncuestasModel->actualizar($datos);
 		redirect('EncuestasC/');
 	}
+	 public function previsualizar(){
+		$id =  $this->input->post('id'); // Recibimos el id encriptado y lo desincriptamos.
+		$datos['encuesta'] = $this->PrincipalModel->encuesta($id); // Obtenemos los datos de la encuesta.
+		$us = $this->PrincipalModel->usuario($datos['encuesta']->idUsuario); // Obtenemos el idUsuario de la encuesta que traemos.
+		$datos['encuesta']->logo = $this->PrincipalModel->logo($us->idEmpresa); // Obtenemos el logo de la empresa al que pertenece el usuario.
+		$datos['encuesta']->preguntas = $this->PrincipalModel->preguntas($id, $idp = 2); //Obtenemos las preguntas de la encuesta.
+		foreach ($datos['encuesta']->preguntas as $pregunta) {
+			$pregunta->respuestas = $this->PrincipalModel->respuestas($pregunta->idPregunta); //Obtenemos las respuestas de cada pregunta.
+		}
+		$idf = $datos['encuesta']->IdFormato;
+		switch ($idf) {
+			case 1: //Si es encuesta de tipo simple.
+			case 2: //Si es encuesta de tipo multiple.
+			case 7: // Si es encuesta de tipo combobox.
+				$this->load->view('previsualizar/index', $datos);
+				break;
+			case 3: //Si es encuesta de tipo icono caritas.
+				$this->load->View('previsualizar/caritas', $datos);
+				break;
+			case 4: //Si es encuesta de tipo ponderaciones.
+				$this->load->View('previsualizar/ponderacion', $datos);
+				break;
+			case 5: //Si es encuesta de tipo icono manitas.
+				$this->load->View('previsualizar/manitas', $datos);
+				break;
+			case 6: //Si es encuesta de tipo icono escala o rango.
+				$this->load->view('previsualizar/escala', $datos);
+				break;
+		}
+	 }
 }

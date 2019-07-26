@@ -8,9 +8,14 @@
     cursor: pointer;
 }
 
-.clasificacion label:hover {
-    color:rgb(217, 215, 11);
+
+/* .clasificacion label:hover {
+    color: red/*  rgb(217, 215, 11) 
+
+;
+
 }
+*/
 
 .activo+label {
     color: rgb(255, 230, 0) !important;
@@ -23,9 +28,9 @@
     text-align: center;
     max-width: 88% !important;
     background: whitesmoke 70% !important;
-    border-radius: 20px; box-shadow: 8px 8px;
+    border-radius: 20px;
     box-shadow: 8px 8px;
-
+    box-shadow: 8px 8px;
 }
 
 body {
@@ -33,7 +38,7 @@ body {
     padding-right: 5%;
     padding-top: 2%;
     width: 100%;
-    background-color:#2d572c !important;
+    background-color: #2d572c !important;
     background-repeat: no-repeat;
     background-size: cover;
     color: rgb(0, 0, 0) !important;
@@ -41,14 +46,13 @@ body {
 }
 
 .card-header {
-    text-align: center !important ;
+    text-align: center !important;
     margin: auto;
-    background: -moz-radial-gradient(center, ellipse cover,rgba(145,232,66,1) 0%, rgba(60,179,113,1) 100%);
-  
+    background: -moz-radial-gradient(center, ellipse cover, rgba(145, 232, 66, 1) 0%, rgba(60, 179, 113, 1) 100%);
 }
 
 .header-responsive {
-    width:auto;
+    width: auto;
     height: auto;
 }
 
@@ -57,7 +61,6 @@ body {
     padding-top: 3%;
     width: 15%;
     height: 15%;
- 
 }
 
 img {
@@ -71,7 +74,6 @@ img {
     padding-top: 3%;
     width: 15%;
     height: 15%;
-   
 }
 
 p {
@@ -79,11 +81,11 @@ p {
     color: white;
 }
 
-.card-body{
+.card-body {
     margin-block: 60px;
-    height: auto; 
+    height: auto;
     text-align: center;
-    display:inline-block;
+    display: inline-block;
 }
 
 .boton {
@@ -100,7 +102,7 @@ p {
 .btn-pri:hover,
 .btn-pri.disabled:hover {
     opacity: 0.9;
-    background: #A9F5A9 ;
+    background: #A9F5A9;
 }
 
 .btn-lg {
@@ -117,7 +119,7 @@ p {
     float: center;
 }
 
-footer{
+footer {
     padding-top: 5%;
     text-align: center;
     padding-right: 5%;
@@ -125,10 +127,9 @@ footer{
 }
 
 h2 {
-    color:black;
+    color: black;
 }
 
-h4{
+h4 {
     color: #2d572c !important;
-} 
-
+}

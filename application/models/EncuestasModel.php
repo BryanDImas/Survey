@@ -11,7 +11,7 @@ class EncuestasModel extends CI_Model
 		if($key != ''){
 			$sql .= " AND NombreEncuesta LIKE '%{$key}%' ";
 		}
-		$sql .= " LIMIT $inicio, $limit";
+		$sql .= " ORDER BY E.idEncuesta DESC  LIMIT $inicio, $limit ";
         return $this->db->query($sql)->result();
     }
     # Método que elimina una encuesta seleccionada.
@@ -22,7 +22,7 @@ class EncuestasModel extends CI_Model
     # Método para crear un registro en la tabla encuestas.
     public function crear($datos)
     {
-        $sql = "INSERT INTO encuestas(MensajeInicio, NombreEncuesta, ObjetivoEncuesta, FechaFinalizacion,idUsuario,Demograficos) VALUES (?,?,?,?,?,?)";
+        $sql = "INSERT INTO encuestas(MensajeInicio, NombreEncuesta, ObjetivoEncuesta, FechaFinalizacion,idUsuario,Demograficos,FechaCreacion) VALUES (?,?,?,?,?,?,?)";
         $this->db->query($sql, $datos);
     }
     # Método para trear el id de la encuesta recien ingresada por usuario
@@ -31,8 +31,12 @@ class EncuestasModel extends CI_Model
         $sql = "SELECT  @@identity AS id FROM encuestas WHERE idUsuario = $datos";
         return $this->db->query($sql,$datos)->row()->id;
     }
-    public function actualizar($a, $date){
-        $s = "UPDATE encuestas SET NombreEncuesta = ?, ObjetivoEncuesta = ?, Estado =? ".$date.", MensajeInicio = ?, MensajeFinalizacion = ? WHERE idEncuesta = ? ";
+    public function actualizar($a){
+		$s = "UPDATE encuestas SET NombreEncuesta = ?, ObjetivoEncuesta = ?, Estado =?, MensajeInicio = ?, FechaFinalizacion=?, MensajeFinalizacion = ?,";
+		if($a > 7){
+			$s .="FechaActivacion = ? ";
+		}
+		$s .="WHERE idEncuesta = ? ";
          $this->db->query($s, $a);
     }
 
@@ -67,7 +71,7 @@ class EncuestasModel extends CI_Model
        }
        #Metodo que nos devuelve todos los ids de las encuestas
        public function ids($id){
-           $sql = "SELECT idEncuesta, NombreEncuesta FROM encuestas WHERE idUsuario = ".$id;
+           $sql = "SELECT idEncuesta, NombreEncuesta FROM encuestas WHERE idUsuario = $id ORDER BY idEncuesta DESC";
            return $this->db->query($sql)->result();
        }
        public function total2($key,$id)

@@ -42,12 +42,12 @@
     				<!-- ============================================================== -->
     				<ul class="navbar-nav mr-auto">
     					<!-- This is  -->
-    					<li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="fas fa-th-list"></i></a> </li>
-    					<li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="fas fa-th-list"></i></a> </li>
+    					<li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+    					<li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
     					<!-- ============================================================== -->
     					<!-- Search -->
     					<!-- ============================================================== -->
-    					<li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves" href="javascript:void(0)"><i class=" fas fa-search"></i></a>
+    					<li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves" href="javascript:void(0)"><i class="mdi mdi-magnify"></i></a>
     						<form class="app-search" action="<?= base_url('EmpresasC/index/') ?>">
     							<input type="hidden" name="pag" value="1">
     							<input name="key" type="text" class="form-control" placeholder="Search & enter" id="search"> <a class="srh-btn"><i class="ti-close"></i></a> </form>

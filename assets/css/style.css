@@ -3061,14 +3061,14 @@ Buttons
 .btn-nue.disabled {
     background: linear-gradient(#9198e5, #00FFFF);
     border: 1px solid #00FFFF;
-	color: black;
+	color: black !important;
 	width: 150% !important;
 }
 
 .btn-nue:hover,
 .btn-nue.disabled:hover {
     opacity: 0.8;
-    color: black;
+    color: black !important;
     border: 1px solid #00FFFF;
     background: linear-gradient(#00FFFF, #9198e5);
 }
@@ -3079,7 +3079,8 @@ Buttons
 .btn-nue.disabled.active,
 .btn-nue.disabled:active,
 .btn-nue.disabled:focus {
-    background: linear-gradient(#9198e5, #00FFFF)
+    background: linear-gradient(#9198e5, #00FFFF);
+    color:black !important;
 }
 
 .btn-outline-secondary {

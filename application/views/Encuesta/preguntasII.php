@@ -25,17 +25,18 @@
 	<!--  Contenido de la página -->
 	<!-- ============================================================== -->
 	<div class="card">
-		<?php $num = count($preguntas); ?>
 		<div class="card-body" id="form">
-			<h5 class="text-center">Ingrese su pregunta</h5>
-			<input type="hidden" name="form" id="form" value="">
-			<div>
-				<input type="hidden" id="num" name="num" value="<?= $num ?>">
-				<input id="pregunta" name="pregunta" type="text" class="form-control" placeholder="Ingrese su pregunta" autocomplete="off">
-			</div>
-			<div class="text-center">
-				<p></p>
-				<button id="btnGuardar" class="btn btn-rounded btn-xl  btn-outline-info" value="guardar">Guardar</button>
+			<h5 class="text-center">Cree su pregunta</h5>
+
+			<input type="hidden" name="formato" id="formato" value="<?= $formato ?>">
+			<div style=" text-align:center; margin:3% auto; width:35rem; heigth:40rem;" class="list-group">
+				<div class="form-group has-success">
+					<input id="pregunta" name="pregunta" type="text" class="form-control form-control-line" placeholder="Ingrese aquí su pregunta" autocomplete="off">
+				</div>
+				<div class="text-center">
+					<p></p>
+					<button id="btnGuardar" class="btn btn-rounded btn-xl  btn-outline-info" value="guardar">Guardar</button>
+				</div>
 			</div>
 		</div>
 		<br>

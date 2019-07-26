@@ -3,6 +3,7 @@
 class EmailC extends CI_Controller{
 	public function __construct(){
 		parent:: __construct();
+		$this->load->library('form_validation');
 	}
 
 	public function index()
@@ -29,6 +30,10 @@ class EmailC extends CI_Controller{
 	}
 	public function enviar()
 	{
+		$this->form_validation->set_rules('asunto', 'Email', 'required', ['required' => 'El campo %s es requerido']);
+		$this->form_validation->set_rules('mensaje', 'Mensaje', 'required', ['required' => 'El campo %s es requerido']);
+
+		if ($this->form_validation->run()) {
 		$destinatario = $this->input->post('destinatario');
 		$asunto = $this->input->post('asunto');
 		$mensaje = $this->input->post('mensaje');
@@ -43,5 +48,9 @@ class EmailC extends CI_Controller{
 			$this->email->clear();
 		}
 		redirect('emailC');
+	}else{
+		$this->session->set_flashdata('errors', validation_errors());
+		redirect('emailC');
+	}
 	}
 }

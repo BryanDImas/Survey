@@ -21,6 +21,7 @@
             <div class="card-header">
                 <div class="logo-responsive">
                     <img src="<?= base_url() ?><?= $encuesta->logo ?>" alt="">
+                    
                 </div>
                 <div class="card-title">
                     <h2><?= $encuesta->NombreEncuesta ?></h2>
@@ -36,15 +37,15 @@
                         <h5 class="col-md-offset-1"><?= $num + 1 ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h5>
                         <div class="image-responsive">
                             <p class="clasificacion clasificacion<?= $pregunta->idPregunta ?>">
-                                <input id="radio1<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="1">
+                                <input id="radio1<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[0]['Respuestas']?>">
                                 <label for="radio1<?= $num ?>">★</label>
-                                <input id="radio2<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="2">
+                                <input id="radio2<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[1]['Respuestas']?>">
                                 <label for="radio2<?= $num ?>">★</label>
-                                <input id="radio3<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="3">
+                                <input id="radio3<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[2]['Respuestas']?>">
                                 <label for="radio3<?= $num ?>">★</label>
-                                <input id="radio4<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="4">
+                                <input id="radio4<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[3]['Respuestas']?>">
                                 <label for="radio4<?= $num ?>">★</label>
-                                <input id="radio5<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="5">
+                                <input id="radio5<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[4]['Respuestas']?>">
                                 <label for="radio5<?= $num ?>">★</label>
                             </p>
                             <?php $num++;
@@ -57,14 +58,13 @@
                     <p></p><br>
             </form>
             </center>
+            
         </div>
     </div>
 
     
     <?php $num = 1;
     foreach ($encuesta->preguntas as $pregunta) { ?>
-
-
         <script>
             $(".clasificacion<?= $pregunta->idPregunta ?>").find("input").change(function() {
                 var valor = $(this).val()
@@ -77,7 +77,7 @@
                 })
             })
 
-            $(".clasificacion<?= $pregunta->idPregunta ?>").find("label").mouseover(function() {
+            $(".clasificacion<?= $pregunta->idPregunta ?>").find("label").click(function() {
                 var valor = $(this).prev("input").val()
                 $(".clasificacion<?= $pregunta->idPregunta ?>").find("input").removeClass("activo")
                 $(".clasificacion<?= $pregunta->idPregunta ?>").find("input").each(function(index) {
@@ -90,7 +90,7 @@
         </script>
         <?php $num++;
     } ?>
-
+  
 <footer>
         <div class="">
            <p> © 2019 Survey, The Next Services, SA de CV. Todos los derechos reservados</p><br>
