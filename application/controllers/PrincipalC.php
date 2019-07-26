@@ -48,7 +48,7 @@ class PrincipalC extends CI_Controller
 	# acción que nos envia a la encuesta luego de capturar valores demograficos
 	public function CapDemo()
 	{
- 		$this->form_validation->set_rules('edad', 'Edad', 'required', ['required' => 'El campo %s es requerido']);
+ 		$this->form_validation->set_rules('edad', 'Edad', 'required', ['required' => 'El campo %s es requerido']); //validamos los campos para que no se ingresen vacios
 		$this->form_validation->set_rules('genero', 'Género', 'required', ['required' => 'El campo %s es requerido']);
 		$this->form_validation->set_rules('ciudad', 'Ciudad', 'required', ['required' => 'El campo %s es requerido']); 
 
