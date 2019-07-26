@@ -120,7 +120,7 @@ class PrincipalC extends CI_Controller
 		for ($i = 0; $i < count($ids); $i++) {
 			$ids[$i]->respuestas = $this->PrincipalModel->respuestas2($ids[$i]->idPregunta);
 				foreach ($ids[$i]->respuestas as $respuesta) {
-					if ($respuesta->Respuestas == $datos[$i]) {
+					if ($respuesta->Respuestas == $ids[$i]) {
 						$this->PrincipalModel->actCont(++$respuesta->Contador, $respuesta->IdRespuestas); # Actualizamos el contador
 					}
 			}
