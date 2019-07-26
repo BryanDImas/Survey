@@ -3,7 +3,7 @@
 class EmpresasModel extends CI_Model
 {
   # esta funcion nos lista todos los datos y busca si viene algun parametro.
-  public function obtener($inicio, $limit, $key)
+  public function obtener($inicio = 0, $limit = 5, $key = '')
   {
     $sql = "SELECT E.idEmpresa, E.NombreComercial, E.RazonSocial, E.DireccionFisica, E.DescripcionEmpresa, E.SectorEconomico, E.FechaFundacion, E.Correo, E.Telefono, E.Iva, E.Nit, E.ContactoEmpresa, E.TelefonoContacto, E.CorreoContacto, E.CargoEmpresarial, E.PropietarioEmpresa,E.RepresentanteLegal, E.TipoCuenta, E.LogoEmpresa, U.Municipio AS Municipio
 			FROM empresas E
@@ -11,7 +11,7 @@ class EmpresasModel extends CI_Model
     if ($key != '') {
       $sql .= "AND NombreComercial LIKE '%{$key}%'"; # Se agrega a la consulta si viene algún valor para buscar.
     }
-    $sql .=  " LIMIT $inicio, $limit"; # Valores que nos ayudan a crear la lógica de la paginación.
+    $sql .=  "LIMIT $inicio, $limit"; # Valores que nos ayudan a crear la lógica de la paginación.
     return $this->db->query($sql)->result();
   }
 

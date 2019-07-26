@@ -81,7 +81,7 @@ class EmpresasC extends CI_Controller
             $array = [];
             $array['empresas'] = $this->EmpresasModel->obtener();
             $this->load->view('layouts/head');
-            redirect('empresasC/', $array);
+            redirect('empresasC/index/?pag=1', $array);
         } else {
             $datos['paises'] = $this->PaisesModel->obtener();
             $this->load->view('layouts/head');

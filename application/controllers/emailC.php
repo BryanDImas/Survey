@@ -1,19 +1,17 @@
 <?php
-
 class EmailC extends CI_Controller{
 	public function __construct(){
 		parent:: __construct();
-		$this->load->library('form_validation');
+		$this->load->library('form_validation'); //libreria que nos ayuda a validar campos para que estos sean requeridos 
 	}
 
-	public function index()
+	public function index() //funcion que carga la vista principal
 	{
 		$this->load->view('layouts/head');
 		$this->load->view('emailV');
 	}
 
-	public function Mail_config()
-	{
+	public function Mail_config() {//funcion que nos ayuda a generar la configuracion para poder enviar correos
 		$config = array(
 			'mailtype' => "html",
 			'protocol' => 'smtp',
@@ -28,7 +26,7 @@ class EmailC extends CI_Controller{
 
 		return $config;
 	}
-	public function enviar()
+	public function enviar() //funcion que nos ayuda a enviar los correos electronicos y a validar los campos
 	{
 		$this->form_validation->set_rules('asunto', 'Email', 'required', ['required' => 'El campo %s es requerido']);
 		$this->form_validation->set_rules('mensaje', 'Mensaje', 'required', ['required' => 'El campo %s es requerido']);

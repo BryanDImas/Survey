@@ -1,4 +1,4 @@
-<body class="fix-header single-column card-no-border">
+<body class="fix-header single-column card-no-border"> <!-- vista que nos ayudara a hacer las funciones para enviar los correos  -->
 	<header>
 		<nav class="navbar navbar-light" style="background-color:#18927e; height:100px; ">
 			<img src="<?= base_url() ?>assets/images/logo.png" type="image" width="200px">
@@ -14,7 +14,7 @@
 				<div class="card-body">
 					<div class="col-md-6">
 					<div class="container well">
-						<form action="<?= base_url() ?>EmailC/enviar" method="post" autocomplete="off" class="form pt-5">
+						<form action="<?= base_url() ?>EmailC/enviar" method="post" autocomplete="off" class="form pt-5"> 
 							<div class="form-group has-success">
 								<input type="hidden" name="destinatario" class="form-control" style="border-color:#24d2b5;" value="leandrocarpio24@gmail.com" required>
 								</td>
@@ -44,7 +44,7 @@
 							</div>
 					</div>
 					<div class="form-group">
-					<h6 class="text-themecolor"><?= $this->session->flashdata('errors') ?? validation_errors(); ?></h6>
+					<h6 class="text-themecolor"><?= $this->session->flashdata('errors') ?? validation_errors(); ?></h6><!--  -->
 				</div>
 					</form>
 					</div>
