@@ -35,11 +35,11 @@
                     <div class="card-deck">
                         <div class=" col-md-2 col-xs-2 offset-4">
                             <label for="radio1<?= $pregunta->idPregunta ?>"><img src="<?= base_url('assets/images/icon/abajo.png') ?>"></label><br>
-                            <input id="radio1<?= $pregunta->idPregunta ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[0]['Respuestas'] ?>">
+                            <input id="radio1<?= $pregunta->idPregunta ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[0]['Respuestas']  ?? ''?>">
                         </div>
                         <div class=" col-md-2 col-xs-2">
                             <label for="radio2<?= $pregunta->idPregunta ?>"><img src="<?= base_url('assets/images/icon/arriba.png') ?>"></label><br>
-                            <input id="radio2<?= $pregunta->idPregunta ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[1]['Respuestas'] ?>">
+                            <input id="radio2<?= $pregunta->idPregunta ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[1]['Respuestas'] ?? ''?>">
                         </div>
                     </div>
                     <?php $num++;
@@ -50,7 +50,7 @@
             </div>
         </div>
         <h3>Vista Preliminar. NO captura datos.</h3>
-    </div>
+ <!--    </div> -->
     <footer>
         <div>
             <span class="">&copy; 2019 Survey, The Next Services, SA de CV. Todos los Derechos Reservados.</span>

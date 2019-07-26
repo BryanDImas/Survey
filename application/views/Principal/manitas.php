@@ -30,7 +30,7 @@
                     <?php $num = 0;
                     foreach ($encuesta->preguntas as $pregunta) { ?>
                         <p></p>
-                        <h4 class="col-md-offset-1"><?= $num + 1 ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h4>
+                        <h4 class="col-md-offset-1"><?= $num + 1 ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?? ''?></label></h4>
                         <div class="card-deck">
                             <div class=" col-md-2 col-xs-2 offset-4">
                                 <label for="radio1<?= $pregunta->idPregunta ?>"><img src="<?= base_url('assets/images/icon/abajo.png') ?>" ></label><br>
