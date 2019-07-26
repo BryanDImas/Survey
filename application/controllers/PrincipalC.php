@@ -125,7 +125,7 @@ class PrincipalC extends CI_Controller
 					}
 			}
 		}
-		/* echo "<pre>"; print_r($ids);  */
+		echo "<pre>"; print_r($ids); 
 		$datos['encuesta'] = $this->PrincipalModel->encuesta($idEncuesta);
 		$us = $this->PrincipalModel->usuario($datos['encuesta']->idUsuario); // Obtenemos el idUsuario de la encuesta que traemos.
 		$datos['encuesta']->logo = $this->PrincipalModel->logo($us->idEmpresa);
