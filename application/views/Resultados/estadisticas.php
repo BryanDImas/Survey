@@ -144,7 +144,7 @@
                             <?php
                             if(!empty($municipios)){
                             foreach($municipios as $top){ ?>
-                                <li><?= $top->Respuestas ?? 'No hay datos' ?><span class="offset-6"><?= $top->Contador?></span></li>
+                                <li><?= $top->Respuestas ?? 'No hay datos' ?><span class="float-right"><?= $top->Contador?></span></li>
                             <?php }}else{
                                 echo "<li> No hay datos a mostrar </li>";
                             } ?>

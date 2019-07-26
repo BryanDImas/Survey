@@ -37,15 +37,15 @@
                         <h5 class="col-md-offset-1"><?= $num + 1 ?>.- <label for="respuesta"><?= $pregunta->Pregunta ?></label></h5>
                         <div class="image-responsive">
                             <p class="clasificacion clasificacion<?= $pregunta->idPregunta ?>">
-                                <input id="radio1<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[0]['Respuestas']?>">
+                                <input id="radio1<?= $num ?>" type="radio" name="respuestas[<?= $pregunta->respuestas[$num]['IdRespuestas']?>]" value="<?= $pregunta->respuestas[0]['Respuestas']?>">
                                 <label for="radio1<?= $num ?>">★</label>
-                                <input id="radio2<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[1]['Respuestas']?>">
+                                <input id="radio2<?= $num ?>" type="radio" name="respuestas[<?= $pregunta->respuestas[$num]['IdRespuestas']?>]" value="<?= $pregunta->respuestas[1]['Respuestas']?>">
                                 <label for="radio2<?= $num ?>">★</label>
-                                <input id="radio3<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[2]['Respuestas']?>">
+                                <input id="radio3<?= $num ?>" type="radio" name="respuestas[<?= $pregunta->respuestas[$num]['IdRespuestas']?>]" value="<?= $pregunta->respuestas[2]['Respuestas']?>">
                                 <label for="radio3<?= $num ?>">★</label>
-                                <input id="radio4<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[3]['Respuestas']?>">
+                                <input id="radio4<?= $num ?>" type="radio" name="respuestas[<?= $pregunta->respuestas[$num]['IdRespuestas']?>]" value="<?= $pregunta->respuestas[3]['Respuestas']?>">
                                 <label for="radio4<?= $num ?>">★</label>
-                                <input id="radio5<?= $num ?>" type="radio" name="respuestas[<?= $num ?>]" value="<?= $pregunta->respuestas[4]['Respuestas']?>">
+                                <input id="radio5<?= $num ?>" type="radio" name="respuestas[<?= $pregunta->respuestas[$num]['IdRespuestas']?>]" value="<?= $pregunta->respuestas[4]['Respuestas']?>">
                                 <label for="radio5<?= $num ?>">★</label>
                             </p>
                             <?php $num++;
