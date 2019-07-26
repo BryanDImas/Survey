@@ -3,7 +3,6 @@
 <!-- ============================================================== -->
 <h1 class="text-center" id="title">Edite su respuesta</h1>
 <div>
-    <input type="hidden" id="num" name="num" value="<?= $respuesta->Numero ?>">
     <input type="hidden" name="idr" id="idr" value="<?= $respuesta->IdRespuestas ?>">
     <input id="respuesta" name="respuesta" type="text" class="form-control" value="<?= $respuesta->Respuestas ?>">
 </div>
