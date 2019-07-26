@@ -5,7 +5,7 @@
 <div style=" text-align:center; margin:3% auto; width:35rem; heigth:40rem;" class="list-group" id="form">
     <div class="has-success">
         <input type="hidden" name="idr" id="idr" value="<?= $respuesta->IdRespuestas ?>">
-        <input id="respuesta" name="respuesta" type="text" class="form-control form-control-line" value="<?= $respuesta->Respuestas ?>">
+        <input id="respuesta" name="respuesta" type="text" class="form-control form-control-line" value="<?= $respuesta->Respuestas ?>" autocomplete="off">
     </div>
 </div>
 <div class="text-center">

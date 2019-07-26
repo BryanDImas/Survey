@@ -28,7 +28,7 @@
             <div class="card">
                 <div class="card-body">
                     <!-- Formulario para ingresar el responsable de la empresa -->
-                    <form action="<?= base_url() ?>UsuariosC/ingresar" method="post" class="form-control-line needs-validation" novalidate>
+                    <form action="<?= base_url() ?>UsuariosC/ingresar" method="post" class="form-control-line needs-validation" novalidate autocomplete="off">
                         <div class="form-group has-success">
                             <p><label class="form-control-label">Nombre de la empresa:</label>
                                 <select class="custom-select" name="empresa" required>
