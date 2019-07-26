@@ -39,8 +39,10 @@ function actualizar() {
             document.getElementById('btnGuardar').addEventListener('click', editar);
         }
     };
+
+    var locacion = location.href.split('=');
     var url = baseUrl + 'PreguntasC/editar/';
-    peticion.open('GET', url + this.value);
+    peticion.open('GET', url + this.value + '/?f=' + locacion[locacion.length - 1]);
     peticion.send();
 }
 /* Funcion que nos ayuda a eliminar una pregunta */

@@ -45,7 +45,8 @@ class PreguntasC extends CI_Controller
 		$this->PreguntasModel->guardar($datos);
 		// obtenemos el id insertado para asignarle su respectivas respuestas.
 		$idp = $this->PreguntasModel->idpreg($this->input->post('pregunta'), $this->session->idEncuesta);
-		$tipo = $this->input->post('formato');
+		$tipo = $this->input->post('
+		');
 		switch ($tipo) {
 			case 3: // Si la Encuesta es de tipo de Caritas. 
 				$this->RespuestasModel->establecidas('Lo odio', $idp);
