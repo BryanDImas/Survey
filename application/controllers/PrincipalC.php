@@ -69,7 +69,7 @@ class PrincipalC extends CI_Controller
 							$contador++;
 						}
 					}
-					if ($contador < 0) {
+					if ($contador > 0) {
 						$this->PrincipalModel->IngrRes($datos[$i], $ids[$i]->idPregunta);
 					}
 				}
