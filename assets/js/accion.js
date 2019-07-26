@@ -56,8 +56,11 @@ function actualizar() {
             document.getElementById('btnGuardar').addEventListener('click', editar);
         }
     };
+
+    var locacion = location.href.split('=');
+
     var url = baseUrl + 'RespuestasC/editar/';
-    peticion.open('GET', url + this.value);
+    peticion.open('GET', url + this.value + '/?f=' + locacion[locacion.length - 1]);
     peticion.send();
 }
 

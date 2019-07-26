@@ -15,8 +15,7 @@
 				<div style=" text-align:center; margin:3% auto; width:35rem;" class="list-group">
 
 					<div class="form-group has-success">
-						<input type="hidden" id="num" name="num" value="<?= $num ?>">
-						<input id="respuesta" name="respuesta" type="text" class="form-control form-control-line" placeholder="Ingrese su aquí su respuesta" autocomplete="off">
+						<input id="respuesta" name="respuesta" type="text" class="form-control form-control-line" placeholder="Ingrese su aquí su respuesta" autocomplete="off" required>
 					</div>
 					<div class="text-center">
 						<p></p>
