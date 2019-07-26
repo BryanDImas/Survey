@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<!-- Favicon icon -->
-	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/images/logo3.png">
+	<link rel="icon" type="image/png" sizes="20x20" href="<?= base_url() ?>assets/images/logo3.png">
 	<title>Survey</title>
 	<script src="https://kit.fontawesome.com/12fe8082b5.js"></script>
 	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/css/styleII.css"> -->
@@ -61,7 +61,7 @@
 				<!-- Contenido del area de publicidad -->
 				<!-- ============================================================== -->
 				<div class="container-fluid">
-					<div class="col-md-12 col-xs-8" id=""><br>
+					<div class="col-md-11 col-xs-8" id=""><br>
 						<div class="col-md-8 offset-2" id="publicidad"></div>
 					</div>
 				</div>
@@ -80,8 +80,7 @@
 			<!-- ============================================================== -->
 			<!-- footer -->
 			<!-- ============================================================== -->
-			<footer class="" style="background-color:black; height:100px">
-				<br>
+			<footer class="" style="background-color:black; height:80px"><br>
 				<h6 class="text-center text-themecolor" > &copy; 2019 The Next Services, SA de CV. Todos los Derechos Reservados.</h6>
 			</footer>
 			<!-- ============================================================== -->

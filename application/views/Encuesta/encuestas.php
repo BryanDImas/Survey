@@ -186,7 +186,8 @@
     											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Fecha de finalización</th>
     											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Mensaje de inicio</th>
     											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="6">Mensaje de finalización</th>
-    											<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7" colspan = "4"> Opciones </th><br>
+												<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7" colspan = "3"> Opciones </th><br>
+												<th class=" text-center" scope="col" data-tablesaw-sortable-col data-tablesaw-priority="7" colspan = "2"> Difusión </th><br>
     										</tr>
     									</thead>
     									<tbody> 
@@ -199,25 +200,26 @@
     												<td><?= $encues->FechaFinalizacion ?></td>
     												<td><?= $encues->MensajeInicio ?></td>
 													<td><?= $encues->MensajeFinalizacion ?></td>
-													<td>
-    													<form action="<?= base_url() ?>EncuestasC/previsualizar/" method="post">
-															<input type="hidden" name="id" value="<?= $encues->idEncuesta ?>">
-    														<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode"> Vista </button>
-														</form>
-													</td>
+													
     												<td >
-    													<a href="<?= base_url() ?>EncuestasC/eliminar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-danger i fas fa-trash-alt"> Borrar </a>
-													</td>
+														<a href="<?= base_url() ?>EncuestasC/eliminar/<?= $encues->idEncuesta ?>" class=" btn btn-sm btn-outline-danger i fas fa-trash-alt"><br>Borrar</a>
+													</td> 
     												<td class=" text-center">
-    													<a href="<?= base_url() ?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-block btn-outline-success i fas fa-pencil-alt"> Editar </a>
-    												</td>
+    													<a href="<?= base_url() ?>EncuestasC/vistaeditar/<?= $encues->idEncuesta ?>" class=" btn btn-sm btn-outline-success i fas fa-pencil-alt"><br>Editar</a>
+												    </td>
+													<td>
+													<form action="<?= base_url() ?>EncuestasC/previsualizar/" method="post">
+															<input type="hidden" name="id" value="<?= $encues->idEncuesta ?>">
+    														<button type="submit" class="btn btn-sm btn-outline-nuevo i fas fa-eye"><br>Vista</button>
+													</form>
+													</td>
     												<td>
-    													<button type="button" data-toggle="modal" data-target="#myModal<?= $encues->idEncuesta ?>" class="btn btn-block btn-outline-primary i fas fa-link" title="Editar"> Link </button>
+    													<button type="button" data-toggle="modal" data-target="#myModal<?= $encues->idEncuesta ?>" class="btn btn-sm btn-outline-primary i fas fa-link" title="Editar"><br>Link</button>
     												</td>
     												<td>
     													<form action="<?= base_url() ?>EncuestasC/generarQR/" method="post">
     														<input type="hidden" name="url" value="<?= $encues->Url ?>">
-    														<button type="submit" class="btn btn-block btn-outline-new i fas fa-qrcode"> QR </button>
+    														<button type="submit" class="btn btn-sm btn-outline-new i fas fa-qrcode"><br>QR</button>
     													</form>
     												</td>
     											</tr>

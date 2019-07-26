@@ -65,7 +65,7 @@
         <div class="col-12">
             <br>
             <div>
-                <h3 class="text-center">Encuesta: <small><?= $encuesta->NombreEncuesta ?? '' ?></small></h3>
+                <h3 class="text-center">Resultados</h3>
             </div>
 
             <div class="row m-t-30">
@@ -91,8 +91,8 @@
                 <div class="col-md-6 col-lg-3 col-xlg-3">
                     <div class="card">
                         <div class="box bg-success text-center">
-                            <h1 class="font-light text-white"><?= $encuesta->Demo[1]->respuestas[0]->Contador ?? 0 ?></h1>
-                            <h6 class="text-white">Datos demograficos: <br> Hombres</h6>
+                            <h1 class="font-light text-white"><?= $encuesta->Demo[1]->respuestas[0]->Contador ?? 0?></h1>
+                            <h6 class="text-white">Datos: <br> Hombres</h6>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                     <div class="card">
                         <div class="box bg-dark text-center">
                             <h1 class="font-light text-white"><?= $encuesta->Demo[1]->respuestas[1]->Contador ?? 0 ?></h1>
-                            <h6 class="text-white">Datos demograficos: <br> Mujeres</h6>
+                            <h6 class="text-white">Datos: <br> Mujeres</h6>
                         </div>
                     </div>
                 </div>
@@ -135,7 +135,25 @@
             </div>
             <?php $num++;
         } ?>
-        <!-- Column -->
+            <div class="col-lg-3 col-md-6">
+                <!-- column -->
+                <div class="card">
+                    <div class="card-body">
+                        <h4>Alcance por municipios:</h4>
+                        <ol>
+                            <?php
+                            if(!empty($municipios)){
+                            foreach($municipios as $top){ ?>
+                                <li><?= $top->Respuestas ?? 'No hay datos' ?><span class="offset-6"><?= $top->Contador?></span></li>
+                            <?php }}else{
+                                echo "<li> No hay datos a mostrar </li>";
+                            } ?>
+                        </ol>
+                        <h6>Mayor veces contestada esta encuesta</h6>
+                    </div>
+                </div>
+                <!-- column -->
+            </div>
     </div>
     <!-- column -->
     <!-- ============================================================== -->

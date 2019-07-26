@@ -57,7 +57,7 @@
 					<input type="hidden" name="demo" id="demo" value="No">
 					<div id="content" style="display: none;">
 					<div class="card-body">
-						<h4>Se agregaran las siguientes preguntas.</h4>
+						<h6>Como datos demográficos se incluirán las siguientes preguntas:</h6><br>
 						<div class="form-group">
 							<label for="">¿Cuál es su edad? &nbsp  &nbsp</label>
 							<span  style="color:#24d2b5;font-size:25px;line-height:25px; font-family:monospace;"> &#10003; </span> 
